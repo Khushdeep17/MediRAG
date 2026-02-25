@@ -1,0 +1,39 @@
+# Core
+numpy
+pandas
+tqdm
+scipy
+
+# PDF Processing
+pypdf
+
+# Text Processing
+regex
+nltk
+
+# Tokenization
+tiktoken
+
+# Embeddings
+sentence-transformers
+torch
+
+# Dense Retrieval
+faiss-cpu
+
+# Sparse Retrieval
+rank-bm25
+
+# Evaluation
+scikit-learn
+
+# Logging & Config
+pyyaml
+
+# Groq LLM (for later)
+groq
+
+# Optional (for experiments)
+matplotlib
+seaborn
+jupyter
