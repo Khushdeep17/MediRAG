@@ -1,0 +1,251 @@
+system,query,tier,recall@5,recall@10,mrr,ndcg@10,p@5
+Dense (BGE),What are the causes and treatment of migraine?,1,1,1,1.0,1.0,0.2
+Dense (BGE),What are the symptoms of Parkinson disease?,1,1,1,1.0,1.0,0.2
+Dense (BGE),How is epilepsy diagnosed and managed?,1,1,1,1.0,1.0,0.2
+Dense (BGE),What causes multiple sclerosis?,1,1,1,1.0,1.0,0.2
+Dense (BGE),How is asthma treated?,1,1,1,1.0,1.0,0.2
+Dense (BGE),What are the causes and management of COPD?,1,1,1,1.0,1.0,0.2
+Dense (BGE),What causes iron deficiency anemia?,1,1,1,1.0,1.0,0.2
+Dense (BGE),How is diabetes mellitus managed?,1,1,1,1.0,1.0,0.2
+Dense (BGE),What are the causes and symptoms of hypothyroidism?,1,1,1,1.0,1.0,0.2
+Dense (BGE),What causes Cushing syndrome?,1,1,1,1.0,1.0,0.2
+Dense (BGE),What are the risk factors and treatment of hypertension?,1,1,1,1.0,1.0,0.2
+Dense (BGE),How is heart failure classified and managed?,1,1,1,1.0,1.0,0.2
+Dense (BGE),What causes peptic ulcer disease and how is it treated?,1,1,1,1.0,1.0,0.2
+Dense (BGE),What are the symptoms and management of Crohn disease?,1,1,1,1.0,1.0,0.2
+Dense (BGE),How is pneumonia diagnosed and treated?,1,1,1,1.0,1.0,0.2
+Dense (BGE),What is the treatment for sickle cell disease?,1,1,1,1.0,1.0,0.2
+Dense (BGE),How is leukemia classified and treated?,1,1,1,1.0,1.0,0.2
+Dense (BGE),A patient presents with recurring severe headaches with nausea and light sensitivity. What is the diagnosis and management?,2,1,1,1.0,1.0,0.2
+Dense (BGE),"What neurological condition causes resting tremor, rigidity, and bradykinesia?",2,1,1,1.0,1.0,0.2
+Dense (BGE),How do you manage uncontrolled seizures in an adult patient?,2,1,1,1.0,1.0,0.2
+Dense (BGE),What is the pathophysiology behind demyelination in the CNS?,2,1,1,1.0,1.0,0.2
+Dense (BGE),Patient with focal neurological deficits of sudden onset — what is the workup?,2,1,1,1.0,1.0,0.2
+Dense (BGE),How is reversible airflow obstruction treated in adults?,2,0,1,0.125,0.38685280723454163,0.0
+Dense (BGE),What long-term complications arise from progressive airflow limitation in smokers?,2,1,1,1.0,1.0,0.2
+Dense (BGE),How is acid-fast bacilli infection of the lungs managed?,2,1,1,0.3333333333333333,0.5,0.2
+Dense (BGE),A patient has low hemoglobin and low ferritin — what are the causes and treatment?,2,1,1,1.0,1.0,0.2
+Dense (BGE),How is hyperglycemia managed in a patient with insulin resistance?,2,1,1,1.0,1.0,0.2
+Dense (BGE),What clinical signs suggest an underactive thyroid and how is it corrected?,2,1,1,1.0,1.0,0.2
+Dense (BGE),How is cortisol excess from an adrenal or pituitary source differentiated and treated?,2,1,1,1.0,1.0,0.2
+Dense (BGE),What lifestyle and pharmacological interventions reduce blood pressure?,2,1,1,1.0,1.0,0.2
+Dense (BGE),How is reduced cardiac ejection fraction diagnosed and compensated?,2,1,1,0.5,0.6309297535714575,0.2
+Dense (BGE),What are the first and second line therapies for H. pylori related gastric disease?,2,1,1,1.0,1.0,0.2
+Dense (BGE),How is transmural intestinal inflammation distinguished from ulcerative disease?,2,1,1,1.0,1.0,0.2
+Dense (BGE),How is community-acquired lower respiratory tract infection evaluated and treated?,2,1,1,1.0,1.0,0.2
+Dense (BGE),What causes vaso-occlusive crises in hemoglobin disorders?,2,1,1,1.0,1.0,0.2
+Dense (BGE),What mechanisms explain why certain medications worsen thyroid function?,3,1,1,1.0,1.0,0.2
+Dense (BGE),How does electrolyte imbalance affect cardiac rhythm?,3,1,1,1.0,1.0,0.2
+Dense (BGE),What are the neurological consequences of untreated vitamin B12 deficiency?,3,1,1,1.0,1.0,0.2
+Dense (BGE),How does portal hypertension develop in patients with liver fibrosis?,3,1,1,1.0,1.0,0.2
+Dense (BGE),What is the role of ACE inhibitors in slowing renal disease progression?,3,0,1,0.1111111111111111,0.38685280723454163,0.0
+Dense (BGE),How does obstructive sleep apnea relate to cardiovascular morbidity?,3,1,1,1.0,1.0,0.2
+Dense (BGE),What clotting cascade abnormalities lead to bleeding in liver disease?,3,1,1,1.0,1.0,0.2
+Dense (BGE),How is sepsis distinguished from systemic inflammatory response and how is it managed?,3,1,1,1.0,1.0,0.2
+Dense (BGE),What are the pulmonary manifestations of autoimmune connective tissue disorders?,3,1,1,1.0,1.0,0.2
+Dense (BGE),How does chronic kidney disease affect erythropoiesis and bone metabolism?,3,1,1,0.5,0.6309297535714575,0.2
+Dense (BGE),What distinguishes angina pectoris from acute myocardial ischemia on presentation?,3,1,1,1.0,1.0,0.2
+Dense (BGE),How is adrenal insufficiency differentiated from primary and secondary causes?,3,1,1,1.0,1.0,0.2
+Dense (BGE),What are the metabolic consequences of long-term corticosteroid therapy?,3,1,1,0.5,0.6309297535714575,0.2
+Dense (BGE),How is venous thromboembolism risk stratified and prophylactically managed?,3,1,1,0.5,0.6309297535714575,0.2
+Dense (BGE),What is the mechanism behind refeeding syndrome in malnourished patients?,3,1,1,0.2,0.6309297535714575,0.2
+Sparse (BM25),What are the causes and treatment of migraine?,1,1,1,1.0,1.0,0.2
+Sparse (BM25),What are the symptoms of Parkinson disease?,1,1,1,0.5,0.6309297535714575,0.2
+Sparse (BM25),How is epilepsy diagnosed and managed?,1,1,1,1.0,1.0,0.2
+Sparse (BM25),What causes multiple sclerosis?,1,1,1,0.25,0.43067655807339306,0.2
+Sparse (BM25),How is asthma treated?,1,1,1,0.5,0.6309297535714575,0.2
+Sparse (BM25),What are the causes and management of COPD?,1,1,1,1.0,1.0,0.2
+Sparse (BM25),What causes iron deficiency anemia?,1,1,1,1.0,1.0,0.2
+Sparse (BM25),How is diabetes mellitus managed?,1,1,1,0.25,0.43067655807339306,0.2
+Sparse (BM25),What are the causes and symptoms of hypothyroidism?,1,1,1,0.5,0.6309297535714575,0.2
+Sparse (BM25),What causes Cushing syndrome?,1,1,1,1.0,1.0,0.2
+Sparse (BM25),What are the risk factors and treatment of hypertension?,1,1,1,0.2,0.38685280723454163,0.2
+Sparse (BM25),How is heart failure classified and managed?,1,1,1,0.5,0.6309297535714575,0.2
+Sparse (BM25),What causes peptic ulcer disease and how is it treated?,1,1,1,1.0,1.0,0.2
+Sparse (BM25),What are the symptoms and management of Crohn disease?,1,1,1,1.0,1.0,0.2
+Sparse (BM25),How is pneumonia diagnosed and treated?,1,0,1,0.16666666666666666,0.3562071871080222,0.0
+Sparse (BM25),What is the treatment for sickle cell disease?,1,1,1,1.0,1.0,0.2
+Sparse (BM25),How is leukemia classified and treated?,1,1,1,1.0,1.0,0.2
+Sparse (BM25),A patient presents with recurring severe headaches with nausea and light sensitivity. What is the diagnosis and management?,2,1,1,1.0,1.0,0.2
+Sparse (BM25),"What neurological condition causes resting tremor, rigidity, and bradykinesia?",2,1,1,1.0,1.0,0.2
+Sparse (BM25),How do you manage uncontrolled seizures in an adult patient?,2,1,1,1.0,1.0,0.2
+Sparse (BM25),What is the pathophysiology behind demyelination in the CNS?,2,1,1,1.0,1.0,0.2
+Sparse (BM25),Patient with focal neurological deficits of sudden onset — what is the workup?,2,1,1,1.0,1.0,0.2
+Sparse (BM25),How is reversible airflow obstruction treated in adults?,2,1,1,0.3333333333333333,0.5,0.2
+Sparse (BM25),What long-term complications arise from progressive airflow limitation in smokers?,2,1,1,1.0,1.0,0.2
+Sparse (BM25),How is acid-fast bacilli infection of the lungs managed?,2,1,1,1.0,1.0,0.2
+Sparse (BM25),A patient has low hemoglobin and low ferritin — what are the causes and treatment?,2,1,1,0.25,0.43067655807339306,0.2
+Sparse (BM25),How is hyperglycemia managed in a patient with insulin resistance?,2,1,1,1.0,1.0,0.2
+Sparse (BM25),What clinical signs suggest an underactive thyroid and how is it corrected?,2,1,1,1.0,1.0,0.2
+Sparse (BM25),How is cortisol excess from an adrenal or pituitary source differentiated and treated?,2,1,1,1.0,1.0,0.2
+Sparse (BM25),What lifestyle and pharmacological interventions reduce blood pressure?,2,0,1,0.16666666666666666,0.38685280723454163,0.0
+Sparse (BM25),How is reduced cardiac ejection fraction diagnosed and compensated?,2,0,1,0.14285714285714285,0.3562071871080222,0.0
+Sparse (BM25),What are the first and second line therapies for H. pylori related gastric disease?,2,1,1,1.0,1.0,0.2
+Sparse (BM25),How is transmural intestinal inflammation distinguished from ulcerative disease?,2,1,1,1.0,1.0,0.2
+Sparse (BM25),How is community-acquired lower respiratory tract infection evaluated and treated?,2,1,1,0.5,0.6309297535714575,0.2
+Sparse (BM25),What causes vaso-occlusive crises in hemoglobin disorders?,2,1,1,1.0,1.0,0.2
+Sparse (BM25),What mechanisms explain why certain medications worsen thyroid function?,3,1,1,0.3333333333333333,0.5,0.2
+Sparse (BM25),How does electrolyte imbalance affect cardiac rhythm?,3,0,0,0.0,0.0,0.0
+Sparse (BM25),What are the neurological consequences of untreated vitamin B12 deficiency?,3,1,1,0.3333333333333333,0.5,0.2
+Sparse (BM25),How does portal hypertension develop in patients with liver fibrosis?,3,1,1,1.0,1.0,0.2
+Sparse (BM25),What is the role of ACE inhibitors in slowing renal disease progression?,3,0,0,0.0,0.0,0.0
+Sparse (BM25),How does obstructive sleep apnea relate to cardiovascular morbidity?,3,1,1,0.3333333333333333,0.6309297535714575,0.2
+Sparse (BM25),What clotting cascade abnormalities lead to bleeding in liver disease?,3,1,1,1.0,1.0,0.2
+Sparse (BM25),How is sepsis distinguished from systemic inflammatory response and how is it managed?,3,1,1,1.0,1.0,0.2
+Sparse (BM25),What are the pulmonary manifestations of autoimmune connective tissue disorders?,3,1,1,1.0,1.0,0.2
+Sparse (BM25),How does chronic kidney disease affect erythropoiesis and bone metabolism?,3,0,0,0.0,0.0,0.0
+Sparse (BM25),What distinguishes angina pectoris from acute myocardial ischemia on presentation?,3,1,1,1.0,1.0,0.2
+Sparse (BM25),How is adrenal insufficiency differentiated from primary and secondary causes?,3,1,1,1.0,1.0,0.2
+Sparse (BM25),What are the metabolic consequences of long-term corticosteroid therapy?,3,1,1,1.0,1.0,0.2
+Sparse (BM25),How is venous thromboembolism risk stratified and prophylactically managed?,3,1,1,0.5,0.6309297535714575,0.2
+Sparse (BM25),What is the mechanism behind refeeding syndrome in malnourished patients?,3,0,0,0.0,0.0,0.0
+Hybrid α=0.3,What are the causes and treatment of migraine?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.3,What are the symptoms of Parkinson disease?,1,1,1,0.5,0.6309297535714575,0.2
+Hybrid α=0.3,How is epilepsy diagnosed and managed?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.3,What causes multiple sclerosis?,1,1,1,0.5,0.6309297535714575,0.2
+Hybrid α=0.3,How is asthma treated?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.3,What are the causes and management of COPD?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.3,What causes iron deficiency anemia?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.3,How is diabetes mellitus managed?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.3,What are the causes and symptoms of hypothyroidism?,1,1,1,0.5,0.6309297535714575,0.2
+Hybrid α=0.3,What causes Cushing syndrome?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.3,What are the risk factors and treatment of hypertension?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.3,How is heart failure classified and managed?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.3,What causes peptic ulcer disease and how is it treated?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.3,What are the symptoms and management of Crohn disease?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.3,How is pneumonia diagnosed and treated?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.3,What is the treatment for sickle cell disease?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.3,How is leukemia classified and treated?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.3,A patient presents with recurring severe headaches with nausea and light sensitivity. What is the diagnosis and management?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.3,"What neurological condition causes resting tremor, rigidity, and bradykinesia?",2,1,1,1.0,1.0,0.2
+Hybrid α=0.3,How do you manage uncontrolled seizures in an adult patient?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.3,What is the pathophysiology behind demyelination in the CNS?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.3,Patient with focal neurological deficits of sudden onset — what is the workup?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.3,How is reversible airflow obstruction treated in adults?,2,0,1,0.16666666666666666,0.3562071871080222,0.0
+Hybrid α=0.3,What long-term complications arise from progressive airflow limitation in smokers?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.3,How is acid-fast bacilli infection of the lungs managed?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.3,A patient has low hemoglobin and low ferritin — what are the causes and treatment?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.3,How is hyperglycemia managed in a patient with insulin resistance?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.3,What clinical signs suggest an underactive thyroid and how is it corrected?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.3,How is cortisol excess from an adrenal or pituitary source differentiated and treated?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.3,What lifestyle and pharmacological interventions reduce blood pressure?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.3,How is reduced cardiac ejection fraction diagnosed and compensated?,2,1,1,0.5,0.6309297535714575,0.2
+Hybrid α=0.3,What are the first and second line therapies for H. pylori related gastric disease?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.3,How is transmural intestinal inflammation distinguished from ulcerative disease?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.3,How is community-acquired lower respiratory tract infection evaluated and treated?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.3,What causes vaso-occlusive crises in hemoglobin disorders?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.3,What mechanisms explain why certain medications worsen thyroid function?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.3,How does electrolyte imbalance affect cardiac rhythm?,3,0,0,0.0,0.0,0.0
+Hybrid α=0.3,What are the neurological consequences of untreated vitamin B12 deficiency?,3,1,1,0.5,0.6309297535714575,0.2
+Hybrid α=0.3,How does portal hypertension develop in patients with liver fibrosis?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.3,What is the role of ACE inhibitors in slowing renal disease progression?,3,0,1,0.125,0.43067655807339306,0.0
+Hybrid α=0.3,How does obstructive sleep apnea relate to cardiovascular morbidity?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.3,What clotting cascade abnormalities lead to bleeding in liver disease?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.3,How is sepsis distinguished from systemic inflammatory response and how is it managed?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.3,What are the pulmonary manifestations of autoimmune connective tissue disorders?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.3,How does chronic kidney disease affect erythropoiesis and bone metabolism?,3,1,1,0.25,0.43067655807339306,0.2
+Hybrid α=0.3,What distinguishes angina pectoris from acute myocardial ischemia on presentation?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.3,How is adrenal insufficiency differentiated from primary and secondary causes?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.3,What are the metabolic consequences of long-term corticosteroid therapy?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.3,How is venous thromboembolism risk stratified and prophylactically managed?,3,1,1,0.5,0.6309297535714575,0.2
+Hybrid α=0.3,What is the mechanism behind refeeding syndrome in malnourished patients?,3,0,0,0.0,0.0,0.0
+Hybrid α=0.5,What are the causes and treatment of migraine?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.5,What are the symptoms of Parkinson disease?,1,1,1,0.5,0.6309297535714575,0.2
+Hybrid α=0.5,How is epilepsy diagnosed and managed?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.5,What causes multiple sclerosis?,1,1,1,0.5,0.6309297535714575,0.2
+Hybrid α=0.5,How is asthma treated?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.5,What are the causes and management of COPD?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.5,What causes iron deficiency anemia?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.5,How is diabetes mellitus managed?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.5,What are the causes and symptoms of hypothyroidism?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.5,What causes Cushing syndrome?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.5,What are the risk factors and treatment of hypertension?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.5,How is heart failure classified and managed?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.5,What causes peptic ulcer disease and how is it treated?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.5,What are the symptoms and management of Crohn disease?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.5,How is pneumonia diagnosed and treated?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.5,What is the treatment for sickle cell disease?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.5,How is leukemia classified and treated?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.5,A patient presents with recurring severe headaches with nausea and light sensitivity. What is the diagnosis and management?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.5,"What neurological condition causes resting tremor, rigidity, and bradykinesia?",2,1,1,1.0,1.0,0.2
+Hybrid α=0.5,How do you manage uncontrolled seizures in an adult patient?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.5,What is the pathophysiology behind demyelination in the CNS?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.5,Patient with focal neurological deficits of sudden onset — what is the workup?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.5,How is reversible airflow obstruction treated in adults?,2,0,1,0.125,0.3333333333333333,0.0
+Hybrid α=0.5,What long-term complications arise from progressive airflow limitation in smokers?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.5,How is acid-fast bacilli infection of the lungs managed?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.5,A patient has low hemoglobin and low ferritin — what are the causes and treatment?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.5,How is hyperglycemia managed in a patient with insulin resistance?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.5,What clinical signs suggest an underactive thyroid and how is it corrected?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.5,How is cortisol excess from an adrenal or pituitary source differentiated and treated?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.5,What lifestyle and pharmacological interventions reduce blood pressure?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.5,How is reduced cardiac ejection fraction diagnosed and compensated?,2,1,1,0.5,0.6309297535714575,0.2
+Hybrid α=0.5,What are the first and second line therapies for H. pylori related gastric disease?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.5,How is transmural intestinal inflammation distinguished from ulcerative disease?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.5,How is community-acquired lower respiratory tract infection evaluated and treated?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.5,What causes vaso-occlusive crises in hemoglobin disorders?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.5,What mechanisms explain why certain medications worsen thyroid function?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.5,How does electrolyte imbalance affect cardiac rhythm?,3,1,1,0.25,0.5,0.2
+Hybrid α=0.5,What are the neurological consequences of untreated vitamin B12 deficiency?,3,1,1,0.5,0.6309297535714575,0.2
+Hybrid α=0.5,How does portal hypertension develop in patients with liver fibrosis?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.5,What is the role of ACE inhibitors in slowing renal disease progression?,3,0,1,0.14285714285714285,0.43067655807339306,0.0
+Hybrid α=0.5,How does obstructive sleep apnea relate to cardiovascular morbidity?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.5,What clotting cascade abnormalities lead to bleeding in liver disease?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.5,How is sepsis distinguished from systemic inflammatory response and how is it managed?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.5,What are the pulmonary manifestations of autoimmune connective tissue disorders?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.5,How does chronic kidney disease affect erythropoiesis and bone metabolism?,3,1,1,0.5,0.6309297535714575,0.2
+Hybrid α=0.5,What distinguishes angina pectoris from acute myocardial ischemia on presentation?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.5,How is adrenal insufficiency differentiated from primary and secondary causes?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.5,What are the metabolic consequences of long-term corticosteroid therapy?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.5,How is venous thromboembolism risk stratified and prophylactically managed?,3,1,1,0.5,0.6309297535714575,0.2
+Hybrid α=0.5,What is the mechanism behind refeeding syndrome in malnourished patients?,3,0,1,0.1,0.3562071871080222,0.0
+Hybrid α=0.7,What are the causes and treatment of migraine?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.7,What are the symptoms of Parkinson disease?,1,1,1,0.5,0.6309297535714575,0.2
+Hybrid α=0.7,How is epilepsy diagnosed and managed?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.7,What causes multiple sclerosis?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.7,How is asthma treated?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.7,What are the causes and management of COPD?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.7,What causes iron deficiency anemia?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.7,How is diabetes mellitus managed?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.7,What are the causes and symptoms of hypothyroidism?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.7,What causes Cushing syndrome?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.7,What are the risk factors and treatment of hypertension?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.7,How is heart failure classified and managed?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.7,What causes peptic ulcer disease and how is it treated?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.7,What are the symptoms and management of Crohn disease?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.7,How is pneumonia diagnosed and treated?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.7,What is the treatment for sickle cell disease?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.7,How is leukemia classified and treated?,1,1,1,1.0,1.0,0.2
+Hybrid α=0.7,A patient presents with recurring severe headaches with nausea and light sensitivity. What is the diagnosis and management?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.7,"What neurological condition causes resting tremor, rigidity, and bradykinesia?",2,1,1,1.0,1.0,0.2
+Hybrid α=0.7,How do you manage uncontrolled seizures in an adult patient?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.7,What is the pathophysiology behind demyelination in the CNS?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.7,Patient with focal neurological deficits of sudden onset — what is the workup?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.7,How is reversible airflow obstruction treated in adults?,2,0,1,0.1,0.3333333333333333,0.0
+Hybrid α=0.7,What long-term complications arise from progressive airflow limitation in smokers?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.7,How is acid-fast bacilli infection of the lungs managed?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.7,A patient has low hemoglobin and low ferritin — what are the causes and treatment?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.7,How is hyperglycemia managed in a patient with insulin resistance?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.7,What clinical signs suggest an underactive thyroid and how is it corrected?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.7,How is cortisol excess from an adrenal or pituitary source differentiated and treated?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.7,What lifestyle and pharmacological interventions reduce blood pressure?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.7,How is reduced cardiac ejection fraction diagnosed and compensated?,2,1,1,0.5,0.6309297535714575,0.2
+Hybrid α=0.7,What are the first and second line therapies for H. pylori related gastric disease?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.7,How is transmural intestinal inflammation distinguished from ulcerative disease?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.7,How is community-acquired lower respiratory tract infection evaluated and treated?,2,1,1,0.5,0.6309297535714575,0.2
+Hybrid α=0.7,What causes vaso-occlusive crises in hemoglobin disorders?,2,1,1,1.0,1.0,0.2
+Hybrid α=0.7,What mechanisms explain why certain medications worsen thyroid function?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.7,How does electrolyte imbalance affect cardiac rhythm?,3,1,1,0.25,0.5,0.2
+Hybrid α=0.7,What are the neurological consequences of untreated vitamin B12 deficiency?,3,1,1,0.5,0.6309297535714575,0.2
+Hybrid α=0.7,How does portal hypertension develop in patients with liver fibrosis?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.7,What is the role of ACE inhibitors in slowing renal disease progression?,3,0,1,0.14285714285714285,0.43067655807339306,0.0
+Hybrid α=0.7,How does obstructive sleep apnea relate to cardiovascular morbidity?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.7,What clotting cascade abnormalities lead to bleeding in liver disease?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.7,How is sepsis distinguished from systemic inflammatory response and how is it managed?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.7,What are the pulmonary manifestations of autoimmune connective tissue disorders?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.7,How does chronic kidney disease affect erythropoiesis and bone metabolism?,3,1,1,0.5,0.6309297535714575,0.2
+Hybrid α=0.7,What distinguishes angina pectoris from acute myocardial ischemia on presentation?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.7,How is adrenal insufficiency differentiated from primary and secondary causes?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.7,What are the metabolic consequences of long-term corticosteroid therapy?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.7,How is venous thromboembolism risk stratified and prophylactically managed?,3,1,1,1.0,1.0,0.2
+Hybrid α=0.7,What is the mechanism behind refeeding syndrome in malnourished patients?,3,0,1,0.14285714285714285,0.5,0.0

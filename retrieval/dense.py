@@ -4,7 +4,11 @@ import faiss
 from pathlib import Path
 from transformers import AutoTokenizer, AutoModel
 import torch
+import os
+from pathlib import Path
 
+# Resolve project root dynamically
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 # ===================================================
 # CONFIG
@@ -12,28 +16,27 @@ import torch
 
 MODEL_NAME = "BAAI/bge-large-en-v1.5"
 
-INDEX_PATH = Path("index/faiss.index")
-IDS_PATH = Path("embeddings/ids.json")
-CHUNKS_PATH = Path("data/processed/merck_chunks_800_150.json")
+INDEX_PATH  = PROJECT_ROOT / "index" / "faiss.index"
+CHUNKS_PATH = PROJECT_ROOT / "data" / "processed" / "merck_chunks_800_150.json"
+IDS_PATH    = PROJECT_ROOT / "embeddings" / "ids.json"
 
-TOP_K = 5
+DEFAULT_TOP_K = 10
 DEVICE = "cpu"
 
 
 # ===================================================
-# LOAD MODEL
+# LOAD MODEL (loaded once)
 # ===================================================
 
-print("🔍 Loading model...")
+print("🔍 Loading dense model...")
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 model = AutoModel.from_pretrained(
     MODEL_NAME,
-    dtype=torch.float32
+    torch_dtype=torch.float32
 )
 model.to(DEVICE)
 model.eval()
-
-print("✅ Model loaded.")
+print("✅ Dense model loaded.")
 
 
 # ===================================================
@@ -50,7 +53,6 @@ with open(CHUNKS_PATH, "r", encoding="utf-8") as f:
 with open(IDS_PATH, "r", encoding="utf-8") as f:
     id_map = json.load(f)
 
-# Create fast lookup dictionary
 chunk_lookup = {chunk["chunk_id"]: chunk for chunk in chunks}
 
 print(f"📊 Total indexed vectors: {index.ntotal}")
@@ -69,7 +71,8 @@ def mean_pooling(model_output, attention_mask):
 
 
 def encode_query(query: str):
-    query = "query: " + query  # IMPORTANT for BGE
+
+    query = "query: " + query  # Required for BGE
 
     inputs = tokenizer(
         query,
@@ -92,35 +95,53 @@ def encode_query(query: str):
 
 
 # ===================================================
-# SEARCH
+# DENSE SEARCH
 # ===================================================
 
-def search(query: str):
+def dense_search(query: str, top_k: int = DEFAULT_TOP_K, return_results: bool = False):
 
     query_vec = encode_query(query)
-    scores, indices = index.search(query_vec, TOP_K)
+    scores, indices = index.search(query_vec, top_k)
 
-    print("\n🔎 Query:", query)
-    print("=" * 70)
+    results = []
 
     for rank, (faiss_idx, score) in enumerate(zip(indices[0], scores[0]), start=1):
 
         chunk_id = id_map[faiss_idx]
         chunk = chunk_lookup[chunk_id]
 
-        preview = chunk["content"][:300].replace("\n", " ")
+        result = {
+            "rank": rank,
+            "chunk_id": chunk_id,
+            "chapter_number": chunk["chapter_number"],
+            "chapter_title": chunk["chapter_title"],
+            "content": chunk["content"],
+            "score": float(score),
+        }
 
-        print(f"\nRank {rank}")
-        print(f"Score: {score:.4f}")
-        print(f"Chapter: {chunk['chapter_number']} - {chunk['chapter_title']}")
+        results.append(result)
+
+    if return_results:
+        return results
+
+    # CLI Mode (pretty print)
+    print("\n🔎 Query:", query)
+    print("=" * 70)
+
+    for r in results:
+        preview = r["content"][:300].replace("\n", " ")
+        print(f"\nRank {r['rank']}")
+        print(f"Score: {r['score']:.4f}")
+        print(f"Chapter: {r['chapter_number']} - {r['chapter_title']}")
         print(f"Preview: {preview}...")
+
+    return results
 
 
 # ===================================================
-# TEST
+# TEST MODE
 # ===================================================
 
 if __name__ == "__main__":
-
     test_query = "What are the causes and treatment of migraine?"
-    search(test_query)
+    dense_search(test_query)

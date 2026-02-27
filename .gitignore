@@ -7,7 +7,7 @@ __pycache__/
 
 # Virtual Environment
 venv/
-.env/
+.env
 .venv/
 
 # Jupyter
@@ -25,7 +25,7 @@ Thumbs.db
 *.log
 
 # Large data files
-data/merck_manual.pdf
+data/*.pdf
 data/processed/*.json
 embeddings/*.npy
 index/*.index
