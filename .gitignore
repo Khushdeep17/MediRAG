@@ -1,42 +1,70 @@
+# ==============================
 # Python
+# ==============================
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
 *.so
 
-# Virtual Environment
+# ==============================
+# Virtual Environments
+# ==============================
 venv/
-.env
 .venv/
+env/
+.env
 
+# ==============================
 # Jupyter
+# ==============================
 .ipynb_checkpoints/
 
-# HuggingFace cache
-.cache/
-.huggingface/
-
-# OS files
+# ==============================
+# OS Files
+# ==============================
 .DS_Store
 Thumbs.db
 
+# ==============================
+# IDE
+# ==============================
+.vscode/
+.idea/
+
+# ==============================
 # Logs
+# ==============================
 *.log
 
-# Large data files
-data/*.pdf
-data/processed/*.json
-embeddings/*.npy
+# ==============================
+# Model / Index Artifacts
+# (regeneratable files only)
+# ==============================
+
+# FAISS index
 index/*.index
 
-# VSCode
-.vscode/
+# Embedding arrays
+embeddings/*.npy
 
-# PyTorch
+# Torch / model weights
 *.pt
 *.bin
 
-# Misc
+# ==============================
+# Large Raw Data
+# ==============================
+data/*.pdf
+
+# ==============================
+# HuggingFace Cache
+# ==============================
+.cache/
+.huggingface/
+
+# ==============================
+# Archives
+# ==============================
 *.zip
 *.tar.gz

@@ -21,6 +21,7 @@ def hybrid_search(
     alpha: float = 0.5,
     top_k: int = DEFAULT_TOP_K,
     return_results: bool = False,
+    verbose=False
 ):
     """
     alpha = weight for dense

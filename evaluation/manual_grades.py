@@ -77,11 +77,8 @@ def run_interactive_grading(records: list) -> dict:
         print(f"[{rec['id']:02d}/20]  TIER {tier}")
         print(f"QUERY  : {query}")
         print(f"{'─'*65}")
-        print(f"ANSWER :\n{ans[:1000]}")
-        if len(ans) > 1000:
-            print(f"  ... [{len(ans)-1000} more chars]")
-        print(f"{'─'*65}")
-
+        print(f"ANSWER :\n{ans}")
+        
         while True:
             raw = input("Grade (0/1/2) or 's' to skip: ").strip().lower()
             if raw == 's' or raw == '':

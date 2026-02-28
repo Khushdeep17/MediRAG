@@ -1,198 +1,169 @@
-import os
-import sys
 import json
 import re
 import numpy as np
 from collections import defaultdict
+import os
 
-# --- Fix import path ---
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-sys.path.append(PROJECT_ROOT)
-
-# =====================================================
-# CONFIG
-# =====================================================
+os.makedirs("evaluation", exist_ok=True)
 
 INPUT_FILE  = "evaluation/generation_outputs.json"
 OUTPUT_FILE = "evaluation/auto_metrics_results.json"
 
-# Medical stopwords — not useful for grounding checks
+# ------------------------------
+# Secondary (Lexical) Settings
+# ------------------------------
+
 STOPWORDS = {
-    "the", "a", "an", "is", "are", "was", "were", "be", "been", "being",
-    "have", "has", "had", "do", "does", "did", "will", "would", "could",
-    "should", "may", "might", "shall", "can", "of", "in", "on", "at",
-    "to", "for", "with", "by", "from", "as", "or", "and", "but", "not",
-    "this", "that", "these", "those", "it", "its", "which", "who",
-    "what", "how", "when", "where", "patient", "treatment", "disease",
-    "condition", "symptoms", "cause", "causes", "used", "also", "may",
-    "often", "typically", "include", "including", "such", "both",
+    "the","a","an","is","are","was","were","be","been","being",
+    "have","has","had","do","does","did","will","would","could",
+    "should","may","might","shall","can","of","in","on","at",
+    "to","for","with","by","from","as","or","and","but","not",
+    "this","that","these","those","it","its","which","who",
+    "what","how","when","where","patient","treatment","disease",
+    "condition","symptoms","cause","causes","used","also",
 }
 
-MIN_TERM_LENGTH = 4   # ignore very short tokens
+MIN_TERM_LENGTH = 4
 
-# =====================================================
-# HELPERS
-# =====================================================
-
-def tokenize(text: str) -> set[str]:
-    """Lowercase, strip punctuation, filter stopwords and short tokens."""
+def tokenize(text):
     tokens = re.findall(r'\b[a-zA-Z]+\b', text.lower())
     return {t for t in tokens if t not in STOPWORDS and len(t) >= MIN_TERM_LENGTH}
 
-
-def grounded_rate(answer_tokens: set, context_tokens: set) -> float:
-    """
-    What fraction of answer's medical terms appear in the retrieved context?
-    Score of 1.0 = fully grounded, 0.0 = completely ungrounded.
-    """
+def lexical_grounded_rate(answer_tokens, context_tokens):
     if not answer_tokens:
         return 0.0
     overlap = answer_tokens & context_tokens
     return len(overlap) / len(answer_tokens)
 
+# ------------------------------
+# Load Data
+# ------------------------------
 
-def context_utilization(answer_tokens: set, context_tokens: set) -> float:
-    """
-    What fraction of the retrieved context was actually used in the answer?
-    High = model used most of the context.
-    Low  = model used only a small slice.
-    """
-    if not context_tokens:
-        return 0.0
-    used = answer_tokens & context_tokens
-    return len(used) / len(context_tokens)
+with open(INPUT_FILE, "r", encoding="utf-8") as f:
+    data = json.load(f)
 
+total = len(data)
 
-def citation_accuracy(record: dict) -> float:
-    """
-    Did the model cite the correct (expected) source chapter?
-    Binary: 1.0 if expected chapter appeared in cited chapters, else 0.
-    """
-    return float(record.get("expected_chapter_cited", False))
+retrieval_hits = 0
+citation_accuracy = 0
+citation_consistency = 0
+struct_grounded = 0
 
+lexical_scores = []
+tier_stats = defaultdict(lambda: {"count": 0, "citation_correct": 0})
 
-def answer_length_score(answer: str) -> dict:
-    """Basic answer quality proxy — word count + section headers."""
-    words    = len(answer.split())
-    headers  = len(re.findall(r'#{1,3}\s+\w+', answer))
-    bullets  = len(re.findall(r'^\s*[-*]', answer, re.MULTILINE))
-    return {"word_count": words, "header_count": headers, "bullet_count": bullets}
+per_question_results = []
 
+# ------------------------------
+# Main Loop
+# ------------------------------
 
-def hallucination_risk_score(grounded: float) -> str:
-    """
-    Map grounded rate to qualitative hallucination risk tier.
-    Conservative thresholds for medical content.
-    """
-    if grounded >= 0.80: return "Low"
-    elif grounded >= 0.65: return "Moderate"
-    else: return "High"
+for idx, item in enumerate(data):
 
-# =====================================================
-# MAIN
-# =====================================================
+    expected = item["expected_chapter"]
+    retrieved = set(item["retrieved_chapters"])
+    cited = set(item["cited_actual_chapters"])
+    tier = item["tier"]
 
-def main():
+    tier_stats[tier]["count"] += 1
 
-    if not os.path.exists(INPUT_FILE):
-        print(f"❌ {INPUT_FILE} not found. Run generation_eval.py first.")
-        sys.exit(1)
+    # 1️⃣ Retrieval Hit
+    retrieval_hit = expected in retrieved
+    if retrieval_hit:
+        retrieval_hits += 1
 
-    with open(INPUT_FILE, encoding="utf-8") as f:
-        records = json.load(f)
+    # 2️⃣ Citation Accuracy
+    citation_correct = item["expected_chapter_cited"]
+    if citation_correct:
+        citation_accuracy += 1
+        tier_stats[tier]["citation_correct"] += 1
 
-    print(f"\n{'═' * 60}")
-    print(f"  MediRAG — Automated Generation Metrics")
-    print(f"  Input  : {INPUT_FILE} ({len(records)} records)")
-    print(f"{'═' * 60}\n")
+    # 3️⃣ Citation Consistency
+    citation_consistent = cited.issubset(retrieved)
+    if citation_consistent:
+        citation_consistency += 1
 
-    scored_records  = []
-    tier_scores     = defaultdict(lambda: defaultdict(list))
+    # 4️⃣ Structural Grounded
+    structural_grounded = (
+        retrieval_hit and
+        citation_correct and
+        citation_consistent
+    )
 
-    for rec in records:
-        query   = rec["query"]
-        tier    = rec["tier"]
-        answer  = rec.get("generated_answer", "")
-        chunks  = rec.get("retrieved_chunks", [])
+    if structural_grounded:
+        struct_grounded += 1
 
-        # Build token sets
-        answer_tokens  = tokenize(answer)
-        context_text   = " ".join(c.get("content_snippet", "") for c in chunks)
-        context_tokens = tokenize(context_text)
+    # 5️⃣ Lexical Metric
+    answer = item.get("generated_answer", "")
+    chunks = item.get("retrieved_chunks", [])
+    context_text = " ".join(c.get("content_snippet", "") for c in chunks)
 
-        # ── Compute metrics ────────────────────────────────────────────────────
-        gr   = round(grounded_rate(answer_tokens, context_tokens), 3)
-        cu   = round(context_utilization(answer_tokens, context_tokens), 3)
-        ca   = citation_accuracy(rec)
-        hall = hallucination_risk_score(gr)
-        aq   = answer_length_score(answer)
+    ans_tokens = tokenize(answer)
+    ctx_tokens = tokenize(context_text)
 
-        rec_scored = {
-            **rec,
-            "auto_grounded_rate"      : gr,
-            "auto_context_utilization": cu,
-            "auto_citation_accuracy"  : ca,
-            "auto_hallucination_risk" : hall,
-            "auto_answer_stats"       : aq,
-        }
-        scored_records.append(rec_scored)
+    lexical_score = lexical_grounded_rate(ans_tokens, ctx_tokens)
+    lexical_scores.append(lexical_score)
 
-        tier_scores[tier]["grounded_rate"].append(gr)
-        tier_scores[tier]["context_utilization"].append(cu)
-        tier_scores[tier]["citation_accuracy"].append(ca)
+    # Save per-question result
+    per_question_results.append({
+        "question_id": item.get("question_id", idx),
+        "tier": tier,
+        "retrieval_hit": retrieval_hit,
+        "citation_correct": citation_correct,
+        "citation_consistent": citation_consistent,
+        "structural_grounded": structural_grounded,
+        "lexical_grounded_rate": round(float(lexical_score), 3)
+    })
 
-        # Per-query print
-        hit_sym = "✅" if gr >= 0.80 else ("⚠️ " if gr >= 0.65 else "❌")
-        print(f"[{rec['id']:02d}] T{tier} {hit_sym}  Grounded={gr:.3f}  CtxUtil={cu:.3f}  "
-              f"CitAccuracy={int(ca)}  HallRisk={hall}")
+# ------------------------------
+# Final Metrics
+# ------------------------------
 
-    # ── Aggregate ──────────────────────────────────────────────────────────────
-    all_gr  = [r["auto_grounded_rate"]       for r in scored_records]
-    all_cu  = [r["auto_context_utilization"] for r in scored_records]
-    all_ca  = [r["auto_citation_accuracy"]   for r in scored_records]
+retrieval_rate = retrieval_hits / total if total else 0
+citation_rate = citation_accuracy / total if total else 0
+consistency_rate = citation_consistency / total if total else 0
+struct_grounded_rate = struct_grounded / total if total else 0
+hallucination_rate = 1 - struct_grounded_rate
+lexical_avg = np.mean(lexical_scores) if lexical_scores else 0
 
-    print(f"\n{'═' * 60}")
-    print(f"  AUTOMATED METRICS SUMMARY  (n={len(records)})")
-    print(f"{'═' * 60}")
-    print(f"  Grounded Rate        : {np.mean(all_gr):.3f}  (target: ≥ 0.85)")
-    print(f"  Context Utilization  : {np.mean(all_cu):.3f}")
-    print(f"  Citation Accuracy    : {np.mean(all_ca):.3f}  (target: ≥ 0.90)")
-    print(f"  Hallucination Rate   : {1 - np.mean(all_gr):.3f}  (target: ≤ 0.15)")
-    print(f"\n  ── By Tier ────────────────────────────────────────")
-    for tier in [1, 2, 3]:
-        tname = {1:"Direct", 2:"Indirect", 3:"Hard"}[tier]
-        ts    = tier_scores[tier]
-        if ts["grounded_rate"]:
-            print(f"  Tier {tier} {tname:<10} "
-                  f"Grounded={np.mean(ts['grounded_rate']):.3f}  "
-                  f"CitAcc={np.mean(ts['citation_accuracy']):.3f}")
-    print(f"{'═' * 60}\n")
+print("\n" + "═" * 60)
+print("MEDIRAG — FINAL AUTOMATED METRICS")
+print("═" * 60)
 
-    # ── Save ──────────────────────────────────────────────────────────────────
-    output = {
-        "summary": {
-            "n_queries"           : len(records),
-            "grounded_rate"       : round(float(np.mean(all_gr)), 3),
-            "context_utilization" : round(float(np.mean(all_cu)), 3),
-            "citation_accuracy"   : round(float(np.mean(all_ca)), 3),
-            "hallucination_rate"  : round(float(1 - np.mean(all_gr)), 3),
-            "by_tier": {
-                str(t): {
-                    "grounded_rate"     : round(float(np.mean(tier_scores[t]["grounded_rate"])), 3),
-                    "citation_accuracy" : round(float(np.mean(tier_scores[t]["citation_accuracy"])), 3),
-                }
-                for t in [1, 2, 3] if tier_scores[t]["grounded_rate"]
-            }
-        },
-        "per_query": scored_records,
-    }
+print("\nPRIMARY METRICS")
+print(f"Retrieval@5 Hit Rate        : {retrieval_rate:.2%}")
+print(f"Citation Accuracy           : {citation_rate:.2%}")
+print(f"Citation Consistency        : {consistency_rate:.2%}")
+print(f"Structural Grounded Rate    : {struct_grounded_rate:.2%}")
+print(f"Hallucination Rate          : {hallucination_rate:.2%}")
 
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(output, f, indent=2, ensure_ascii=False)
+print("\nSECONDARY DIAGNOSTIC METRIC")
+print(f"Lexical Grounded Rate (avg) : {lexical_avg:.2%}")
 
-    print(f"✅ Saved → {OUTPUT_FILE}")
-    print(f"   Next: python evaluation/llm_judge.py\n")
+print("\nTier-wise Citation Accuracy:")
+for tier in sorted(tier_stats.keys()):
+    count = tier_stats[tier]["count"]
+    correct = tier_stats[tier]["citation_correct"]
+    tier_rate = correct / count if count else 0
+    print(f"  Tier {tier}: {tier_rate:.2%}")
 
+# ------------------------------
+# Save Output
+# ------------------------------
 
-if __name__ == "__main__":
-    main()
+output = {
+    "summary": {
+        "retrieval_hit_rate": round(retrieval_rate, 3),
+        "citation_accuracy": round(citation_rate, 3),
+        "citation_consistency": round(consistency_rate, 3),
+        "structural_grounded_rate": round(struct_grounded_rate, 3),
+        "hallucination_rate": round(hallucination_rate, 3),
+        "lexical_grounded_rate": round(float(lexical_avg), 3),
+    },
+    "per_question": per_question_results
+}
+
+with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+    json.dump(output, f, indent=2)
+
+print(f"\n✅ Saved → {OUTPUT_FILE}\n")

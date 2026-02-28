@@ -1,0 +1,192 @@
+{
+  "summary": {
+    "retrieval_hit_rate": 0.9,
+    "citation_accuracy": 0.9,
+    "citation_consistency": 1.0,
+    "structural_grounded_rate": 0.9,
+    "hallucination_rate": 0.1,
+    "lexical_grounded_rate": 0.294
+  },
+  "per_question": [
+    {
+      "question_id": 0,
+      "tier": 1,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.377
+    },
+    {
+      "question_id": 1,
+      "tier": 1,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.306
+    },
+    {
+      "question_id": 2,
+      "tier": 1,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.329
+    },
+    {
+      "question_id": 3,
+      "tier": 1,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.272
+    },
+    {
+      "question_id": 4,
+      "tier": 1,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.282
+    },
+    {
+      "question_id": 5,
+      "tier": 1,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.315
+    },
+    {
+      "question_id": 6,
+      "tier": 1,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.244
+    },
+    {
+      "question_id": 7,
+      "tier": 2,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.353
+    },
+    {
+      "question_id": 8,
+      "tier": 2,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.345
+    },
+    {
+      "question_id": 9,
+      "tier": 2,
+      "retrieval_hit": false,
+      "citation_correct": false,
+      "citation_consistent": true,
+      "structural_grounded": false,
+      "lexical_grounded_rate": 0.412
+    },
+    {
+      "question_id": 10,
+      "tier": 2,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.278
+    },
+    {
+      "question_id": 11,
+      "tier": 2,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.313
+    },
+    {
+      "question_id": 12,
+      "tier": 2,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.322
+    },
+    {
+      "question_id": 13,
+      "tier": 2,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.319
+    },
+    {
+      "question_id": 14,
+      "tier": 3,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.287
+    },
+    {
+      "question_id": 15,
+      "tier": 3,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.181
+    },
+    {
+      "question_id": 16,
+      "tier": 3,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.257
+    },
+    {
+      "question_id": 17,
+      "tier": 3,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.247
+    },
+    {
+      "question_id": 18,
+      "tier": 3,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.225
+    },
+    {
+      "question_id": 19,
+      "tier": 3,
+      "retrieval_hit": false,
+      "citation_correct": false,
+      "citation_consistent": true,
+      "structural_grounded": false,
+      "lexical_grounded_rate": 0.221
+    }
+  ]
+}

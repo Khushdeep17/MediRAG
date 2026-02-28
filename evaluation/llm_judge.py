@@ -21,7 +21,7 @@ load_dotenv()
 
 INPUT_FILE   = "evaluation/generation_outputs.json"
 OUTPUT_FILE  = "evaluation/llm_judge_results.json"
-JUDGE_MODEL  = "qwen/qwen3-32b"
+JUDGE_MODEL = "llama-3.3-70b-versatile"
 RETRY_DELAY  = 2     # seconds between retries on API failure
 MAX_RETRIES  = 3
 
