@@ -253,7 +253,7 @@ with st.sidebar:
         ("Dense",     "BGE-large (FAISS)", "#00e676"),
         ("Sparse",    "BM25",              "#00e676"),
         ("Fusion",    "RRF α=0.7",         "#00e676"),
-        ("Generator", "Qwen3-32B (Groq)",  "#f59e0b"),
+        ("Generator", "GPT-OSS-120B (Groq)", "#f59e0b"),
     ]:
         st.markdown(f"""
         <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #1f2f4a">
@@ -301,7 +301,7 @@ st.markdown("""
             line-height:1.6;">
     Hybrid Dense + BM25 retrieval over the Merck Manual
     &nbsp;·&nbsp; Citations map to retrieved source chunks
-    &nbsp;·&nbsp; Powered by Qwen3-32B on Groq
+    &nbsp;·&nbsp; Powered by GPT-OSS-120B on Groq
 </div>
 """, unsafe_allow_html=True)
 
@@ -361,16 +361,13 @@ if generate_btn and query.strip():
     # Strip empty template sections
     answer_clean = answer
 
-# Remove ### style markdown headers
-    answer_clean = re.sub(r'#{1,6}\s*', '', answer_clean)
-
-# Remove empty acute section
+    # Remove an empty acute section without altering valid Markdown headings.
     answer_clean = re.sub(
-    r'(?:Acute Management|Acute Treatment)\s*\n+Not covered[^\n]*\n*',
-    '',
-    answer_clean,
-    flags=re.IGNORECASE,
-)
+        r'(?:#{1,6}\s*)?(?:Acute Management|Acute Treatment)\s*\n+Not covered[^\n]*\n*',
+        '',
+        answer_clean,
+        flags=re.IGNORECASE,
+    )
 
     # ── Generated Answer ───────────────────────────────────────────────────────
     st.markdown('<div class="section-label">Generated Answer</div>', unsafe_allow_html=True)
@@ -378,7 +375,7 @@ if generate_btn and query.strip():
     col_ans, col_meta = st.columns([3, 1])
 
     with col_ans:
-        st.markdown(f'<div class="answer-block">{answer_clean}</div>', unsafe_allow_html=True)
+        st.markdown(answer_clean)
 
     with col_meta:
         st.markdown(f"""
@@ -414,7 +411,8 @@ if generate_btn and query.strip():
     st.markdown('<div class="section-label">Grounding Signals</div>', unsafe_allow_html=True)
 
     retrieved_chapter_numbers = [c.get("chapter_number") for c in retrieved_chunks[:5]]
-    cited_numbers = sorted(set(int(n) for n in re.findall(r'\[(\d+)\]', answer)))
+    citation_matches = re.findall(r'\[(\d+)\]|【(\d+)(?:†[^】]*)?】', answer)
+    cited_numbers = sorted({int(number) for match in citation_matches for number in match if number})
     cited_actual  = [
         retrieved_chunks[i - 1].get("chapter_number")
         for i in cited_numbers if 0 < i <= len(retrieved_chunks)

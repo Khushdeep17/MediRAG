@@ -1,4 +1,5 @@
 import os
+import re
 from groq import Groq
 from dotenv import load_dotenv
 from retrieval.fusion import hybrid_search
@@ -7,9 +8,9 @@ from retrieval.fusion import hybrid_search
 # CONFIG
 # =====================================================
 
-MODEL_NAME    = "qwen/qwen3-32b"
+MODEL_NAME    = "openai/gpt-oss-120b"
 TOP_K_CONTEXT = 5
-MAX_TOKENS    = 2000
+MAX_TOKENS    = 700
 
 # =====================================================
 # LOAD ENV + CLIENT
@@ -30,8 +31,12 @@ client = Groq(api_key=api_key)
 def format_context(chunks: list) -> str:
     formatted = []
     for i, chunk in enumerate(chunks[:TOP_K_CONTEXT], 1):
+        chapter_number = chunk["chapter_number"]
+        chunk_id = chunk.get("chunk_id", f"{chapter_number}-{i:02d}")
         formatted.append(
-            f"[Source {i}] Chapter {chunk['chapter_number']} — {chunk['chapter_title']}\n"
+            f"[{i}]\n"
+            f"Chapter {chapter_number}: {chunk['chapter_title']}\n"
+            f"Chunk ID: {chunk_id}\n"
             f"{chunk['content'][:1200]}"
         )
     return "\n\n---\n\n".join(formatted)
@@ -41,11 +46,13 @@ def format_context(chunks: list) -> str:
 # =====================================================
 
 SYSTEM_PROMPT = """\
-You are a precise medical writing assistant. You produce structured, readable \
-answers using ONLY the information explicitly present in the provided context. \
-You balance explanatory paragraphs with selective bullet points. \
-You never infer, expand, or use terminology that is not directly supported \
-by the source text — even if it seems medically correct.\
+You are a medical retrieval-augmented QA assistant. Answer only using the \
+retrieved context and do not use outside medical knowledge. If the context \
+does not contain the answer, say: "Not covered in provided context." Be \
+accurate, concise, and well structured. Cite each paragraph with the most \
+relevant source. Prefer one source citation over several unless the sources \
+contribute distinct information. Answer the user's question directly instead \
+of summarizing the entire disease.\
 """
 
 # =====================================================
@@ -53,51 +60,24 @@ by the source text — even if it seems medically correct.\
 # =====================================================
 
 def build_prompt(query: str, context_text: str) -> str:
-    return f"""Answer the medical question below using ONLY the provided context. Follow the structure and rules exactly.
+    return f"""Answer the question using ONLY the provided context.
 
----
+Answer the user's question directly, not the entire disease. Include only sections
+that are relevant to the question. Use Markdown headings beginning with
+`## Overview`; make Overview a short two-sentence paragraph, not a bullet list.
+Treatment questions may use `## Acute Management` and `## Long-term Management`
+when the context supports those distinctions. Symptom,
+cause, definition, and comparison questions should receive the headings that best
+fit the question.
 
-## RESPONSE STRUCTURE
-
-### 1. Overview
-2–3 sentences giving a direct, high-level answer. No bullet points. No medical jargon without explanation.
-
-### 2. Symptoms
-Open with a short paragraph describing the symptom pattern as described in the context.
-Then list specific symptoms as bullets — each bullet must be a complete thought, not just a word.
-Include subtypes if mentioned (e.g., aura vs. no aura).
-
-### 3. Causes
-Open with a paragraph describing the underlying mechanisms or triggers as stated in the context.
-Follow with bullets for distinct causes or risk factors.
-⚠️ Use only terminology that appears directly in the retrieved text. Do not paraphrase into more specific medical language than what the source uses.
-
-### 4. Treatment
-Split this section into two clearly labelled sub-sections:
-
-**Acute Management** — treatments used during an active attack.
-Start with a paragraph, then list medications or interventions as bullets.
-
-**Preventive Management** — strategies used to reduce frequency long-term.
-Start with a paragraph, then list approaches as bullets.
-Do NOT merge these two — they serve different goals and must stay separate.
-
-### 5. Medical Terms
-After the main answer, add a short "Key Terms" block. Define any medical terms used in the response in plain English — one line per term.
-Only include terms that were actually used in your answer.
-
-### 6. Closing Note
-1–2 sentences on when to seek professional medical advice or what affects patient outcomes.
-
----
-
-## GROUNDING RULES (critical)
-
-- Use ONLY information explicitly present in the context. Do not expand, infer, or fill gaps with background medical knowledge — even if you are confident it is correct.
-- If a mechanism or term is not in the source text, do not include it. Use the source's own phrasing where possible.
-- Add inline citations [1], [2] after every specific fact, referencing the Source number from the context.
-- If the context does not contain enough information to fill a section, write: "Not covered in provided context." — do not fabricate.
-- Do not repeat the question or restate these instructions in your answer.
+Use bullet points where helpful. Keep the answer concise, approximately 200–300
+words. Support factual statements with inline citations using exactly [1] through
+[5]. Cite each paragraph with the most relevant source and prefer one citation
+over multiple citations unless they provide distinct information. Do not use
+alternative citation markers or source labels such as (Source 1). Do not add a
+References section; inline citations are sufficient.
+Avoid unsupported claims and say "Not covered in provided context." when the
+context does not contain the requested information.
 
 ---
 
@@ -127,6 +107,12 @@ def clean_answer(raw: str) -> str:
             raw = raw.split("</think>")[-1].strip()
         else:
             raw = raw.split("<think>")[0].strip()
+
+    # Normalize model-generated citation variants to the app's [N] format.
+    raw = re.sub(r"【(\d+)(?:†[^】]*)?】", r"[\1]", raw)
+
+    # The UI already exposes retrieved sources, so inline citations are enough.
+    raw = re.split(r"(?im)^\s*(?:#{1,6}\s*)?References\s*:?\s*$", raw, maxsplit=1)[0]
     return raw.strip()
 
 # =====================================================
@@ -144,6 +130,8 @@ def generate_answer(query: str, verbose: bool = False):
 
     if not retrieved_chunks:
         return "No relevant context retrieved.", []
+
+    retrieved_chunks = retrieved_chunks[:TOP_K_CONTEXT]
 
     # 2️⃣ Format context
     context_text = format_context(retrieved_chunks)
@@ -167,8 +155,11 @@ def generate_answer(query: str, verbose: bool = False):
         temperature=0.25,         # Slightly lower — tighter grounding, less creative expansion
         max_tokens=MAX_TOKENS,
         frequency_penalty=0.2,    # Prevents "lifestyle adjustments / lifestyle modifications" type repetition
-        presence_penalty=0.1,     # Encourages covering all sections (symptoms ≠ causes ≠ treatment)
+        presence_penalty=0,
     )
+
+    if verbose:
+        print(f"Generation finish reason: {completion.choices[0].finish_reason}")
 
     raw_answer = completion.choices[0].message.content
 

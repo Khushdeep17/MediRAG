@@ -33,7 +33,7 @@ Merck Manual (raw HTML/text)
   Top-k Context Selection
          │
          ▼
-  LLM Generation (Qwen3-32B · Groq API)
+       LLM Generation (GPT-OSS-120B · Groq API)
   via Structured prompt 
          │
          ▼
@@ -53,7 +53,7 @@ Merck Manual (raw HTML/text)
 | Dense Index | FAISS `IndexFlatIP` |
 | Sparse | BM25 |
 | Fusion | Weighted RRF |
-| Generator | Qwen3-32B via Groq API |
+| Generator | GPT-OSS-120B via Groq API |
 | Demo | Streamlit |
 
 ---
