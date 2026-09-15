@@ -9,20 +9,33 @@ from retrieval.fusion import hybrid_search
 # =====================================================
 
 MODEL_NAME    = "openai/gpt-oss-120b"
-TOP_K_CONTEXT = 5
-MAX_TOKENS    = 700
+TOP_K_CONTEXT = 4
+MAX_TOKENS    = 1250
+CHUNK_CHAR_LIMIT = 2200
+FUSION_ALPHA  = 0.7
+MAX_RETRIES   = 3
 
 # =====================================================
-# LOAD ENV + CLIENT
+# LOAD ENV + CLIENT (LAZY INITIALIZATION)
 # =====================================================
 
-load_dotenv()
+_client = None
 
-api_key = os.getenv("GROQ_API_KEY")
-if not api_key:
-    raise ValueError("❌ GROQ_API_KEY not found in environment variables.")
 
-client = Groq(api_key=api_key)
+def get_groq_client() -> Groq:
+    """Lazily instantiate and return the Groq API client."""
+    global _client
+    if _client is None:
+        load_dotenv()
+        api_key = os.getenv("GROQ_API_KEY")
+        if not api_key:
+            raise ValueError(
+                "❌ GROQ_API_KEY not found in environment variables. "
+                "Please configure GROQ_API_KEY in your .env file or environment."
+            )
+        _client = Groq(api_key=api_key)
+    return _client
+
 
 # =====================================================
 # FORMAT CONTEXT
@@ -31,13 +44,16 @@ client = Groq(api_key=api_key)
 def format_context(chunks: list) -> str:
     formatted = []
     for i, chunk in enumerate(chunks[:TOP_K_CONTEXT], 1):
-        chapter_number = chunk["chapter_number"]
+        chapter_number = chunk.get("chapter_number", "?")
+        chapter_title = chunk.get("chapter_title", "Unknown")
         chunk_id = chunk.get("chunk_id", f"{chapter_number}-{i:02d}")
+        # Up to 2200 chars gives complete clinical context while respecting Groq TPM limits
+        content = chunk.get("content", "").strip()[:CHUNK_CHAR_LIMIT]
         formatted.append(
             f"[{i}]\n"
-            f"Chapter {chapter_number}: {chunk['chapter_title']}\n"
+            f"Chapter {chapter_number}: {chapter_title}\n"
             f"Chunk ID: {chunk_id}\n"
-            f"{chunk['content'][:1200]}"
+            f"{content}"
         )
     return "\n\n---\n\n".join(formatted)
 
@@ -46,13 +62,16 @@ def format_context(chunks: list) -> str:
 # =====================================================
 
 SYSTEM_PROMPT = """\
-You are a medical retrieval-augmented QA assistant. Answer only using the \
-retrieved context and do not use outside medical knowledge. If the context \
-does not contain the answer, say: "Not covered in provided context." Be \
-accurate, concise, and well structured. Cite each paragraph with the most \
-relevant source. Prefer one source citation over several unless the sources \
-contribute distinct information. Answer the user's question directly instead \
-of summarizing the entire disease.\
+You are an expert medical retrieval-augmented QA assistant. Your mission is to provide \
+strictly grounded, accurate, structured, and clinically precise answers using ONLY \
+the provided medical reference text.
+
+Core Guidelines:
+1. Strict Grounding: Rely strictly on the provided context excerpts. Do not use outside medical knowledge or assume facts not present in the excerpts.
+2. Direct Focus: Address the specific question directly. Do not summarize the entire disease or provide generic boilerplate if not asked.
+3. Accurate Inline Citations: Every substantive factual claim, symptom, diagnostic test, or treatment must be followed by its source citation using [1], [2], [3], or [4] corresponding to the excerpt where the fact appears.
+4. Structured Formatting: Use clear Markdown headings (starting with ## Overview), well-organized paragraphs, and bullet points for lists.
+5. Partial or Missing Coverage: If the retrieved excerpts do not contain enough information to answer a specific aspect of the query, explicitly state what is not covered in the excerpts rather than speculating or hallucinating.\
 """
 
 # =====================================================
@@ -60,40 +79,32 @@ of summarizing the entire disease.\
 # =====================================================
 
 def build_prompt(query: str, context_text: str) -> str:
-    return f"""Answer the question using ONLY the provided context.
+    return f"""Answer the following medical question based strictly on the provided retrieved context.
 
-Answer the user's question directly, not the entire disease. Include only sections
-that are relevant to the question. Use Markdown headings beginning with
-`## Overview`; make Overview a short two-sentence paragraph, not a bullet list.
-Treatment questions may use `## Acute Management` and `## Long-term Management`
-when the context supports those distinctions. Symptom,
-cause, definition, and comparison questions should receive the headings that best
-fit the question.
-
-Use bullet points where helpful. Keep the answer concise, approximately 200–300
-words. Support factual statements with inline citations using exactly [1] through
-[5]. Cite each paragraph with the most relevant source and prefer one citation
-over multiple citations unless they provide distinct information. Do not use
-alternative citation markers or source labels such as (Source 1). Do not add a
-References section; inline citations are sufficient.
-Avoid unsupported claims and say "Not covered in provided context." when the
-context does not contain the requested information.
+Instructions:
+- Begin with a short 2-3 sentence `## Overview` answering the central query directly.
+- Organize the remainder of your answer with logical Markdown headings that fit the question (for example: `## Symptoms & Clinical Presentation`, `## Causes & Etiology`, `## Treatment & Management` [with `### Acute Management` and `### Long-Term Management` when applicable], or `## Diagnostic Evaluation`).
+- Use clear bullet points for key symptoms, mechanisms, risk factors, or medication classes.
+- Place inline citations like [1] or [2] immediately after each factual sentence or bullet item. Use only standard brackets like [1] (never 【1】 or (Source 1)).
+- Keep the answer concise and high-yield, approximately 300–400 words.
+- If an aspect of the question is not mentioned in the context, explicitly state: "The provided context does not mention [aspect]." Do not fabricate information.
+- Do not include an overall References or Sources list at the end (inline citations are sufficient).
 
 ---
 
-## CONTEXT
+## RETRIEVED MEDICAL CONTEXT
 
 {context_text}
 
 ---
 
-## QUESTION
+## USER QUESTION
 
 {query}
 
 ---
 
-## ANSWER
+## GROUNDED ANSWER
 """
 
 # =====================================================
@@ -101,18 +112,34 @@ context does not contain the requested information.
 # =====================================================
 
 def clean_answer(raw: str) -> str:
-    """Strip chain-of-thought <think> blocks if the model emits them."""
+    """Clean model output, normalize citations, and remove redundant sections."""
+    if not raw:
+        return ""
+
+    # Strip chain-of-thought <think> blocks if the model emits them.
     if "<think>" in raw:
         if "</think>" in raw:
             raw = raw.split("</think>")[-1].strip()
         else:
             raw = raw.split("<think>")[0].strip()
 
-    # Normalize model-generated citation variants to the app's [N] format.
-    raw = re.sub(r"【(\d+)(?:†[^】]*)?】", r"[\1]", raw)
+    # Normalize weird whitespace before citations (e.g., \u202f[1], \xa0[1]) to standard space
+    raw = re.sub(r"[\u202f\u00a0\u2000-\u200b]+(?=\[\d+\])", " ", raw)
 
-    # The UI already exposes retrieved sources, so inline citations are enough.
-    raw = re.split(r"(?im)^\s*(?:#{1,6}\s*)?References\s*:?\s*$", raw, maxsplit=1)[0]
+    # Normalize model-generated citation variants like 【1】 or 【1†source】 to [1]
+    raw = re.sub(r"【(\d+)(?:†[^】]*)?】", r"[\1]", raw)
+    raw = re.sub(r"\[Source\s*(\d+)\]", r"[\1]", raw, flags=re.IGNORECASE)
+
+    # Clean unclosed citation brackets at the end if truncated
+    raw = re.sub(r"[【\[]\d*$", "", raw).strip()
+    raw = re.sub(r"[【\[]\d+[^】\]]*$", "", raw).strip()
+
+    # Remove duplicate consecutive citations like [1][1] -> [1]
+    raw = re.sub(r"(\[\d+\])(?:\s*\1)+", r"\1", raw)
+
+    # Remove any trailing References or Sources list
+    raw = re.split(r"(?im)^\s*(?:#{1,6}\s*)?(?:References|Sources)\s*:?\s*$", raw, maxsplit=1)[0]
+
     return raw.strip()
 
 # =====================================================
@@ -120,10 +147,13 @@ def clean_answer(raw: str) -> str:
 # =====================================================
 
 def generate_answer(query: str, verbose: bool = False):
+    import time
 
-    # 1️⃣ Hybrid Retrieval
+    # 1️⃣ Hybrid Retrieval (using optimal alpha=0.7)
     retrieved_chunks = hybrid_search(
         query,
+        alpha=FUSION_ALPHA,
+        top_k=TOP_K_CONTEXT,
         return_results=True,
         verbose=verbose
     )
@@ -133,30 +163,47 @@ def generate_answer(query: str, verbose: bool = False):
 
     retrieved_chunks = retrieved_chunks[:TOP_K_CONTEXT]
 
-    # 2️⃣ Format context
+    # 2️⃣ Format context (full passages)
     context_text = format_context(retrieved_chunks)
 
     # 3️⃣ Build prompt
     prompt = build_prompt(query, context_text)
 
-    # 4️⃣ Call Groq
-    completion = client.chat.completions.create(
-        model=MODEL_NAME,
-        messages=[
-            {
-                "role": "system",
-                "content": SYSTEM_PROMPT
-            },
-            {
-                "role": "user",
-                "content": prompt
-            },
-        ],
-        temperature=0.25,         # Slightly lower — tighter grounding, less creative expansion
-        max_tokens=MAX_TOKENS,
-        frequency_penalty=0.2,    # Prevents "lifestyle adjustments / lifestyle modifications" type repetition
-        presence_penalty=0,
-    )
+    # 4️⃣ Call Groq with rate-limit retry support
+    client = get_groq_client()
+    completion = None
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            completion = client.chat.completions.create(
+                model=MODEL_NAME,
+                messages=[
+                    {
+                        "role": "system",
+                        "content": SYSTEM_PROMPT
+                    },
+                    {
+                        "role": "user",
+                        "content": prompt
+                    },
+                ],
+                temperature=0.2,         # Low temperature for precise grounding
+                max_tokens=MAX_TOKENS,
+                frequency_penalty=0.15,
+                presence_penalty=0,
+            )
+            break
+        except Exception as e:
+            err_msg = str(e)
+            if "429" in err_msg or "rate_limit" in err_msg.lower():
+                wait_time = 4.0 * attempt
+                if verbose:
+                    print(f"⏳ Rate limit encountered. Waiting {wait_time:.1f}s before retry {attempt}/{MAX_RETRIES}...")
+                time.sleep(wait_time)
+            else:
+                raise e
+
+    if completion is None:
+        return "⚠️ Service temporarily busy due to rate limits. Please try again in a few seconds.", retrieved_chunks
 
     if verbose:
         print(f"Generation finish reason: {completion.choices[0].finish_reason}")

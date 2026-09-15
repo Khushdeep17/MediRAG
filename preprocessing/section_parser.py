@@ -4,14 +4,10 @@ from pathlib import Path
 from typing import List, Dict
 
 
-# ---------------------------------------------------
-# CONFIG
-# ---------------------------------------------------
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-INPUT_PATH = Path("data/processed/merck_cleaned.txt")
-OUTPUT_DIR = Path("data/processed")
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-
+INPUT_PATH = PROJECT_ROOT / "data" / "processed" / "merck_cleaned.txt"
+OUTPUT_DIR = PROJECT_ROOT / "data" / "processed"
 OUTPUT_PATH = OUTPUT_DIR / "merck_structured.json"
 
 CHAPTER_REGEX = re.compile(r"^Chapter\s+(\d+)\.\s+(.+)")
@@ -95,6 +91,12 @@ def parse_chapters(text: str) -> List[Dict]:
 # ---------------------------------------------------
 
 if __name__ == "__main__":
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    if not INPUT_PATH.exists():
+        raise FileNotFoundError(
+            f"❌ Cleaned corpus text not found at: {INPUT_PATH}. "
+            "Please run `python preprocessing/clean_text.py` first."
+        )
 
     print("📘 Loading cleaned corpus...")
     text = INPUT_PATH.read_text(encoding="utf-8")

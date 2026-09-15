@@ -1,13 +1,13 @@
+from pathlib import Path
 import json
 import re
 import numpy as np
 from collections import defaultdict
-import os
 
-os.makedirs("evaluation", exist_ok=True)
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-INPUT_FILE  = "evaluation/generation_outputs.json"
-OUTPUT_FILE = "evaluation/auto_metrics_results.json"
+INPUT_FILE = PROJECT_ROOT / "evaluation" / "generation_outputs.json"
+OUTPUT_FILE = PROJECT_ROOT / "evaluation" / "auto_metrics_results.json"
 
 # ------------------------------
 # Secondary (Lexical) Settings
@@ -35,9 +35,11 @@ def lexical_grounded_rate(answer_tokens, context_tokens):
     overlap = answer_tokens & context_tokens
     return len(overlap) / len(answer_tokens)
 
-# ------------------------------
-# Load Data
-# ------------------------------
+if not INPUT_FILE.exists():
+    raise FileNotFoundError(
+        f"❌ Input file not found: {INPUT_FILE}. "
+        "Please run `python evaluation/generation_eval.py` first."
+    )
 
 with open(INPUT_FILE, "r", encoding="utf-8") as f:
     data = json.load(f)

@@ -18,19 +18,22 @@ import json
 import numpy as np
 from collections import defaultdict
 
+from pathlib import Path
+
 # --- Fix import path ---
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-sys.path.append(PROJECT_ROOT)
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.append(str(PROJECT_ROOT))
 
 # =====================================================
 # CONFIG
 # =====================================================
 
-GEN_FILE        = "evaluation/generation_outputs.json"
-AUTO_FILE       = "evaluation/auto_metrics_results.json"
-JUDGE_FILE      = "evaluation/llm_judge_results.json"
-GRADES_FILE     = "evaluation/manual_grades.json"
-FINAL_REPORT    = "evaluation/generation_eval_report.json"
+GEN_FILE     = PROJECT_ROOT / "evaluation" / "generation_outputs.json"
+AUTO_FILE    = PROJECT_ROOT / "evaluation" / "auto_metrics_results.json"
+JUDGE_FILE   = PROJECT_ROOT / "evaluation" / "llm_judge_results.json"
+GRADES_FILE  = PROJECT_ROOT / "evaluation" / "manual_grades.json"
+FINAL_REPORT = PROJECT_ROOT / "evaluation" / "generation_eval_report.json"
 
 # =====================================================
 # GRADING MODE — set to False to just load existing

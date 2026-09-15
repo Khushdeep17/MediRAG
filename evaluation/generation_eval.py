@@ -2,11 +2,13 @@ import os
 import sys
 import json
 import re
+from pathlib import Path
 from datetime import datetime
 
 # --- Fix import path ---
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-sys.path.append(PROJECT_ROOT)
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.append(str(PROJECT_ROOT))
 
 from generate import generate_answer   # returns (answer, retrieved_chunks)
 
@@ -14,7 +16,7 @@ from generate import generate_answer   # returns (answer, retrieved_chunks)
 # CONFIG
 # =====================================================
 
-OUTPUT_FILE = "evaluation/generation_outputs.json"
+OUTPUT_FILE = PROJECT_ROOT / "evaluation" / "generation_outputs.json"
 
 # =====================================================
 # 20 BALANCED QUERIES — 7 Tier-1, 7 Tier-2, 6 Tier-3
@@ -83,7 +85,7 @@ def chunk_to_dict(chunk: dict) -> dict:
 # =====================================================
 
 def main():
-    os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
+    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
 
     all_results = []
 

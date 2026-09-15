@@ -6,26 +6,43 @@ import time
 import numpy as np
 from collections import defaultdict
 
+from pathlib import Path
+
 # --- Fix import path ---
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-sys.path.append(PROJECT_ROOT)
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.append(str(PROJECT_ROOT))
 
 from groq import Groq
 from dotenv import load_dotenv
-
-load_dotenv()
 
 # =====================================================
 # CONFIG
 # =====================================================
 
-INPUT_FILE   = "evaluation/generation_outputs.json"
-OUTPUT_FILE  = "evaluation/llm_judge_results.json"
+INPUT_FILE = PROJECT_ROOT / "evaluation" / "generation_outputs.json"
+OUTPUT_FILE = PROJECT_ROOT / "evaluation" / "llm_judge_results.json"
 JUDGE_MODEL = "llama-3.3-70b-versatile"
-RETRY_DELAY  = 2     # seconds between retries on API failure
-MAX_RETRIES  = 3
+RETRY_DELAY = 2     # seconds between retries on API failure
+MAX_RETRIES = 3
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+_client = None
+
+
+def get_judge_client() -> Groq:
+    """Lazily load and return the Groq client for LLM judge."""
+    global _client
+    if _client is None:
+        load_dotenv()
+        api_key = os.getenv("GROQ_API_KEY")
+        if not api_key:
+            raise ValueError(
+                "❌ GROQ_API_KEY not found in environment variables. "
+                "Please configure GROQ_API_KEY in your .env file or environment."
+            )
+        _client = Groq(api_key=api_key)
+    return _client
+
 
 # =====================================================
 # JUDGE PROMPT
@@ -94,6 +111,7 @@ def call_judge(query: str, context: str, answer: str) -> dict | None:
 
     for attempt in range(1, MAX_RETRIES + 1):
         try:
+            client = get_judge_client()
             response = client.chat.completions.create(
                 model=JUDGE_MODEL,
                 messages=[

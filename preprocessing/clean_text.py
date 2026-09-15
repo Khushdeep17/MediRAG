@@ -5,14 +5,10 @@ from tqdm import tqdm
 from pypdf import PdfReader
 
 
-# ---------------------------------------------------
-# CONFIG
-# ---------------------------------------------------
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-PDF_PATH = Path("data/merck_manual.pdf")
-OUTPUT_DIR = Path("data/processed")
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-
+PDF_PATH = PROJECT_ROOT / "data" / "merck_manual.pdf"
+OUTPUT_DIR = PROJECT_ROOT / "data" / "processed"
 OUTPUT_PATH = OUTPUT_DIR / "merck_cleaned.txt"
 
 # Keep ONLY core medical pages
@@ -178,6 +174,7 @@ def assemble_corpus(pages: List[str]) -> str:
 # ---------------------------------------------------
 
 def save_clean_corpus(text: str, output_path: Path):
+    output_path.parent.mkdir(parents=True, exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(text)
 
@@ -189,6 +186,11 @@ def save_clean_corpus(text: str, output_path: Path):
 # ---------------------------------------------------
 
 if __name__ == "__main__":
+    if not PDF_PATH.exists():
+        raise FileNotFoundError(
+            f"❌ Raw PDF not found at: {PDF_PATH}. "
+            "Please ensure data/merck_manual.pdf is present."
+        )
     pages = extract_main_content(PDF_PATH)
     corpus = assemble_corpus(pages)
     save_clean_corpus(corpus, OUTPUT_PATH)

@@ -1,3 +1,4 @@
+from typing import Any, Dict, List
 import numpy as np
 
 from retrieval.dense import dense_search
@@ -21,16 +22,29 @@ def hybrid_search(
     alpha: float = 0.5,
     top_k: int = DEFAULT_TOP_K,
     return_results: bool = False,
-    verbose=False
-):
+    verbose: bool = False,
+    preset: str = "baseline",
+    dense_fn: Any = None,
+    sparse_fn: Any = None,
+) -> List[Dict[str, Any]]:
     """
+    Perform hybrid retrieval using weighted Reciprocal Rank Fusion (RRF).
+
     alpha = weight for dense
     (1 - alpha) = weight for sparse
+    preset = 'baseline' (800/150) or 'experiment_450_64' (450/64)
     """
 
     # -------- Retrieve from both systems --------
-    dense_results = dense_search(query, top_k=top_k * 2, return_results=True)
-    sparse_results = sparse_search(query, top_k=top_k * 2, return_results=True)
+    if dense_fn is not None:
+        dense_results = dense_fn(query, top_k=top_k * 2, return_results=True)
+    else:
+        dense_results = dense_search(query, top_k=top_k * 2, return_results=True, preset=preset)
+
+    if sparse_fn is not None:
+        sparse_results = sparse_fn(query, top_k=top_k * 2, return_results=True)
+    else:
+        sparse_results = sparse_search(query, top_k=top_k * 2, return_results=True, preset=preset)
 
     # -------- Build rank lookup --------
     fusion_scores = {}
