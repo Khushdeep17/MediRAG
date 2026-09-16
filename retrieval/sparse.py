@@ -30,14 +30,41 @@ DEFAULT_TOP_K = 10
 
 
 # ===================================================
+# MEDICAL NORMALIZATION PATTERNS
+# ===================================================
+
+GREEK_MAP = {
+    'α': 'alpha', 'Α': 'alpha',
+    'β': 'beta',  'Β': 'beta',
+    'γ': 'gamma', 'Γ': 'gamma',
+    'δ': 'delta', 'Δ': 'delta',
+    'κ': 'kappa', 'Κ': 'kappa',
+}
+
+# Genus-species abbreviations: e.g. H. pylori, C. difficile, E. coli, S. aureus
+# Matches single-letter genus followed by dot and species name (at least 3 characters)
+GENUS_SPECIES_PATTERN = re.compile(r'(?<![a-zA-Z\.])([a-zA-Z])\.\s*([a-zA-Z]{3,})\b')
+
+# Decimal numbers: e.g. 2.5, 0.5, 12.5
+DECIMAL_PATTERN = re.compile(r'\b\d+\.\d+\b')
+
+# Slash units/fractions: e.g. mg/dL, mL/min
+UNIT_SLASH_PATTERN = re.compile(r'\b([a-zA-Z]+)/([a-zA-Z]+)\b')
+
+# Hyphenated medical compound pattern: e.g. covid-19, type-2, beta-blocker, tnf-alpha, il-6, ldl-c
+HYPHEN_PATTERN = re.compile(r'\b([a-zA-Z0-9]+)-([a-zA-Z0-9]+)\b')
+
+
+# ===================================================
 # SPARSE RETRIEVER (LAZY INITIALIZATION)
 # ===================================================
 
 class SparseRetriever:
-    """Lazy-loaded BM25 sparse retriever."""
+    """Lazy-loaded BM25 sparse retriever with selectable tokenizers."""
 
-    def __init__(self, chunks_path: Path = DEFAULT_CHUNKS_PATH):
+    def __init__(self, chunks_path: Path = DEFAULT_CHUNKS_PATH, tokenizer: str = "baseline"):
         self.chunks_path = Path(chunks_path)
+        self.tokenizer = tokenizer
         self._chunks: Optional[List[Dict[str, Any]]] = None
         self._documents: Optional[List[str]] = None
         self._bm25: Optional[BM25Okapi] = None
@@ -53,13 +80,104 @@ class SparseRetriever:
                 self._stopwords = set(stopwords.words("english"))
         return self._stopwords
 
-    def tokenize(self, text: str) -> List[str]:
-        """Tokenize text using current baseline regex and stopword filtering."""
+    def tokenize_baseline(self, text: str) -> List[str]:
+        """Tokenize text using current baseline regex and stopword filtering (intact)."""
         stop_words = self._get_stopwords()
         text_lower = text.lower()
         text_clean = re.sub(r"[^a-z0-9\s]", " ", text_lower)
         tokens = text_clean.split()
         return [t for t in tokens if t not in stop_words]
+
+    def tokenize_medical(self, text: str) -> List[str]:
+        """
+        Tokenize text with medical-aware normalization:
+        - Transliterates Greek characters (α->alpha, β->beta, etc.)
+        - Normalizes genus-species abbreviations without orphan letters (H. pylori -> hpylori, pylori)
+        - Preserves decimal numbers (2.5 -> '2.5')
+        - Dual-emits hyphenated compounds without orphan numeric noise (COVID-19 -> 'covid-19', 'covid')
+        - Normalizes slash expressions (mg/dL -> 'mg_dl', 'mg', 'dl')
+        - Preserves alphanumeric tokens (HbA1c, G6PD, B12)
+        - Applies NLTK stopwords and eliminates orphan single-letter noise
+        """
+        stop_words = self._get_stopwords()
+
+        # 1. Greek letter normalization
+        for g_char, replacement in GREEK_MAP.items():
+            if g_char in text:
+                text = text.replace(g_char, replacement)
+
+        # 2. Lowercase
+        text = text.lower()
+
+        # 3. Filter out generic Latin editorial abbreviations (e.g. / i.e.)
+        text = re.sub(r'\b(?:e\.g\.|i\.e\.)\b', ' ', text)
+
+        # 4. Normalize Genus. species abbreviations
+        # E.g. "h. pylori" -> "h_pylori pylori" (emits compound + species, no orphan 'h')
+        text = GENUS_SPECIES_PATTERN.sub(r'\1_\2 \2', text)
+
+        # 5. Normalize slash units / expressions
+        # E.g. "mg/dl" -> "mg_dl mg dl"
+        text = UNIT_SLASH_PATTERN.sub(r'\1_\2 \1 \2', text)
+
+        # 6. Protect Decimal Numbers
+        # Replace '.' in decimals with a placeholder so it survives punctuation cleanup
+        decimals = set(DECIMAL_PATTERN.findall(text))
+        for dec in decimals:
+            placeholder = dec.replace('.', '_dec_')
+            text = text.replace(dec, placeholder)
+
+        # 7. Dual-emission for hyphenated terms
+        def replace_hyphen(m):
+            left, right = m.group(1), m.group(2)
+            compound = f"{left}-{right}"
+            # If right is numeric (e.g. covid-19, type-2, il-6):
+            if right.isdigit():
+                # Emit compound + alpha constituent (DO NOT emit bare number noise)
+                if left.isalpha() and len(left) > 1:
+                    return f"{compound} {left}"
+                return compound
+            # If left is numeric:
+            if left.isdigit():
+                if right.isalpha() and len(right) > 1:
+                    return f"{compound} {right}"
+                return compound
+            # Both are alphabetic: emit compound + both constituents (if > 1 char)
+            parts = [compound]
+            if len(left) > 1:
+                parts.append(left)
+            if len(right) > 1:
+                parts.append(right)
+            return " ".join(parts)
+
+        text = HYPHEN_PATTERN.sub(replace_hyphen, text)
+
+        # 8. Clean all remaining punctuation (retain alphanumeric, hyphens, underscores)
+        text_clean = re.sub(r"[^a-z0-9_\-\s]", " ", text)
+
+        # 9. Split and restore decimals, filter stopwords and orphan single-characters
+        tokens = []
+        for t in text_clean.split():
+            if "_dec_" in t:
+                t = t.replace("_dec_", ".")
+
+            # Stopword filter
+            if t in stop_words:
+                continue
+
+            # Eliminate orphan single-letter noise
+            if len(t) <= 1:
+                continue
+
+            tokens.append(t)
+
+        return tokens
+
+    def tokenize(self, text: str) -> List[str]:
+        """Tokenize text using the selected tokenizer strategy ('baseline' or 'medical')."""
+        if self.tokenizer == "medical":
+            return self.tokenize_medical(text)
+        return self.tokenize_baseline(text)
 
     def _load_index(self) -> None:
         """Load chunk data, tokenize corpus, and construct BM25 index on demand."""
@@ -134,20 +252,29 @@ class SparseRetriever:
 _SPARSE_RETRIEVERS: Dict[str, SparseRetriever] = {}
 
 
-def get_sparse_retriever(preset: str = "baseline") -> SparseRetriever:
-    """Return or initialize a SparseRetriever singleton for the given preset."""
+def get_sparse_retriever(preset: str = "baseline", tokenizer: str = "baseline") -> SparseRetriever:
+    """Return or initialize a SparseRetriever singleton for the given preset and tokenizer strategy."""
     global _SPARSE_RETRIEVERS
-    if preset not in _SPARSE_RETRIEVERS:
+    cache_key = f"{preset}_{tokenizer}"
+    if cache_key not in _SPARSE_RETRIEVERS:
         if preset not in SPARSE_PRESETS:
             raise ValueError(f"Unknown preset: '{preset}'. Available presets: {list(SPARSE_PRESETS.keys())}")
         config = SPARSE_PRESETS[preset]
-        _SPARSE_RETRIEVERS[preset] = SparseRetriever(chunks_path=config["chunks_path"])
-    return _SPARSE_RETRIEVERS[preset]
+        _SPARSE_RETRIEVERS[cache_key] = SparseRetriever(
+            chunks_path=config["chunks_path"],
+            tokenizer=tokenizer,
+        )
+    return _SPARSE_RETRIEVERS[cache_key]
 
 
-def tokenize(text: str, preset: str = "baseline") -> List[str]:
-    """Tokenize text using the specified SparseRetriever preset singleton."""
-    return get_sparse_retriever(preset=preset).tokenize(text)
+def tokenize(text: str, preset: str = "baseline", tokenizer: str = "baseline") -> List[str]:
+    """Tokenize text using the specified SparseRetriever preset and tokenizer strategy."""
+    return get_sparse_retriever(preset=preset, tokenizer=tokenizer).tokenize(text)
+
+
+def tokenize_medical(text: str) -> List[str]:
+    """Convenience function for direct medical-aware tokenization."""
+    return get_sparse_retriever(preset="baseline", tokenizer="medical").tokenize_medical(text)
 
 
 def sparse_search(
@@ -155,9 +282,12 @@ def sparse_search(
     top_k: int = DEFAULT_TOP_K,
     return_results: bool = False,
     preset: str = "baseline",
+    tokenizer: str = "baseline",
 ) -> List[Dict[str, Any]]:
-    """Execute sparse search using the specified SparseRetriever preset singleton."""
-    return get_sparse_retriever(preset=preset).search(query, top_k=top_k, return_results=return_results)
+    """Execute sparse search using the specified SparseRetriever preset and tokenizer strategy."""
+    return get_sparse_retriever(preset=preset, tokenizer=tokenizer).search(
+        query, top_k=top_k, return_results=return_results
+    )
 
 
 # ===================================================
@@ -166,5 +296,7 @@ def sparse_search(
 
 if __name__ == "__main__":
     test_query = "H. pylori eradication therapy"
-    print("Testing baseline preset:")
-    sparse_search(test_query)
+    print("Testing baseline preset (baseline tokenizer):")
+    sparse_search(test_query, tokenizer="baseline")
+    print("\nTesting baseline preset (medical tokenizer):")
+    sparse_search(test_query, tokenizer="medical")

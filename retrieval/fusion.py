@@ -1,4 +1,4 @@
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 import numpy as np
 
 from retrieval.dense import dense_search
@@ -24,8 +24,10 @@ def hybrid_search(
     return_results: bool = False,
     verbose: bool = False,
     preset: str = "baseline",
+    tokenizer: str = "baseline",
     dense_fn: Any = None,
     sparse_fn: Any = None,
+    candidate_depth: Optional[int] = None,
 ) -> List[Dict[str, Any]]:
     """
     Perform hybrid retrieval using weighted Reciprocal Rank Fusion (RRF).
@@ -33,18 +35,23 @@ def hybrid_search(
     alpha = weight for dense
     (1 - alpha) = weight for sparse
     preset = 'baseline' (800/150) or 'experiment_450_64' (450/64)
+    tokenizer = 'baseline' or 'medical'
+    candidate_depth = number of candidates to pull from dense/sparse before fusion (defaults to top_k * 2)
     """
+    depth = candidate_depth if candidate_depth is not None else top_k * 2
 
     # -------- Retrieve from both systems --------
     if dense_fn is not None:
-        dense_results = dense_fn(query, top_k=top_k * 2, return_results=True)
+        dense_results = dense_fn(query, top_k=depth, return_results=True)
     else:
-        dense_results = dense_search(query, top_k=top_k * 2, return_results=True, preset=preset)
+        dense_results = dense_search(query, top_k=depth, return_results=True, preset=preset)
 
     if sparse_fn is not None:
-        sparse_results = sparse_fn(query, top_k=top_k * 2, return_results=True)
+        sparse_results = sparse_fn(query, top_k=depth, return_results=True)
     else:
-        sparse_results = sparse_search(query, top_k=top_k * 2, return_results=True, preset=preset)
+        sparse_results = sparse_search(
+            query, top_k=depth, return_results=True, preset=preset, tokenizer=tokenizer
+        )
 
     # -------- Build rank lookup --------
     fusion_scores = {}
