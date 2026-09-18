@@ -2,12 +2,12 @@ import streamlit as st
 import time
 import re
 import sys
-import os
+from pathlib import Path
 
 # ── Fix import path ────────────────────────────────────────────────────────────
-PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-if PROJECT_ROOT not in sys.path:
-    sys.path.insert(0, PROJECT_ROOT)
+PROJECT_ROOT = Path(__file__).resolve().parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 from generate import generate_answer
 
@@ -312,16 +312,16 @@ def set_example(text):
 # ── Input ──────────────────────────────────────────────────────────────────────
 query = st.text_input(
     "Medical Question",
-    placeholder="e.g. What causes iron deficiency anemia?",
+    placeholder="e.g. How is celiac disease diagnosed?",
     label_visibility="collapsed",
     key="query_input",
 )
 
 # ── Button row ─────────────────────────────────────────────────────────────────
 EXAMPLES = [
-    "How is asthma treated?",
-    "What are the symptoms of Parkinson disease?",
-    "How does portal hypertension develop?",
+    "What are the manifestations of acute pancreatitis?",
+    "How is celiac disease diagnosed?",
+    "What are the clinical signs of acute appendicitis?",
 ]
 
 col_btn, col_ex1, col_ex2, col_ex3, _ = st.columns([1.6, 2.0, 2.4, 2.6, 3])

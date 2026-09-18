@@ -1,0 +1,863 @@
+{
+  "schema_version": "2.0",
+  "summary": {
+    "retrieval_hit_rate": 0.9,
+    "citation_accuracy": 0.9,
+    "citation_consistency": 1.0,
+    "structural_grounded_rate": 0.9,
+    "hallucination_rate": 0.1,
+    "context_utilization_rate": 0.294,
+    "lexical_grounded_rate": 0.294
+  },
+  "reliability_notes": {
+    "citation_accuracy": "DEPRECATED / UNRELIABLE: Measures whether expected chapter was cited; does not verify sentence-level claim attribution.",
+    "citation_consistency": "DEPRECATED / UNRELIABLE: Measures whether cited indices are within retrieved set; largely tautological.",
+    "structural_grounded_rate": "DEPRECATED / UNRELIABLE: Conjunction of retrieval hit, chapter-presence citation, and consistency. Not a claim-level NLI grounding metric.",
+    "hallucination_rate": "DEPRECATED / UNRELIABLE: Defined as (1 - structural_grounded_rate); not a claim-level hallucination metric.",
+    "context_utilization_rate": "DIAGNOSTIC: Lexical unigram overlap between generated answer and full retrieved context."
+  },
+  "per_query": [
+    {
+      "id": 1,
+      "question_id": 1,
+      "tier": 1,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.377,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.377,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 2,
+      "question_id": 2,
+      "tier": 1,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.306,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.306,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 3,
+      "question_id": 3,
+      "tier": 1,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.329,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.329,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 4,
+      "question_id": 4,
+      "tier": 1,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.272,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.272,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 5,
+      "question_id": 5,
+      "tier": 1,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.282,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.282,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 6,
+      "question_id": 6,
+      "tier": 1,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.315,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.315,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 7,
+      "question_id": 7,
+      "tier": 1,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.244,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.244,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 8,
+      "question_id": 8,
+      "tier": 2,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.353,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.353,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 9,
+      "question_id": 9,
+      "tier": 2,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.345,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.345,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 10,
+      "question_id": 10,
+      "tier": 2,
+      "retrieval_hit": false,
+      "citation_correct": false,
+      "citation_consistent": true,
+      "structural_grounded": false,
+      "lexical_grounded_rate": 0.412,
+      "auto_grounded_rate": 0.0,
+      "auto_citation_accuracy": 0.0,
+      "auto_context_utilization": 0.412,
+      "auto_hallucination_risk": 1.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 11,
+      "question_id": 11,
+      "tier": 2,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.278,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.278,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 12,
+      "question_id": 12,
+      "tier": 2,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.313,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.313,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 13,
+      "question_id": 13,
+      "tier": 2,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.322,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.322,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 14,
+      "question_id": 14,
+      "tier": 2,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.319,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.319,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 15,
+      "question_id": 15,
+      "tier": 3,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.287,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.287,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 16,
+      "question_id": 16,
+      "tier": 3,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.181,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.181,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 17,
+      "question_id": 17,
+      "tier": 3,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.257,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.257,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 18,
+      "question_id": 18,
+      "tier": 3,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.247,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.247,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 19,
+      "question_id": 19,
+      "tier": 3,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.225,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.225,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 20,
+      "question_id": 20,
+      "tier": 3,
+      "retrieval_hit": false,
+      "citation_correct": false,
+      "citation_consistent": true,
+      "structural_grounded": false,
+      "lexical_grounded_rate": 0.221,
+      "auto_grounded_rate": 0.0,
+      "auto_citation_accuracy": 0.0,
+      "auto_context_utilization": 0.221,
+      "auto_hallucination_risk": 1.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    }
+  ],
+  "per_question": [
+    {
+      "id": 1,
+      "question_id": 1,
+      "tier": 1,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.377,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.377,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 2,
+      "question_id": 2,
+      "tier": 1,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.306,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.306,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 3,
+      "question_id": 3,
+      "tier": 1,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.329,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.329,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 4,
+      "question_id": 4,
+      "tier": 1,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.272,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.272,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 5,
+      "question_id": 5,
+      "tier": 1,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.282,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.282,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 6,
+      "question_id": 6,
+      "tier": 1,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.315,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.315,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 7,
+      "question_id": 7,
+      "tier": 1,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.244,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.244,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 8,
+      "question_id": 8,
+      "tier": 2,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.353,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.353,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 9,
+      "question_id": 9,
+      "tier": 2,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.345,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.345,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 10,
+      "question_id": 10,
+      "tier": 2,
+      "retrieval_hit": false,
+      "citation_correct": false,
+      "citation_consistent": true,
+      "structural_grounded": false,
+      "lexical_grounded_rate": 0.412,
+      "auto_grounded_rate": 0.0,
+      "auto_citation_accuracy": 0.0,
+      "auto_context_utilization": 0.412,
+      "auto_hallucination_risk": 1.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 11,
+      "question_id": 11,
+      "tier": 2,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.278,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.278,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 12,
+      "question_id": 12,
+      "tier": 2,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.313,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.313,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 13,
+      "question_id": 13,
+      "tier": 2,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.322,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.322,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 14,
+      "question_id": 14,
+      "tier": 2,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.319,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.319,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 15,
+      "question_id": 15,
+      "tier": 3,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.287,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.287,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 16,
+      "question_id": 16,
+      "tier": 3,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.181,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.181,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 17,
+      "question_id": 17,
+      "tier": 3,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.257,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.257,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 18,
+      "question_id": 18,
+      "tier": 3,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.247,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.247,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 19,
+      "question_id": 19,
+      "tier": 3,
+      "retrieval_hit": true,
+      "citation_correct": true,
+      "citation_consistent": true,
+      "structural_grounded": true,
+      "lexical_grounded_rate": 0.225,
+      "auto_grounded_rate": 1.0,
+      "auto_citation_accuracy": 1.0,
+      "auto_context_utilization": 0.225,
+      "auto_hallucination_risk": 0.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    },
+    {
+      "id": 20,
+      "question_id": 20,
+      "tier": 3,
+      "retrieval_hit": false,
+      "citation_correct": false,
+      "citation_consistent": true,
+      "structural_grounded": false,
+      "lexical_grounded_rate": 0.221,
+      "auto_grounded_rate": 0.0,
+      "auto_citation_accuracy": 0.0,
+      "auto_context_utilization": 0.221,
+      "auto_hallucination_risk": 1.0,
+      "metric_status": {
+        "grounded_rate": "legacy_structural_heuristic",
+        "citation_accuracy": "legacy_chapter_presence_proxy",
+        "citation_consistency": "legacy_tautological_proxy",
+        "context_utilization": "lexical_overlap_diagnostic",
+        "hallucination_risk": "inverted_structural_heuristic"
+      }
+    }
+  ]
+}

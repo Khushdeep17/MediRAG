@@ -1,0 +1,155 @@
+{
+  "dataset_name": "MediRAG Generation Benchmark",
+  "dataset_version": "1.0",
+  "description": "20 balanced medical evaluation queries across 3 difficulty tiers (7 Tier-1, 7 Tier-2, 6 Tier-3) used for generation quality, grounding, and citation evaluation.",
+  "query_count": 20,
+  "tier_distribution": {
+    "tier_1_direct": 7,
+    "tier_2_indirect": 7,
+    "tier_3_hard": 6
+  },
+  "relevance_level": "chapter",
+  "limitation_note": "Relevance is currently judged at chapter level; reference answers and gold evidence spans are pending future expert annotation.",
+  "queries": [
+    {
+      "id": 1,
+      "query": "What are the causes and treatment of migraine?",
+      "tier": 1,
+      "relevant_chapter": 178,
+      "expected_chapter": 178
+    },
+    {
+      "id": 2,
+      "query": "What are the symptoms of Parkinson disease?",
+      "tier": 1,
+      "relevant_chapter": 183,
+      "expected_chapter": 183
+    },
+    {
+      "id": 3,
+      "query": "How is asthma treated?",
+      "tier": 1,
+      "relevant_chapter": 191,
+      "expected_chapter": 191
+    },
+    {
+      "id": 4,
+      "query": "What causes iron deficiency anemia?",
+      "tier": 1,
+      "relevant_chapter": 105,
+      "expected_chapter": 105
+    },
+    {
+      "id": 5,
+      "query": "How is diabetes mellitus managed?",
+      "tier": 1,
+      "relevant_chapter": 99,
+      "expected_chapter": 99
+    },
+    {
+      "id": 6,
+      "query": "What are the risk factors and treatment of hypertension?",
+      "tier": 1,
+      "relevant_chapter": 208,
+      "expected_chapter": 208
+    },
+    {
+      "id": 7,
+      "query": "What causes peptic ulcer disease and how is it treated?",
+      "tier": 1,
+      "relevant_chapter": 13,
+      "expected_chapter": 13
+    },
+    {
+      "id": 8,
+      "query": "A patient presents with recurring severe headaches with nausea and light sensitivity. What is the diagnosis and management?",
+      "tier": 2,
+      "relevant_chapter": 178,
+      "expected_chapter": 178
+    },
+    {
+      "id": 9,
+      "query": "What neurological condition causes resting tremor, rigidity, and bradykinesia?",
+      "tier": 2,
+      "relevant_chapter": 183,
+      "expected_chapter": 183
+    },
+    {
+      "id": 10,
+      "query": "How is reversible airflow obstruction treated in adults?",
+      "tier": 2,
+      "relevant_chapter": 191,
+      "expected_chapter": 191
+    },
+    {
+      "id": 11,
+      "query": "A patient has low hemoglobin and low ferritin — what are the causes and treatment?",
+      "tier": 2,
+      "relevant_chapter": 105,
+      "expected_chapter": 105
+    },
+    {
+      "id": 12,
+      "query": "What clinical signs suggest an underactive thyroid and how is it corrected?",
+      "tier": 2,
+      "relevant_chapter": 93,
+      "expected_chapter": 93
+    },
+    {
+      "id": 13,
+      "query": "What lifestyle and pharmacological interventions reduce blood pressure?",
+      "tier": 2,
+      "relevant_chapter": 208,
+      "expected_chapter": 208
+    },
+    {
+      "id": 14,
+      "query": "What are the first and second line therapies for H. pylori related gastric disease?",
+      "tier": 2,
+      "relevant_chapter": 13,
+      "expected_chapter": 13
+    },
+    {
+      "id": 15,
+      "query": "What mechanisms explain why certain medications worsen thyroid function?",
+      "tier": 3,
+      "relevant_chapter": 93,
+      "expected_chapter": 93
+    },
+    {
+      "id": 16,
+      "query": "How does electrolyte imbalance affect cardiac rhythm?",
+      "tier": 3,
+      "relevant_chapter": 97,
+      "expected_chapter": 97
+    },
+    {
+      "id": 17,
+      "query": "How does portal hypertension develop in patients with liver fibrosis?",
+      "tier": 3,
+      "relevant_chapter": 27,
+      "expected_chapter": 27
+    },
+    {
+      "id": 18,
+      "query": "What clotting cascade abnormalities lead to bleeding in liver disease?",
+      "tier": 3,
+      "relevant_chapter": 111,
+      "expected_chapter": 111
+    },
+    {
+      "id": 19,
+      "query": "What distinguishes angina pectoris from acute myocardial ischemia on presentation?",
+      "tier": 3,
+      "relevant_chapter": 210,
+      "expected_chapter": 210
+    },
+    {
+      "id": 20,
+      "query": "What is the mechanism behind refeeding syndrome in malnourished patients?",
+      "tier": 3,
+      "relevant_chapter": 3,
+      "expected_chapter": 3
+    }
+  ]
+}

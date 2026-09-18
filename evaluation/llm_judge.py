@@ -6,26 +6,52 @@ import time
 import numpy as np
 from collections import defaultdict
 
+from pathlib import Path
+
 # --- Fix import path ---
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-sys.path.append(PROJECT_ROOT)
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.append(str(PROJECT_ROOT))
+
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
 
 from groq import Groq
 from dotenv import load_dotenv
-
-load_dotenv()
 
 # =====================================================
 # CONFIG
 # =====================================================
 
-INPUT_FILE   = "evaluation/generation_outputs.json"
-OUTPUT_FILE  = "evaluation/llm_judge_results.json"
+RESULTS_CURRENT = PROJECT_ROOT / "evaluation" / "results" / "current"
+INPUT_FILE = RESULTS_CURRENT / "generation_outputs.json"
+if not INPUT_FILE.exists():
+    INPUT_FILE = PROJECT_ROOT / "evaluation" / "generation_outputs.json"
+OUTPUT_FILE = RESULTS_CURRENT / "llm_judge_results.json"
 JUDGE_MODEL = "llama-3.3-70b-versatile"
-RETRY_DELAY  = 2     # seconds between retries on API failure
-MAX_RETRIES  = 3
+RETRY_DELAY = 2     # seconds between retries on API failure
+MAX_RETRIES = 3
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+_client = None
+
+
+def get_judge_client() -> Groq:
+    """Lazily load and return the Groq client for LLM judge."""
+    global _client
+    if _client is None:
+        load_dotenv()
+        api_key = os.getenv("GROQ_API_KEY")
+        if not api_key:
+            raise ValueError(
+                "❌ GROQ_API_KEY not found in environment variables. "
+                "Please configure GROQ_API_KEY in your .env file or environment."
+            )
+        _client = Groq(api_key=api_key)
+    return _client
+
 
 # =====================================================
 # JUDGE PROMPT
@@ -64,13 +90,13 @@ Also provide:
 ---
 
 CONTEXT (retrieved medical text):
-{context[:1500]}
+{context[:10000]}
 
 QUESTION:
 {query}
 
 GENERATED ANSWER:
-{answer[:1200]}
+{answer[:1500]}
 
 ---
 
@@ -94,6 +120,7 @@ def call_judge(query: str, context: str, answer: str) -> dict | None:
 
     for attempt in range(1, MAX_RETRIES + 1):
         try:
+            client = get_judge_client()
             response = client.chat.completions.create(
                 model=JUDGE_MODEL,
                 messages=[
@@ -168,10 +195,16 @@ def main():
         answer = rec.get("generated_answer", "")
         chunks = rec.get("retrieved_chunks", [])
 
-        context_text = "\n\n".join(
-            f"[Source {i+1}] Ch.{c['chapter_number']} — {c['chapter_title']}\n{c['content_snippet']}"
-            for i, c in enumerate(chunks)
-        )
+        # Format context matching the exact generator layout: [N] header, Chunk ID, and delimited by '---'
+        def _format_chunk(i: int, c: dict) -> str:
+            s_idx = c.get("source_index", i + 1)
+            ch_num = c.get("chapter_number", "?")
+            ch_title = c.get("chapter_title", "")
+            cid = c.get("chunk_id") or f"{ch_num}-{s_idx:02d}"
+            content = (c.get("content") or c.get("content_snippet", "")).strip()[:2200]
+            return f"[{s_idx}]\nChapter {ch_num}: {ch_title}\nChunk ID: {cid}\n{content}"
+
+        context_text = "\n\n---\n\n".join(_format_chunk(i, c) for i, c in enumerate(chunks))
 
         print(f"[{idx:02d}/20] T{tier} | {query[:65]}")
 
@@ -180,6 +213,8 @@ def main():
         if scores:
             rec_judged = {
                 **rec,
+                "id"                   : rec.get("id", idx),
+                "question_id"          : rec.get("question_id", idx),
                 "llm_faithfulness"     : scores["faithfulness"],
                 "llm_completeness"     : scores["completeness"],
                 "llm_medical_accuracy" : scores["medical_accuracy"],
@@ -202,7 +237,8 @@ def main():
                 tier_scores[tier][key].append(scores[key])
 
         else:
-            rec_judged = {**rec, "llm_faithfulness": None, "llm_completeness": None,
+            rec_judged = {**rec, "id": rec.get("id", idx), "question_id": rec.get("question_id", idx),
+                          "llm_faithfulness": None, "llm_completeness": None,
                           "llm_medical_accuracy": None, "llm_reasoning": "FAILED",
                           "llm_hallucination_flag": None, "llm_avg_score": None}
             failed += 1
@@ -263,8 +299,10 @@ def main():
             }
         },
         "per_query": judged_records,
+        "per_question": judged_records,   # Alias for contract consistency
     }
 
+    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
 
