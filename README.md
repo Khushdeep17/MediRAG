@@ -75,7 +75,7 @@ Merck Manual (raw HTML/text)
 | Sparse (BM25) | 0.698 | 0.800 | 0.567 |
 | Hybrid α=0.7 | **0.971** | **0.894** | **0.769** |
 
-![Retrieval Metrics](evaluation/figures/fig1_overall_metrics.png)
+![Retrieval Metrics](docs/figures/retrieval/fig1_overall_metrics.png)
 
 ---
 
@@ -104,6 +104,6 @@ Merck Manual (raw HTML/text)
 | Answer Accuracy | 82.5% |
 | Fully Correct | 70.0% |
 
-![Generation Metrics](evaluation/figures_gen/fig1_overview.png)
+![Generation Metrics](docs/figures/generation/fig1_overview.png)
 
 ---

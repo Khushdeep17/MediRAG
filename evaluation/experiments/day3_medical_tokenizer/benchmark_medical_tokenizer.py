@@ -1,7 +1,7 @@
 import json
 import sys
 from pathlib import Path
-from typing import Any, Dict, List, Set, Tuple
+from typing import Any, Dict, List
 import numpy as np
 import faiss
 
@@ -12,7 +12,7 @@ if hasattr(sys.stdout, "reconfigure"):
     except Exception:
         pass
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
@@ -24,6 +24,7 @@ from evaluation.retrieval_metrics import (
     recall_at_k,
     mrr_score,
     ndcg_at_k,
+    RETRIEVAL_K,
 )
 
 # =====================================================
@@ -129,8 +130,6 @@ def evaluate_retrieval_system(search_fn, name: str) -> Dict[str, Any]:
             "mrr": round(float(mrr), 4),
             "ndcg": round(float(ndcg), 4),
             "rank": expected_rank,
-            "top_chunk_ids": [r["chunk_id"] for r in results[:10]],
-            "top_chapters": [r["chapter_number"] for r in results[:10]],
         })
 
     tier_summary = {
@@ -170,13 +169,7 @@ def evaluate_retrieval_system(search_fn, name: str) -> Dict[str, Any]:
 # QUERY MOVEMENT ANALYSIS
 # =====================================================
 
-def analyze_query_movement(
-    baseline_run: dict,
-    experiment_run: dict,
-    comparison_name: str,
-    sparse_cache: Dict[str, List[Dict[str, Any]]] = None,
-    dense_cache: Dict[str, List[Dict[str, Any]]] = None,
-) -> Dict[str, Any]:
+def analyze_query_movement(baseline_run: dict, experiment_run: dict, comparison_name: str) -> Dict[str, Any]:
     b_queries = baseline_run["queries"]
     e_queries = experiment_run["queries"]
     total = len(b_queries)
@@ -187,6 +180,10 @@ def analyze_query_movement(
 
     for b, e in zip(b_queries, e_queries):
         diff_mrr = round(e["mrr"] - b["mrr"], 4)
+        diff_r5 = e["r5"] - b["r5"]
+        diff_r10 = e["r10"] - b["r10"]
+        diff_ndcg = round(e["ndcg"] - b["ndcg"], 4)
+
         record = {
             "idx": b["idx"],
             "query": b["query"],
@@ -203,6 +200,7 @@ def analyze_query_movement(
             "exp_ndcg": e["ndcg"],
         }
 
+        # Primary movement discriminator is MRR (rank movement)
         if diff_mrr > 1e-4:
             improved.append(record)
         elif diff_mrr < -1e-4:
@@ -235,205 +233,96 @@ def analyze_query_movement(
 
 
 # =====================================================
-# CANDIDATE-UNION DIAGNOSTICS
-# =====================================================
-
-def compute_candidate_diagnostics(
-    depth: int,
-    hybrid_run: dict,
-    dense_cache: Dict[str, List[Dict[str, Any]]],
-    sparse_cache: Dict[str, List[Dict[str, Any]]],
-) -> Dict[str, Any]:
-    """
-    Computes candidate-union diagnostics:
-    - average number of unique candidates in dense ∪ sparse before fusion
-    - number of final top-10 results that appear only in sparse candidates
-    - number of final top-10 results that appear only in dense candidates
-    - number appearing in both
-    - number of queries where sparse introduced a relevant chunk missed by dense top-20
-    """
-    union_sizes = []
-    dense_only_top10_total = 0
-    sparse_only_top10_total = 0
-    both_top10_total = 0
-
-    sparse_rescued_relevant_queries = []
-
-    for q_info in hybrid_run["queries"]:
-        q = q_info["query"]
-        expected = q_info["expected"]
-        top_chunks = q_info["top_chunk_ids"]
-
-        dense_cands = dense_cache[q][:depth]
-        sparse_cands = sparse_cache[q][:depth]
-
-        d_ids = set(c["chunk_id"] for c in dense_cands)
-        s_ids = set(c["chunk_id"] for c in sparse_cands)
-        union_ids = d_ids | s_ids
-
-        union_sizes.append(len(union_ids))
-
-        # Check top-10 chunks origin
-        for cid in top_chunks:
-            in_d = cid in d_ids
-            in_s = cid in s_ids
-            if in_d and in_s:
-                both_top10_total += 1
-            elif in_d:
-                dense_only_top10_total += 1
-            elif in_s:
-                sparse_only_top10_total += 1
-
-        # Check if sparse at this depth introduced a relevant chunk that dense top-20 missed
-        dense_20_chaps = {c["chapter_number"] for c in dense_cache[q][:20]}
-        if expected not in dense_20_chaps:
-            # Dense top-20 completely missed the relevant chapter!
-            # Did sparse have it?
-            sparse_depth_chaps = {c["chapter_number"] for c in sparse_cands}
-            if expected in sparse_depth_chaps:
-                # Did it make it into the final hybrid top 10?
-                if expected in q_info["top_chapters"]:
-                    sparse_rescued_relevant_queries.append({
-                        "idx": q_info["idx"],
-                        "query": q,
-                        "tier": q_info["tier"],
-                        "expected": expected,
-                        "final_rank": q_info["rank"],
-                    })
-
-    total_top10_evaluated = len(hybrid_run["queries"]) * 10
-
-    return {
-        "candidate_depth": depth,
-        "avg_unique_candidates_in_union": round(float(np.mean(union_sizes)), 2),
-        "total_top10_results_evaluated": total_top10_evaluated,
-        "final_top10_dense_only_count": dense_only_top10_total,
-        "final_top10_dense_only_pct": round((dense_only_top10_total / total_top10_evaluated) * 100, 1),
-        "final_top10_sparse_only_count": sparse_only_top10_total,
-        "final_top10_sparse_only_pct": round((sparse_only_top10_total / total_top10_evaluated) * 100, 1),
-        "final_top10_both_count": both_top10_total,
-        "final_top10_both_pct": round((both_top10_total / total_top10_evaluated) * 100, 1),
-        "sparse_rescued_relevant_count": len(sparse_rescued_relevant_queries),
-        "sparse_rescued_relevant_queries": sparse_rescued_relevant_queries,
-    }
-
-
-# =====================================================
 # MAIN RUNNER
 # =====================================================
 
-def run_candidate_depth_experiment():
+def run_benchmark():
     integrity_data = verify_integrity()
 
-    # Pre-cache dense and sparse candidates up to depth 100 for all 50 queries
-    print("\n📦 Generating canonical dense and sparse search results up to depth 100 for 50 queries...")
+    # Pre-cache dense search results to guarantee 100% identical dense input to hybrid
+    print("\n📦 Generating canonical baseline dense search results for 50 queries...")
     dense_cache: Dict[str, List[Dict[str, Any]]] = {}
-    sparse_cache: Dict[str, List[Dict[str, Any]]] = {}
-
     for item in EVAL_QUERIES:
         q = item["query"]
-        dense_cache[q] = dense_search(q, top_k=100, return_results=True, preset="baseline")
-        sparse_cache[q] = sparse_search(q, top_k=100, return_results=True, preset="baseline", tokenizer="baseline")
+        dense_cache[q] = dense_search(q, top_k=RETRIEVAL_K, return_results=True, preset="baseline")
 
-    def make_dense_fn(depth: int):
-        return lambda q, top_k=depth, return_results=True: dense_cache[q][:top_k]
+    def cached_dense_fn(query: str, top_k: int = 20, return_results: bool = True):
+        return dense_cache[query][:top_k]
 
-    def make_sparse_fn(depth: int):
-        return lambda q, top_k=depth, return_results=True: sparse_cache[q][:top_k]
-
-    # 1. Fixed Reference: Dense Baseline
+    # 1. Baseline Dense
     dense_baseline = evaluate_retrieval_system(
         lambda q, return_results=True: dense_cache[q][:10],
         "Dense baseline (800/150)"
     )
 
-    # 2. Fixed Reference: Sparse Baseline
+    # 2. Sparse Baseline Tokenizer
     sparse_baseline = evaluate_retrieval_system(
-        lambda q, return_results=True: sparse_cache[q][:10],
-        "Sparse baseline (800/150)"
+        lambda q, return_results=True: sparse_search(q, top_k=10, return_results=True, preset="baseline", tokenizer="baseline"),
+        "Sparse baseline tokenizer (800/150)"
     )
 
-    # 3. Hybrid Candidate Depth = 20 (Baseline Production Setting)
-    hybrid_depth_20 = evaluate_retrieval_system(
+    # 3. Sparse Medical Tokenizer
+    sparse_medical = evaluate_retrieval_system(
+        lambda q, return_results=True: sparse_search(q, top_k=10, return_results=True, preset="baseline", tokenizer="medical"),
+        "Sparse medical tokenizer (800/150)"
+    )
+
+    # 4. Hybrid Baseline Tokenizer
+    hybrid_baseline = evaluate_retrieval_system(
         lambda q, return_results=True: hybrid_search(
-            q,
-            alpha=0.7,
-            top_k=10,
-            return_results=True,
-            preset="baseline",
-            tokenizer="baseline",
-            dense_fn=make_dense_fn(20),
-            sparse_fn=make_sparse_fn(20),
-            candidate_depth=20,
+            q, alpha=0.7, top_k=10, return_results=True, preset="baseline", tokenizer="baseline", dense_fn=cached_dense_fn
         ),
-        "Hybrid candidate_depth = 20 (Baseline, α=0.7)"
+        "Hybrid baseline tokenizer (800/150, α=0.7)"
     )
 
-    # 4. Hybrid Candidate Depth = 50
-    hybrid_depth_50 = evaluate_retrieval_system(
+    # 5. Hybrid Medical Tokenizer
+    hybrid_medical = evaluate_retrieval_system(
         lambda q, return_results=True: hybrid_search(
-            q,
-            alpha=0.7,
-            top_k=10,
-            return_results=True,
-            preset="baseline",
-            tokenizer="baseline",
-            dense_fn=make_dense_fn(50),
-            sparse_fn=make_sparse_fn(50),
-            candidate_depth=50,
+            q, alpha=0.7, top_k=10, return_results=True, preset="baseline", tokenizer="medical", dense_fn=cached_dense_fn
         ),
-        "Hybrid candidate_depth = 50 (α=0.7)"
+        "Hybrid medical tokenizer (800/150, α=0.7)"
     )
-
-    # 5. Hybrid Candidate Depth = 100
-    hybrid_depth_100 = evaluate_retrieval_system(
-        lambda q, return_results=True: hybrid_search(
-            q,
-            alpha=0.7,
-            top_k=10,
-            return_results=True,
-            preset="baseline",
-            tokenizer="baseline",
-            dense_fn=make_dense_fn(100),
-            sparse_fn=make_sparse_fn(100),
-            candidate_depth=100,
-        ),
-        "Hybrid candidate_depth = 100 (α=0.7)"
-    )
-
-    # Movement Analyses
-    movement_20_to_50 = analyze_query_movement(hybrid_depth_20, hybrid_depth_50, "Hybrid Depth 20 -> Depth 50")
-    movement_50_to_100 = analyze_query_movement(hybrid_depth_50, hybrid_depth_100, "Hybrid Depth 50 -> Depth 100")
-    movement_20_to_100 = analyze_query_movement(hybrid_depth_20, hybrid_depth_100, "Hybrid Depth 20 -> Depth 100")
-
-    # Candidate-Union Diagnostics
-    diag_20 = compute_candidate_diagnostics(20, hybrid_depth_20, dense_cache, sparse_cache)
-    diag_50 = compute_candidate_diagnostics(50, hybrid_depth_50, dense_cache, sparse_cache)
-    diag_100 = compute_candidate_diagnostics(100, hybrid_depth_100, dense_cache, sparse_cache)
 
     systems = [
         dense_baseline,
         sparse_baseline,
-        hybrid_depth_20,
-        hybrid_depth_50,
-        hybrid_depth_100,
+        sparse_medical,
+        hybrid_baseline,
+        hybrid_medical,
     ]
 
-    # Save to JSON
+    # Analyze Query Movement
+    sparse_movement = analyze_query_movement(
+        sparse_baseline, sparse_medical, "Sparse Baseline -> Sparse Medical"
+    )
+    hybrid_movement = analyze_query_movement(
+        hybrid_baseline, hybrid_medical, "Hybrid Baseline -> Hybrid Medical"
+    )
+
+    # Prepare complete output JSON
     results_json = {
         "experiment_metadata": {
-            "title": "Controlled RRF Candidate-Depth Experiment",
+            "title": "Comparative Medical BM25 Retrieval Benchmark",
             "date": "2026-09-16",
-            "corpus": "baseline 800/150",
+            "chunk_preset": "baseline (800/150)",
             "num_chunks": 4239,
             "num_queries": 50,
             "dense_model": "BAAI/bge-large-en-v1.5",
-            "bm25_tokenizer": "baseline",
-            "alpha": 0.7,
+            "dense_weight_alpha": 0.7,
             "rrf_k": 60,
-            "final_top_k": 10,
+            "retrieval_k": 10,
         },
-        "candidate_depth_configurations": [20, 50, 100],
+        "tokenizer_descriptions": {
+            "baseline": "Standard alphanumeric regex tokenizer: re.sub(r'[^a-z0-9\s]', ' ', text.lower()).split() with NLTK English stopwords.",
+            "medical": "Medical-aware BM25 tokenizer: Greek letter transliteration (α->alpha, β->beta, γ->gamma, δ->delta, κ->kappa), Linnaean genus-species abbreviation contraction (H. pylori -> h_pylori + pylori), decimal preservation (2.5 mg -> 2.5), slash-unit normalization (mg/dL -> mg/dl + mg + dl), and dual-emission hyphenated compounds (covid-19 -> covid-19 + covid, type-2 -> type-2 + type) with numeric noise suppression."
+        },
+        "configurations": [
+            "Dense baseline (800/150)",
+            "Sparse baseline tokenizer (800/150)",
+            "Sparse medical tokenizer (800/150)",
+            "Hybrid baseline tokenizer (800/150, α=0.7)",
+            "Hybrid medical tokenizer (800/150, α=0.7)",
+        ],
         "integrity_checks": integrity_data,
         "overall_metrics": {
             s["name"]: {
@@ -454,80 +343,58 @@ def run_candidate_depth_experiment():
             for s in systems
         },
         "query_movement_statistics": {
-            "depth_20_to_50": movement_20_to_50,
-            "depth_50_to_100": movement_50_to_100,
-            "depth_20_to_100": movement_20_to_100,
-        },
-        "candidate_union_diagnostics": {
-            "depth_20": diag_20,
-            "depth_50": diag_50,
-            "depth_100": diag_100,
+            "sparse_baseline_to_medical": sparse_movement,
+            "hybrid_baseline_to_medical": hybrid_movement,
         },
         "systems": systems,
     }
 
-    out_file = PROJECT_ROOT / "evaluation" / "retrieval_candidate_depth_results.json"
+    out_file = Path(__file__).resolve().parent / "retrieval_medical_tokenizer_results.json"
     out_file.write_text(json.dumps(results_json, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"\n💾 Benchmark results saved to: {out_file}")
 
     # =====================================================
     # TERMINAL SUMMARY TABLE
     # =====================================================
-    print(f"\n{'═' * 95}")
-    print(f"  CONTROLLED RRF CANDIDATE-DEPTH EXPERIMENT SUMMARY")
-    print(f"  Corpus: Baseline 800/150 (4,239 chunks) | Queries: 50 | α=0.7 | RRF k=60 | Final K=10")
-    print(f"{'═' * 95}")
-    print(f"  {'Configuration':<42} {'R@5':>6} {'R@10':>6} {'MRR':>6} {'NDCG@10':>9}  {'T1 MRR':>7} {'T2 MRR':>7} {'T3 MRR':>7}")
-    print(f"  {'─' * 93}")
+    print(f"\n{'═' * 90}")
+    print(f"  CONTROLLED MEDICAL BM25 TOKENIZER BENCHMARK SUMMARY")
+    print(f"  Corpus: Baseline 800/150 (4,239 chunks) | Queries: 50 | Hybrid α=0.7 | RRF k=60")
+    print(f"{'═' * 90}")
+    print(f"  {'Configuration':<38} {'R@5':>6} {'R@10':>6} {'MRR':>6} {'NDCG@10':>9}  {'T1 MRR':>7} {'T2 MRR':>7} {'T3 MRR':>7}")
+    print(f"  {'─' * 88}")
     for s in systems:
         tm = s["tier_mrr"]
         print(
-            f"  {s['name']:<42} "
+            f"  {s['name']:<38} "
             f"{s['recall@5']:>6.3f} "
             f"{s['recall@10']:>6.3f} "
             f"{s['mrr']:>6.3f} "
             f"{s['ndcg@10']:>9.3f}  "
             f"{tm['1']:>7.3f} {tm['2']:>7.3f} {tm['3']:>7.3f}"
         )
-    print(f"{'═' * 95}")
-
-    # Candidate Union Diagnostics Summary Table
-    print(f"\n{'─' * 95}")
-    print(f"  CANDIDATE UNION & PARTICIPATION DIAGNOSTICS (Total Top-10 Slots = 500)")
-    print(f"{'─' * 95}")
-    print(f"  {'Candidate Depth':<20} {'Avg Union Size':<16} {'Both Dense & Sparse':<24} {'Dense-Only':<18} {'Sparse-Only':<16}")
-    print(f"  {'─' * 93}")
-    for d, diag in [("Depth 20", diag_20), ("Depth 50", diag_50), ("Depth 100", diag_100)]:
-        print(
-            f"  {d:<20} "
-            f"{diag['avg_unique_candidates_in_union']:<16.2f} "
-            f"{diag['final_top10_both_count']:>3} ({diag['final_top10_both_pct']}%)            "
-            f"{diag['final_top10_dense_only_count']:>3} ({diag['final_top10_dense_only_pct']}%)     "
-            f"{diag['final_top10_sparse_only_count']:>3} ({diag['final_top10_sparse_only_pct']}%)"
-        )
-    print(f"{'═' * 95}")
+    print(f"{'═' * 90}")
 
     # Movement summary
-    print(f"\n{'─' * 95}")
+    print(f"\n{'─' * 90}")
     print(f"  QUERY-LEVEL MOVEMENT BREAKDOWN")
-    print(f"{'─' * 95}")
-    for mov in [movement_20_to_50, movement_50_to_100, movement_20_to_100]:
+    print(f"{'─' * 90}")
+    for mov in [sparse_movement, hybrid_movement]:
         print(f"  ▶ {mov['comparison']}:")
         print(f"      Tied       (=) : {mov['tied_count']}/{mov['total_queries']} ({mov['tied_pct']}%)  [T1: {mov['tied_tier_breakdown']['tier_1']}, T2: {mov['tied_tier_breakdown']['tier_2']}, T3: {mov['tied_tier_breakdown']['tier_3']}]")
         print(f"      Improved   (▲) : {mov['improved_count']}/{mov['total_queries']} ({mov['improved_pct']}%)  [T1: {mov['improved_tier_breakdown']['tier_1']}, T2: {mov['improved_tier_breakdown']['tier_2']}, T3: {mov['improved_tier_breakdown']['tier_3']}]")
         print(f"      Regressed  (▼) : {mov['regressed_count']}/{mov['total_queries']} ({mov['regressed_pct']}%)  [T1: {mov['regressed_tier_breakdown']['tier_1']}, T2: {mov['regressed_tier_breakdown']['tier_2']}, T3: {mov['regressed_tier_breakdown']['tier_3']}]")
         
         if mov["improved_queries"]:
-            print("      Improved Queries:")
-            for q in mov["improved_queries"]:
+            print("      Key Improved Queries:")
+            for q in mov["improved_queries"][:5]:
                 print(f"        • [T{q['tier']}] \"{q['query'][:60]}...\" Rank: {q['base_rank']} -> {q['exp_rank']} (MRR: {q['base_mrr']:.3f} -> {q['exp_mrr']:.3f})")
         if mov["regressed_queries"]:
-            print("      Regressed Queries:")
-            for q in mov["regressed_queries"]:
+            print("      Key Regressed Queries:")
+            for q in mov["regressed_queries"][:5]:
                 print(f"        • [T{q['tier']}] \"{q['query'][:60]}...\" Rank: {q['base_rank']} -> {q['exp_rank']} (MRR: {q['base_mrr']:.3f} -> {q['exp_mrr']:.3f})")
         print()
-    print(f"{'═' * 95}\n")
+    print(f"{'═' * 90}\n")
 
 
 if __name__ == "__main__":
-    run_candidate_depth_experiment()
+    run_benchmark()

@@ -10,20 +10,26 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.append(str(PROJECT_ROOT))
 
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
 from generate import generate_answer   # returns (answer, retrieved_chunks)
 
 # =====================================================
 # CONFIG
 # =====================================================
 
-OUTPUT_FILE = PROJECT_ROOT / "evaluation" / "generation_outputs.json"
+OUTPUT_FILE = PROJECT_ROOT / "evaluation" / "results" / "current" / "generation_outputs.json"
 
 # =====================================================
 # 20 BALANCED QUERIES — 7 Tier-1, 7 Tier-2, 6 Tier-3
 # Manually picked for medical diversity
 # =====================================================
 
-GENERATION_QUERIES = [
+_FALLBACK_GENERATION_QUERIES = [
 
     # ── TIER 1: Direct (7) ────────────────────────────────────────────────────
     {"query": "What are the causes and treatment of migraine?",               "relevant_chapter": 178, "tier": 1},
@@ -63,6 +69,20 @@ GENERATION_QUERIES = [
                                                                               "relevant_chapter":   3, "tier": 3},
 ]
 
+def load_generation_queries(dataset_path: Path | None = None) -> list[dict]:
+    """Load generation evaluation queries from the versioned JSON dataset."""
+    target_path = dataset_path or (PROJECT_ROOT / "evaluation" / "datasets" / "generation_queries_v1.json")
+    if target_path.exists():
+        try:
+            with open(target_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                return data.get("queries", [])
+        except Exception as e:
+            print(f"⚠️ Failed to load dataset from {target_path}: {e}. Falling back to embedded list.")
+    return _FALLBACK_GENERATION_QUERIES
+
+GENERATION_QUERIES = load_generation_queries()
+
 # =====================================================
 # HELPERS
 # =====================================================
@@ -72,12 +92,23 @@ def extract_cited_numbers(text: str) -> list[int]:
     return sorted(set(int(n) for n in re.findall(r'\[(\d+)\]', text)))
 
 
-def chunk_to_dict(chunk: dict) -> dict:
-    """Serialize a retrieved chunk to a JSON-safe dict."""
+def chunk_to_dict(chunk: dict, source_index: int = 1) -> dict:
+    """Serialize a retrieved chunk preserving complete generation-visible evidence."""
+    content_raw = chunk.get("content", "").strip()
+    # In generate.py, format_context limits each chunk to CHUNK_CHAR_LIMIT = 2200 characters.
+    # Preserve the exact generation-visible evidence for lossless downstream evaluation.
+    content_visible = content_raw[:2200]
+    chapter_num = chunk.get("chapter_number")
+    chunk_id = chunk.get("chunk_id") or f"{chapter_num if chapter_num is not None else '?'}-{source_index:02d}"
     return {
-        "chapter_number": chunk.get("chapter_number"),
-        "chapter_title" : chunk.get("chapter_title", ""),
-        "content_snippet": chunk.get("content", "")[:500],   # keep JSON small
+        "source_index"   : source_index,
+        "chunk_id"       : chunk_id,
+        "chapter_number" : chapter_num,
+        "chapter_title"  : chunk.get("chapter_title", ""),
+        "section_title"  : chunk.get("section_title", None),
+        "breadcrumb"     : chunk.get("breadcrumb", None),
+        "content"        : content_visible,
+        "content_snippet": content_visible[:500],   # Kept for backward compatibility
     }
 
 # =====================================================
@@ -106,7 +137,7 @@ def main():
         # ── Generate (internally calls hybrid retrieval + Groq) ────────────────
         answer, retrieved_chunks = generate_answer(query, verbose=False)
 
-        retrieved_chapter_numbers = [c["chapter_number"] for c in retrieved_chunks[:5]]
+        retrieved_chapter_numbers = [c.get("chapter_number") for c in retrieved_chunks]
         cited_numbers             = extract_cited_numbers(answer)
 
         # Expected chapter cited = did model cite source that maps to expected chapter?
@@ -118,16 +149,45 @@ def main():
         ]
         expected_chapter_cited = expected_chapter in cited_actual_chapters
 
+        # Trace citation attribution: citation [1..N] -> chunk metadata & exact source text
+        citation_attribution = []
+        for cnum in cited_numbers:
+            if 0 < cnum <= len(retrieved_chunks):
+                ch = retrieved_chunks[cnum - 1]
+                ch_num = ch.get("chapter_number")
+                cid = ch.get("chunk_id") or f"{ch_num if ch_num is not None else '?'}-{cnum:02d}"
+                citation_attribution.append({
+                    "citation_number": cnum,
+                    "source_index"   : cnum,
+                    "chunk_id"       : cid,
+                    "chapter_number" : ch_num,
+                    "chapter_title"  : ch.get("chapter_title", ""),
+                    "source_text"    : ch.get("content", "").strip()[:2200],
+                    "valid_source"   : True,
+                })
+            else:
+                citation_attribution.append({
+                    "citation_number": cnum,
+                    "source_index"   : None,
+                    "chunk_id"       : None,
+                    "chapter_number" : None,
+                    "chapter_title"  : None,
+                    "source_text"    : None,
+                    "valid_source"   : False,
+                })
+
         record = {
             "id"                      : idx,
+            "question_id"             : idx,
             "query"                   : query,
             "tier"                    : tier,
             "expected_chapter"        : expected_chapter,
             "retrieved_chapters"      : retrieved_chapter_numbers,
-            "retrieved_chunks"        : [chunk_to_dict(c) for c in retrieved_chunks[:5]],
+            "retrieved_chunks"        : [chunk_to_dict(c, source_index=i) for i, c in enumerate(retrieved_chunks, 1)],
             "generated_answer"        : answer,
             "cited_source_numbers"    : cited_numbers,
             "cited_actual_chapters"   : cited_actual_chapters,
+            "citation_attribution"    : citation_attribution,
             "expected_chapter_cited"  : expected_chapter_cited,
             "timestamp"               : str(datetime.utcnow()),
             # ── Grading fields (filled by manual_grades.py / llm_judge.py) ────
@@ -146,7 +206,7 @@ def main():
         print(f"       Cited chapters: {cited_actual_chapters}  {cite}")
         print()
 
-    # ── Save ──────────────────────────────────────────────────────────────────
+    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(all_results, f, indent=2, ensure_ascii=False)
 

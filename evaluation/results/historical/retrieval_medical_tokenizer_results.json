@@ -1,0 +1,3194 @@
+{
+  "experiment_metadata": {
+    "title": "Comparative Medical BM25 Retrieval Benchmark",
+    "date": "2026-09-16",
+    "chunk_preset": "baseline (800/150)",
+    "num_chunks": 4239,
+    "num_queries": 50,
+    "dense_model": "BAAI/bge-large-en-v1.5",
+    "dense_weight_alpha": 0.7,
+    "rrf_k": 60,
+    "retrieval_k": 10
+  },
+  "tokenizer_descriptions": {
+    "baseline": "Standard alphanumeric regex tokenizer: re.sub(r'[^a-z0-9\\s]', ' ', text.lower()).split() with NLTK English stopwords.",
+    "medical": "Medical-aware BM25 tokenizer: Greek letter transliteration (α->alpha, β->beta, γ->gamma, δ->delta, κ->kappa), Linnaean genus-species abbreviation contraction (H. pylori -> h_pylori + pylori), decimal preservation (2.5 mg -> 2.5), slash-unit normalization (mg/dL -> mg/dl + mg + dl), and dual-emission hyphenated compounds (covid-19 -> covid-19 + covid, type-2 -> type-2 + type) with numeric noise suppression."
+  },
+  "configurations": [
+    "Dense baseline (800/150)",
+    "Sparse baseline tokenizer (800/150)",
+    "Sparse medical tokenizer (800/150)",
+    "Hybrid baseline tokenizer (800/150, α=0.7)",
+    "Hybrid medical tokenizer (800/150, α=0.7)"
+  ],
+  "integrity_checks": {
+    "baseline_chunk_count": 4239,
+    "baseline_embeddings_shape": [
+      4239,
+      1024
+    ],
+    "baseline_faiss_ntotal": 4239,
+    "baseline_ids_count": 4239,
+    "baseline_ids_aligned": true,
+    "eval_queries_count": 50
+  },
+  "overall_metrics": {
+    "Dense baseline (800/150)": {
+      "recall@5": 0.96,
+      "recall@10": 1.0,
+      "mrr": 0.895,
+      "ndcg@10": 0.929
+    },
+    "Sparse baseline tokenizer (800/150)": {
+      "recall@5": 0.86,
+      "recall@10": 0.92,
+      "mrr": 0.695,
+      "ndcg@10": 0.754
+    },
+    "Sparse medical tokenizer (800/150)": {
+      "recall@5": 0.86,
+      "recall@10": 0.92,
+      "mrr": 0.708,
+      "ndcg@10": 0.763
+    },
+    "Hybrid baseline tokenizer (800/150, α=0.7)": {
+      "recall@5": 0.94,
+      "recall@10": 1.0,
+      "mrr": 0.883,
+      "ndcg@10": 0.918
+    },
+    "Hybrid medical tokenizer (800/150, α=0.7)": {
+      "recall@5": 0.94,
+      "recall@10": 1.0,
+      "mrr": 0.883,
+      "ndcg@10": 0.918
+    }
+  },
+  "tier_metrics": {
+    "Dense baseline (800/150)": {
+      "tier_mrr": {
+        "1": 1.0,
+        "2": 0.887,
+        "3": 0.787
+      },
+      "tier_r5": {
+        "1": 1.0,
+        "2": 0.944,
+        "3": 0.933
+      },
+      "tier_r10": {
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0
+      },
+      "tier_ndcg": {
+        "1": 1.0,
+        "2": 0.918,
+        "3": 0.861
+      }
+    },
+    "Sparse baseline tokenizer (800/150)": {
+      "tier_mrr": {
+        "1": 0.698,
+        "2": 0.8,
+        "3": 0.567
+      },
+      "tier_r5": {
+        "1": 0.941,
+        "2": 0.889,
+        "3": 0.733
+      },
+      "tier_r10": {
+        "1": 1.0,
+        "2": 1.0,
+        "3": 0.733
+      },
+      "tier_ndcg": {
+        "1": 0.772,
+        "2": 0.85,
+        "3": 0.617
+      }
+    },
+    "Sparse medical tokenizer (800/150)": {
+      "tier_mrr": {
+        "1": 0.735,
+        "2": 0.799,
+        "3": 0.567
+      },
+      "tier_r5": {
+        "1": 0.941,
+        "2": 0.889,
+        "3": 0.733
+      },
+      "tier_r10": {
+        "1": 1.0,
+        "2": 1.0,
+        "3": 0.733
+      },
+      "tier_ndcg": {
+        "1": 0.801,
+        "2": 0.849,
+        "3": 0.617
+      }
+    },
+    "Hybrid baseline tokenizer (800/150, α=0.7)": {
+      "tier_mrr": {
+        "1": 0.971,
+        "2": 0.894,
+        "3": 0.769
+      },
+      "tier_r5": {
+        "1": 1.0,
+        "2": 0.944,
+        "3": 0.867
+      },
+      "tier_r10": {
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0
+      },
+      "tier_ndcg": {
+        "1": 0.978,
+        "2": 0.922,
+        "3": 0.846
+      }
+    },
+    "Hybrid medical tokenizer (800/150, α=0.7)": {
+      "tier_mrr": {
+        "1": 0.971,
+        "2": 0.894,
+        "3": 0.769
+      },
+      "tier_r5": {
+        "1": 1.0,
+        "2": 0.944,
+        "3": 0.867
+      },
+      "tier_r10": {
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0
+      },
+      "tier_ndcg": {
+        "1": 0.978,
+        "2": 0.922,
+        "3": 0.846
+      }
+    }
+  },
+  "query_movement_statistics": {
+    "sparse_baseline_to_medical": {
+      "comparison": "Sparse Baseline -> Sparse Medical",
+      "total_queries": 50,
+      "improved_count": 3,
+      "improved_pct": 6.0,
+      "regressed_count": 1,
+      "regressed_pct": 2.0,
+      "tied_count": 46,
+      "tied_pct": 92.0,
+      "improved_tier_breakdown": {
+        "tier_1": 3,
+        "tier_2": 0,
+        "tier_3": 0
+      },
+      "regressed_tier_breakdown": {
+        "tier_1": 0,
+        "tier_2": 1,
+        "tier_3": 0
+      },
+      "tied_tier_breakdown": {
+        "tier_1": 14,
+        "tier_2": 17,
+        "tier_3": 15
+      },
+      "improved_queries": [
+        {
+          "idx": 3,
+          "query": "What causes multiple sclerosis?",
+          "tier": 1,
+          "expected": 184,
+          "base_rank": 4,
+          "exp_rank": 3,
+          "base_mrr": 0.25,
+          "exp_mrr": 0.3333,
+          "diff_mrr": 0.0833,
+          "base_r5": 1,
+          "exp_r5": 1,
+          "base_ndcg": 0.4307,
+          "exp_ndcg": 0.5
+        },
+        {
+          "idx": 4,
+          "query": "How is asthma treated?",
+          "tier": 1,
+          "expected": 191,
+          "base_rank": 2,
+          "exp_rank": 1,
+          "base_mrr": 0.5,
+          "exp_mrr": 1.0,
+          "diff_mrr": 0.5,
+          "base_r5": 1,
+          "exp_r5": 1,
+          "base_ndcg": 0.6309,
+          "exp_ndcg": 1.0
+        },
+        {
+          "idx": 10,
+          "query": "What are the risk factors and treatment of hypertension?",
+          "tier": 1,
+          "expected": 208,
+          "base_rank": 5,
+          "exp_rank": 4,
+          "base_mrr": 0.2,
+          "exp_mrr": 0.25,
+          "diff_mrr": 0.05,
+          "base_r5": 1,
+          "exp_r5": 1,
+          "base_ndcg": 0.3869,
+          "exp_ndcg": 0.4307
+        }
+      ],
+      "regressed_queries": [
+        {
+          "idx": 30,
+          "query": "How is reduced cardiac ejection fraction diagnosed and compensated?",
+          "tier": 2,
+          "expected": 211,
+          "base_rank": 7,
+          "exp_rank": 8,
+          "base_mrr": 0.1429,
+          "exp_mrr": 0.125,
+          "diff_mrr": -0.0179,
+          "base_r5": 0,
+          "exp_r5": 0,
+          "base_ndcg": 0.3562,
+          "exp_ndcg": 0.3333
+        }
+      ]
+    },
+    "hybrid_baseline_to_medical": {
+      "comparison": "Hybrid Baseline -> Hybrid Medical",
+      "total_queries": 50,
+      "improved_count": 0,
+      "improved_pct": 0.0,
+      "regressed_count": 0,
+      "regressed_pct": 0.0,
+      "tied_count": 50,
+      "tied_pct": 100.0,
+      "improved_tier_breakdown": {
+        "tier_1": 0,
+        "tier_2": 0,
+        "tier_3": 0
+      },
+      "regressed_tier_breakdown": {
+        "tier_1": 0,
+        "tier_2": 0,
+        "tier_3": 0
+      },
+      "tied_tier_breakdown": {
+        "tier_1": 17,
+        "tier_2": 18,
+        "tier_3": 15
+      },
+      "improved_queries": [],
+      "regressed_queries": []
+    }
+  },
+  "systems": [
+    {
+      "name": "Dense baseline (800/150)",
+      "recall@5": 0.96,
+      "recall@10": 1.0,
+      "mrr": 0.895,
+      "ndcg@10": 0.929,
+      "tier_mrr": {
+        "1": 1.0,
+        "2": 0.887,
+        "3": 0.787
+      },
+      "tier_r5": {
+        "1": 1.0,
+        "2": 0.944,
+        "3": 0.933
+      },
+      "tier_r10": {
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0
+      },
+      "tier_ndcg": {
+        "1": 1.0,
+        "2": 0.918,
+        "3": 0.861
+      },
+      "queries": [
+        {
+          "idx": 0,
+          "query": "What are the causes and treatment of migraine?",
+          "expected": 178,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 1,
+          "query": "What are the symptoms of Parkinson disease?",
+          "expected": 183,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 2,
+          "query": "How is epilepsy diagnosed and managed?",
+          "expected": 176,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 3,
+          "query": "What causes multiple sclerosis?",
+          "expected": 184,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 4,
+          "query": "How is asthma treated?",
+          "expected": 191,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 5,
+          "query": "What are the causes and management of COPD?",
+          "expected": 192,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 6,
+          "query": "What causes iron deficiency anemia?",
+          "expected": 105,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 7,
+          "query": "How is diabetes mellitus managed?",
+          "expected": 99,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 8,
+          "query": "What are the causes and symptoms of hypothyroidism?",
+          "expected": 93,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 9,
+          "query": "What causes Cushing syndrome?",
+          "expected": 94,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 10,
+          "query": "What are the risk factors and treatment of hypertension?",
+          "expected": 208,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 11,
+          "query": "How is heart failure classified and managed?",
+          "expected": 211,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 12,
+          "query": "What causes peptic ulcer disease and how is it treated?",
+          "expected": 13,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 13,
+          "query": "What are the symptoms and management of Crohn disease?",
+          "expected": 19,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 14,
+          "query": "How is pneumonia diagnosed and treated?",
+          "expected": 196,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 15,
+          "query": "What is the treatment for sickle cell disease?",
+          "expected": 106,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 16,
+          "query": "How is leukemia classified and treated?",
+          "expected": 117,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 17,
+          "query": "A patient presents with recurring severe headaches with nausea and light sensitivity. What is the diagnosis and management?",
+          "expected": 178,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 18,
+          "query": "What neurological condition causes resting tremor, rigidity, and bradykinesia?",
+          "expected": 183,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 19,
+          "query": "How do you manage uncontrolled seizures in an adult patient?",
+          "expected": 176,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 20,
+          "query": "What is the pathophysiology behind demyelination in the CNS?",
+          "expected": 184,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 21,
+          "query": "Patient with focal neurological deficits of sudden onset — what is the workup?",
+          "expected": 173,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 22,
+          "query": "How is reversible airflow obstruction treated in adults?",
+          "expected": 191,
+          "tier": 2,
+          "r5": 0,
+          "r10": 1,
+          "mrr": 0.125,
+          "ndcg": 0.3869,
+          "rank": 8
+        },
+        {
+          "idx": 23,
+          "query": "What long-term complications arise from progressive airflow limitation in smokers?",
+          "expected": 192,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 24,
+          "query": "How is acid-fast bacilli infection of the lungs managed?",
+          "expected": 141,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.3333,
+          "ndcg": 0.5,
+          "rank": 3
+        },
+        {
+          "idx": 25,
+          "query": "A patient has low hemoglobin and low ferritin — what are the causes and treatment?",
+          "expected": 105,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 26,
+          "query": "How is hyperglycemia managed in a patient with insulin resistance?",
+          "expected": 99,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 27,
+          "query": "What clinical signs suggest an underactive thyroid and how is it corrected?",
+          "expected": 93,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 28,
+          "query": "How is cortisol excess from an adrenal or pituitary source differentiated and treated?",
+          "expected": 94,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 29,
+          "query": "What lifestyle and pharmacological interventions reduce blood pressure?",
+          "expected": 208,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 30,
+          "query": "How is reduced cardiac ejection fraction diagnosed and compensated?",
+          "expected": 211,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 31,
+          "query": "What are the first and second line therapies for H. pylori related gastric disease?",
+          "expected": 13,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 32,
+          "query": "How is transmural intestinal inflammation distinguished from ulcerative disease?",
+          "expected": 19,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 33,
+          "query": "How is community-acquired lower respiratory tract infection evaluated and treated?",
+          "expected": 196,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 34,
+          "query": "What causes vaso-occlusive crises in hemoglobin disorders?",
+          "expected": 106,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 35,
+          "query": "What mechanisms explain why certain medications worsen thyroid function?",
+          "expected": 93,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 36,
+          "query": "How does electrolyte imbalance affect cardiac rhythm?",
+          "expected": 97,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 37,
+          "query": "What are the neurological consequences of untreated vitamin B12 deficiency?",
+          "expected": 4,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 38,
+          "query": "How does portal hypertension develop in patients with liver fibrosis?",
+          "expected": 27,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 39,
+          "query": "What is the role of ACE inhibitors in slowing renal disease progression?",
+          "expected": 239,
+          "tier": 3,
+          "r5": 0,
+          "r10": 1,
+          "mrr": 0.1111,
+          "ndcg": 0.3869,
+          "rank": 9
+        },
+        {
+          "idx": 40,
+          "query": "How does obstructive sleep apnea relate to cardiovascular morbidity?",
+          "expected": 193,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 41,
+          "query": "What clotting cascade abnormalities lead to bleeding in liver disease?",
+          "expected": 111,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 42,
+          "query": "How is sepsis distinguished from systemic inflammatory response and how is it managed?",
+          "expected": 227,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 43,
+          "query": "What are the pulmonary manifestations of autoimmune connective tissue disorders?",
+          "expected": 33,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 44,
+          "query": "How does chronic kidney disease affect erythropoiesis and bone metabolism?",
+          "expected": 239,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 45,
+          "query": "What distinguishes angina pectoris from acute myocardial ischemia on presentation?",
+          "expected": 210,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 46,
+          "query": "How is adrenal insufficiency differentiated from primary and secondary causes?",
+          "expected": 94,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 47,
+          "query": "What are the metabolic consequences of long-term corticosteroid therapy?",
+          "expected": 94,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 48,
+          "query": "How is venous thromboembolism risk stratified and prophylactically managed?",
+          "expected": 110,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 49,
+          "query": "What is the mechanism behind refeeding syndrome in malnourished patients?",
+          "expected": 3,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.2,
+          "ndcg": 0.6309,
+          "rank": 5
+        }
+      ]
+    },
+    {
+      "name": "Sparse baseline tokenizer (800/150)",
+      "recall@5": 0.86,
+      "recall@10": 0.92,
+      "mrr": 0.695,
+      "ndcg@10": 0.754,
+      "tier_mrr": {
+        "1": 0.698,
+        "2": 0.8,
+        "3": 0.567
+      },
+      "tier_r5": {
+        "1": 0.941,
+        "2": 0.889,
+        "3": 0.733
+      },
+      "tier_r10": {
+        "1": 1.0,
+        "2": 1.0,
+        "3": 0.733
+      },
+      "tier_ndcg": {
+        "1": 0.772,
+        "2": 0.85,
+        "3": 0.617
+      },
+      "queries": [
+        {
+          "idx": 0,
+          "query": "What are the causes and treatment of migraine?",
+          "expected": 178,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 1,
+          "query": "What are the symptoms of Parkinson disease?",
+          "expected": 183,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 2,
+          "query": "How is epilepsy diagnosed and managed?",
+          "expected": 176,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 3,
+          "query": "What causes multiple sclerosis?",
+          "expected": 184,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.25,
+          "ndcg": 0.4307,
+          "rank": 4
+        },
+        {
+          "idx": 4,
+          "query": "How is asthma treated?",
+          "expected": 191,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 5,
+          "query": "What are the causes and management of COPD?",
+          "expected": 192,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 6,
+          "query": "What causes iron deficiency anemia?",
+          "expected": 105,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 7,
+          "query": "How is diabetes mellitus managed?",
+          "expected": 99,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.25,
+          "ndcg": 0.4307,
+          "rank": 4
+        },
+        {
+          "idx": 8,
+          "query": "What are the causes and symptoms of hypothyroidism?",
+          "expected": 93,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 9,
+          "query": "What causes Cushing syndrome?",
+          "expected": 94,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 10,
+          "query": "What are the risk factors and treatment of hypertension?",
+          "expected": 208,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.2,
+          "ndcg": 0.3869,
+          "rank": 5
+        },
+        {
+          "idx": 11,
+          "query": "How is heart failure classified and managed?",
+          "expected": 211,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 12,
+          "query": "What causes peptic ulcer disease and how is it treated?",
+          "expected": 13,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 13,
+          "query": "What are the symptoms and management of Crohn disease?",
+          "expected": 19,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 14,
+          "query": "How is pneumonia diagnosed and treated?",
+          "expected": 196,
+          "tier": 1,
+          "r5": 0,
+          "r10": 1,
+          "mrr": 0.1667,
+          "ndcg": 0.3562,
+          "rank": 6
+        },
+        {
+          "idx": 15,
+          "query": "What is the treatment for sickle cell disease?",
+          "expected": 106,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 16,
+          "query": "How is leukemia classified and treated?",
+          "expected": 117,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 17,
+          "query": "A patient presents with recurring severe headaches with nausea and light sensitivity. What is the diagnosis and management?",
+          "expected": 178,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 18,
+          "query": "What neurological condition causes resting tremor, rigidity, and bradykinesia?",
+          "expected": 183,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 19,
+          "query": "How do you manage uncontrolled seizures in an adult patient?",
+          "expected": 176,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 20,
+          "query": "What is the pathophysiology behind demyelination in the CNS?",
+          "expected": 184,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 21,
+          "query": "Patient with focal neurological deficits of sudden onset — what is the workup?",
+          "expected": 173,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 22,
+          "query": "How is reversible airflow obstruction treated in adults?",
+          "expected": 191,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.3333,
+          "ndcg": 0.5,
+          "rank": 3
+        },
+        {
+          "idx": 23,
+          "query": "What long-term complications arise from progressive airflow limitation in smokers?",
+          "expected": 192,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 24,
+          "query": "How is acid-fast bacilli infection of the lungs managed?",
+          "expected": 141,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 25,
+          "query": "A patient has low hemoglobin and low ferritin — what are the causes and treatment?",
+          "expected": 105,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.25,
+          "ndcg": 0.4307,
+          "rank": 4
+        },
+        {
+          "idx": 26,
+          "query": "How is hyperglycemia managed in a patient with insulin resistance?",
+          "expected": 99,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 27,
+          "query": "What clinical signs suggest an underactive thyroid and how is it corrected?",
+          "expected": 93,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 28,
+          "query": "How is cortisol excess from an adrenal or pituitary source differentiated and treated?",
+          "expected": 94,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 29,
+          "query": "What lifestyle and pharmacological interventions reduce blood pressure?",
+          "expected": 208,
+          "tier": 2,
+          "r5": 0,
+          "r10": 1,
+          "mrr": 0.1667,
+          "ndcg": 0.3869,
+          "rank": 6
+        },
+        {
+          "idx": 30,
+          "query": "How is reduced cardiac ejection fraction diagnosed and compensated?",
+          "expected": 211,
+          "tier": 2,
+          "r5": 0,
+          "r10": 1,
+          "mrr": 0.1429,
+          "ndcg": 0.3562,
+          "rank": 7
+        },
+        {
+          "idx": 31,
+          "query": "What are the first and second line therapies for H. pylori related gastric disease?",
+          "expected": 13,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 32,
+          "query": "How is transmural intestinal inflammation distinguished from ulcerative disease?",
+          "expected": 19,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 33,
+          "query": "How is community-acquired lower respiratory tract infection evaluated and treated?",
+          "expected": 196,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 34,
+          "query": "What causes vaso-occlusive crises in hemoglobin disorders?",
+          "expected": 106,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 35,
+          "query": "What mechanisms explain why certain medications worsen thyroid function?",
+          "expected": 93,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.3333,
+          "ndcg": 0.5,
+          "rank": 3
+        },
+        {
+          "idx": 36,
+          "query": "How does electrolyte imbalance affect cardiac rhythm?",
+          "expected": 97,
+          "tier": 3,
+          "r5": 0,
+          "r10": 0,
+          "mrr": 0.0,
+          "ndcg": 0.0,
+          "rank": null
+        },
+        {
+          "idx": 37,
+          "query": "What are the neurological consequences of untreated vitamin B12 deficiency?",
+          "expected": 4,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.3333,
+          "ndcg": 0.5,
+          "rank": 3
+        },
+        {
+          "idx": 38,
+          "query": "How does portal hypertension develop in patients with liver fibrosis?",
+          "expected": 27,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 39,
+          "query": "What is the role of ACE inhibitors in slowing renal disease progression?",
+          "expected": 239,
+          "tier": 3,
+          "r5": 0,
+          "r10": 0,
+          "mrr": 0.0,
+          "ndcg": 0.0,
+          "rank": null
+        },
+        {
+          "idx": 40,
+          "query": "How does obstructive sleep apnea relate to cardiovascular morbidity?",
+          "expected": 193,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.3333,
+          "ndcg": 0.6309,
+          "rank": 3
+        },
+        {
+          "idx": 41,
+          "query": "What clotting cascade abnormalities lead to bleeding in liver disease?",
+          "expected": 111,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 42,
+          "query": "How is sepsis distinguished from systemic inflammatory response and how is it managed?",
+          "expected": 227,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 43,
+          "query": "What are the pulmonary manifestations of autoimmune connective tissue disorders?",
+          "expected": 33,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 44,
+          "query": "How does chronic kidney disease affect erythropoiesis and bone metabolism?",
+          "expected": 239,
+          "tier": 3,
+          "r5": 0,
+          "r10": 0,
+          "mrr": 0.0,
+          "ndcg": 0.0,
+          "rank": null
+        },
+        {
+          "idx": 45,
+          "query": "What distinguishes angina pectoris from acute myocardial ischemia on presentation?",
+          "expected": 210,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 46,
+          "query": "How is adrenal insufficiency differentiated from primary and secondary causes?",
+          "expected": 94,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 47,
+          "query": "What are the metabolic consequences of long-term corticosteroid therapy?",
+          "expected": 94,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 48,
+          "query": "How is venous thromboembolism risk stratified and prophylactically managed?",
+          "expected": 110,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 49,
+          "query": "What is the mechanism behind refeeding syndrome in malnourished patients?",
+          "expected": 3,
+          "tier": 3,
+          "r5": 0,
+          "r10": 0,
+          "mrr": 0.0,
+          "ndcg": 0.0,
+          "rank": null
+        }
+      ]
+    },
+    {
+      "name": "Sparse medical tokenizer (800/150)",
+      "recall@5": 0.86,
+      "recall@10": 0.92,
+      "mrr": 0.708,
+      "ndcg@10": 0.763,
+      "tier_mrr": {
+        "1": 0.735,
+        "2": 0.799,
+        "3": 0.567
+      },
+      "tier_r5": {
+        "1": 0.941,
+        "2": 0.889,
+        "3": 0.733
+      },
+      "tier_r10": {
+        "1": 1.0,
+        "2": 1.0,
+        "3": 0.733
+      },
+      "tier_ndcg": {
+        "1": 0.801,
+        "2": 0.849,
+        "3": 0.617
+      },
+      "queries": [
+        {
+          "idx": 0,
+          "query": "What are the causes and treatment of migraine?",
+          "expected": 178,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 1,
+          "query": "What are the symptoms of Parkinson disease?",
+          "expected": 183,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 2,
+          "query": "How is epilepsy diagnosed and managed?",
+          "expected": 176,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 3,
+          "query": "What causes multiple sclerosis?",
+          "expected": 184,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.3333,
+          "ndcg": 0.5,
+          "rank": 3
+        },
+        {
+          "idx": 4,
+          "query": "How is asthma treated?",
+          "expected": 191,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 5,
+          "query": "What are the causes and management of COPD?",
+          "expected": 192,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 6,
+          "query": "What causes iron deficiency anemia?",
+          "expected": 105,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 7,
+          "query": "How is diabetes mellitus managed?",
+          "expected": 99,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.25,
+          "ndcg": 0.4307,
+          "rank": 4
+        },
+        {
+          "idx": 8,
+          "query": "What are the causes and symptoms of hypothyroidism?",
+          "expected": 93,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 9,
+          "query": "What causes Cushing syndrome?",
+          "expected": 94,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 10,
+          "query": "What are the risk factors and treatment of hypertension?",
+          "expected": 208,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.25,
+          "ndcg": 0.4307,
+          "rank": 4
+        },
+        {
+          "idx": 11,
+          "query": "How is heart failure classified and managed?",
+          "expected": 211,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 12,
+          "query": "What causes peptic ulcer disease and how is it treated?",
+          "expected": 13,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 13,
+          "query": "What are the symptoms and management of Crohn disease?",
+          "expected": 19,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 14,
+          "query": "How is pneumonia diagnosed and treated?",
+          "expected": 196,
+          "tier": 1,
+          "r5": 0,
+          "r10": 1,
+          "mrr": 0.1667,
+          "ndcg": 0.3562,
+          "rank": 6
+        },
+        {
+          "idx": 15,
+          "query": "What is the treatment for sickle cell disease?",
+          "expected": 106,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 16,
+          "query": "How is leukemia classified and treated?",
+          "expected": 117,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 17,
+          "query": "A patient presents with recurring severe headaches with nausea and light sensitivity. What is the diagnosis and management?",
+          "expected": 178,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 18,
+          "query": "What neurological condition causes resting tremor, rigidity, and bradykinesia?",
+          "expected": 183,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 19,
+          "query": "How do you manage uncontrolled seizures in an adult patient?",
+          "expected": 176,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 20,
+          "query": "What is the pathophysiology behind demyelination in the CNS?",
+          "expected": 184,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 21,
+          "query": "Patient with focal neurological deficits of sudden onset — what is the workup?",
+          "expected": 173,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 22,
+          "query": "How is reversible airflow obstruction treated in adults?",
+          "expected": 191,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.3333,
+          "ndcg": 0.5,
+          "rank": 3
+        },
+        {
+          "idx": 23,
+          "query": "What long-term complications arise from progressive airflow limitation in smokers?",
+          "expected": 192,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 24,
+          "query": "How is acid-fast bacilli infection of the lungs managed?",
+          "expected": 141,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 25,
+          "query": "A patient has low hemoglobin and low ferritin — what are the causes and treatment?",
+          "expected": 105,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.25,
+          "ndcg": 0.4307,
+          "rank": 4
+        },
+        {
+          "idx": 26,
+          "query": "How is hyperglycemia managed in a patient with insulin resistance?",
+          "expected": 99,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 27,
+          "query": "What clinical signs suggest an underactive thyroid and how is it corrected?",
+          "expected": 93,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 28,
+          "query": "How is cortisol excess from an adrenal or pituitary source differentiated and treated?",
+          "expected": 94,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 29,
+          "query": "What lifestyle and pharmacological interventions reduce blood pressure?",
+          "expected": 208,
+          "tier": 2,
+          "r5": 0,
+          "r10": 1,
+          "mrr": 0.1667,
+          "ndcg": 0.3869,
+          "rank": 6
+        },
+        {
+          "idx": 30,
+          "query": "How is reduced cardiac ejection fraction diagnosed and compensated?",
+          "expected": 211,
+          "tier": 2,
+          "r5": 0,
+          "r10": 1,
+          "mrr": 0.125,
+          "ndcg": 0.3333,
+          "rank": 8
+        },
+        {
+          "idx": 31,
+          "query": "What are the first and second line therapies for H. pylori related gastric disease?",
+          "expected": 13,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 32,
+          "query": "How is transmural intestinal inflammation distinguished from ulcerative disease?",
+          "expected": 19,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 33,
+          "query": "How is community-acquired lower respiratory tract infection evaluated and treated?",
+          "expected": 196,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 34,
+          "query": "What causes vaso-occlusive crises in hemoglobin disorders?",
+          "expected": 106,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 35,
+          "query": "What mechanisms explain why certain medications worsen thyroid function?",
+          "expected": 93,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.3333,
+          "ndcg": 0.5,
+          "rank": 3
+        },
+        {
+          "idx": 36,
+          "query": "How does electrolyte imbalance affect cardiac rhythm?",
+          "expected": 97,
+          "tier": 3,
+          "r5": 0,
+          "r10": 0,
+          "mrr": 0.0,
+          "ndcg": 0.0,
+          "rank": null
+        },
+        {
+          "idx": 37,
+          "query": "What are the neurological consequences of untreated vitamin B12 deficiency?",
+          "expected": 4,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.3333,
+          "ndcg": 0.5,
+          "rank": 3
+        },
+        {
+          "idx": 38,
+          "query": "How does portal hypertension develop in patients with liver fibrosis?",
+          "expected": 27,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 39,
+          "query": "What is the role of ACE inhibitors in slowing renal disease progression?",
+          "expected": 239,
+          "tier": 3,
+          "r5": 0,
+          "r10": 0,
+          "mrr": 0.0,
+          "ndcg": 0.0,
+          "rank": null
+        },
+        {
+          "idx": 40,
+          "query": "How does obstructive sleep apnea relate to cardiovascular morbidity?",
+          "expected": 193,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.3333,
+          "ndcg": 0.6309,
+          "rank": 3
+        },
+        {
+          "idx": 41,
+          "query": "What clotting cascade abnormalities lead to bleeding in liver disease?",
+          "expected": 111,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 42,
+          "query": "How is sepsis distinguished from systemic inflammatory response and how is it managed?",
+          "expected": 227,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 43,
+          "query": "What are the pulmonary manifestations of autoimmune connective tissue disorders?",
+          "expected": 33,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 44,
+          "query": "How does chronic kidney disease affect erythropoiesis and bone metabolism?",
+          "expected": 239,
+          "tier": 3,
+          "r5": 0,
+          "r10": 0,
+          "mrr": 0.0,
+          "ndcg": 0.0,
+          "rank": null
+        },
+        {
+          "idx": 45,
+          "query": "What distinguishes angina pectoris from acute myocardial ischemia on presentation?",
+          "expected": 210,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 46,
+          "query": "How is adrenal insufficiency differentiated from primary and secondary causes?",
+          "expected": 94,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 47,
+          "query": "What are the metabolic consequences of long-term corticosteroid therapy?",
+          "expected": 94,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 48,
+          "query": "How is venous thromboembolism risk stratified and prophylactically managed?",
+          "expected": 110,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 49,
+          "query": "What is the mechanism behind refeeding syndrome in malnourished patients?",
+          "expected": 3,
+          "tier": 3,
+          "r5": 0,
+          "r10": 0,
+          "mrr": 0.0,
+          "ndcg": 0.0,
+          "rank": null
+        }
+      ]
+    },
+    {
+      "name": "Hybrid baseline tokenizer (800/150, α=0.7)",
+      "recall@5": 0.94,
+      "recall@10": 1.0,
+      "mrr": 0.883,
+      "ndcg@10": 0.918,
+      "tier_mrr": {
+        "1": 0.971,
+        "2": 0.894,
+        "3": 0.769
+      },
+      "tier_r5": {
+        "1": 1.0,
+        "2": 0.944,
+        "3": 0.867
+      },
+      "tier_r10": {
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0
+      },
+      "tier_ndcg": {
+        "1": 0.978,
+        "2": 0.922,
+        "3": 0.846
+      },
+      "queries": [
+        {
+          "idx": 0,
+          "query": "What are the causes and treatment of migraine?",
+          "expected": 178,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 1,
+          "query": "What are the symptoms of Parkinson disease?",
+          "expected": 183,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 2,
+          "query": "How is epilepsy diagnosed and managed?",
+          "expected": 176,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 3,
+          "query": "What causes multiple sclerosis?",
+          "expected": 184,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 4,
+          "query": "How is asthma treated?",
+          "expected": 191,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 5,
+          "query": "What are the causes and management of COPD?",
+          "expected": 192,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 6,
+          "query": "What causes iron deficiency anemia?",
+          "expected": 105,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 7,
+          "query": "How is diabetes mellitus managed?",
+          "expected": 99,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 8,
+          "query": "What are the causes and symptoms of hypothyroidism?",
+          "expected": 93,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 9,
+          "query": "What causes Cushing syndrome?",
+          "expected": 94,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 10,
+          "query": "What are the risk factors and treatment of hypertension?",
+          "expected": 208,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 11,
+          "query": "How is heart failure classified and managed?",
+          "expected": 211,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 12,
+          "query": "What causes peptic ulcer disease and how is it treated?",
+          "expected": 13,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 13,
+          "query": "What are the symptoms and management of Crohn disease?",
+          "expected": 19,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 14,
+          "query": "How is pneumonia diagnosed and treated?",
+          "expected": 196,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 15,
+          "query": "What is the treatment for sickle cell disease?",
+          "expected": 106,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 16,
+          "query": "How is leukemia classified and treated?",
+          "expected": 117,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 17,
+          "query": "A patient presents with recurring severe headaches with nausea and light sensitivity. What is the diagnosis and management?",
+          "expected": 178,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 18,
+          "query": "What neurological condition causes resting tremor, rigidity, and bradykinesia?",
+          "expected": 183,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 19,
+          "query": "How do you manage uncontrolled seizures in an adult patient?",
+          "expected": 176,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 20,
+          "query": "What is the pathophysiology behind demyelination in the CNS?",
+          "expected": 184,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 21,
+          "query": "Patient with focal neurological deficits of sudden onset — what is the workup?",
+          "expected": 173,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 22,
+          "query": "How is reversible airflow obstruction treated in adults?",
+          "expected": 191,
+          "tier": 2,
+          "r5": 0,
+          "r10": 1,
+          "mrr": 0.1,
+          "ndcg": 0.3333,
+          "rank": 10
+        },
+        {
+          "idx": 23,
+          "query": "What long-term complications arise from progressive airflow limitation in smokers?",
+          "expected": 192,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 24,
+          "query": "How is acid-fast bacilli infection of the lungs managed?",
+          "expected": 141,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 25,
+          "query": "A patient has low hemoglobin and low ferritin — what are the causes and treatment?",
+          "expected": 105,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 26,
+          "query": "How is hyperglycemia managed in a patient with insulin resistance?",
+          "expected": 99,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 27,
+          "query": "What clinical signs suggest an underactive thyroid and how is it corrected?",
+          "expected": 93,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 28,
+          "query": "How is cortisol excess from an adrenal or pituitary source differentiated and treated?",
+          "expected": 94,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 29,
+          "query": "What lifestyle and pharmacological interventions reduce blood pressure?",
+          "expected": 208,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 30,
+          "query": "How is reduced cardiac ejection fraction diagnosed and compensated?",
+          "expected": 211,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 31,
+          "query": "What are the first and second line therapies for H. pylori related gastric disease?",
+          "expected": 13,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 32,
+          "query": "How is transmural intestinal inflammation distinguished from ulcerative disease?",
+          "expected": 19,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 33,
+          "query": "How is community-acquired lower respiratory tract infection evaluated and treated?",
+          "expected": 196,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 34,
+          "query": "What causes vaso-occlusive crises in hemoglobin disorders?",
+          "expected": 106,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 35,
+          "query": "What mechanisms explain why certain medications worsen thyroid function?",
+          "expected": 93,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 36,
+          "query": "How does electrolyte imbalance affect cardiac rhythm?",
+          "expected": 97,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.25,
+          "ndcg": 0.5,
+          "rank": 4
+        },
+        {
+          "idx": 37,
+          "query": "What are the neurological consequences of untreated vitamin B12 deficiency?",
+          "expected": 4,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 38,
+          "query": "How does portal hypertension develop in patients with liver fibrosis?",
+          "expected": 27,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 39,
+          "query": "What is the role of ACE inhibitors in slowing renal disease progression?",
+          "expected": 239,
+          "tier": 3,
+          "r5": 0,
+          "r10": 1,
+          "mrr": 0.1429,
+          "ndcg": 0.4307,
+          "rank": 7
+        },
+        {
+          "idx": 40,
+          "query": "How does obstructive sleep apnea relate to cardiovascular morbidity?",
+          "expected": 193,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 41,
+          "query": "What clotting cascade abnormalities lead to bleeding in liver disease?",
+          "expected": 111,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 42,
+          "query": "How is sepsis distinguished from systemic inflammatory response and how is it managed?",
+          "expected": 227,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 43,
+          "query": "What are the pulmonary manifestations of autoimmune connective tissue disorders?",
+          "expected": 33,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 44,
+          "query": "How does chronic kidney disease affect erythropoiesis and bone metabolism?",
+          "expected": 239,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 45,
+          "query": "What distinguishes angina pectoris from acute myocardial ischemia on presentation?",
+          "expected": 210,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 46,
+          "query": "How is adrenal insufficiency differentiated from primary and secondary causes?",
+          "expected": 94,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 47,
+          "query": "What are the metabolic consequences of long-term corticosteroid therapy?",
+          "expected": 94,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 48,
+          "query": "How is venous thromboembolism risk stratified and prophylactically managed?",
+          "expected": 110,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 49,
+          "query": "What is the mechanism behind refeeding syndrome in malnourished patients?",
+          "expected": 3,
+          "tier": 3,
+          "r5": 0,
+          "r10": 1,
+          "mrr": 0.1429,
+          "ndcg": 0.5,
+          "rank": 7
+        }
+      ]
+    },
+    {
+      "name": "Hybrid medical tokenizer (800/150, α=0.7)",
+      "recall@5": 0.94,
+      "recall@10": 1.0,
+      "mrr": 0.883,
+      "ndcg@10": 0.918,
+      "tier_mrr": {
+        "1": 0.971,
+        "2": 0.894,
+        "3": 0.769
+      },
+      "tier_r5": {
+        "1": 1.0,
+        "2": 0.944,
+        "3": 0.867
+      },
+      "tier_r10": {
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0
+      },
+      "tier_ndcg": {
+        "1": 0.978,
+        "2": 0.922,
+        "3": 0.846
+      },
+      "queries": [
+        {
+          "idx": 0,
+          "query": "What are the causes and treatment of migraine?",
+          "expected": 178,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 1,
+          "query": "What are the symptoms of Parkinson disease?",
+          "expected": 183,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 2,
+          "query": "How is epilepsy diagnosed and managed?",
+          "expected": 176,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 3,
+          "query": "What causes multiple sclerosis?",
+          "expected": 184,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 4,
+          "query": "How is asthma treated?",
+          "expected": 191,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 5,
+          "query": "What are the causes and management of COPD?",
+          "expected": 192,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 6,
+          "query": "What causes iron deficiency anemia?",
+          "expected": 105,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 7,
+          "query": "How is diabetes mellitus managed?",
+          "expected": 99,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 8,
+          "query": "What are the causes and symptoms of hypothyroidism?",
+          "expected": 93,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 9,
+          "query": "What causes Cushing syndrome?",
+          "expected": 94,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 10,
+          "query": "What are the risk factors and treatment of hypertension?",
+          "expected": 208,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 11,
+          "query": "How is heart failure classified and managed?",
+          "expected": 211,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 12,
+          "query": "What causes peptic ulcer disease and how is it treated?",
+          "expected": 13,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 13,
+          "query": "What are the symptoms and management of Crohn disease?",
+          "expected": 19,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 14,
+          "query": "How is pneumonia diagnosed and treated?",
+          "expected": 196,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 15,
+          "query": "What is the treatment for sickle cell disease?",
+          "expected": 106,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 16,
+          "query": "How is leukemia classified and treated?",
+          "expected": 117,
+          "tier": 1,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 17,
+          "query": "A patient presents with recurring severe headaches with nausea and light sensitivity. What is the diagnosis and management?",
+          "expected": 178,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 18,
+          "query": "What neurological condition causes resting tremor, rigidity, and bradykinesia?",
+          "expected": 183,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 19,
+          "query": "How do you manage uncontrolled seizures in an adult patient?",
+          "expected": 176,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 20,
+          "query": "What is the pathophysiology behind demyelination in the CNS?",
+          "expected": 184,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 21,
+          "query": "Patient with focal neurological deficits of sudden onset — what is the workup?",
+          "expected": 173,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 22,
+          "query": "How is reversible airflow obstruction treated in adults?",
+          "expected": 191,
+          "tier": 2,
+          "r5": 0,
+          "r10": 1,
+          "mrr": 0.1,
+          "ndcg": 0.3333,
+          "rank": 10
+        },
+        {
+          "idx": 23,
+          "query": "What long-term complications arise from progressive airflow limitation in smokers?",
+          "expected": 192,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 24,
+          "query": "How is acid-fast bacilli infection of the lungs managed?",
+          "expected": 141,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 25,
+          "query": "A patient has low hemoglobin and low ferritin — what are the causes and treatment?",
+          "expected": 105,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 26,
+          "query": "How is hyperglycemia managed in a patient with insulin resistance?",
+          "expected": 99,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 27,
+          "query": "What clinical signs suggest an underactive thyroid and how is it corrected?",
+          "expected": 93,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 28,
+          "query": "How is cortisol excess from an adrenal or pituitary source differentiated and treated?",
+          "expected": 94,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 29,
+          "query": "What lifestyle and pharmacological interventions reduce blood pressure?",
+          "expected": 208,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 30,
+          "query": "How is reduced cardiac ejection fraction diagnosed and compensated?",
+          "expected": 211,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 31,
+          "query": "What are the first and second line therapies for H. pylori related gastric disease?",
+          "expected": 13,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 32,
+          "query": "How is transmural intestinal inflammation distinguished from ulcerative disease?",
+          "expected": 19,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 33,
+          "query": "How is community-acquired lower respiratory tract infection evaluated and treated?",
+          "expected": 196,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 34,
+          "query": "What causes vaso-occlusive crises in hemoglobin disorders?",
+          "expected": 106,
+          "tier": 2,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 35,
+          "query": "What mechanisms explain why certain medications worsen thyroid function?",
+          "expected": 93,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 36,
+          "query": "How does electrolyte imbalance affect cardiac rhythm?",
+          "expected": 97,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.25,
+          "ndcg": 0.5,
+          "rank": 4
+        },
+        {
+          "idx": 37,
+          "query": "What are the neurological consequences of untreated vitamin B12 deficiency?",
+          "expected": 4,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 38,
+          "query": "How does portal hypertension develop in patients with liver fibrosis?",
+          "expected": 27,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 39,
+          "query": "What is the role of ACE inhibitors in slowing renal disease progression?",
+          "expected": 239,
+          "tier": 3,
+          "r5": 0,
+          "r10": 1,
+          "mrr": 0.1429,
+          "ndcg": 0.4307,
+          "rank": 7
+        },
+        {
+          "idx": 40,
+          "query": "How does obstructive sleep apnea relate to cardiovascular morbidity?",
+          "expected": 193,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 41,
+          "query": "What clotting cascade abnormalities lead to bleeding in liver disease?",
+          "expected": 111,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 42,
+          "query": "How is sepsis distinguished from systemic inflammatory response and how is it managed?",
+          "expected": 227,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 43,
+          "query": "What are the pulmonary manifestations of autoimmune connective tissue disorders?",
+          "expected": 33,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 44,
+          "query": "How does chronic kidney disease affect erythropoiesis and bone metabolism?",
+          "expected": 239,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 0.5,
+          "ndcg": 0.6309,
+          "rank": 2
+        },
+        {
+          "idx": 45,
+          "query": "What distinguishes angina pectoris from acute myocardial ischemia on presentation?",
+          "expected": 210,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 46,
+          "query": "How is adrenal insufficiency differentiated from primary and secondary causes?",
+          "expected": 94,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 47,
+          "query": "What are the metabolic consequences of long-term corticosteroid therapy?",
+          "expected": 94,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 48,
+          "query": "How is venous thromboembolism risk stratified and prophylactically managed?",
+          "expected": 110,
+          "tier": 3,
+          "r5": 1,
+          "r10": 1,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "rank": 1
+        },
+        {
+          "idx": 49,
+          "query": "What is the mechanism behind refeeding syndrome in malnourished patients?",
+          "expected": 3,
+          "tier": 3,
+          "r5": 0,
+          "r10": 1,
+          "mrr": 0.1429,
+          "ndcg": 0.5,
+          "rank": 7
+        }
+      ]
+    }
+  ]
+}

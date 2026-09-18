@@ -1,5 +1,7 @@
+import json
 from pathlib import Path
 import sys
+from typing import Any, Dict, List, Optional, Tuple, Union
 import numpy as np
 
 # --- Fix import path ---
@@ -28,7 +30,7 @@ DEBUG       = True   # Set False for clean summary-only output
 # Chapter labels verified against actual book index.
 # =====================================================
 
-EVAL_QUERIES = [
+_FALLBACK_EVAL_QUERIES = [
 
     # ── TIER 1: Direct Queries ──────────────────────────────────────────
     {"query": "What are the causes and treatment of migraine?",                    "relevant_chapter": 178, "tier": 1},
@@ -113,154 +115,455 @@ EVAL_QUERIES = [
                                                                                    "relevant_chapter":   3, "tier": 3},
 ]
 
+DEFAULT_DATASET_V2 = PROJECT_ROOT / "evaluation" / "datasets" / "retrieval_queries_v2.json"
+DEFAULT_DATASET_V1 = PROJECT_ROOT / "evaluation" / "datasets" / "retrieval_queries_v1.json"
+DEFAULT_DATASET    = DEFAULT_DATASET_V2
+
+
+def load_retrieval_dataset(dataset_path: Optional[Path] = None) -> Dict[str, Any]:
+    """Load full retrieval evaluation dataset dictionary including metadata."""
+    target_path = dataset_path or DEFAULT_DATASET
+    if not target_path.exists() and target_path == DEFAULT_DATASET_V2:
+        target_path = DEFAULT_DATASET_V1
+    if target_path.exists():
+        try:
+            with open(target_path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception as e:
+            print(f"⚠️ Failed to load dataset from {target_path}: {e}. Falling back to embedded list.")
+    return {
+        "dataset_name": "MediRAG Fallback Queries",
+        "dataset_version": "1.0-fallback",
+        "queries": _FALLBACK_EVAL_QUERIES,
+    }
+
+
+def load_retrieval_queries(dataset_path: Optional[Path] = None) -> List[Dict[str, Any]]:
+    """Load retrieval evaluation queries list from versioned JSON dataset."""
+    data = load_retrieval_dataset(dataset_path)
+    return data.get("queries", [])
+
+
+EVAL_QUERIES = load_retrieval_queries()
+
+
 # =====================================================
-# METRICS
+# METRICS — MODERN PASSAGE-LEVEL & LEGACY CHAPTER-LEVEL
 # =====================================================
 
-def recall_at_k(results: list, relevant_chapter: int, k: int) -> int:
-    top_k_chapters = {r["chapter_number"] for r in results[:k]}
-    return int(relevant_chapter in top_k_chapters)
+def chapter_recall_at_k(results: list, expected_chapters: Any, k: int) -> int:
+    """Legacy Chapter Recall@K: 1 if any expected chapter appears in top-K."""
+    if isinstance(expected_chapters, int):
+        expected_set = {expected_chapters}
+    elif isinstance(expected_chapters, (list, set, tuple)):
+        expected_set = {int(c) for c in expected_chapters if c is not None}
+    else:
+        expected_set = set()
+    top_k_chapters = {r.get("chapter_number") for r in results[:k] if "chapter_number" in r}
+    return int(bool(top_k_chapters & expected_set))
 
 
-def mrr_score(results: list, relevant_chapter: int) -> float:
+def chapter_mrr(results: list, expected_chapters: Any) -> float:
+    """Legacy Chapter MRR: reciprocal rank of first expected chapter."""
+    if isinstance(expected_chapters, int):
+        expected_set = {expected_chapters}
+    elif isinstance(expected_chapters, (list, set, tuple)):
+        expected_set = {int(c) for c in expected_chapters if c is not None}
+    else:
+        expected_set = set()
     seen = set()
-    for rank, r in enumerate(results, 1):
-        chap = r["chapter_number"]
+    for rank, r in enumerate(results, start=1):
+        chap = r.get("chapter_number")
         if chap in seen:
             continue
         seen.add(chap)
-        if chap == relevant_chapter:
+        if chap in expected_set:
             return 1.0 / rank
     return 0.0
 
 
-def ndcg_at_k(results: list, relevant_chapter: int, k: int) -> float:
-    """Binary NDCG@K — rewards finding the relevant chapter higher in ranking."""
+def chapter_ndcg_at_k(results: list, expected_chapters: Any, k: int) -> float:
+    """Legacy Chapter NDCG@K: binary discounted cumulative gain for chapter match."""
+    if isinstance(expected_chapters, int):
+        expected_set = {expected_chapters}
+    elif isinstance(expected_chapters, (list, set, tuple)):
+        expected_set = {int(c) for c in expected_chapters if c is not None}
+    else:
+        expected_set = set()
     seen = set()
-    pos  = 0
+    pos = 0
     for r in results[:k]:
-        chap = r["chapter_number"]
+        chap = r.get("chapter_number")
         if chap in seen:
             continue
         seen.add(chap)
         pos += 1
-        if chap == relevant_chapter:
-            return (1.0 / np.log2(pos + 1))   # IDCG = 1.0 (rank 1 = perfect)
+        if chap in expected_set:
+            return float(1.0 / np.log2(pos + 1))
     return 0.0
+
+
+def graded_chunk_ndcg_at_k(
+    results: list,
+    relevant_chunks: List[Dict[str, Any]],
+    k: int,
+) -> float:
+    """
+    Graded Chunk NDCG@K using relevance scores {0, 1, 2}.
+    Gain formulation: 2^rel - 1 (exponential gain).
+    Discount: log2(rank + 1) where rank is 1-indexed.
+    Normalized by IDCG@K of ideal descending ranking of positive ground-truth chunks.
+    """
+    if not relevant_chunks:
+        return 0.0
+
+    rel_map = {c["chunk_id"]: int(c.get("relevance", 0)) for c in relevant_chunks if "chunk_id" in c}
+
+    dcg = 0.0
+    for i, r in enumerate(results[:k], start=1):
+        chunk_id = r.get("chunk_id")
+        rel = rel_map.get(chunk_id, 0)
+        if rel > 0:
+            dcg += (2.0**rel - 1.0) / np.log2(i + 1)
+
+    ideal_rels = sorted(
+        [int(c.get("relevance", 0)) for c in relevant_chunks if int(c.get("relevance", 0)) > 0],
+        reverse=True,
+    )
+    if not ideal_rels:
+        return 0.0
+
+    idcg = 0.0
+    for i, rel in enumerate(ideal_rels[:k], start=1):
+        idcg += (2.0**rel - 1.0) / np.log2(i + 1)
+
+    if idcg <= 0.0:
+        return 0.0
+
+    return float(dcg / idcg)
+
+
+def grade2_chunk_mrr_and_rank(
+    results: list,
+    relevant_chunks: List[Dict[str, Any]],
+) -> Tuple[float, Optional[int]]:
+    """
+    Calculate MRR using the first Grade-2 (directly relevant) retrieved chunk.
+    Returns (mrr, first_rank). If no Grade-2 chunk is retrieved, returns (0.0, None).
+    """
+    if not relevant_chunks:
+        return 0.0, None
+
+    grade2_chunk_ids = {
+        c["chunk_id"] for c in relevant_chunks
+        if int(c.get("relevance", 0)) == 2 and "chunk_id" in c
+    }
+    if not grade2_chunk_ids:
+        return 0.0, None
+
+    for rank, r in enumerate(results, start=1):
+        if r.get("chunk_id") in grade2_chunk_ids:
+            return float(1.0 / rank), rank
+
+    return 0.0, None
+
+
+def grade2_chunk_mrr(results: list, relevant_chunks: List[Dict[str, Any]]) -> float:
+    """MRR score using the first Grade-2 chunk."""
+    mrr, _ = grade2_chunk_mrr_and_rank(results, relevant_chunks)
+    return mrr
+
+
+def evidence_recall_at_k(
+    results: list,
+    evidence_spans: List[Dict[str, Any]],
+    relevant_chunks: Optional[List[Dict[str, Any]]] = None,
+    k: int = 10,
+) -> float:
+    """
+    Evidence Recall@K: proportion of annotated evidence-bearing chunks retrieved in top-K.
+    """
+    ev_chunk_ids = {s["chunk_id"] for s in evidence_spans if s.get("chunk_id")}
+    if not ev_chunk_ids and relevant_chunks:
+        ev_chunk_ids = {
+            c["chunk_id"] for c in relevant_chunks
+            if int(c.get("relevance", 0)) == 2 and c.get("chunk_id")
+        }
+    if not ev_chunk_ids:
+        return 0.0
+
+    top_k_chunks = {r.get("chunk_id") for r in results[:k] if r.get("chunk_id")}
+    hits = len(top_k_chunks & ev_chunk_ids)
+    return float(hits / len(ev_chunk_ids))
+
+
+def evidence_hit_at_k(
+    results: list,
+    evidence_spans: List[Dict[str, Any]],
+    relevant_chunks: Optional[List[Dict[str, Any]]] = None,
+    k: int = 10,
+) -> int:
+    """
+    Evidence Hit@K: 1 if at least one annotated evidence-bearing chunk is in top-K, else 0.
+    """
+    ev_chunk_ids = {s["chunk_id"] for s in evidence_spans if s.get("chunk_id")}
+    if not ev_chunk_ids and relevant_chunks:
+        ev_chunk_ids = {
+            c["chunk_id"] for c in relevant_chunks
+            if int(c.get("relevance", 0)) == 2 and c.get("chunk_id")
+        }
+    if not ev_chunk_ids:
+        return 0
+
+    top_k_chunks = {r.get("chunk_id") for r in results[:k] if r.get("chunk_id")}
+    return int(bool(top_k_chunks & ev_chunk_ids))
+
+
+# Backward-compatibility aliases for existing callers
+recall_at_k = chapter_recall_at_k
+mrr_score   = chapter_mrr
+ndcg_at_k   = chapter_ndcg_at_k
 
 
 # =====================================================
 # EVALUATION LOOP
 # =====================================================
 
-def evaluate_system(search_fn, name: str, verbose: bool = DEBUG):
+def evaluate_system(
+    search_fn,
+    name: str,
+    queries: Optional[List[Dict[str, Any]]] = None,
+    verbose: bool = DEBUG,
+    k: int = RETRIEVAL_K,
+) -> Dict[str, Any]:
+    eval_set = queries if queries is not None else EVAL_QUERIES
 
-    recalls_5   = []
-    recalls_10  = []
-    mrr_scores  = []
-    ndcg_scores = []
+    # Metrics collectors
+    ndcg5_list = []
+    ndcg10_list = []
+    g2_mrr_list = []
+    ev_r5_list = []
+    ev_r10_list = []
+    ev_hit5_list = []
+    ev_hit10_list = []
+
+    ch_r5_list = []
+    ch_r10_list = []
+    ch_mrr_list = []
+    ch_ndcg10_list = []
+
     per_query_details = []
 
-    tier_mrr = {1: [], 2: [], 3: []}
-    tier_r5  = {1: [], 2: [], 3: []}
-    tier_r10 = {1: [], 2: [], 3: []}
-    tier_ndcg = {1: [], 2: [], 3: []}
+    # Tier collectors (1: Direct, 2: Indirect, 3: Hard)
+    tiers = [1, 2, 3]
+    tier_records = {t: [] for t in tiers}
 
     if verbose:
-        print(f"\n{'─' * 65}")
-        print(f"  DEBUG: {name}")
-        print(f"{'─' * 65}")
+        print(f"\n{'─' * 70}")
+        print(f"  EVALUATING: {name} (n={len(eval_set)} queries)")
+        print(f"{'─' * 70}")
 
-    for idx, item in enumerate(EVAL_QUERIES):
-        query    = item["query"]
-        expected = item["relevant_chapter"]
-        tier     = item["tier"]
+    for idx, item in enumerate(eval_set):
+        qid = item.get("id", idx + 1)
+        query = item["query"]
+        tier = item.get("tier", 1)
 
+        # Ground truth structures
+        expected_chapters = item.get("expected_chapters")
+        if not expected_chapters:
+            if "primary_chapter" in item:
+                expected_chapters = [item["primary_chapter"]]
+            elif "relevant_chapter" in item:
+                expected_chapters = [item["relevant_chapter"]]
+            else:
+                expected_chapters = []
+
+        relevant_chunks = item.get("relevant_chunks", [])
+        evidence_spans = item.get("evidence_spans", [])
+
+        # Execute search
         results = search_fn(query, return_results=True)
 
-        r5   = recall_at_k(results, expected, 5)
-        r10  = recall_at_k(results, expected, 10)
-        mrr  = mrr_score(results, expected)
-        ndcg = ndcg_at_k(results, expected, 10)
+        # Legacy chapter metrics
+        ch_r5 = chapter_recall_at_k(results, expected_chapters, 5)
+        ch_r10 = chapter_recall_at_k(results, expected_chapters, 10)
+        ch_mrr = chapter_mrr(results, expected_chapters)
+        ch_ndcg10 = chapter_ndcg_at_k(results, expected_chapters, 10)
 
-        # Determine rank of expected chapter
-        expected_rank = None
-        for rank, r in enumerate(results, 1):
-            if r["chapter_number"] == expected:
-                expected_rank = rank
+        # Modern passage-level metrics
+        if relevant_chunks:
+            chunk_ndcg5 = graded_chunk_ndcg_at_k(results, relevant_chunks, 5)
+            chunk_ndcg10 = graded_chunk_ndcg_at_k(results, relevant_chunks, 10)
+            g2_mrr, g2_rank = grade2_chunk_mrr_and_rank(results, relevant_chunks)
+        else:
+            chunk_ndcg5 = ch_ndcg10
+            chunk_ndcg10 = ch_ndcg10
+            g2_mrr = ch_mrr
+            g2_rank = None
+
+        if evidence_spans or relevant_chunks:
+            ev_r5 = evidence_recall_at_k(results, evidence_spans, relevant_chunks, 5)
+            ev_r10 = evidence_recall_at_k(results, evidence_spans, relevant_chunks, 10)
+            ev_hit5 = evidence_hit_at_k(results, evidence_spans, relevant_chunks, 5)
+            ev_hit10 = evidence_hit_at_k(results, evidence_spans, relevant_chunks, 10)
+        else:
+            ev_r5 = float(ch_r5)
+            ev_r10 = float(ch_r10)
+            ev_hit5 = ch_r5
+            ev_hit10 = ch_r10
+
+        # Chapter rank
+        ch_rank = None
+        for rank, r in enumerate(results, start=1):
+            if r.get("chapter_number") in expected_chapters:
+                ch_rank = rank
                 break
 
-        recalls_5.append(r5)
-        recalls_10.append(r10)
-        mrr_scores.append(mrr)
-        ndcg_scores.append(ndcg)
-        tier_mrr[tier].append(mrr)
-        tier_r5[tier].append(r5)
-        tier_r10[tier].append(r10)
-        tier_ndcg[tier].append(ndcg)
+        # Record lists
+        ndcg5_list.append(chunk_ndcg5)
+        ndcg10_list.append(chunk_ndcg10)
+        g2_mrr_list.append(g2_mrr)
+        ev_r5_list.append(ev_r5)
+        ev_r10_list.append(ev_r10)
+        ev_hit5_list.append(ev_hit5)
+        ev_hit10_list.append(ev_hit10)
 
-        per_query_details.append({
-            "idx": idx,
+        ch_r5_list.append(ch_r5)
+        ch_r10_list.append(ch_r10)
+        ch_mrr_list.append(ch_mrr)
+        ch_ndcg10_list.append(ch_ndcg10)
+
+        q_record = {
+            "id": qid,
             "query": query,
-            "expected": expected,
             "tier": tier,
-            "r5": r5,
-            "r10": r10,
-            "mrr": mrr,
-            "ndcg": ndcg,
-            "rank": expected_rank,
-        })
+            "expected": expected_chapters[0] if len(expected_chapters) == 1 else expected_chapters,
+            "expected_chapters": expected_chapters,
+            # Modern metrics
+            "chunk_ndcg@5": round(chunk_ndcg5, 4),
+            "chunk_ndcg@10": round(chunk_ndcg10, 4),
+            "grade2_mrr": round(g2_mrr, 4),
+            "grade2_rank": g2_rank,
+            "evidence_recall@5": round(ev_r5, 4),
+            "evidence_recall@10": round(ev_r10, 4),
+            "evidence_hit@5": ev_hit5,
+            "evidence_hit@10": ev_hit10,
+            # Legacy metrics
+            "chapter_recall@5": ch_r5,
+            "chapter_recall@10": ch_r10,
+            "chapter_mrr": round(ch_mrr, 4),
+            "chapter_ndcg@10": round(ch_ndcg10, 4),
+            "chapter_rank": ch_rank,
+            # Legacy backward-compatibility keys
+            "r5": ch_r5,
+            "r10": ch_r10,
+            "mrr": round(g2_mrr if relevant_chunks else ch_mrr, 4),
+            "ndcg": round(chunk_ndcg10, 4),
+            "rank": g2_rank if g2_rank is not None else ch_rank,
+            "retrieved_top_5": [
+                {"rank": r.get("rank", i), "chunk_id": r.get("chunk_id"), "chapter": r.get("chapter_number")}
+                for i, r in enumerate(results[:5], 1)
+            ],
+        }
+        per_query_details.append(q_record)
+        if tier in tier_records:
+            tier_records[tier].append(q_record)
 
         if verbose:
-            returned_chapters = [r["chapter_number"] for r in results[:10]]
-            hit_marker = "✅" if r10 else "❌"
-            print(f"\n{hit_marker} [T{tier}] {query[:75]}")
-            print(f"   Expected : Ch.{expected}")
-            print(f"   Top-10   : {returned_chapters}")
-            print(f"   R@5={r5}  R@10={r10}  MRR={mrr:.3f}  NDCG={ndcg:.3f}")
+            hit_marker = "✅" if (ev_hit10 if evidence_spans else ch_r10) else "❌"
+            ret_ids = [r.get("chunk_id", str(r.get("chapter_number"))) for r in results[:5]]
+            print(f"\n{hit_marker} [Q{qid:02d}][T{tier}] {query[:70]}")
+            print(f"   Expected Ch: {expected_chapters} | Top Chunks: {ret_ids}")
+            print(f"   Chunk NDCG@10: {chunk_ndcg10:.3f} | G2-MRR: {g2_mrr:.3f} (Rank: {g2_rank}) | Ev-R@10: {ev_r10:.3f}")
+            print(f"   Legacy Ch-R@5: {ch_r5} | Ch-R@10: {ch_r10} | Ch-MRR: {ch_mrr:.3f}")
 
-    tier_summary = {
-        t: round(float(np.mean(scores)), 3) if scores else 0.0
-        for t, scores in tier_mrr.items()
-    }
-    tier_r5_summary = {
-        t: round(float(np.mean(scores)), 3) if scores else 0.0
-        for t, scores in tier_r5.items()
-    }
-    tier_r10_summary = {
-        t: round(float(np.mean(scores)), 3) if scores else 0.0
-        for t, scores in tier_r10.items()
-    }
-    tier_ndcg_summary = {
-        t: round(float(np.mean(scores)), 3) if scores else 0.0
-        for t, scores in tier_ndcg.items()
+    # Build tier summaries
+    tier_summary = {}
+    for t in tiers:
+        t_records = tier_records[t]
+        n_t = len(t_records)
+        if n_t > 0:
+            tier_summary[t] = {
+                "count": n_t,
+                "chunk_ndcg@5": round(float(np.mean([r["chunk_ndcg@5"] for r in t_records])), 4),
+                "chunk_ndcg@10": round(float(np.mean([r["chunk_ndcg@10"] for r in t_records])), 4),
+                "grade2_mrr": round(float(np.mean([r["grade2_mrr"] for r in t_records])), 4),
+                "evidence_recall@5": round(float(np.mean([r["evidence_recall@5"] for r in t_records])), 4),
+                "evidence_recall@10": round(float(np.mean([r["evidence_recall@10"] for r in t_records])), 4),
+                "evidence_hit@5": round(float(np.mean([r["evidence_hit@5"] for r in t_records])), 4),
+                "evidence_hit@10": round(float(np.mean([r["evidence_hit@10"] for r in t_records])), 4),
+                "chapter_recall@5": round(float(np.mean([r["chapter_recall@5"] for r in t_records])), 4),
+                "chapter_recall@10": round(float(np.mean([r["chapter_recall@10"] for r in t_records])), 4),
+                "chapter_mrr": round(float(np.mean([r["chapter_mrr"] for r in t_records])), 4),
+            }
+        else:
+            tier_summary[t] = {"count": 0}
+
+    # Summary dictionary
+    summary = {
+        "name": name,
+        "query_count": len(eval_set),
+        # Modern Passage-Level Metrics
+        "modern_metrics": {
+            "chunk_ndcg@5": round(float(np.mean(ndcg5_list)), 4),
+            "chunk_ndcg@10": round(float(np.mean(ndcg10_list)), 4),
+            "grade2_mrr": round(float(np.mean(g2_mrr_list)), 4),
+            "evidence_recall@5": round(float(np.mean(ev_r5_list)), 4),
+            "evidence_recall@10": round(float(np.mean(ev_r10_list)), 4),
+            "evidence_hit@5": round(float(np.mean(ev_hit5_list)), 4),
+            "evidence_hit@10": round(float(np.mean(ev_hit10_list)), 4),
+        },
+        # Legacy Chapter-Level Metrics
+        "legacy_metrics": {
+            "chapter_recall@5": round(float(np.mean(ch_r5_list)), 4),
+            "chapter_recall@10": round(float(np.mean(ch_r10_list)), 4),
+            "chapter_mrr": round(float(np.mean(ch_mrr_list)), 4),
+            "chapter_ndcg@10": round(float(np.mean(ch_ndcg10_list)), 4),
+        },
+        # Direct backward-compatible keys
+        "recall@5": round(float(np.mean(ch_r5_list)), 3),
+        "recall@10": round(float(np.mean(ch_r10_list)), 3),
+        "mrr": round(float(np.mean(g2_mrr_list if any(item.get("relevant_chunks") for item in eval_set) else ch_mrr_list)), 3),
+        "ndcg@10": round(float(np.mean(ndcg10_list if any(item.get("relevant_chunks") for item in eval_set) else ch_ndcg10_list)), 3),
+        "tier_summary": tier_summary,
+        "tier_mrr": {t: tier_summary[t].get("grade2_mrr", 0.0) for t in tiers},
+        "tier_r5": {t: tier_summary[t].get("chapter_recall@5", 0.0) for t in tiers},
+        "tier_r10": {t: tier_summary[t].get("chapter_recall@10", 0.0) for t in tiers},
+        "tier_ndcg": {t: tier_summary[t].get("chunk_ndcg@10", 0.0) for t in tiers},
+        "queries": per_query_details,
     }
 
-    print(f"\n{'═' * 65}")
-    print(f"  RESULTS: {name}  (n={len(EVAL_QUERIES)} queries, K={RETRIEVAL_K})")
-    print(f"{'═' * 65}")
-    print(f"  Recall@5   : {np.mean(recalls_5):.3f}   ({sum(recalls_5)}/{len(recalls_5)} hits)")
-    print(f"  Recall@10  : {np.mean(recalls_10):.3f}   ({sum(recalls_10)}/{len(recalls_10)} hits)")
-    print(f"  MRR        : {np.mean(mrr_scores):.3f}")
-    print(f"  NDCG@10    : {np.mean(ndcg_scores):.3f}")
-    print(f"  ── MRR by difficulty ──────────────────────────────────")
-    print(f"  Tier 1 Direct    (n={len(tier_mrr[1])}): {tier_summary[1]:.3f}  (R@5={tier_r5_summary[1]:.3f})")
-    print(f"  Tier 2 Indirect  (n={len(tier_mrr[2])}): {tier_summary[2]:.3f}  (R@5={tier_r5_summary[2]:.3f})")
-    print(f"  Tier 3 Hard      (n={len(tier_mrr[3])}): {tier_summary[3]:.3f}  (R@5={tier_r5_summary[3]:.3f})")
-    print(f"{'═' * 65}")
+    # Console output
+    m = summary["modern_metrics"]
+    leg = summary["legacy_metrics"]
+    print(f"\n{'═' * 70}")
+    print(f"  RESULTS: {name} (n={len(eval_set)} queries, K={k})")
+    print(f"{'═' * 70}")
+    print(f"  MODERN PASSAGE-LEVEL METRICS:")
+    print(f"    Graded Chunk NDCG@5  : {m['chunk_ndcg@5']:.4f}")
+    print(f"    Graded Chunk NDCG@10 : {m['chunk_ndcg@10']:.4f}")
+    print(f"    Grade-2 Chunk MRR    : {m['grade2_mrr']:.4f}")
+    print(f"    Evidence Recall@5    : {m['evidence_recall@5']:.4f}")
+    print(f"    Evidence Recall@10   : {m['evidence_recall@10']:.4f}  (Hit@10: {m['evidence_hit@10']:.4f})")
+    print(f"  LEGACY CHAPTER-LEVEL METRICS (HISTORICAL BASELINE):")
+    print(f"    Chapter Recall@5     : {leg['chapter_recall@5']:.4f}  ({sum(ch_r5_list)}/{len(ch_r5_list)} hits)")
+    print(f"    Chapter Recall@10    : {leg['chapter_recall@10']:.4f}  ({sum(ch_r10_list)}/{len(ch_r10_list)} hits)")
+    print(f"    Chapter MRR          : {leg['chapter_mrr']:.4f}")
+    print(f"    Chapter NDCG@10      : {leg['chapter_ndcg@10']:.4f}")
+    print(f"  ── DIFFICULTY BREAKDOWN (Grade-2 MRR | Chunk NDCG@10 | Evidence R@10 | Ch-R@5) ──")
+    for t in tiers:
+        ts = tier_summary[t]
+        label = {1: "Tier 1 Direct  ", 2: "Tier 2 Indirect", 3: "Tier 3 Hard    "}.get(t, f"Tier {t}")
+        print(
+            f"    {label} (n={ts['count']:2d}): "
+            f"G2-MRR={ts['grade2_mrr']:.3f} | "
+            f"NDCG@10={ts['chunk_ndcg@10']:.3f} | "
+            f"Ev-R@10={ts['evidence_recall@10']:.3f} | "
+            f"Ch-R@5={ts['chapter_recall@5']:.3f}"
+        )
+    print(f"{'═' * 70}\n")
 
-    return {
-        "name":      name,
-        "recall@5":  round(float(np.mean(recalls_5)),  3),
-        "recall@10": round(float(np.mean(recalls_10)), 3),
-        "mrr":       round(float(np.mean(mrr_scores)),  3),
-        "ndcg@10":   round(float(np.mean(ndcg_scores)), 3),
-        "tier_mrr":  tier_summary,
-        "tier_r5":   tier_r5_summary,
-        "tier_r10":  tier_r10_summary,
-        "tier_ndcg": tier_ndcg_summary,
-        "queries":   per_query_details,
-    }
+    return summary
 
 
 # =====================================================
@@ -327,23 +630,35 @@ def analyze_regressions(baseline_run: dict, experiment_run: dict, system_label: 
 
 
 def print_comparison_table(results: list):
-    print(f"\n{'═' * 78}")
-    print(f"  RETRIEVAL COMPARISON TABLE  (n=50 queries across 3 difficulty tiers)")
-    print(f"{'═' * 78}")
-    print(f"  {'System':<28} {'R@5':>6} {'R@10':>6} {'MRR':>6} {'NDCG@10':>9}  {'T1':>5} {'T2':>5} {'T3':>5}")
-    print(f"  {'─' * 74}")
+    print(f"\n{'═' * 105}")
+    print(f"  RETRIEVAL BENCHMARK COMPARISON TABLE  (Modern Passage-Level + Legacy Chapter Metrics)")
+    print(f"{'═' * 105}")
+    print(f"  {'System':<30} {'NDCG@5':>7} {'NDCG@10':>8} {'G2-MRR':>7} {'Ev-R@5':>7} {'Ev-R@10':>8} | {'Ch-R@5':>7} {'Ch-R@10':>8} {'Ch-MRR':>7}")
+    print(f"  {'─' * 103}")
     for r in results:
-        t = r["tier_mrr"]
+        m = r.get("modern_metrics", {})
+        leg = r.get("legacy_metrics", {})
+        ndcg5 = m.get("chunk_ndcg@5", 0.0)
+        ndcg10 = m.get("chunk_ndcg@10", r.get("ndcg@10", 0.0))
+        g2_mrr = m.get("grade2_mrr", r.get("mrr", 0.0))
+        ev_r5 = m.get("evidence_recall@5", 0.0)
+        ev_r10 = m.get("evidence_recall@10", 0.0)
+        ch_r5 = leg.get("chapter_recall@5", r.get("recall@5", 0.0))
+        ch_r10 = leg.get("chapter_recall@10", r.get("recall@10", 0.0))
+        ch_mrr = leg.get("chapter_mrr", 0.0)
+
         print(
-            f"  {r['name']:<28} "
-            f"{r['recall@5']:>6.3f} "
-            f"{r['recall@10']:>6.3f} "
-            f"{r['mrr']:>6.3f} "
-            f"{r['ndcg@10']:>9.3f}  "
-            f"{t[1]:>5.3f} {t[2]:>5.3f} {t[3]:>5.3f}"
+            f"  {r['name']:<30} "
+            f"{ndcg5:>7.3f} "
+            f"{ndcg10:>8.3f} "
+            f"{g2_mrr:>7.3f} "
+            f"{ev_r5:>7.3f} "
+            f"{ev_r10:>8.3f} | "
+            f"{ch_r5:>7.3f} "
+            f"{ch_r10:>8.3f} "
+            f"{ch_mrr:>7.3f}"
         )
-    print(f"{'═' * 78}")
-    print(f"  T1=Direct  T2=Indirect  T3=Hard\n")
+    print(f"{'═' * 105}\n")
 
 
 # =====================================================
@@ -408,7 +723,7 @@ def run_benchmarks(mode: str = "compare"):
         hybrid_reg = analyze_regressions(base_hybrid, exp_hybrid, system_label="Hybrid Retrieval (α=0.7)")
 
         # Save structured results to disk
-        out_path = PROJECT_ROOT / "evaluation" / "retrieval_comparison_results.json"
+        out_path = PROJECT_ROOT / "evaluation" / "results" / "historical" / "retrieval_comparison_results.json"
         try:
             import json
             with open(out_path, "w", encoding="utf-8") as f:
