@@ -312,16 +312,16 @@ def set_example(text):
 # ── Input ──────────────────────────────────────────────────────────────────────
 query = st.text_input(
     "Medical Question",
-    placeholder="e.g. What causes iron deficiency anemia?",
+    placeholder="e.g. How is celiac disease diagnosed?",
     label_visibility="collapsed",
     key="query_input",
 )
 
 # ── Button row ─────────────────────────────────────────────────────────────────
 EXAMPLES = [
-    "How is asthma treated?",
-    "What are the symptoms of Parkinson disease?",
-    "How does portal hypertension develop?",
+    "What are the manifestations of acute pancreatitis?",
+    "How is celiac disease diagnosed?",
+    "What are the clinical signs of acute appendicitis?",
 ]
 
 col_btn, col_ex1, col_ex2, col_ex3, _ = st.columns([1.6, 2.0, 2.4, 2.6, 3])

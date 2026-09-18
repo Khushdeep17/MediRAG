@@ -235,6 +235,6 @@ def dense_search(
 # ===================================================
 
 if __name__ == "__main__":
-    test_query = "What are the causes and treatment of migraine?"
+    test_query = "What are the manifestations of acute pancreatitis?"
     print("Testing baseline preset:")
     dense_search(test_query)

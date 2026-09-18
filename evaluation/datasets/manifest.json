@@ -1,0 +1,55 @@
+{
+  "manifest_name": "MediRAG Evaluation Benchmark v2 Dataset Manifest",
+  "dataset_version": "2.0",
+  "annotation_completion_date": "2026-09-17",
+  "annotation_status": "complete",
+  "annotation_type": "human-authored project annotation",
+  "validation_status": "validated_0_errors",
+  "corpus_file": "data/processed/merck_chunks_800_150.json",
+  "corpus_chunk_count": 4239,
+  "corpus_chapter_count": 351,
+  "datasets": {
+    "retrieval_v2": {
+      "filename": "evaluation/datasets/retrieval_queries_v2.json",
+      "query_count": 50,
+      "sha256": "6368095e15cbd90aec3e161e5a8876f965c16d24c6a395610b2a1176a360f193",
+      "total_annotated_chunks": 260,
+      "grade_2_chunks": 152,
+      "grade_1_chunks": 58,
+      "grade_0_chunks": 50,
+      "evidence_spans_count": 152,
+      "cross_chapter_queries_count": 14
+    },
+    "generation_v2": {
+      "filename": "evaluation/datasets/generation_queries_v2.json",
+      "query_count": 20,
+      "sha256": "91618a57749f498abb025e3a6d383b640bc0227d0ae0ce142df32e699dd20f7b",
+      "total_answer_aspects": 99,
+      "total_safety_notes": 20,
+      "reference_answers_policy": "null (no prose fabrication; structured clinical aspects)"
+    },
+    "retrieval_v1": {
+      "filename": "evaluation/datasets/retrieval_queries_v1.json",
+      "query_count": 50,
+      "status": "frozen_legacy_baseline"
+    },
+    "generation_v1": {
+      "filename": "evaluation/datasets/generation_queries_v1.json",
+      "query_count": 20,
+      "status": "frozen_legacy_baseline"
+    }
+  },
+  "leakage_status": {
+    "executable_leakage_remaining": 0,
+    "leakage_cleanup_policy": "Enforced: zero benchmark queries in application/development code (retrieval/dense.py, retrieval/fusion.py, generate.py, app.py)"
+  },
+  "integrity_notes": {
+    "v1_untouched": true,
+    "fabricated_evidence": false,
+    "fabricated_reference_answers": false,
+    "external_api_calls": false,
+    "expensive_benchmark": false,
+    "production_retrieval_changes": false,
+    "production_generation_changes": false
+  }
+}

@@ -1,0 +1,3849 @@
+{
+  "dataset_name": "MediRAG Retrieval Benchmark v2 (Passage-Level Ground Truth)",
+  "dataset_version": "2.0",
+  "description": "50 balanced clinical evaluation queries with chapter sets, passage-level graded chunk relevance (0/1/2), and exact evidence spans. Human-authored project annotation.",
+  "query_count": 50,
+  "annotation_status": "complete",
+  "annotation_date": "2026-09-17",
+  "queries": [
+    {
+      "id": 1,
+      "query": "What are the causes and treatment of migraine?",
+      "tier": 1,
+      "primary_chapter": 178,
+      "expected_chapters": [
+        178
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "178_5",
+          "relevance": 2,
+          "reason": "Describes clinical presentation of migraine, throbbing unilateral headache, nausea, and photophobia."
+        },
+        {
+          "chunk_id": "178_6",
+          "relevance": 2,
+          "reason": "Describes migraine aura pathophysiology, cortical spreading depression, scotomata, and paresthesias."
+        },
+        {
+          "chunk_id": "178_8",
+          "relevance": 2,
+          "reason": "Describes acute migraine pharmacotherapy (triptans, DHE, NSAIDs) and cardiovascular contraindications."
+        },
+        {
+          "chunk_id": "178_0",
+          "relevance": 1,
+          "reason": "Provides general headache classification and differential diagnostic evaluation."
+        },
+        {
+          "chunk_id": "178_7",
+          "relevance": 1,
+          "reason": "Differential mimics of migraine including CADASIL and transient ischemic attacks."
+        },
+        {
+          "chunk_id": "178_3",
+          "relevance": 0,
+          "reason": "Clinical presentation and management of cluster headache."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "178_8",
+          "text": "triptans and dihydroergotamine can cause coronary artery constriction and are thus contraindicated i",
+          "exact_text": "triptans and dihydroergotamine can cause coronary artery constriction and are thus contraindicated i",
+          "aspect": "Contraindications / Safety",
+          "approx_char_start": 30,
+          "approx_char_end": 130,
+          "char_offset_approx": [
+            30,
+            130
+          ]
+        },
+        {
+          "chunk_id": "178_8",
+          "text": "prevention daily preventive therapy is warranted when frequent migraines interfere with activity despite acute treatment.",
+          "exact_text": "prevention daily preventive therapy is warranted when frequent migraines interfere with activity despite acute treatment.",
+          "aspect": "Preventive Management",
+          "approx_char_start": 770,
+          "approx_char_end": 891,
+          "char_offset_approx": [
+            770,
+            891
+          ]
+        },
+        {
+          "chunk_id": "178_5",
+          "text": "pain is often unilateral, throbbing, worse with exertion, and accompanied by symptoms such as nausea and sensitivity to light, sound, or odors.",
+          "exact_text": "pain is often unilateral, throbbing, worse with exertion, and accompanied by symptoms such as nausea and sensitivity to light, sound, or odors.",
+          "aspect": "Symptoms",
+          "approx_char_start": 21,
+          "approx_char_end": 164,
+          "char_offset_approx": [
+            21,
+            164
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 2,
+      "query": "What are the symptoms of Parkinson disease?",
+      "tier": 1,
+      "primary_chapter": 183,
+      "expected_chapters": [
+        183
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "183_7",
+          "relevance": 2,
+          "reason": "Detailed description of resting tremor, pill-rolling tremor, frequency, and resting nature."
+        },
+        {
+          "chunk_id": "183_8",
+          "relevance": 2,
+          "reason": "Core diagnostic signs: rigidity, bradykinesia, decreased movement, and postural instability."
+        },
+        {
+          "chunk_id": "183_16",
+          "relevance": 2,
+          "reason": "Characteristic gait disturbance: narrow-based, shuffling gait and stooped posture."
+        },
+        {
+          "chunk_id": "183_9",
+          "relevance": 1,
+          "reason": "Antiparkinsonian pharmacotherapy options (levodopa, dopamine agonists, MAO-B inhibitors)."
+        },
+        {
+          "chunk_id": "183_0",
+          "relevance": 0,
+          "reason": "Neuroanatomy of voluntary movement and corticospinal tracts."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "183_7",
+          "text": "as follows : • slow and coarse • maximal at rest, lessening during movement, and absent du",
+          "exact_text": "as follows : • slow and coarse • maximal at rest, lessening during movement, and absent du",
+          "aspect": "Tremor Characteristics",
+          "approx_char_start": 0,
+          "approx_char_end": 90,
+          "char_offset_approx": [
+            0,
+            90
+          ]
+        },
+        {
+          "chunk_id": "183_7",
+          "text": "to manipulate small objects or pills ( pill - rolling tremor ) usually, the hands, arms, and legs are most affected, in that order.",
+          "exact_text": "to manipulate small objects or pills ( pill - rolling tremor ) usually, the hands, arms, and legs are most affected, in that order.",
+          "aspect": "Pill-Rolling Tremor",
+          "approx_char_start": 235,
+          "approx_char_end": 366,
+          "char_offset_approx": [
+            235,
+            366
+          ]
+        },
+        {
+          "chunk_id": "183_8",
+          "text": "parkinson's disease is suspected in patients with characteristic unilateral resting tremor, decreased movement, or rigidity.",
+          "exact_text": "parkinson's disease is suspected in patients with characteristic unilateral resting tremor, decreased movement, or rigidity.",
+          "aspect": "Cardinal Diagnostic Features",
+          "approx_char_start": 141,
+          "approx_char_end": 265,
+          "char_offset_approx": [
+            141,
+            265
+          ]
+        },
+        {
+          "chunk_id": "183_16",
+          "text": "it is characteristically narrow - based and shuffling in parkinson's disease and wide - based and ataxic in cerebellar disorders.",
+          "exact_text": "it is characteristically narrow - based and shuffling in parkinson's disease and wide - based and ataxic in cerebellar disorders.",
+          "aspect": "Gait Manifestations",
+          "approx_char_start": 60,
+          "approx_char_end": 189,
+          "char_offset_approx": [
+            60,
+            189
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 3,
+      "query": "How is epilepsy diagnosed and managed?",
+      "tier": 1,
+      "primary_chapter": 176,
+      "expected_chapters": [
+        176
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "176_5",
+          "relevance": 2,
+          "reason": "Critical role of EEG and neuroimaging in confirming and classifying epileptic seizures."
+        },
+        {
+          "chunk_id": "176_8",
+          "relevance": 2,
+          "reason": "Principles of antiepileptic therapy: monotherapy vs polytherapy, drug selection."
+        },
+        {
+          "chunk_id": "176_9",
+          "relevance": 2,
+          "reason": "Specific antiepileptic agents across seizure types (carbamazepine, valproate, lamotrigine)."
+        },
+        {
+          "chunk_id": "176_4",
+          "relevance": 1,
+          "reason": "Clinical history, precipitating factors, and postictal state evaluation."
+        },
+        {
+          "chunk_id": "176_6",
+          "relevance": 1,
+          "reason": "Surgical resection of epileptogenic focus and vagus nerve stimulation."
+        },
+        {
+          "chunk_id": "176_0",
+          "relevance": 0,
+          "reason": "Definitions of pediatric febrile and neonatal seizure disorders."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "176_5",
+          "text": "eeg is critical in the diagnosis of epileptic seizures, particularly of complex partial or absence status epilepticus, when eeg may be the most definitive indication of a seizure.",
+          "exact_text": "eeg is critical in the diagnosis of epileptic seizures, particularly of complex partial or absence status epilepticus, when eeg may be the most definitive indication of a seizure.",
+          "aspect": "Diagnostic Evaluation / EEG",
+          "approx_char_start": 47,
+          "approx_char_end": 226,
+          "char_offset_approx": [
+            47,
+            226
+          ]
+        },
+        {
+          "chunk_id": "176_8",
+          "text": "principles of long - term treatment : no single drug controls all types of seizures, and different patients require different drugs.",
+          "exact_text": "principles of long - term treatment : no single drug controls all types of seizures, and different patients require different drugs.",
+          "aspect": "Pharmacotherapy Principles",
+          "approx_char_start": 0,
+          "approx_char_end": 132,
+          "char_offset_approx": [
+            0,
+            132
+          ]
+        },
+        {
+          "chunk_id": "176_9",
+          "text": "for partial seizures and generalized tonic - clonic seizures, the newer anticonvulsants [ table 176 - 4.",
+          "exact_text": "for partial seizures and generalized tonic - clonic seizures, the newer anticonvulsants [ table 176 - 4.",
+          "aspect": "Antiepileptic Selection",
+          "approx_char_start": 105,
+          "approx_char_end": 209,
+          "char_offset_approx": [
+            105,
+            209
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 4,
+      "query": "What causes multiple sclerosis?",
+      "tier": 1,
+      "primary_chapter": 184,
+      "expected_chapters": [
+        184
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "184_0",
+          "relevance": 2,
+          "reason": "Demyelination pathology in CNS, autoimmune basis, and axonal injury."
+        },
+        {
+          "chunk_id": "184_1",
+          "relevance": 2,
+          "reason": "Etiology: genetic susceptibility (HLA-DR2), geographic/environmental factors, viral triggers."
+        },
+        {
+          "chunk_id": "184_4",
+          "relevance": 1,
+          "reason": "Diagnostic criteria: MRI white matter lesions and CSF oligoclonal bands."
+        },
+        {
+          "chunk_id": "184_6",
+          "relevance": 1,
+          "reason": "Disease-modifying therapies and corticosteroid acute management."
+        },
+        {
+          "chunk_id": "184_2",
+          "relevance": 0,
+          "reason": "Clinical presentation of acute transverse myelitis."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "184_0",
+          "text": "multiple sclerosis multiple sclerosis ( ms ) is characterized by disseminated patches of demyelination in the brain and spinal cord.",
+          "exact_text": "multiple sclerosis multiple sclerosis ( ms ) is characterized by disseminated patches of demyelination in the brain and spinal cord.",
+          "aspect": "Pathologic Definition",
+          "approx_char_start": 1909,
+          "approx_char_end": 2041,
+          "char_offset_approx": [
+            1909,
+            2041
+          ]
+        },
+        {
+          "chunk_id": "184_1",
+          "text": "##ukocyte antigen ( hla ) allotypes ( hla - dr2 ) suggests genetic susceptibility.",
+          "exact_text": "##ukocyte antigen ( hla ) allotypes ( hla - dr2 ) suggests genetic susceptibility.",
+          "aspect": "Genetic Susceptibility",
+          "approx_char_start": 0,
+          "approx_char_end": 82,
+          "char_offset_approx": [
+            0,
+            82
+          ]
+        },
+        {
+          "chunk_id": "184_0",
+          "text": "treatment includes corticosteroids for acute exacerbations, immunomodulatory drugs to prevent exacerbations, and supportive measures.",
+          "exact_text": "treatment includes corticosteroids for acute exacerbations, immunomodulatory drugs to prevent exacerbations, and supportive measures.",
+          "aspect": "Medical Management",
+          "approx_char_start": 2524,
+          "approx_char_end": 2657,
+          "char_offset_approx": [
+            2524,
+            2657
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 5,
+      "query": "How is asthma treated?",
+      "tier": 1,
+      "primary_chapter": 191,
+      "expected_chapters": [
+        191
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "191_4",
+          "relevance": 2,
+          "reason": "Classification of asthma drug therapy: bronchodilators, corticosteroids, leukotriene modifiers."
+        },
+        {
+          "chunk_id": "191_6",
+          "relevance": 2,
+          "reason": "Adverse effect profiles and dosing considerations of inhaled beta-agonists."
+        },
+        {
+          "chunk_id": "191_7",
+          "relevance": 2,
+          "reason": "Short-acting beta-agonists as drugs of choice for acute bronchoconstriction."
+        },
+        {
+          "chunk_id": "191_8",
+          "relevance": 2,
+          "reason": "Inhaled and systemic corticosteroid administration, systemic toxicity, and dose titration."
+        },
+        {
+          "chunk_id": "191_0",
+          "relevance": 1,
+          "reason": "Pathophysiologic definition of reversible airway obstruction."
+        },
+        {
+          "chunk_id": "191_1",
+          "relevance": 0,
+          "reason": "Hygiene hypothesis and early childhood immunologic development."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "191_6",
+          "text": "tachycardia and tremor are the most common acute adverse effects of inhaled β - agonists and are dose - related.",
+          "exact_text": "tachycardia and tremor are the most common acute adverse effects of inhaled β - agonists and are dose - related.",
+          "aspect": "Adverse Effects",
+          "approx_char_start": 3101,
+          "approx_char_end": 3213,
+          "char_offset_approx": [
+            3101,
+            3213
+          ]
+        },
+        {
+          "chunk_id": "191_7",
+          "text": "are the drug of choice for relieving acute bronchoconstriction and preventing exerciseinduced asthma.",
+          "exact_text": "are the drug of choice for relieving acute bronchoconstriction and preventing exerciseinduced asthma.",
+          "aspect": "Acute Bronchodilator Therapy",
+          "approx_char_start": 0,
+          "approx_char_end": 101,
+          "char_offset_approx": [
+            0,
+            101
+          ]
+        },
+        {
+          "chunk_id": "191_8",
+          "text": ", gargle with water after corticosteroid inhalation, or both.",
+          "exact_text": ", gargle with water after corticosteroid inhalation, or both.",
+          "aspect": "Inhaled Corticosteroids",
+          "approx_char_start": 0,
+          "approx_char_end": 61,
+          "char_offset_approx": [
+            0,
+            61
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 6,
+      "query": "What are the causes and management of COPD?",
+      "tier": 1,
+      "primary_chapter": 192,
+      "expected_chapters": [
+        192
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "192_1",
+          "relevance": 2,
+          "reason": "Etiology: cigarette smoking as primary risk factor and alpha-1 antitrypsin deficiency."
+        },
+        {
+          "chunk_id": "192_6",
+          "relevance": 2,
+          "reason": "Management of stable COPD: inhaled bronchodilators, smoking cessation, vaccination, oxygen."
+        },
+        {
+          "chunk_id": "192_8",
+          "relevance": 2,
+          "reason": "Smoking cessation as sole intervention slowing FEV1 decline."
+        },
+        {
+          "chunk_id": "192_9",
+          "relevance": 2,
+          "reason": "Long-term oxygen therapy survival benefits in severe resting hypoxemia."
+        },
+        {
+          "chunk_id": "192_0",
+          "relevance": 1,
+          "reason": "Pathology of chronic bronchitis and emphysematous tissue destruction."
+        },
+        {
+          "chunk_id": "192_19",
+          "relevance": 0,
+          "reason": "Surgical volume reduction and lung transplantation in end-stage disease."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "192_1",
+          "text": "posure : of all inhalational exposures, cigarette smoking is the primary risk factor in most countries, although only about 15 % of smokers develop clinically apparent copd ; an exposure history of 40 or more pack - years is especially predictive.",
+          "exact_text": "posure : of all inhalational exposures, cigarette smoking is the primary risk factor in most countries, although only about 15 % of smokers develop clinically apparent copd ; an exposure history of 40 or more pack - years is especially predictive.",
+          "aspect": "Primary Etiology",
+          "approx_char_start": 202,
+          "approx_char_end": 449,
+          "char_offset_approx": [
+            202,
+            449
+          ]
+        },
+        {
+          "chunk_id": "192_6",
+          "text": "treatment of stable copd • inhaled bronchodilators, corticosteroids, or both",
+          "exact_text": "treatment of stable copd • inhaled bronchodilators, corticosteroids, or both",
+          "aspect": "Maintenance Management",
+          "approx_char_start": 3300,
+          "approx_char_end": 3376,
+          "char_offset_approx": [
+            3300,
+            3376
+          ]
+        },
+        {
+          "chunk_id": "192_9",
+          "text": "oxygen therapy : long - term o therapy prolongs life in patients with copd whose pao is chronically < 55 mm hg.",
+          "exact_text": "oxygen therapy : long - term o therapy prolongs life in patients with copd whose pao is chronically < 55 mm hg.",
+          "aspect": "Oxygen Therapy",
+          "approx_char_start": 2338,
+          "approx_char_end": 2449,
+          "char_offset_approx": [
+            2338,
+            2449
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 7,
+      "query": "What causes iron deficiency anemia?",
+      "tier": 1,
+      "primary_chapter": 105,
+      "expected_chapters": [
+        105
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "105_2",
+          "relevance": 2,
+          "reason": "Etiology: chronic blood loss (occult GI bleeding, menorrhagia), malabsorption, and increased demand."
+        },
+        {
+          "chunk_id": "105_3",
+          "relevance": 2,
+          "reason": "Diagnostic evaluation: serum ferritin, serum iron, iron-binding capacity, microcytosis."
+        },
+        {
+          "chunk_id": "105_6",
+          "relevance": 2,
+          "reason": "Iron therapy: oral iron replacement and imperative to identify underlying bleeding cause."
+        },
+        {
+          "chunk_id": "105_1",
+          "relevance": 1,
+          "reason": "Physiological iron distribution and intestinal absorption mechanisms."
+        },
+        {
+          "chunk_id": "105_0",
+          "relevance": 0,
+          "reason": "General introductory classification of deficient erythropoiesis."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "105_2",
+          "text": "blood loss is almost always the cause.",
+          "exact_text": "blood loss is almost always the cause.",
+          "aspect": "Primary Cause / Blood Loss",
+          "approx_char_start": 1167,
+          "approx_char_end": 1205,
+          "char_offset_approx": [
+            1167,
+            1205
+          ]
+        },
+        {
+          "chunk_id": "105_2",
+          "text": "in premenopausal women, cumulative menstrual blood loss ( mean, 0.",
+          "exact_text": "in premenopausal women, cumulative menstrual blood loss ( mean, 0.",
+          "aspect": "Menstrual Blood Loss",
+          "approx_char_start": 1293,
+          "approx_char_end": 1359,
+          "char_offset_approx": [
+            1293,
+            1359
+          ]
+        },
+        {
+          "chunk_id": "105_3",
+          "text": "serum ferritin • rarely bone marrow examination iron deficiency anemia is suspected in patients with chronic blood loss or microcytic anemia, particularly if pica is present.",
+          "exact_text": "serum ferritin • rarely bone marrow examination iron deficiency anemia is suspected in patients with chronic blood loss or microcytic anemia, particularly if pica is present.",
+          "aspect": "Diagnostic Evaluation",
+          "approx_char_start": 0,
+          "approx_char_end": 174,
+          "char_offset_approx": [
+            0,
+            174
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 8,
+      "query": "How is diabetes mellitus managed?",
+      "tier": 1,
+      "primary_chapter": 99,
+      "expected_chapters": [
+        99
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "99_8",
+          "relevance": 2,
+          "reason": "Core treatment framework: diet, exercise, insulin for type 1, oral agents/insulin for type 2."
+        },
+        {
+          "chunk_id": "99_10",
+          "relevance": 2,
+          "reason": "Insulin therapy requirements and indications in type 1 and type 2 diabetes."
+        },
+        {
+          "chunk_id": "99_14",
+          "relevance": 2,
+          "reason": "Insulin sliding scale dosing and blood glucose monitoring."
+        },
+        {
+          "chunk_id": "99_19",
+          "relevance": 2,
+          "reason": "Oral pharmacotherapy: metformin as initial therapy, renal contraindications."
+        },
+        {
+          "chunk_id": "99_0",
+          "relevance": 1,
+          "reason": "Diagnostic thresholds (fasting glucose >= 126 mg/dL, HbA1c >= 6.5%)."
+        },
+        {
+          "chunk_id": "99_25",
+          "relevance": 0,
+          "reason": "Emergency fluid resuscitation and insulin protocol in diabetic ketoacidosis."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "99_8",
+          "text": "treatment • diet and exercise • for type 1 dm, insulin • for type 2 dm, oral antihyperglycemics, insulin, or both • often ace inhibitors, statins, and aspi",
+          "exact_text": "treatment • diet and exercise • for type 1 dm, insulin • for type 2 dm, oral antihyperglycemics, insulin, or both • often ace inhibitors, statins, and aspi",
+          "aspect": "Treatment Overview",
+          "approx_char_start": 261,
+          "approx_char_end": 416,
+          "char_offset_approx": [
+            261,
+            416
+          ]
+        },
+        {
+          "chunk_id": "99_10",
+          "text": "insulin : insulin is required for all patients with type 1 dm if they become ketoacidotic without it ; it is also helpful for management of many patients with type 2 dm.",
+          "exact_text": "insulin : insulin is required for all patients with type 1 dm if they become ketoacidotic without it ; it is also helpful for management of many patients with type 2 dm.",
+          "aspect": "Insulin Requirement",
+          "approx_char_start": 3117,
+          "approx_char_end": 3286,
+          "char_offset_approx": [
+            3117,
+            3286
+          ]
+        },
+        {
+          "chunk_id": "99_19",
+          "text": "children with mild hyperglycemia generally begin treatment with metformin unless they have ketosis, renal insufficiency, or another contraindication to metformin use.",
+          "exact_text": "children with mild hyperglycemia generally begin treatment with metformin unless they have ketosis, renal insufficiency, or another contraindication to metformin use.",
+          "aspect": "First-Line Oral Pharmacotherapy",
+          "approx_char_start": 1897,
+          "approx_char_end": 2063,
+          "char_offset_approx": [
+            1897,
+            2063
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 9,
+      "query": "What are the causes and symptoms of hypothyroidism?",
+      "tier": 1,
+      "primary_chapter": 93,
+      "expected_chapters": [
+        93
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "93_5",
+          "relevance": 2,
+          "reason": "Hashimoto thyroiditis as leading cause of primary hypothyroidism in North America."
+        },
+        {
+          "chunk_id": "93_13",
+          "relevance": 2,
+          "reason": "Definition of hypothyroidism and clinical presentation: typical facies, hoarse speech, dry skin."
+        },
+        {
+          "chunk_id": "93_14",
+          "relevance": 2,
+          "reason": "Insidious symptoms: cold intolerance, weight gain, constipation, fatigue, periorbital puffiness."
+        },
+        {
+          "chunk_id": "93_16",
+          "relevance": 2,
+          "reason": "Pharmacotherapy: levothyroxine replacement, low initial dose in elderly, TSH monitoring."
+        },
+        {
+          "chunk_id": "93_0",
+          "relevance": 1,
+          "reason": "Thyroid hormone biosynthesis and hypothalamic-pituitary-thyroid feedback axis."
+        },
+        {
+          "chunk_id": "93_20",
+          "relevance": 0,
+          "reason": "Evaluation and fine-needle biopsy of nontoxic multinodular goiter."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "93_5",
+          "text": "hashimoto's thyroiditis is believed to be the most common cause of primary hypothyroidism in north america.",
+          "exact_text": "hashimoto's thyroiditis is believed to be the most common cause of primary hypothyroidism in north america.",
+          "aspect": "Primary Etiology",
+          "approx_char_start": 0,
+          "approx_char_end": 107,
+          "char_offset_approx": [
+            0,
+            107
+          ]
+        },
+        {
+          "chunk_id": "93_13",
+          "text": "hypothyroidism ( myxedema ) hypothyroidism is thyroid hormone deficiency.",
+          "exact_text": "hypothyroidism ( myxedema ) hypothyroidism is thyroid hormone deficiency.",
+          "aspect": "Clinical Definition",
+          "approx_char_start": 184,
+          "approx_char_end": 257,
+          "char_offset_approx": [
+            184,
+            257
+          ]
+        },
+        {
+          "chunk_id": "93_14",
+          "text": "symptoms and signs symptoms and signs of primary hypothyroidism are often subtle and insidious.",
+          "exact_text": "symptoms and signs symptoms and signs of primary hypothyroidism are often subtle and insidious.",
+          "aspect": "Symptom Complex",
+          "approx_char_start": 261,
+          "approx_char_end": 356,
+          "char_offset_approx": [
+            261,
+            356
+          ]
+        },
+        {
+          "chunk_id": "93_16",
+          "text": "the dose used should be the lowest that restores serum tsh levels to the midnormal range ( though this criterion cannot be used in patients with secondary hypothyroidism ).",
+          "exact_text": "the dose used should be the lowest that restores serum tsh levels to the midnormal range ( though this criterion cannot be used in patients with secondary hypothyroidism ).",
+          "aspect": "Levothyroxine Titration",
+          "approx_char_start": 548,
+          "approx_char_end": 720,
+          "char_offset_approx": [
+            548,
+            720
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 10,
+      "query": "What causes Cushing syndrome?",
+      "tier": 1,
+      "primary_chapter": 94,
+      "expected_chapters": [
+        94
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "94_8",
+          "relevance": 2,
+          "reason": "Clinical manifestations of hypercortisolism: moon facies, truncal obesity, thin extremities, purple striae."
+        },
+        {
+          "chunk_id": "94_9",
+          "relevance": 2,
+          "reason": "Etiology: exogenous corticosteroids (most common), pituitary ACTH adenoma (Cushing disease), adrenal tumors, ectopic ACTH."
+        },
+        {
+          "chunk_id": "94_10",
+          "relevance": 2,
+          "reason": "Diagnostic confirmation: 24-hr urinary free cortisol, late-night salivary cortisol, dexamethasone suppression."
+        },
+        {
+          "chunk_id": "94_0",
+          "relevance": 1,
+          "reason": "Adrenal steroid hormone synthesis pathways."
+        },
+        {
+          "chunk_id": "94_18",
+          "relevance": 0,
+          "reason": "Selective adrenal vein catheterization for pheochromocytoma."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "94_9",
+          "text": "cushing's syndrome cushing's syndrome is a constellation of clinical abnormalities caused by chronic high blood levels of cortisol or related corticosteroids.",
+          "exact_text": "cushing's syndrome cushing's syndrome is a constellation of clinical abnormalities caused by chronic high blood levels of cortisol or related corticosteroids.",
+          "aspect": "Pathophysiologic Definition",
+          "approx_char_start": 169,
+          "approx_char_end": 327,
+          "char_offset_approx": [
+            169,
+            327
+          ]
+        },
+        {
+          "chunk_id": "94_9",
+          "text": "cushing's disease is cushing's syndrome that results from excess pituitary production of acth, usually secondary to a pituitary adenoma.",
+          "exact_text": "cushing's disease is cushing's syndrome that results from excess pituitary production of acth, usually secondary to a pituitary adenoma.",
+          "aspect": "Cushing Disease Etiology",
+          "approx_char_start": 328,
+          "approx_char_end": 464,
+          "char_offset_approx": [
+            328,
+            464
+          ]
+        },
+        {
+          "chunk_id": "94_8",
+          "text": "typical symptoms include moon facies and truncal obesity with thin arms and legs.",
+          "exact_text": "typical symptoms include moon facies and truncal obesity with thin arms and legs.",
+          "aspect": "Cardinal Manifestations",
+          "approx_char_start": 2985,
+          "approx_char_end": 3066,
+          "char_offset_approx": [
+            2985,
+            3066
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 11,
+      "query": "What are the risk factors and treatment of hypertension?",
+      "tier": 1,
+      "primary_chapter": 208,
+      "expected_chapters": [
+        208
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "208_0",
+          "relevance": 2,
+          "reason": "Comprehensive treatment framework: lifestyle modifications, diuretics, beta-blockers, ACE inhibitors, ARBs, CCBs."
+        },
+        {
+          "chunk_id": "208_7",
+          "relevance": 2,
+          "reason": "Concurrent lifestyle and pharmacological initiation, thiazide diuretic as standard first-line monotherapy."
+        },
+        {
+          "chunk_id": "208_8",
+          "relevance": 2,
+          "reason": "Antihypertensive drug combinations, potassium management, and avoiding unindicated supplements."
+        },
+        {
+          "chunk_id": "208_1",
+          "relevance": 1,
+          "reason": "Risk factors: obesity, high sodium diet, alcohol, age, family history, sedentary lifestyle."
+        },
+        {
+          "chunk_id": "208_15",
+          "relevance": 0,
+          "reason": "Hypertensive emergencies, ICU admission, and intravenous parenteral vasodilator titrations."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "208_0",
+          "text": "treatment involves lifestyle changes and drugs, including diuretics, β - blockers, ace inhibitors, angiotensin ii receptor blockers, and ca channel blockers.",
+          "exact_text": "treatment involves lifestyle changes and drugs, including diuretics, β - blockers, ace inhibitors, angiotensin ii receptor blockers, and ca channel blockers.",
+          "aspect": "Treatment Strategy",
+          "approx_char_start": 535,
+          "approx_char_end": 692,
+          "char_offset_approx": [
+            535,
+            692
+          ]
+        },
+        {
+          "chunk_id": "208_7",
+          "text": "drugs are initiated simultaneously with lifestyle changes for all patients with prehypertension or hypertension plus diabetes, a kidney disorder, target - organ damage, or cardiovascular risk factors and for those with an initial bp of > 160 / 100 mm hg.",
+          "exact_text": "drugs are initiated simultaneously with lifestyle changes for all patients with prehypertension or hypertension plus diabetes, a kidney disorder, target - organ damage, or cardiovascular risk factors and for those with an initial bp of > 160 / 100 mm hg.",
+          "aspect": "Initiation Criteria",
+          "approx_char_start": 22,
+          "approx_char_end": 276,
+          "char_offset_approx": [
+            22,
+            276
+          ]
+        },
+        {
+          "chunk_id": "208_7",
+          "text": "2225 for most hypertensive patients, one drug, usually a thiazide - type diuretic, is given initially.",
+          "exact_text": "2225 for most hypertensive patients, one drug, usually a thiazide - type diuretic, is given initially.",
+          "aspect": "First-Line Agent",
+          "approx_char_start": 377,
+          "approx_char_end": 479,
+          "char_offset_approx": [
+            377,
+            479
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 12,
+      "query": "How is heart failure classified and managed?",
+      "tier": 1,
+      "primary_chapter": 211,
+      "expected_chapters": [
+        211
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "211_0",
+          "relevance": 2,
+          "reason": "Heart failure definition, left vs right ventricular dysfunction, and hemodynamic consequences."
+        },
+        {
+          "chunk_id": "211_9",
+          "relevance": 2,
+          "reason": "Diagnostic classification by ejection fraction: systolic dysfunction (HFrEF, EF < 0.40) vs diastolic dysfunction (HFpEF, EF > 0.50)."
+        },
+        {
+          "chunk_id": "211_10",
+          "relevance": 2,
+          "reason": "Management framework: general measures, lifestyle, and guideline-directed medical therapy."
+        },
+        {
+          "chunk_id": "211_15",
+          "relevance": 2,
+          "reason": "Oral ACE inhibitors as foundation therapy for systolic dysfunction unless contraindicated."
+        },
+        {
+          "chunk_id": "211_16",
+          "relevance": 2,
+          "reason": "Beta-blockers as vital addition to ACE inhibitors for chronic systolic heart failure survival."
+        },
+        {
+          "chunk_id": "211_22",
+          "relevance": 0,
+          "reason": "Intra-aortic balloon pump counterpulsation in refractory cardiogenic shock."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "211_0",
+          "text": ") heart failure ( hf ) is a syndrome of ventricular dysfunction.",
+          "exact_text": ") heart failure ( hf ) is a syndrome of ventricular dysfunction.",
+          "aspect": "Core Definition",
+          "approx_char_start": 83,
+          "approx_char_end": 147,
+          "char_offset_approx": [
+            83,
+            147
+          ]
+        },
+        {
+          "chunk_id": "211_9",
+          "text": "50 ) and systolic dysfunction ( ef < 0. 40 ).",
+          "exact_text": "50 ) and systolic dysfunction ( ef < 0. 40 ).",
+          "aspect": "Ejection Fraction Classification",
+          "approx_char_start": 907,
+          "approx_char_end": 952,
+          "char_offset_approx": [
+            907,
+            952
+          ]
+        },
+        {
+          "chunk_id": "211_15",
+          "text": "ace inhibitors : all patients with systolic dysfunction are given oral ace inhibitors unless contraindicated ( eg, by plasma creatinine > 2.",
+          "exact_text": "ace inhibitors : all patients with systolic dysfunction are given oral ace inhibitors unless contraindicated ( eg, by plasma creatinine > 2.",
+          "aspect": "ACE Inhibitor Mandate",
+          "approx_char_start": 1326,
+          "approx_char_end": 1466,
+          "char_offset_approx": [
+            1326,
+            1466
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 13,
+      "query": "What causes peptic ulcer disease and how is it treated?",
+      "tier": 1,
+      "primary_chapter": 13,
+      "expected_chapters": [
+        13
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "13_0",
+          "relevance": 2,
+          "reason": "Mucosal defense disruption by NSAIDs and H. pylori predisposing to peptic ulcer disease."
+        },
+        {
+          "chunk_id": "13_9",
+          "relevance": 2,
+          "reason": "Etiology: H. pylori and NSAIDs disrupting normal mucosal defense and acid resistance."
+        },
+        {
+          "chunk_id": "13_12",
+          "relevance": 2,
+          "reason": "Management: eradication of H. pylori and acid suppression for gastric and duodenal ulcers."
+        },
+        {
+          "chunk_id": "13_1",
+          "relevance": 1,
+          "reason": "Microbiology and diagnosis of H. pylori with triple antibiotic regimens."
+        },
+        {
+          "chunk_id": "13_13",
+          "relevance": 0,
+          "reason": "Surgical vagotomy and Zollinger-Ellison gastrinoma workup."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "13_0",
+          "text": "factors that interfere with these mucosal defenses ( particularly nsaids and helicobacter pylori infection ) predispose to gastritis and peptic ulcer disease.",
+          "exact_text": "factors that interfere with these mucosal defenses ( particularly nsaids and helicobacter pylori infection ) predispose to gastritis and peptic ulcer disease.",
+          "aspect": "Pathophysiologic Risk Factors",
+          "approx_char_start": 1789,
+          "approx_char_end": 1947,
+          "char_offset_approx": [
+            1789,
+            1947
+          ]
+        },
+        {
+          "chunk_id": "13_9",
+          "text": "etiology 189 h. pylori and nsaids disrupt normal mucosal defense and repair, making the mucosa more susceptible to acid.",
+          "exact_text": "etiology 189 h. pylori and nsaids disrupt normal mucosal defense and repair, making the mucosa more susceptible to acid.",
+          "aspect": "Dual Primary Causes",
+          "approx_char_start": 197,
+          "approx_char_end": 317,
+          "char_offset_approx": [
+            197,
+            317
+          ]
+        },
+        {
+          "chunk_id": "13_12",
+          "text": "acid - suppressive drugs treatment of gastric and duodenal ulcers requires eradication of h. pylori when present ( see p.",
+          "exact_text": "acid - suppressive drugs treatment of gastric and duodenal ulcers requires eradication of h. pylori when present ( see p.",
+          "aspect": "Eradication Strategy",
+          "approx_char_start": 2,
+          "approx_char_end": 123,
+          "char_offset_approx": [
+            2,
+            123
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 14,
+      "query": "What are the symptoms and management of Crohn disease?",
+      "tier": 1,
+      "primary_chapter": 19,
+      "expected_chapters": [
+        19
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "19_6",
+          "relevance": 2,
+          "reason": "Pathology: chronic transmural inflammatory disease, distal ileal and colonic involvement, skip distribution."
+        },
+        {
+          "chunk_id": "19_7",
+          "relevance": 2,
+          "reason": "Clinical manifestations: abdominal pain, chronic diarrhea, fever, fistulas, and bowel obstruction."
+        },
+        {
+          "chunk_id": "19_13",
+          "relevance": 2,
+          "reason": "Distinguishing features: severe perianal disease, rectal sparing, and asymmetric segmental involvement."
+        },
+        {
+          "chunk_id": "19_3",
+          "relevance": 1,
+          "reason": "Medical therapy: immunomodulators, corticosteroids, and anti-TNF biologic agents."
+        },
+        {
+          "chunk_id": "19_12",
+          "relevance": 0,
+          "reason": "Acute toxic megacolon presentation in ulcerative colitis."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "19_6",
+          "text": "crohn's disease ( regional enteritis ; granulomatous ileitis or ileocolitis ) crohn's disease is a chronic transmural inflammatory disease that usually affects the distal ileum and colon but may occur in any part of the gi tract.",
+          "exact_text": "crohn's disease ( regional enteritis ; granulomatous ileitis or ileocolitis ) crohn's disease is a chronic transmural inflammatory disease that usually affects the distal ileum and colon but may occur in any part of the gi tract.",
+          "aspect": "Transmural Pathology",
+          "approx_char_start": 340,
+          "approx_char_end": 569,
+          "char_offset_approx": [
+            340,
+            569
+          ]
+        },
+        {
+          "chunk_id": "19_7",
+          "text": "malaise typical of obstruction due to a crohn's disease flare - up.",
+          "exact_text": "malaise typical of obstruction due to a crohn's disease flare - up.",
+          "aspect": "Clinical Exacerbation",
+          "approx_char_start": 1877,
+          "approx_char_end": 1944,
+          "char_offset_approx": [
+            1877,
+            1944
+          ]
+        },
+        {
+          "chunk_id": "19_13",
+          "text": "severe perianal disease, rectal sparing, absence of bleeding, and asymmetric or segmental involvement of the colon indicate crohn's disease rather than uc ( see table 19 - 1 ).",
+          "exact_text": "severe perianal disease, rectal sparing, absence of bleeding, and asymmetric or segmental involvement of the colon indicate crohn's disease rather than uc ( see table 19 - 1 ).",
+          "aspect": "Distinguishing Features",
+          "approx_char_start": 377,
+          "approx_char_end": 553,
+          "char_offset_approx": [
+            377,
+            553
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 15,
+      "query": "How is pneumonia diagnosed and treated?",
+      "tier": 1,
+      "primary_chapter": 196,
+      "expected_chapters": [
+        196
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "196_0",
+          "relevance": 2,
+          "reason": "Diagnostic definition: acute pulmonary inflammation, clinical signs, and chest x-ray infiltrate confirmation."
+        },
+        {
+          "chunk_id": "196_1",
+          "relevance": 2,
+          "reason": "Microbiology: Streptococcus pneumoniae, atypical pathogens (Mycoplasma, Chlamydia, Legionella)."
+        },
+        {
+          "chunk_id": "196_5",
+          "relevance": 2,
+          "reason": "Treatment: empiric antibiotic selection based on likely pathogens and outpatient vs inpatient severity."
+        },
+        {
+          "chunk_id": "196_4",
+          "relevance": 1,
+          "reason": "Prognostic risk scoring and hospitalization criteria."
+        },
+        {
+          "chunk_id": "196_14",
+          "relevance": 0,
+          "reason": "Chemical pneumonitis from acute gastric contents aspiration."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "196_0",
+          "text": ") pneumonia is acute inflammation of the lungs caused by infection.",
+          "exact_text": ") pneumonia is acute inflammation of the lungs caused by infection.",
+          "aspect": "Diagnostic Definition",
+          "approx_char_start": 50,
+          "approx_char_end": 117,
+          "char_offset_approx": [
+            50,
+            117
+          ]
+        },
+        {
+          "chunk_id": "196_1",
+          "text": "( ie, chlamydia pneumoniae, mycoplasma pneumoniae, legionella sp ).",
+          "exact_text": "( ie, chlamydia pneumoniae, mycoplasma pneumoniae, legionella sp ).",
+          "aspect": "Pathogen Spectrum",
+          "approx_char_start": 0,
+          "approx_char_end": 67,
+          "char_offset_approx": [
+            0,
+            67
+          ]
+        },
+        {
+          "chunk_id": "196_5",
+          "text": "to identify, antibiotics are selected based on likely pathogens and severity of illness.",
+          "exact_text": "to identify, antibiotics are selected based on likely pathogens and severity of illness.",
+          "aspect": "Empiric Antibiotic Therapy",
+          "approx_char_start": 0,
+          "approx_char_end": 88,
+          "char_offset_approx": [
+            0,
+            88
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 16,
+      "query": "What is the treatment for sickle cell disease?",
+      "tier": 1,
+      "primary_chapter": 106,
+      "expected_chapters": [
+        106
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "106_13",
+          "relevance": 2,
+          "reason": "Pathophysiology: abnormal hemoglobin S, sickling under hypoxia, microvascular plugging, and infarction."
+        },
+        {
+          "chunk_id": "106_16",
+          "relevance": 2,
+          "reason": "Clinical management of acute vaso-occlusive crisis: hydration, analgesia, and oxygenation."
+        },
+        {
+          "chunk_id": "106_17",
+          "relevance": 2,
+          "reason": "Opioid analgesia protocols for severe painful crisis and hydroxyurea indications."
+        },
+        {
+          "chunk_id": "106_0",
+          "relevance": 1,
+          "reason": "General pathophysiology of premature erythrocyte hemolysis."
+        },
+        {
+          "chunk_id": "106_20",
+          "relevance": 0,
+          "reason": "Thalassemia major transfusion dependency and iron overload."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "106_13",
+          "text": "because sickled rbcs are fragile, the mechanical trauma of circulation causes hemolysis.",
+          "exact_text": "because sickled rbcs are fragile, the mechanical trauma of circulation causes hemolysis.",
+          "aspect": "Vaso-occlusion Mechanism",
+          "approx_char_start": 113,
+          "approx_char_end": 201,
+          "char_offset_approx": [
+            113,
+            201
+          ]
+        },
+        {
+          "chunk_id": "106_17",
+          "text": "##gesics : painful crises are managed with liberal administration of analgesics, usually opioids.",
+          "exact_text": "##gesics : painful crises are managed with liberal administration of analgesics, usually opioids.",
+          "aspect": "Pain Management",
+          "approx_char_start": 0,
+          "approx_char_end": 97,
+          "char_offset_approx": [
+            0,
+            97
+          ]
+        },
+        {
+          "chunk_id": "106_17",
+          "text": "oral penicillin from age 4 mo to 6 yr • use of hydroxyurea and folate supplementation supplemental folate, 1 mg po once / day, is usually prescribed.",
+          "exact_text": "oral penicillin from age 4 mo to 6 yr • use of hydroxyurea and folate supplementation supplemental folate, 1 mg po once / day, is usually prescribed.",
+          "aspect": "Disease-Modifying Pharmacotherapy",
+          "approx_char_start": 1981,
+          "approx_char_end": 2130,
+          "char_offset_approx": [
+            1981,
+            2130
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 17,
+      "query": "How is leukemia classified and treated?",
+      "tier": 1,
+      "primary_chapter": 117,
+      "expected_chapters": [
+        117
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "117_0",
+          "relevance": 2,
+          "reason": "Definition and classification: acute vs chronic, myelocytic vs lymphocytic neoplasms."
+        },
+        {
+          "chunk_id": "117_1",
+          "relevance": 2,
+          "reason": "Clinical manifestations: bone marrow failure leading to anemia, infection/neutropenia, and bleeding/thrombocytopenia."
+        },
+        {
+          "chunk_id": "117_13",
+          "relevance": 2,
+          "reason": "Treatment modalities: targeted tyrosine kinase inhibitors (imatinib for CML), chemotherapy, and stem cell transplantation."
+        },
+        {
+          "chunk_id": "117_9",
+          "relevance": 1,
+          "reason": "Flow cytometry and staging in chronic lymphocytic leukemia."
+        },
+        {
+          "chunk_id": "117_14",
+          "relevance": 0,
+          "reason": "Myelodysplastic syndrome refractoriness and preleukemic transformation."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "117_0",
+          "text": "introduction the leukemias are cancers of the wbcs involving bone marrow, circulating wbcs, and organs such as the spleen and lymph nodes.",
+          "exact_text": "introduction the leukemias are cancers of the wbcs involving bone marrow, circulating wbcs, and organs such as the spleen and lymph nodes.",
+          "aspect": "Neoplasm Definition",
+          "approx_char_start": 0,
+          "approx_char_end": 138,
+          "char_offset_approx": [
+            0,
+            138
+          ]
+        },
+        {
+          "chunk_id": "117_1",
+          "text": "kemia [ aml ] ) proliferate abnormally, replacing normal marrow tissue and hematopoietic cells and inducing anemia, thrombocytopenia, and granulocytopenia.",
+          "exact_text": "kemia [ aml ] ) proliferate abnormally, replacing normal marrow tissue and hematopoietic cells and inducing anemia, thrombocytopenia, and granulocytopenia.",
+          "aspect": "Marrow Failure Presentation",
+          "approx_char_start": 369,
+          "approx_char_end": 524,
+          "char_offset_approx": [
+            369,
+            524
+          ]
+        },
+        {
+          "chunk_id": "117_13",
+          "text": "it is dramatically effective in achieving complete clinical and cytogenetic remissions of ph chromosome - positive cml and is clearly superior to other regimens ( eg, interferon with or without cytosine arabinoside ).",
+          "exact_text": "it is dramatically effective in achieving complete clinical and cytogenetic remissions of ph chromosome - positive cml and is clearly superior to other regimens ( eg, interferon with or without cytosine arabinoside ).",
+          "aspect": "Targeted TKI / Imatinib",
+          "approx_char_start": 9,
+          "approx_char_end": 226,
+          "char_offset_approx": [
+            9,
+            226
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 18,
+      "query": "A patient presents with recurring severe headaches with nausea and light sensitivity. What is the diagnosis and management?",
+      "tier": 2,
+      "primary_chapter": 178,
+      "expected_chapters": [
+        178
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "178_5",
+          "relevance": 2,
+          "reason": "Unilateral, throbbing headache with nausea and sensory hypersensitivity matching vignette."
+        },
+        {
+          "chunk_id": "178_8",
+          "relevance": 2,
+          "reason": "Acute migraine management with triptans and NSAIDs; indication for preventive therapy."
+        },
+        {
+          "chunk_id": "178_2",
+          "relevance": 1,
+          "reason": "Assessment of headache red flags and exclusion of secondary intracranial emergencies."
+        },
+        {
+          "chunk_id": "178_0",
+          "relevance": 1,
+          "reason": "Diagnostic approach and systematic headache evaluation."
+        },
+        {
+          "chunk_id": "178_9",
+          "relevance": 0,
+          "reason": "Post-dural puncture headache and epidural blood patch."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "178_5",
+          "text": "pain is often unilateral, throbbing, worse with exertion, and accompanied by symptoms such as nausea and sensitivity to light, sound, or odors.",
+          "exact_text": "pain is often unilateral, throbbing, worse with exertion, and accompanied by symptoms such as nausea and sensitivity to light, sound, or odors.",
+          "aspect": "Vignette Match / Symptoms",
+          "approx_char_start": 21,
+          "approx_char_end": 164,
+          "char_offset_approx": [
+            21,
+            164
+          ]
+        },
+        {
+          "chunk_id": "178_8",
+          "text": "triptans and dihydroergotamine can cause coronary artery constriction and are thus contraindicated i",
+          "exact_text": "triptans and dihydroergotamine can cause coronary artery constriction and are thus contraindicated i",
+          "aspect": "Acute Treatment & Vascular Safety",
+          "approx_char_start": 30,
+          "approx_char_end": 130,
+          "char_offset_approx": [
+            30,
+            130
+          ]
+        },
+        {
+          "chunk_id": "178_8",
+          "text": "prevention daily preventive therapy is warranted when frequent migraines interfere with activity despite acute treatment.",
+          "exact_text": "prevention daily preventive therapy is warranted when frequent migraines interfere with activity despite acute treatment.",
+          "aspect": "Preventive Indication",
+          "approx_char_start": 770,
+          "approx_char_end": 891,
+          "char_offset_approx": [
+            770,
+            891
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 19,
+      "query": "What neurological condition causes resting tremor, rigidity, and bradykinesia?",
+      "tier": 2,
+      "primary_chapter": 183,
+      "expected_chapters": [
+        183
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "183_7",
+          "relevance": 2,
+          "reason": "Resting, slow and coarse pill-rolling tremor matching Parkinson presentation."
+        },
+        {
+          "chunk_id": "183_8",
+          "relevance": 2,
+          "reason": "Clinical diagnostic triad: resting tremor, cogwheel rigidity, bradykinesia, and decreased movement."
+        },
+        {
+          "chunk_id": "183_16",
+          "relevance": 2,
+          "reason": "Narrow-based shuffling gait and postural alterations characteristic of Parkinson disease."
+        },
+        {
+          "chunk_id": "183_9",
+          "relevance": 1,
+          "reason": "Antiparkinson pharmacotherapy initiation: dopamine agonists, MAO-B inhibitors, levodopa."
+        },
+        {
+          "chunk_id": "183_1",
+          "relevance": 0,
+          "reason": "Chorea in Huntington disease and autoimmune causes."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "183_7",
+          "text": "as follows : • slow and coarse • maximal at rest, lessening during movement, and absent du",
+          "exact_text": "as follows : • slow and coarse • maximal at rest, lessening during movement, and absent du",
+          "aspect": "Tremor Characteristics",
+          "approx_char_start": 0,
+          "approx_char_end": 90,
+          "char_offset_approx": [
+            0,
+            90
+          ]
+        },
+        {
+          "chunk_id": "183_8",
+          "text": "parkinson's disease is suspected in patients with characteristic unilateral resting tremor, decreased movement, or rigidity.",
+          "exact_text": "parkinson's disease is suspected in patients with characteristic unilateral resting tremor, decreased movement, or rigidity.",
+          "aspect": "Diagnostic Triad",
+          "approx_char_start": 141,
+          "approx_char_end": 265,
+          "char_offset_approx": [
+            141,
+            265
+          ]
+        },
+        {
+          "chunk_id": "183_16",
+          "text": "it is characteristically narrow - based and shuffling in parkinson's disease and wide - based and ataxic in cerebellar disorders.",
+          "exact_text": "it is characteristically narrow - based and shuffling in parkinson's disease and wide - based and ataxic in cerebellar disorders.",
+          "aspect": "Shuffling Gait",
+          "approx_char_start": 60,
+          "approx_char_end": 189,
+          "char_offset_approx": [
+            60,
+            189
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 20,
+      "query": "How do you manage uncontrolled seizures in an adult patient?",
+      "tier": 2,
+      "primary_chapter": 176,
+      "expected_chapters": [
+        176
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "176_8",
+          "relevance": 2,
+          "reason": "Principles of refractory epilepsy treatment: combination therapy, dosage optimization."
+        },
+        {
+          "chunk_id": "176_9",
+          "relevance": 2,
+          "reason": "Antiepileptic drug selection for refractory partial and generalized seizures in adults."
+        },
+        {
+          "chunk_id": "176_6",
+          "relevance": 2,
+          "reason": "Surgical resection of epileptogenic focus and vagus nerve stimulation for drug-resistant seizures."
+        },
+        {
+          "chunk_id": "176_4",
+          "relevance": 1,
+          "reason": "Evaluation of precipitating factors, drug noncompliance, and alcohol withdrawal."
+        },
+        {
+          "chunk_id": "176_10",
+          "relevance": 0,
+          "reason": "Teratogenic risks of antiepileptic therapy in pregnancy."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "176_8",
+          "text": "principles of long - term treatment : no single drug controls all types of seizures, and different patients require different drugs.",
+          "exact_text": "principles of long - term treatment : no single drug controls all types of seizures, and different patients require different drugs.",
+          "aspect": "Combination Pharmacotherapy",
+          "approx_char_start": 0,
+          "approx_char_end": 132,
+          "char_offset_approx": [
+            0,
+            132
+          ]
+        },
+        {
+          "chunk_id": "176_9",
+          "text": "for partial seizures and generalized tonic - clonic seizures, the newer anticonvulsants [ table 176 - 4.",
+          "exact_text": "for partial seizures and generalized tonic - clonic seizures, the newer anticonvulsants [ table 176 - 4.",
+          "aspect": "Drug Regimen Options",
+          "approx_char_start": 105,
+          "approx_char_end": 209,
+          "char_offset_approx": [
+            105,
+            209
+          ]
+        },
+        {
+          "chunk_id": "176_6",
+          "text": "peri - ictal period may detect increased perfusion in the seizure focus and help localize the area to be surgically removed.",
+          "exact_text": "peri - ictal period may detect increased perfusion in the seizure focus and help localize the area to be surgically removed.",
+          "aspect": "Surgical Evaluation",
+          "approx_char_start": 0,
+          "approx_char_end": 124,
+          "char_offset_approx": [
+            0,
+            124
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 21,
+      "query": "What is the pathophysiology behind demyelination in the CNS?",
+      "tier": 2,
+      "primary_chapter": 184,
+      "expected_chapters": [
+        184
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "184_0",
+          "relevance": 2,
+          "reason": "Pathophysiology: myelin breakdown in CNS, axonal conduction block, and astrocytic gliosis."
+        },
+        {
+          "chunk_id": "184_1",
+          "relevance": 2,
+          "reason": "Autoimmune pathogenesis: autoreactive CD4+ T cells crossing blood-brain barrier, HLA-DR2 association."
+        },
+        {
+          "chunk_id": "184_4",
+          "relevance": 1,
+          "reason": "Radiological and laboratory correlation: MRI periventricular plaques and CSF oligoclonal bands."
+        },
+        {
+          "chunk_id": "184_6",
+          "relevance": 1,
+          "reason": "Targeted immunosuppressive and immunomodulatory interventions."
+        },
+        {
+          "chunk_id": "184_3",
+          "relevance": 0,
+          "reason": "Paroxysmal motor and sensory symptoms in demyelinating disease."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "184_0",
+          "text": "multiple sclerosis multiple sclerosis ( ms ) is characterized by disseminated patches of demyelination in the brain and spinal cord.",
+          "exact_text": "multiple sclerosis multiple sclerosis ( ms ) is characterized by disseminated patches of demyelination in the brain and spinal cord.",
+          "aspect": "Demyelination Hallmark",
+          "approx_char_start": 1909,
+          "approx_char_end": 2041,
+          "char_offset_approx": [
+            1909,
+            2041
+          ]
+        },
+        {
+          "chunk_id": "184_1",
+          "text": "##ukocyte antigen ( hla ) allotypes ( hla - dr2 ) suggests genetic susceptibility.",
+          "exact_text": "##ukocyte antigen ( hla ) allotypes ( hla - dr2 ) suggests genetic susceptibility.",
+          "aspect": "Immunogenetic Association",
+          "approx_char_start": 0,
+          "approx_char_end": 82,
+          "char_offset_approx": [
+            0,
+            82
+          ]
+        },
+        {
+          "chunk_id": "184_0",
+          "text": "disorders that affect myelin interrupt nerve transmission ; symptoms may reflect deficits in any part of the nervous system.",
+          "exact_text": "disorders that affect myelin interrupt nerve transmission ; symptoms may reflect deficits in any part of the nervous system.",
+          "aspect": "Conduction Failure Mechanism",
+          "approx_char_start": 155,
+          "approx_char_end": 279,
+          "char_offset_approx": [
+            155,
+            279
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 22,
+      "query": "Patient with focal neurological deficits of sudden onset — what is the workup?",
+      "tier": 2,
+      "primary_chapter": 173,
+      "expected_chapters": [
+        173
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "173_0",
+          "relevance": 2,
+          "reason": "Immediate emergency neuroimaging (noncontrast CT or MRI) to differentiate ischemic from hemorrhagic stroke."
+        },
+        {
+          "chunk_id": "173_1",
+          "relevance": 2,
+          "reason": "Acute stabilization protocol: airway, breathing, circulation, blood pressure management, and glucose testing."
+        },
+        {
+          "chunk_id": "173_3",
+          "relevance": 2,
+          "reason": "Secondary etiologic workup: carotid duplex ultrasonography, echocardiogram, and cardiac rhythm telemetry."
+        },
+        {
+          "chunk_id": "173_2",
+          "relevance": 1,
+          "reason": "Evaluation for intravenous thrombolysis (IV alteplase/tPA) within the therapeutic window."
+        },
+        {
+          "chunk_id": "173_15",
+          "relevance": 0,
+          "reason": "Post-stroke functional rehabilitation and aspiration precautions."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "173_0",
+          "text": "troduction ( cerebrovascular accident ) strokes are a heterogeneous group of disorders involving sudden, focal interruption of cerebral blood flow that causes neurologic deficit.",
+          "exact_text": "troduction ( cerebrovascular accident ) strokes are a heterogeneous group of disorders involving sudden, focal interruption of cerebral blood flow that causes neurologic deficit.",
+          "aspect": "Stroke Definition",
+          "approx_char_start": 2,
+          "approx_char_end": 180,
+          "char_offset_approx": [
+            2,
+            180
+          ]
+        },
+        {
+          "chunk_id": "173_0",
+          "text": "strokes can be ischemic ( 80 % ), typically resulting from thrombosis or embolism, or hemorrhagic ( 20 % ), resulting from vascular rupture ( eg, subarachnoid or intracerebral hemorrhage ).",
+          "exact_text": "strokes can be ischemic ( 80 % ), typically resulting from thrombosis or embolism, or hemorrhagic ( 20 % ), resulting from vascular rupture ( eg, subarachnoid or intracerebral hemorrhage ).",
+          "aspect": "Stroke Subtypes",
+          "approx_char_start": 181,
+          "approx_char_end": 370,
+          "char_offset_approx": [
+            181,
+            370
+          ]
+        },
+        {
+          "chunk_id": "173_1",
+          "text": "comatose or obtunded patients ( eg, glasgow coma score ≤ 8 ) may require airway support ( see p.",
+          "exact_text": "comatose or obtunded patients ( eg, glasgow coma score ≤ 8 ) may require airway support ( see p.",
+          "aspect": "Acute Resuscitation Protocol",
+          "approx_char_start": 1889,
+          "approx_char_end": 1985,
+          "char_offset_approx": [
+            1889,
+            1985
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 23,
+      "query": "How is reversible airflow obstruction treated in adults?",
+      "tier": 2,
+      "primary_chapter": 191,
+      "expected_chapters": [
+        191
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "191_0",
+          "relevance": 2,
+          "reason": "Defines reversible airflow obstruction: documented improvement in lung function post-bronchodilator."
+        },
+        {
+          "chunk_id": "191_6",
+          "relevance": 2,
+          "reason": "Pharmacologic management: inhaled corticosteroids, beta-agonists, and dose-related adverse effects."
+        },
+        {
+          "chunk_id": "191_7",
+          "relevance": 2,
+          "reason": "Short-acting beta-agonists for rapid bronchospasm reversal; long-acting beta-agonists as maintenance add-on."
+        },
+        {
+          "chunk_id": "191_8",
+          "relevance": 2,
+          "reason": "Proper inhaled corticosteroid administration to minimize systemic and local toxicity."
+        },
+        {
+          "chunk_id": "191_2",
+          "relevance": 0,
+          "reason": "Aspirin-sensitive asthma triad and nasal polyposis."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "191_0",
+          "text": "iety of triggering stimuli resulting in partially or completely reversible bronchoconstriction.",
+          "exact_text": "iety of triggering stimuli resulting in partially or completely reversible bronchoconstriction.",
+          "aspect": "Reversible Airflow Definition",
+          "approx_char_start": 79,
+          "approx_char_end": 174,
+          "char_offset_approx": [
+            79,
+            174
+          ]
+        },
+        {
+          "chunk_id": "191_7",
+          "text": "are the drug of choice for relieving acute bronchoconstriction and preventing exerciseinduced asthma.",
+          "exact_text": "are the drug of choice for relieving acute bronchoconstriction and preventing exerciseinduced asthma.",
+          "aspect": "Acute Bronchodilator Reversal",
+          "approx_char_start": 0,
+          "approx_char_end": 101,
+          "char_offset_approx": [
+            0,
+            101
+          ]
+        },
+        {
+          "chunk_id": "191_8",
+          "text": ", gargle with water after corticosteroid inhalation, or both.",
+          "exact_text": ", gargle with water after corticosteroid inhalation, or both.",
+          "aspect": "Anti-inflammatory Maintenance",
+          "approx_char_start": 0,
+          "approx_char_end": 61,
+          "char_offset_approx": [
+            0,
+            61
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 24,
+      "query": "What long-term complications arise from progressive airflow limitation in smokers?",
+      "tier": 2,
+      "primary_chapter": 192,
+      "expected_chapters": [
+        192,
+        211
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "192_13",
+          "relevance": 2,
+          "reason": "Long-term complications of severe COPD: acute exacerbations, respiratory failure, infection."
+        },
+        {
+          "chunk_id": "192_0",
+          "relevance": 2,
+          "reason": "Chronic airflow limitation from chronic bronchitis and emphysema in smokers."
+        },
+        {
+          "chunk_id": "211_23",
+          "relevance": 2,
+          "reason": "Right ventricular failure (cor pulmonale) secondary to chronic pulmonary disorders."
+        },
+        {
+          "chunk_id": "192_1",
+          "relevance": 1,
+          "reason": "Cigarette smoking as primary causative driver of accelerated lung function loss."
+        },
+        {
+          "chunk_id": "192_9",
+          "relevance": 1,
+          "reason": "Chronic severe hypoxemia requiring long-term oxygen therapy."
+        },
+        {
+          "chunk_id": "192_19",
+          "relevance": 0,
+          "reason": "Surgical lung volume reduction criteria."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "192_13",
+          "text": "treatment of acute copd exacerbation • o supplementation • bronchodilators • corticosteroids • antibiotics • sometimes ventilatory assistance the immediate objectives",
+          "exact_text": "treatment of acute copd exacerbation • o supplementation • bronchodilators • corticosteroids • antibiotics • sometimes ventilatory assistance the immediate objectives",
+          "aspect": "Exacerbation Management",
+          "approx_char_start": 213,
+          "approx_char_end": 379,
+          "char_offset_approx": [
+            213,
+            379
+          ]
+        },
+        {
+          "chunk_id": "192_0",
+          "text": "copd is the 4th leading cause of death, resulting in 122, 000 deaths in 2003 — compared with 52, 193 deaths in 1980.",
+          "exact_text": "copd is the 4th leading cause of death, resulting in 122, 000 deaths in 2003 — compared with 52, 193 deaths in 1980.",
+          "aspect": "Epidemiology / Burden",
+          "approx_char_start": 2102,
+          "approx_char_end": 2218,
+          "char_offset_approx": [
+            2102,
+            2218
+          ]
+        },
+        {
+          "chunk_id": "211_23",
+          "text": "treatment • treatment of cause treatment is difficult ; it focuses on the cause ( see elsewhere in the manual ), particularly alleviation or moderation of hypoxia.",
+          "exact_text": "treatment • treatment of cause treatment is difficult ; it focuses on the cause ( see elsewhere in the manual ), particularly alleviation or moderation of hypoxia.",
+          "aspect": "Cor Pulmonale / Secondary Heart Failure",
+          "approx_char_start": 1160,
+          "approx_char_end": 1323,
+          "char_offset_approx": [
+            1160,
+            1323
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 25,
+      "query": "How is acid-fast bacilli infection of the lungs managed?",
+      "tier": 2,
+      "primary_chapter": 141,
+      "expected_chapters": [
+        141
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "141_0",
+          "relevance": 2,
+          "reason": "Microbiology of Mycobacterium tuberculosis: acid-fast bacillus, transmission, and progressive latency."
+        },
+        {
+          "chunk_id": "141_8",
+          "relevance": 2,
+          "reason": "First-line antimycobacterial pharmacotherapy: isoniazid, rifampin, pyrazinamide, ethambutol (RIPE)."
+        },
+        {
+          "chunk_id": "141_12",
+          "relevance": 2,
+          "reason": "Directly observed therapy (DOT) to ensure adherence, complete cure, and prevent multi-drug resistance."
+        },
+        {
+          "chunk_id": "141_20",
+          "relevance": 1,
+          "reason": "Drug toxicity monitoring and regimens for drug-resistant strains."
+        },
+        {
+          "chunk_id": "141_26",
+          "relevance": 0,
+          "reason": "Mycobacterium avium complex prophylaxis in advanced immunocompromise."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "141_0",
+          "text": ") tuberculosis ( tb ) is a chronic, progressive infection with a period of latency following initial infection.",
+          "exact_text": ") tuberculosis ( tb ) is a chronic, progressive infection with a period of latency following initial infection.",
+          "aspect": "Acid-Fast Infection Definition",
+          "approx_char_start": 491,
+          "approx_char_end": 602,
+          "char_offset_approx": [
+            491,
+            602
+          ]
+        },
+        {
+          "chunk_id": "141_8",
+          "text": "first - line drugs : the first - line drugs isoniazid ( inh ), rifampin ( rif ), pyrazinamide ( pza ), and ethambutol ( emb ) are used together in initial treatment ( for regimens and doses, see p.",
+          "exact_text": "first - line drugs : the first - line drugs isoniazid ( inh ), rifampin ( rif ), pyrazinamide ( pza ), and ethambutol ( emb ) are used together in initial treatment ( for regimens and doses, see p.",
+          "aspect": "RIPE Regimen",
+          "approx_char_start": 1294,
+          "approx_char_end": 1491,
+          "char_offset_approx": [
+            1294,
+            1491
+          ]
+        },
+        {
+          "chunk_id": "141_12",
+          "text": "regimens involving less than daily dosing must be carried out as dot because each dose becomes more important.",
+          "exact_text": "regimens involving less than daily dosing must be carried out as dot because each dose becomes more important.",
+          "aspect": "Directly Observed Therapy",
+          "approx_char_start": 1178,
+          "approx_char_end": 1288,
+          "char_offset_approx": [
+            1178,
+            1288
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 26,
+      "query": "A patient has low hemoglobin and low ferritin — what are the causes and treatment?",
+      "tier": 2,
+      "primary_chapter": 105,
+      "expected_chapters": [
+        105
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "105_2",
+          "relevance": 2,
+          "reason": "Etiology of iron deficiency: chronic blood loss (occult GI, menstrual) and malabsorption."
+        },
+        {
+          "chunk_id": "105_3",
+          "relevance": 2,
+          "reason": "Diagnostic evaluation of microcytic anemia: serum ferritin, serum iron, iron-binding capacity."
+        },
+        {
+          "chunk_id": "105_4",
+          "relevance": 2,
+          "reason": "Clinical consideration of bleeding source in iron deficiency anemia."
+        },
+        {
+          "chunk_id": "105_0",
+          "relevance": 1,
+          "reason": "Classification of deficient erythropoiesis and microcytic vs macrocytic anemias."
+        },
+        {
+          "chunk_id": "105_6",
+          "relevance": 1,
+          "reason": "Oral iron replacement therapy and response monitoring."
+        },
+        {
+          "chunk_id": "105_1",
+          "relevance": 0,
+          "reason": "Physiology of intestinal iron absorption in duodenum."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "105_3",
+          "text": "serum ferritin • rarely bone marrow examination iron deficiency anemia is suspected in patients with chronic blood loss or microcytic anemia, particularly if pica is present.",
+          "exact_text": "serum ferritin • rarely bone marrow examination iron deficiency anemia is suspected in patients with chronic blood loss or microcytic anemia, particularly if pica is present.",
+          "aspect": "Diagnostic Evaluation",
+          "approx_char_start": 0,
+          "approx_char_end": 174,
+          "char_offset_approx": [
+            0,
+            174
+          ]
+        },
+        {
+          "chunk_id": "105_2",
+          "text": "blood loss is almost always the cause.",
+          "exact_text": "blood loss is almost always the cause.",
+          "aspect": "Primary Etiology / Blood Loss",
+          "approx_char_start": 1167,
+          "approx_char_end": 1205,
+          "char_offset_approx": [
+            1167,
+            1205
+          ]
+        },
+        {
+          "chunk_id": "105_4",
+          "text": "1052 diagnosis of iron deficiency anemia prompts consideration of its cause, usually bleeding.",
+          "exact_text": "1052 diagnosis of iron deficiency anemia prompts consideration of its cause, usually bleeding.",
+          "aspect": "Etiological Investigation",
+          "approx_char_start": 102,
+          "approx_char_end": 196,
+          "char_offset_approx": [
+            102,
+            196
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 27,
+      "query": "How is hyperglycemia managed in a patient with insulin resistance?",
+      "tier": 2,
+      "primary_chapter": 99,
+      "expected_chapters": [
+        99
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "99_1",
+          "relevance": 2,
+          "reason": "Pathophysiology of type 2 diabetes: insulin resistance combined with impaired insulin secretion."
+        },
+        {
+          "chunk_id": "99_2",
+          "relevance": 2,
+          "reason": "Progression from impaired glucose tolerance to clinical diabetes and hepatic glucose production."
+        },
+        {
+          "chunk_id": "99_3",
+          "relevance": 2,
+          "reason": "Microvascular and macrovascular complications resulting from chronic insulin resistance and hyperglycemia."
+        },
+        {
+          "chunk_id": "99_8",
+          "relevance": 1,
+          "reason": "Management framework focusing on lifestyle modifications and insulin-sensitizing agents."
+        },
+        {
+          "chunk_id": "99_0",
+          "relevance": 0,
+          "reason": "Diagnostic glucose criteria and laboratory classification."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "99_1",
+          "text": "often insulin levels are very high, especially early in the disease, but peripheral insulin resistance and increased hepatic production of glucose make insulin levels inadequate to normalize plasma glucose levels.",
+          "exact_text": "often insulin levels are very high, especially early in the disease, but peripheral insulin resistance and increased hepatic production of glucose make insulin levels inadequate to normalize plasma glucose levels.",
+          "aspect": "Insulin Resistance Pathophysiology",
+          "approx_char_start": 1817,
+          "approx_char_end": 2030,
+          "char_offset_approx": [
+            1817,
+            2030
+          ]
+        },
+        {
+          "chunk_id": "99_2",
+          "text": "hyperglycemia develops when insulin secretion can no longer compensate for insulin resistance.",
+          "exact_text": "hyperglycemia develops when insulin secretion can no longer compensate for insulin resistance.",
+          "aspect": "Metabolic Progression",
+          "approx_char_start": 29,
+          "approx_char_end": 123,
+          "char_offset_approx": [
+            29,
+            123
+          ]
+        },
+        {
+          "chunk_id": "99_3",
+          "text": "microvascular disease underlies the 3 most common and devastating manifestations",
+          "exact_text": "microvascular disease underlies the 3 most common and devastating manifestations",
+          "aspect": "Vascular Complications",
+          "approx_char_start": 1643,
+          "approx_char_end": 1723,
+          "char_offset_approx": [
+            1643,
+            1723
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 28,
+      "query": "What clinical signs suggest an underactive thyroid and how is it corrected?",
+      "tier": 2,
+      "primary_chapter": 93,
+      "expected_chapters": [
+        93
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "93_13",
+          "relevance": 2,
+          "reason": "Definition of hypothyroidism as thyroid hormone deficiency, primary vs secondary etiology."
+        },
+        {
+          "chunk_id": "93_14",
+          "relevance": 2,
+          "reason": "Clinical signs: facial puffiness, hoarse voice, cold intolerance, constipation, dry skin."
+        },
+        {
+          "chunk_id": "93_16",
+          "relevance": 2,
+          "reason": "Thyroid hormone replacement with levothyroxine and dose titration based on serum TSH."
+        },
+        {
+          "chunk_id": "93_15",
+          "relevance": 1,
+          "reason": "Laboratory differential diagnosis and pituitary hypothyroidism features."
+        },
+        {
+          "chunk_id": "93_5",
+          "relevance": 1,
+          "reason": "Hashimoto thyroiditis as underlying autoimmune etiology."
+        },
+        {
+          "chunk_id": "93_0",
+          "relevance": 0,
+          "reason": "Thyroid hormone physiology and anatomical synthesis pathways."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "93_13",
+          "text": "hypothyroidism ( myxedema ) hypothyroidism is thyroid hormone deficiency.",
+          "exact_text": "hypothyroidism ( myxedema ) hypothyroidism is thyroid hormone deficiency.",
+          "aspect": "Clinical Definition",
+          "approx_char_start": 184,
+          "approx_char_end": 257,
+          "char_offset_approx": [
+            184,
+            257
+          ]
+        },
+        {
+          "chunk_id": "93_14",
+          "text": "symptoms and signs symptoms and signs of primary hypothyroidism are often subtle and insidious.",
+          "exact_text": "symptoms and signs symptoms and signs of primary hypothyroidism are often subtle and insidious.",
+          "aspect": "Cardinal Signs",
+          "approx_char_start": 261,
+          "approx_char_end": 356,
+          "char_offset_approx": [
+            261,
+            356
+          ]
+        },
+        {
+          "chunk_id": "93_16",
+          "text": "the dose used should be the lowest that restores serum tsh levels to the midnormal range ( though this criterion cannot be used in patients with secondary hypothyroidism ).",
+          "exact_text": "the dose used should be the lowest that restores serum tsh levels to the midnormal range ( though this criterion cannot be used in patients with secondary hypothyroidism ).",
+          "aspect": "TSH-Guided Titration",
+          "approx_char_start": 548,
+          "approx_char_end": 720,
+          "char_offset_approx": [
+            548,
+            720
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 29,
+      "query": "How is cortisol excess from an adrenal or pituitary source differentiated and treated?",
+      "tier": 2,
+      "primary_chapter": 94,
+      "expected_chapters": [
+        94
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "94_8",
+          "relevance": 2,
+          "reason": "Clinical manifestations of hypercortisolism: moon facies, truncal obesity, purple striae."
+        },
+        {
+          "chunk_id": "94_9",
+          "relevance": 2,
+          "reason": "Pathophysiology and etiology of Cushing syndrome vs Cushing disease."
+        },
+        {
+          "chunk_id": "94_10",
+          "relevance": 2,
+          "reason": "Laboratory evaluation: 24-hour urinary free cortisol, midnight salivary cortisol, dexamethasone suppression."
+        },
+        {
+          "chunk_id": "94_11",
+          "relevance": 1,
+          "reason": "Localization of ACTH source using high-dose dexamethasone suppression or CRH stimulation."
+        },
+        {
+          "chunk_id": "94_0",
+          "relevance": 0,
+          "reason": "Adrenal anatomy and steroidogenesis pathways."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "94_8",
+          "text": "typical symptoms include moon facies and truncal obesity with thin arms and legs.",
+          "exact_text": "typical symptoms include moon facies and truncal obesity with thin arms and legs.",
+          "aspect": "Physical Manifestations",
+          "approx_char_start": 2985,
+          "approx_char_end": 3066,
+          "char_offset_approx": [
+            2985,
+            3066
+          ]
+        },
+        {
+          "chunk_id": "94_9",
+          "text": "cushing's syndrome cushing's syndrome is a constellation of clinical abnormalities caused by chronic high blood levels of cortisol or related corticosteroids.",
+          "exact_text": "cushing's syndrome cushing's syndrome is a constellation of clinical abnormalities caused by chronic high blood levels of cortisol or related corticosteroids.",
+          "aspect": "Pathophysiological Definition",
+          "approx_char_start": 169,
+          "approx_char_end": 327,
+          "char_offset_approx": [
+            169,
+            327
+          ]
+        },
+        {
+          "chunk_id": "94_10",
+          "text": "ufc is elevated > 120 μ g / 24 h ( > 331 nmol / 24 h ) in almost all patients with cushing's syndrome.",
+          "exact_text": "ufc is elevated > 120 μ g / 24 h ( > 331 nmol / 24 h ) in almost all patients with cushing's syndrome.",
+          "aspect": "Diagnostic Confirmation",
+          "approx_char_start": 26,
+          "approx_char_end": 128,
+          "char_offset_approx": [
+            26,
+            128
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 30,
+      "query": "What lifestyle and pharmacological interventions reduce blood pressure?",
+      "tier": 2,
+      "primary_chapter": 208,
+      "expected_chapters": [
+        208
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "208_0",
+          "relevance": 2,
+          "reason": "Overview of hypertension management: lifestyle modifications and antihypertensive drug classes."
+        },
+        {
+          "chunk_id": "208_7",
+          "relevance": 2,
+          "reason": "Lifestyle interventions and simultaneous drug therapy initiation for elevated blood pressure."
+        },
+        {
+          "chunk_id": "208_8",
+          "relevance": 2,
+          "reason": "Pharmacological therapy: initial monotherapy with thiazide diuretics, ACE inhibitors, ARBs, CCBs."
+        },
+        {
+          "chunk_id": "208_1",
+          "relevance": 1,
+          "reason": "Pathophysiology and risk factors for essential hypertension."
+        },
+        {
+          "chunk_id": "208_15",
+          "relevance": 0,
+          "reason": "Hypertensive emergency parenteral therapies."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "208_0",
+          "text": "introduction hypertension is sustained elevation of resting systolic bp ( ≥ 140 mm hg ), diastolic bp ( ≥ 90 mm hg ), or both.",
+          "exact_text": "introduction hypertension is sustained elevation of resting systolic bp ( ≥ 140 mm hg ), diastolic bp ( ≥ 90 mm hg ), or both.",
+          "aspect": "Hypertension Definition",
+          "approx_char_start": 0,
+          "approx_char_end": 126,
+          "char_offset_approx": [
+            0,
+            126
+          ]
+        },
+        {
+          "chunk_id": "208_7",
+          "text": "drugs are initiated simultaneously with lifestyle changes for all patients with prehypertension or hypertension plus diabetes, a kidney disorder, target - organ damage, or cardiovascular risk factors and for those with an initial bp of > 160 / 100 mm hg.",
+          "exact_text": "drugs are initiated simultaneously with lifestyle changes for all patients with prehypertension or hypertension plus diabetes, a kidney disorder, target - organ damage, or cardiovascular risk factors and for those with an initial bp of > 160 / 100 mm hg.",
+          "aspect": "Combined Lifestyle and Drug Initiation",
+          "approx_char_start": 22,
+          "approx_char_end": 276,
+          "char_offset_approx": [
+            22,
+            276
+          ]
+        },
+        {
+          "chunk_id": "208_8",
+          "text": "y ( eg, for most people > 60 hydrochlorothiazide 12.",
+          "exact_text": "y ( eg, for most people > 60 hydrochlorothiazide 12.",
+          "aspect": "First-Line Pharmacotherapy",
+          "approx_char_start": 128,
+          "approx_char_end": 180,
+          "char_offset_approx": [
+            128,
+            180
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 31,
+      "query": "How is reduced cardiac ejection fraction diagnosed and compensated?",
+      "tier": 2,
+      "primary_chapter": 211,
+      "expected_chapters": [
+        211
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "211_0",
+          "relevance": 2,
+          "reason": "Definition of heart failure, systolic dysfunction with reduced ejection fraction (HFrEF)."
+        },
+        {
+          "chunk_id": "211_6",
+          "relevance": 2,
+          "reason": "Clinical presentation: dyspnea on exertion, orthopnea, fatigue, peripheral edema, elevated JVP."
+        },
+        {
+          "chunk_id": "211_11",
+          "relevance": 2,
+          "reason": "Nonpharmacologic management: sodium restriction, weight management, and underlying condition correction."
+        },
+        {
+          "chunk_id": "211_7",
+          "relevance": 1,
+          "reason": "Cheyne-Stokes breathing patterns and pulmonary congestion in advanced failure."
+        },
+        {
+          "chunk_id": "211_19",
+          "relevance": 0,
+          "reason": "Digoxin pharmacokinetics and elimination half-life."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "211_0",
+          "text": ") heart failure ( hf ) is a syndrome of ventricular dysfunction.",
+          "exact_text": ") heart failure ( hf ) is a syndrome of ventricular dysfunction.",
+          "aspect": "Diagnostic Definition",
+          "approx_char_start": 83,
+          "approx_char_end": 147,
+          "char_offset_approx": [
+            83,
+            147
+          ]
+        },
+        {
+          "chunk_id": "211_6",
+          "text": "ting in low plasma oncotic pressure and peripheral edema.",
+          "exact_text": "ting in low plasma oncotic pressure and peripheral edema.",
+          "aspect": "Clinical Manifestations",
+          "approx_char_start": 200,
+          "approx_char_end": 257,
+          "char_offset_approx": [
+            200,
+            257
+          ]
+        },
+        {
+          "chunk_id": "211_11",
+          "text": "na restriction • appropriate weight and fitness levels • correction of underlying conditions patient and caregiver education are critical to long - term success.",
+          "exact_text": "na restriction • appropriate weight and fitness levels • correction of underlying conditions patient and caregiver education are critical to long - term success.",
+          "aspect": "Nonpharmacologic Goals",
+          "approx_char_start": 2,
+          "approx_char_end": 163,
+          "char_offset_approx": [
+            2,
+            163
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 32,
+      "query": "What are the first and second line therapies for H. pylori related gastric disease?",
+      "tier": 2,
+      "primary_chapter": 13,
+      "expected_chapters": [
+        13
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "13_1",
+          "relevance": 2,
+          "reason": "Helicobacter pylori microbiology, pathogenesis in gastritis and peptic ulcer disease."
+        },
+        {
+          "chunk_id": "13_5",
+          "relevance": 2,
+          "reason": "Diagnostic methods: urea breath test, stool antigen test, endoscopic biopsy with rapid urease test."
+        },
+        {
+          "chunk_id": "13_6",
+          "relevance": 2,
+          "reason": "Eradication therapy: PPI triple therapy or bismuth quadruple therapy."
+        },
+        {
+          "chunk_id": "13_0",
+          "relevance": 1,
+          "reason": "Classification of acute and chronic gastritis."
+        },
+        {
+          "chunk_id": "13_8",
+          "relevance": 0,
+          "reason": "Complications of peptic ulcer disease: perforation and gastric outlet obstruction."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "13_1",
+          "text": "h. pylori is a spiral - shaped, gram - negative organism that has adapted to thrive in acid.",
+          "exact_text": "h. pylori is a spiral - shaped, gram - negative organism that has adapted to thrive in acid.",
+          "aspect": "Pathogen Microbiology",
+          "approx_char_start": 221,
+          "approx_char_end": 313,
+          "char_offset_approx": [
+            221,
+            313
+          ]
+        },
+        {
+          "chunk_id": "13_5",
+          "text": "treatment is eradication of h. pylori and sometimes acid suppression.",
+          "exact_text": "treatment is eradication of h. pylori and sometimes acid suppression.",
+          "aspect": "Diagnostic Methods",
+          "approx_char_start": 8,
+          "approx_char_end": 77,
+          "char_offset_approx": [
+            8,
+            77
+          ]
+        },
+        {
+          "chunk_id": "13_6",
+          "text": "pylori • sometimes acid - suppressive drugs treatment of chronic nonerosive gastritis is h. pylori eradication ( see p.",
+          "exact_text": "pylori • sometimes acid - suppressive drugs treatment of chronic nonerosive gastritis is h. pylori eradication ( see p.",
+          "aspect": "First-Line Eradication Regimen",
+          "approx_char_start": 396,
+          "approx_char_end": 515,
+          "char_offset_approx": [
+            396,
+            515
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 33,
+      "query": "How is transmural intestinal inflammation distinguished from ulcerative disease?",
+      "tier": 2,
+      "primary_chapter": 19,
+      "expected_chapters": [
+        19
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "19_0",
+          "relevance": 2,
+          "reason": "Overview of inflammatory bowel disease: differentiating Crohn disease and ulcerative colitis."
+        },
+        {
+          "chunk_id": "19_1",
+          "relevance": 2,
+          "reason": "Crohn disease pathology: transmural inflammation, skip lesions, granulomas, terminal ileum involvement."
+        },
+        {
+          "chunk_id": "19_2",
+          "relevance": 2,
+          "reason": "Ulcerative colitis medical management with 5-ASA preparations in proctitis and left-sided disease."
+        },
+        {
+          "chunk_id": "19_7",
+          "relevance": 1,
+          "reason": "Extraintestinal manifestations of IBD: arthritis, uveitis, erythema nodosum."
+        },
+        {
+          "chunk_id": "19_11",
+          "relevance": 0,
+          "reason": "Surgical indications and dysplasia surveillance in long-standing disease."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "19_0",
+          "text": "introduction inflammatory bowel disease ( ibd ), which includes crohn's disease and ulcerative coli",
+          "exact_text": "introduction inflammatory bowel disease ( ibd ), which includes crohn's disease and ulcerative coli",
+          "aspect": "IBD Overview",
+          "approx_char_start": 0,
+          "approx_char_end": 99,
+          "char_offset_approx": [
+            0,
+            99
+          ]
+        },
+        {
+          "chunk_id": "19_1",
+          "text": "these disorders occur mainly in severe crohn's disease of the small bowel.",
+          "exact_text": "these disorders occur mainly in severe crohn's disease of the small bowel.",
+          "aspect": "Crohn Disease Pathology",
+          "approx_char_start": 1267,
+          "approx_char_end": 1341,
+          "char_offset_approx": [
+            1267,
+            1341
+          ]
+        },
+        {
+          "chunk_id": "19_2",
+          "text": "##ing 5 - asa with a sulfa moiety, sulfapyridine.",
+          "exact_text": "##ing 5 - asa with a sulfa moiety, sulfapyridine.",
+          "aspect": "Ulcerative Colitis Therapy",
+          "approx_char_start": 0,
+          "approx_char_end": 49,
+          "char_offset_approx": [
+            0,
+            49
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 34,
+      "query": "How is community-acquired lower respiratory tract infection evaluated and treated?",
+      "tier": 2,
+      "primary_chapter": 196,
+      "expected_chapters": [
+        196
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "196_0",
+          "relevance": 2,
+          "reason": "Definition of community-acquired pneumonia, infectious etiology and clinical syndrome."
+        },
+        {
+          "chunk_id": "196_1",
+          "relevance": 2,
+          "reason": "Clinical symptoms and signs: fever, cough, sputum production, pleuritic chest pain, crackles."
+        },
+        {
+          "chunk_id": "196_5",
+          "relevance": 2,
+          "reason": "Empiric antimicrobial selection based on likely pathogens and clinical guidelines."
+        },
+        {
+          "chunk_id": "196_3",
+          "relevance": 1,
+          "reason": "Diagnostic workup: blood cultures and clinical microbiology considerations."
+        },
+        {
+          "chunk_id": "196_14",
+          "relevance": 0,
+          "reason": "Aspiration pneumonitis chemical mechanisms."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "196_0",
+          "text": ") pneumonia is acute inflammation of the lungs caused by infection.",
+          "exact_text": ") pneumonia is acute inflammation of the lungs caused by infection.",
+          "aspect": "Clinical Definition",
+          "approx_char_start": 50,
+          "approx_char_end": 117,
+          "char_offset_approx": [
+            50,
+            117
+          ]
+        },
+        {
+          "chunk_id": "196_1",
+          "text": "symptoms and signs are fever, cough, pleuritic chest 2081 mycoplasma pneumoniae, legionella sp ).",
+          "exact_text": "symptoms and signs are fever, cough, pleuritic chest 2081 mycoplasma pneumoniae, legionella sp ).",
+          "aspect": "Cardinal Symptoms",
+          "approx_char_start": 68,
+          "approx_char_end": 165,
+          "char_offset_approx": [
+            68,
+            165
+          ]
+        },
+        {
+          "chunk_id": "196_5",
+          "text": "to identify, antibiotics are selected based on likely pathogens and severity of illness.",
+          "exact_text": "to identify, antibiotics are selected based on likely pathogens and severity of illness.",
+          "aspect": "Empiric Antimicrobial Selection",
+          "approx_char_start": 0,
+          "approx_char_end": 88,
+          "char_offset_approx": [
+            0,
+            88
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 35,
+      "query": "What causes vaso-occlusive crises in hemoglobin disorders?",
+      "tier": 2,
+      "primary_chapter": 106,
+      "expected_chapters": [
+        106
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "106_13",
+          "relevance": 2,
+          "reason": "Pathophysiology of sickling: deoxygenation, HbS polymerization, vascular occlusion, and microvascular infarction."
+        },
+        {
+          "chunk_id": "106_14",
+          "relevance": 2,
+          "reason": "Clinical manifestations of acute vaso-occlusion: severe bone pain crises, acute chest syndrome, dactylitis."
+        },
+        {
+          "chunk_id": "106_17",
+          "relevance": 2,
+          "reason": "Management of painful crises: aggressive hydration, prompt opioid analgesia, oxygen for hypoxemia."
+        },
+        {
+          "chunk_id": "106_18",
+          "relevance": 1,
+          "reason": "Hydroxyurea therapy to increase fetal hemoglobin and reduce crisis frequency."
+        },
+        {
+          "chunk_id": "106_0",
+          "relevance": 0,
+          "reason": "General introductory mechanisms of premature red cell destruction."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "106_13",
+          "text": "and plug small arterioles and capillaries, which leads to infarction.",
+          "exact_text": "and plug small arterioles and capillaries, which leads to infarction.",
+          "aspect": "Microvascular Occlusion",
+          "approx_char_start": 0,
+          "approx_char_end": 69,
+          "char_offset_approx": [
+            0,
+            69
+          ]
+        },
+        {
+          "chunk_id": "106_14",
+          "text": "complications : long - term consequences include impaired growth and development.",
+          "exact_text": "complications : long - term consequences include impaired growth and development.",
+          "aspect": "Complications",
+          "approx_char_start": 31,
+          "approx_char_end": 112,
+          "char_offset_approx": [
+            31,
+            112
+          ]
+        },
+        {
+          "chunk_id": "106_17",
+          "text": "##gesics : painful crises are managed with liberal administration of analgesics, usually opioids.",
+          "exact_text": "##gesics : painful crises are managed with liberal administration of analgesics, usually opioids.",
+          "aspect": "Pain Management",
+          "approx_char_start": 0,
+          "approx_char_end": 97,
+          "char_offset_approx": [
+            0,
+            97
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 36,
+      "query": "What mechanisms explain why certain medications worsen thyroid function?",
+      "tier": 3,
+      "primary_chapter": 93,
+      "expected_chapters": [
+        93,
+        213
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "93_20",
+          "relevance": 2,
+          "reason": "Amiodarone and iodine-containing drugs causing inhibition of thyroid hormone synthesis."
+        },
+        {
+          "chunk_id": "93_4",
+          "relevance": 2,
+          "reason": "Iodine-rich contrast agents and amiodarone impairing peripheral T4 to T3 conversion."
+        },
+        {
+          "chunk_id": "213_19",
+          "relevance": 2,
+          "reason": "Class III antiarrhythmic amiodarone indications in ventricular and supraventricular arrhythmias."
+        },
+        {
+          "chunk_id": "93_5",
+          "relevance": 1,
+          "reason": "Autoimmune thyroiditis and hypothyroidism differential."
+        },
+        {
+          "chunk_id": "213_14",
+          "relevance": 0,
+          "reason": "ECG diagnosis and conduction block pacing."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "93_20",
+          "text": "the synthesis of thyroid hormone ( eg, amiodarone or other iodine - containing compounds, lithium ).",
+          "exact_text": "the synthesis of thyroid hormone ( eg, amiodarone or other iodine - containing compounds, lithium ).",
+          "aspect": "Drug-Induced Thyroid Inhibition",
+          "approx_char_start": 31,
+          "approx_char_end": 131,
+          "char_offset_approx": [
+            31,
+            131
+          ]
+        },
+        {
+          "chunk_id": "93_4",
+          "text": "effects of various drugs, including the iodine - rich contrast agents and amiodarone, which impairs the peripheral conversion of t to t, and by",
+          "exact_text": "effects of various drugs, including the iodine - rich contrast agents and amiodarone, which impairs the peripheral conversion of t to t, and by",
+          "aspect": "T4 to T3 Peripheral Conversion",
+          "approx_char_start": 1281,
+          "approx_char_end": 1424,
+          "char_offset_approx": [
+            1281,
+            1424
+          ]
+        },
+        {
+          "chunk_id": "213_19",
+          "text": "( flecainide, propafenone ), and iii ( amiodarone, dofetilide, ibutilide, sotalol ) antiarrhythmics ( see table 213 ).",
+          "exact_text": "( flecainide, propafenone ), and iii ( amiodarone, dofetilide, ibutilide, sotalol ) antiarrhythmics ( see table 213 ).",
+          "aspect": "Antiarrhythmic Indication",
+          "approx_char_start": 19,
+          "approx_char_end": 137,
+          "char_offset_approx": [
+            19,
+            137
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 37,
+      "query": "How does electrolyte imbalance affect cardiac rhythm?",
+      "tier": 3,
+      "primary_chapter": 97,
+      "expected_chapters": [
+        97,
+        213
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "97_20",
+          "relevance": 2,
+          "reason": "Cardiovascular manifestations of hyperkalemia: muscle weakness, cardiac toxicity, ventricular fibrillation, asystole."
+        },
+        {
+          "chunk_id": "97_17",
+          "relevance": 2,
+          "reason": "Etiology of hypokalemia: severe GI potassium losses from chronic diarrhea and laxatives."
+        },
+        {
+          "chunk_id": "213_0",
+          "relevance": 2,
+          "reason": "Arrhythmia classification and conduction disorder pathophysiology."
+        },
+        {
+          "chunk_id": "97_16",
+          "relevance": 1,
+          "reason": "Pseudohypokalemia and pseudohyperkalemia diagnostic distinction."
+        },
+        {
+          "chunk_id": "97_22",
+          "relevance": 0,
+          "reason": "Potassium-binding resins and sorbitol administration."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "97_20",
+          "text": "hyperkalemia hyperkalemia is serum k concentration > 5. 5 meq / l resulting from excess total body k stores or abnormal movement of k out of cells.",
+          "exact_text": "hyperkalemia hyperkalemia is serum k concentration > 5. 5 meq / l resulting from excess total body k stores or abnormal movement of k out of cells.",
+          "aspect": "Hyperkalemia Threshold",
+          "approx_char_start": 1750,
+          "approx_char_end": 1897,
+          "char_offset_approx": [
+            1750,
+            1897
+          ]
+        },
+        {
+          "chunk_id": "97_20",
+          "text": "clinical manifestations are generally neuromuscular, resulting in muscle weakness and cardiac toxicity that, when severe, can degenerate to ventricular fibrillation or asystole.",
+          "exact_text": "clinical manifestations are generally neuromuscular, resulting in muscle weakness and cardiac toxicity that, when severe, can degenerate to ventricular fibrillation or asystole.",
+          "aspect": "Cardiac Arrhythmia Toxicity",
+          "approx_char_start": 2132,
+          "approx_char_end": 2309,
+          "char_offset_approx": [
+            2132,
+            2309
+          ]
+        },
+        {
+          "chunk_id": "97_17",
+          "text": "gi tract losses : abnormal gi k losses occur in all of the following : • chronic diarrhea, including chronic laxative abuse and bowel diversion • cla",
+          "exact_text": "gi tract losses : abnormal gi k losses occur in all of the following : • chronic diarrhea, including chronic laxative abuse and bowel diversion • cla",
+          "aspect": "GI Potassium Loss",
+          "approx_char_start": 14,
+          "approx_char_end": 163,
+          "char_offset_approx": [
+            14,
+            163
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 38,
+      "query": "What are the neurological consequences of untreated vitamin B12 deficiency?",
+      "tier": 3,
+      "primary_chapter": 4,
+      "expected_chapters": [
+        4,
+        105
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "4_13",
+          "relevance": 2,
+          "reason": "Vitamin B deficiency: folate supplementation without B12 allows neurologic deficits to progress."
+        },
+        {
+          "chunk_id": "105_13",
+          "relevance": 2,
+          "reason": "Neurologic manifestations of vitamin B deficiency: peripheral neuropathy, dementia, subacute combined degeneration."
+        },
+        {
+          "chunk_id": "105_4",
+          "relevance": 2,
+          "reason": "Diagnosis of deficient erythropoiesis and anemia etiology."
+        },
+        {
+          "chunk_id": "4_0",
+          "relevance": 1,
+          "reason": "Introductory classification of water-soluble B vitamins."
+        },
+        {
+          "chunk_id": "105_12",
+          "relevance": 0,
+          "reason": "Erythropoietin and corticosteroid dosing in chronic marrow disorders."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "4_13",
+          "text": "used instead of vitamin b because folate may alleviate the anemia but allow 86 neurologic deficits to progress.",
+          "exact_text": "used instead of vitamin b because folate may alleviate the anemia but allow 86 neurologic deficits to progress.",
+          "aspect": "Folate Trap Danger",
+          "approx_char_start": 0,
+          "approx_char_end": 111,
+          "char_offset_approx": [
+            0,
+            111
+          ]
+        },
+        {
+          "chunk_id": "105_13",
+          "text": "deficiencies of vitamin b may cause neurologic manifestations, including peripheral neuropathy, dementia, and subacute combined degeneration.",
+          "exact_text": "deficiencies of vitamin b may cause neurologic manifestations, including peripheral neuropathy, dementia, and subacute combined degeneration.",
+          "aspect": "Subacute Combined Degeneration",
+          "approx_char_start": 58,
+          "approx_char_end": 199,
+          "char_offset_approx": [
+            58,
+            199
+          ]
+        },
+        {
+          "chunk_id": "105_4",
+          "text": "1052 diagnosis of iron deficiency anemia prompts consideration of its cause, usually bleeding.",
+          "exact_text": "1052 diagnosis of iron deficiency anemia prompts consideration of its cause, usually bleeding.",
+          "aspect": "Hematologic Context",
+          "approx_char_start": 102,
+          "approx_char_end": 196,
+          "char_offset_approx": [
+            102,
+            196
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 39,
+      "query": "How does portal hypertension develop in patients with liver fibrosis?",
+      "tier": 3,
+      "primary_chapter": 27,
+      "expected_chapters": [
+        27,
+        10
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "10_5",
+          "relevance": 2,
+          "reason": "Esophageal varices pathophysiology: portal hypertension causing collateral dilation; endoscopic banding and octreotide."
+        },
+        {
+          "chunk_id": "10_6",
+          "relevance": 2,
+          "reason": "Diagnosis and emergency management of bleeding varices: endoscopic banding, octreotide, TIPS."
+        },
+        {
+          "chunk_id": "27_1",
+          "relevance": 2,
+          "reason": "Cirrhosis and portal hypertension pathophysiology."
+        },
+        {
+          "chunk_id": "10_1",
+          "relevance": 1,
+          "reason": "Clinical presentation of upper gastrointestinal bleeding in liver disease."
+        },
+        {
+          "chunk_id": "10_7",
+          "relevance": 0,
+          "reason": "Balloon tamponade with Sengstaken-Blakemore tube morbidity."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "10_5",
+          "text": "varices varices are dilated veins in the distal esophagus or proximal stomach caused by elevated pressure in the portal venous system, typically from cirrhosis.",
+          "exact_text": "varices varices are dilated veins in the distal esophagus or proximal stomach caused by elevated pressure in the portal venous system, typically from cirrhosis.",
+          "aspect": "Varices Definition",
+          "approx_char_start": 1514,
+          "approx_char_end": 1674,
+          "char_offset_approx": [
+            1514,
+            1674
+          ]
+        },
+        {
+          "chunk_id": "10_5",
+          "text": "treatment is primarily with endoscopic banding and iv octreotide.",
+          "exact_text": "treatment is primarily with endoscopic banding and iv octreotide.",
+          "aspect": "Acute Management",
+          "approx_char_start": 1762,
+          "approx_char_end": 1827,
+          "char_offset_approx": [
+            1762,
+            1827
+          ]
+        },
+        {
+          "chunk_id": "27_1",
+          "text": "disorders and drugs that can cause hepatic fibrosis ] extent of the ischemia and portal hypertension determines how the liver is affected.",
+          "exact_text": "disorders and drugs that can cause hepatic fibrosis ] extent of the ischemia and portal hypertension determines how the liver is affected.",
+          "aspect": "Portal Hemodynamics",
+          "approx_char_start": 8,
+          "approx_char_end": 146,
+          "char_offset_approx": [
+            8,
+            146
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 40,
+      "query": "What is the role of ACE inhibitors in slowing renal disease progression?",
+      "tier": 3,
+      "primary_chapter": 239,
+      "expected_chapters": [
+        239,
+        99,
+        208
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "99_4",
+          "relevance": 2,
+          "reason": "Diabetic nephropathy: microalbuminuria, renoprotective effect of ACE inhibitors and ARBs to slow progression."
+        },
+        {
+          "chunk_id": "208_8",
+          "relevance": 2,
+          "reason": "Antihypertensive drug therapy: thiazide, ACE inhibitor, and combination regimens."
+        },
+        {
+          "chunk_id": "239_0",
+          "relevance": 2,
+          "reason": "Renal failure classification and progression from acute to chronic kidney injury."
+        },
+        {
+          "chunk_id": "99_5",
+          "relevance": 1,
+          "reason": "Cardiovascular risk reduction in diabetes using ACE inhibitors and statins."
+        },
+        {
+          "chunk_id": "208_1",
+          "relevance": 0,
+          "reason": "Risk factors for essential hypertension."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "99_4",
+          "text": "a ratio > 30 mg / g or an albumin concentration 30 to 300 mg / 24 h signifies microalbuminuria and early diabetic nephropathy.",
+          "exact_text": "a ratio > 30 mg / g or an albumin concentration 30 to 300 mg / 24 h signifies microalbuminuria and early diabetic nephropathy.",
+          "aspect": "Diabetic Nephropathy",
+          "approx_char_start": 522,
+          "approx_char_end": 648,
+          "char_offset_approx": [
+            522,
+            648
+          ]
+        },
+        {
+          "chunk_id": "99_4",
+          "text": "an ace inhibitor, an angiotensin ii receptor blocker, or both should be used to treat hypertension at the earliest sign of microalbuminuria or even before, because these drugs lower intraglomerular bp and thus have renoprotective effects.",
+          "exact_text": "an ace inhibitor, an angiotensin ii receptor blocker, or both should be used to treat hypertension at the earliest sign of microalbuminuria or even before, because these drugs lower intraglomerular bp and thus have renoprotective effects.",
+          "aspect": "Renoprotective Therapy",
+          "approx_char_start": 714,
+          "approx_char_end": 952,
+          "char_offset_approx": [
+            714,
+            952
+          ]
+        },
+        {
+          "chunk_id": "208_8",
+          "text": "y ( eg, for most people > 60 hydrochlorothiazide 12.",
+          "exact_text": "y ( eg, for most people > 60 hydrochlorothiazide 12.",
+          "aspect": "Antihypertensive Regimen",
+          "approx_char_start": 128,
+          "approx_char_end": 180,
+          "char_offset_approx": [
+            128,
+            180
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 41,
+      "query": "How does obstructive sleep apnea relate to cardiovascular morbidity?",
+      "tier": 3,
+      "primary_chapter": 193,
+      "expected_chapters": [
+        193,
+        208
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "193_0",
+          "relevance": 2,
+          "reason": "Obstructive sleep apnea: repetitive upper airway collapse, nocturnal hypoxemia, sympathetic activation."
+        },
+        {
+          "chunk_id": "193_1",
+          "relevance": 2,
+          "reason": "Cardiovascular sequelae of OSA: systemic hypertension, nocturnal arrhythmias, coronary disease."
+        },
+        {
+          "chunk_id": "208_7",
+          "relevance": 2,
+          "reason": "Hypertension management in patients with cardiovascular risk factors and target-organ damage."
+        },
+        {
+          "chunk_id": "208_0",
+          "relevance": 1,
+          "reason": "Definition and classification of sustained resting hypertension."
+        },
+        {
+          "chunk_id": "208_15",
+          "relevance": 0,
+          "reason": "Hypertensive encephalopathy emergency management."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "193_0",
+          "text": "sorders that occur during sleep include obstructive sleep apnea and central sleep apnea.",
+          "exact_text": "sorders that occur during sleep include obstructive sleep apnea and central sleep apnea.",
+          "aspect": "OSA Pathophysiology",
+          "approx_char_start": 25,
+          "approx_char_end": 113,
+          "char_offset_approx": [
+            25,
+            113
+          ]
+        },
+        {
+          "chunk_id": "193_1",
+          "text": "t ( bmi > 30 ) • have poorly controlled hypertension ( which may be caused or exacerbated by osa ), heart failur",
+          "exact_text": "t ( bmi > 30 ) • have poorly controlled hypertension ( which may be caused or exacerbated by osa ), heart failur",
+          "aspect": "Cardiovascular Association",
+          "approx_char_start": 2868,
+          "approx_char_end": 2980,
+          "char_offset_approx": [
+            2868,
+            2980
+          ]
+        },
+        {
+          "chunk_id": "208_7",
+          "text": "drugs are initiated simultaneously with lifestyle changes for all patients with prehypertension or hypertension plus diabetes, a kidney disorder, target - organ damage, or cardiovascular risk factors and for those with an initial bp of > 160 / 100 mm hg.",
+          "exact_text": "drugs are initiated simultaneously with lifestyle changes for all patients with prehypertension or hypertension plus diabetes, a kidney disorder, target - organ damage, or cardiovascular risk factors and for those with an initial bp of > 160 / 100 mm hg.",
+          "aspect": "Secondary Hypertension Context",
+          "approx_char_start": 22,
+          "approx_char_end": 276,
+          "char_offset_approx": [
+            22,
+            276
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 42,
+      "query": "What clotting cascade abnormalities lead to bleeding in liver disease?",
+      "tier": 3,
+      "primary_chapter": 111,
+      "expected_chapters": [
+        111,
+        27
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "111_0",
+          "relevance": 2,
+          "reason": "Coagulation cascade balance: procoagulant and anticoagulant forces in hemostasis."
+        },
+        {
+          "chunk_id": "111_1",
+          "relevance": 2,
+          "reason": "Tissue factor release and secondary coagulation factor consumption in severe disease."
+        },
+        {
+          "chunk_id": "27_1",
+          "relevance": 2,
+          "reason": "Cirrhosis pathophysiology: impaired hepatic protein synthesis and portal hypertension."
+        },
+        {
+          "chunk_id": "111_2",
+          "relevance": 1,
+          "reason": "Antithrombin deficiency and consumption in hypercoagulable states."
+        },
+        {
+          "chunk_id": "27_8",
+          "relevance": 0,
+          "reason": "Hepatic encephalopathy clinical management."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "111_0",
+          "text": "eeding can result from disorders of the coagulation system ( see p.",
+          "exact_text": "eeding can result from disorders of the coagulation system ( see p.",
+          "aspect": "Hemostatic Balance",
+          "approx_char_start": 24,
+          "approx_char_end": 91,
+          "char_offset_approx": [
+            24,
+            91
+          ]
+        },
+        {
+          "chunk_id": "27_1",
+          "text": "eventually, cirrhosis supervenes.",
+          "exact_text": "eventually, cirrhosis supervenes.",
+          "aspect": "Hepatic Synthetic Failure",
+          "approx_char_start": 642,
+          "approx_char_end": 675,
+          "char_offset_approx": [
+            642,
+            675
+          ]
+        },
+        {
+          "chunk_id": "111_1",
+          "text": "tissue injury and release of tissue factor less common causes of dic include severe tissue damage from",
+          "exact_text": "tissue injury and release of tissue factor less common causes of dic include severe tissue damage from",
+          "aspect": "Coagulopathy Activation",
+          "approx_char_start": 0,
+          "approx_char_end": 102,
+          "char_offset_approx": [
+            0,
+            102
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 43,
+      "query": "How is sepsis distinguished from systemic inflammatory response and how is it managed?",
+      "tier": 3,
+      "primary_chapter": 227,
+      "expected_chapters": [
+        227
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "227_0",
+          "relevance": 2,
+          "reason": "Sepsis and septic shock definition: dysregulated host response to infection causing life-threatening organ dysfunction."
+        },
+        {
+          "chunk_id": "227_1",
+          "relevance": 2,
+          "reason": "Pathophysiology: proinflammatory mediator release, cytokine-driven endothelial adhesion, microthrombi generation."
+        },
+        {
+          "chunk_id": "227_2",
+          "relevance": 2,
+          "reason": "Clinical monitoring of septic shock: serum lactate, arterial blood gases, white blood cell alterations."
+        },
+        {
+          "chunk_id": "227_3",
+          "relevance": 1,
+          "reason": "Fluid resuscitation and vasopressor protocols in septic shock."
+        },
+        {
+          "chunk_id": "227_4",
+          "relevance": 0,
+          "reason": "Prognostic indicators and supportive care in refractory shock."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "227_0",
+          "text": "in severe sepsis and septic shock, there is critical reduction in tissue perfusion.",
+          "exact_text": "in severe sepsis and septic shock, there is critical reduction in tissue perfusion.",
+          "aspect": "Sepsis Definition",
+          "approx_char_start": 160,
+          "approx_char_end": 243,
+          "char_offset_approx": [
+            160,
+            243
+          ]
+        },
+        {
+          "chunk_id": "227_1",
+          "text": ") triggers production of proinflammatory mediators, including tumor necrosis factor and il - 1.",
+          "exact_text": ") triggers production of proinflammatory mediators, including tumor necrosis factor and il - 1.",
+          "aspect": "Inflammatory Cascade",
+          "approx_char_start": 0,
+          "approx_char_end": 95,
+          "char_offset_approx": [
+            0,
+            95
+          ]
+        },
+        {
+          "chunk_id": "227_2",
+          "text": "at the onset of septic shock, the wbc count may initially decrease to < 4000 / μ l, and pmns may be as low as 20 %.",
+          "exact_text": "at the onset of septic shock, the wbc count may initially decrease to < 4000 / μ l, and pmns may be as low as 20 %.",
+          "aspect": "Clinical Shock Onset",
+          "approx_char_start": 127,
+          "approx_char_end": 242,
+          "char_offset_approx": [
+            127,
+            242
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 44,
+      "query": "What are the pulmonary manifestations of autoimmune connective tissue disorders?",
+      "tier": 3,
+      "primary_chapter": 33,
+      "expected_chapters": [
+        33,
+        199
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "33_0",
+          "relevance": 2,
+          "reason": "Autoimmune rheumatic disorders: systemic lupus erythematosus, rheumatoid arthritis, systemic sclerosis."
+        },
+        {
+          "chunk_id": "199_0",
+          "relevance": 2,
+          "reason": "Interstitial lung disease classification: pulmonary fibrosis, alveolar wall inflammation, restrictive impairment."
+        },
+        {
+          "chunk_id": "33_1",
+          "relevance": 1,
+          "reason": "Clinical features and serological diagnosis in connective tissue diseases."
+        },
+        {
+          "chunk_id": "199_1",
+          "relevance": 1,
+          "reason": "Diagnostic high-resolution chest CT patterns in interstitial lung diseases."
+        },
+        {
+          "chunk_id": "199_15",
+          "relevance": 0,
+          "reason": "Lung transplantation referral criteria in end-stage pulmonary fibrosis."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "33_0",
+          "text": "ing polychondritis, sjogren's syndrome, sle, and systemic sclerosis.",
+          "exact_text": "ing polychondritis, sjogren's syndrome, sle, and systemic sclerosis.",
+          "aspect": "SLE and Connective Tissue Disorders",
+          "approx_char_start": 149,
+          "approx_char_end": 217,
+          "char_offset_approx": [
+            149,
+            217
+          ]
+        },
+        {
+          "chunk_id": "33_0",
+          "text": "introduction autoimmune rheumatic disorders include eosinophilic fasciitis, mixed connective tissue disease, polymyositis and dermatomyositis, relapsing polychondritis, sjogren's syndrome, sle, and systemic sclerosis.",
+          "exact_text": "introduction autoimmune rheumatic disorders include eosinophilic fasciitis, mixed connective tissue disease, polymyositis and dermatomyositis, relapsing polychondritis, sjogren's syndrome, sle, and systemic sclerosis.",
+          "aspect": "Autoimmune Rheumatic Spectrum",
+          "approx_char_start": 0,
+          "approx_char_end": 217,
+          "char_offset_approx": [
+            0,
+            217
+          ]
+        },
+        {
+          "chunk_id": "199_0",
+          "text": "n ( diffuse parenchymal lung diseases ) interstitial lung diseases are a heterogeneous group of disorders characterized by alveolar septal thickening, fibroblast proliferation, collagen deposition, and, if the process remains unchecked, pulmonary fibrosis.",
+          "exact_text": "n ( diffuse parenchymal lung diseases ) interstitial lung diseases are a heterogeneous group of disorders characterized by alveolar septal thickening, fibroblast proliferation, collagen deposition, and, if the process remains unchecked, pulmonary fibrosis.",
+          "aspect": "Interstitial Pulmonary Involvement",
+          "approx_char_start": 11,
+          "approx_char_end": 267,
+          "char_offset_approx": [
+            11,
+            267
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 45,
+      "query": "How does chronic kidney disease affect erythropoiesis and bone metabolism?",
+      "tier": 3,
+      "primary_chapter": 239,
+      "expected_chapters": [
+        239,
+        97
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "239_0",
+          "relevance": 2,
+          "reason": "Pathophysiology of renal failure: progressive loss of nephrons, diminished glomerular filtration."
+        },
+        {
+          "chunk_id": "239_1",
+          "relevance": 2,
+          "reason": "Tubular damage and impaired electrolyte reabsorption in progressive kidney injury."
+        },
+        {
+          "chunk_id": "97_42",
+          "relevance": 2,
+          "reason": "Phosphate homeostasis: intracellular organic compound role and acute transcellular shifts."
+        },
+        {
+          "chunk_id": "97_43",
+          "relevance": 1,
+          "reason": "Diagnostic workup of hypophosphatemia and electrolyte depletion."
+        },
+        {
+          "chunk_id": "97_40",
+          "relevance": 0,
+          "reason": "Surgical parathyroidectomy postoperative hypocalcemia management."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "239_0",
+          "text": "acute renal failure ( acute kidney injury ) acute renal failure ( arf ) is a rapid decrease in renal function over days to weeks, causing an accumulation of nitrogenous products in the blood ( azotemia ).",
+          "exact_text": "acute renal failure ( acute kidney injury ) acute renal failure ( arf ) is a rapid decrease in renal function over days to weeks, causing an accumulation of nitrogenous products in the blood ( azotemia ).",
+          "aspect": "Renal Failure Definition",
+          "approx_char_start": 203,
+          "approx_char_end": 407,
+          "char_offset_approx": [
+            203,
+            407
+          ]
+        },
+        {
+          "chunk_id": "239_1",
+          "text": "tubular damage impairs reabsorption of na, so urinary na tends to be elevated, which is helpful diagnostically.",
+          "exact_text": "tubular damage impairs reabsorption of na, so urinary na tends to be elevated, which is helpful diagnostically.",
+          "aspect": "Tubular Electrolyte Derangement",
+          "approx_char_start": 14,
+          "approx_char_end": 125,
+          "char_offset_approx": [
+            14,
+            125
+          ]
+        },
+        {
+          "chunk_id": "97_42",
+          "text": "tissues, po is mainly found in the intracellular compartment as an integral component of several organic compounds, including nucleic acids and cell membrane phospholipids.",
+          "exact_text": "tissues, po is mainly found in the intracellular compartment as an integral component of several organic compounds, including nucleic acids and cell membrane phospholipids.",
+          "aspect": "Phosphate Homeostasis",
+          "approx_char_start": 0,
+          "approx_char_end": 172,
+          "char_offset_approx": [
+            0,
+            172
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 46,
+      "query": "What distinguishes angina pectoris from acute myocardial ischemia on presentation?",
+      "tier": 3,
+      "primary_chapter": 210,
+      "expected_chapters": [
+        210
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "210_4",
+          "relevance": 2,
+          "reason": "Stable angina pathophysiology: predictable relationship between myocardial oxygen demand and ischemia, without infarction."
+        },
+        {
+          "chunk_id": "210_6",
+          "relevance": 2,
+          "reason": "Acute coronary syndromes (unstable angina, NSTEMI, STEMI): plaque rupture, thrombus formation, unpredictable ischemia."
+        },
+        {
+          "chunk_id": "210_0",
+          "relevance": 1,
+          "reason": "Coronary artery disease pathology and progressive atheromatous narrowing."
+        },
+        {
+          "chunk_id": "210_1",
+          "relevance": 1,
+          "reason": "Inflammatory markers and plaque vulnerability indicators."
+        },
+        {
+          "chunk_id": "210_12",
+          "relevance": 0,
+          "reason": "Coronary artery bypass grafting operative indications."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "210_4",
+          "text": "pathophysiology in stable angina, the relationship between workload or demand and ischemia is usually relatively predictable.",
+          "exact_text": "pathophysiology in stable angina, the relationship between workload or demand and ischemia is usually relatively predictable.",
+          "aspect": "Stable Angina Pathophysiology",
+          "approx_char_start": 2450,
+          "approx_char_end": 2575,
+          "char_offset_approx": [
+            2450,
+            2575
+          ]
+        },
+        {
+          "chunk_id": "210_6",
+          "text": "unstable angina : because angina characteristics are usually predictable for a given patient, any changes ( ie, rest angina, new - onset angina, increasing angina ) should be considered serious.",
+          "exact_text": "unstable angina : because angina characteristics are usually predictable for a given patient, any changes ( ie, rest angina, new - onset angina, increasing angina ) should be considered serious.",
+          "aspect": "Unstable Angina Presentation",
+          "approx_char_start": 1302,
+          "approx_char_end": 1496,
+          "char_offset_approx": [
+            1302,
+            1496
+          ]
+        },
+        {
+          "chunk_id": "210_6",
+          "text": "these increases may be the cause of rest angina or the result of ischemia induced by plaque rupture and thrombus formation.",
+          "exact_text": "these increases may be the cause of rest angina or the result of ischemia induced by plaque rupture and thrombus formation.",
+          "aspect": "ACS Plaque Rupture",
+          "approx_char_start": 1083,
+          "approx_char_end": 1206,
+          "char_offset_approx": [
+            1083,
+            1206
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 47,
+      "query": "How is adrenal insufficiency differentiated from primary and secondary causes?",
+      "tier": 3,
+      "primary_chapter": 94,
+      "expected_chapters": [
+        94,
+        91
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "94_1",
+          "relevance": 2,
+          "reason": "Primary adrenal insufficiency (Addison disease): adrenal cortex destruction, hypotension, hyperpigmentation, adrenal crisis."
+        },
+        {
+          "chunk_id": "94_4",
+          "relevance": 2,
+          "reason": "Secondary adrenal insufficiency: deficient pituitary ACTH secretion, normal response to cosyntropin possible in early stages."
+        },
+        {
+          "chunk_id": "94_5",
+          "relevance": 2,
+          "reason": "Hydrocortisone replacement, assessment of orthostatic hypotension and renin levels."
+        },
+        {
+          "chunk_id": "91_2",
+          "relevance": 1,
+          "reason": "Pituitary pro-opiomelanocortin cleavage into ACTH and melanocyte-stimulating hormone causing skin hyperpigmentation."
+        },
+        {
+          "chunk_id": "94_13",
+          "relevance": 0,
+          "reason": "Autonomous aldosterone secretion in Conn syndrome."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "94_1",
+          "text": "addison's disease develops in about 4 / 100, 000 annually.",
+          "exact_text": "addison's disease develops in about 4 / 100, 000 annually.",
+          "aspect": "Primary Adrenal Insufficiency",
+          "approx_char_start": 330,
+          "approx_char_end": 388,
+          "char_offset_approx": [
+            330,
+            388
+          ]
+        },
+        {
+          "chunk_id": "94_4",
+          "text": "a normal response to cosyntropin may occur in secondary adrenal insufficiency.",
+          "exact_text": "a normal response to cosyntropin may occur in secondary adrenal insufficiency.",
+          "aspect": "Secondary Adrenal Insufficiency",
+          "approx_char_start": 69,
+          "approx_char_end": 147,
+          "char_offset_approx": [
+            69,
+            147
+          ]
+        },
+        {
+          "chunk_id": "94_5",
+          "text": "intercurrent illnesses ( eg, infections ) are potentially serious and should be vigorously treated ; the patient's hydrocortisone dose should be doubled during the illness.",
+          "exact_text": "intercurrent illnesses ( eg, infections ) are potentially serious and should be vigorously treated ; the patient's hydrocortisone dose should be doubled during the illness.",
+          "aspect": "Hormone Replacement",
+          "approx_char_start": 394,
+          "approx_char_end": 566,
+          "char_offset_approx": [
+            394,
+            566
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 48,
+      "query": "What are the metabolic consequences of long-term corticosteroid therapy?",
+      "tier": 3,
+      "primary_chapter": 94,
+      "expected_chapters": [
+        94,
+        99
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "94_9",
+          "relevance": 2,
+          "reason": "Cushing syndrome from chronic high blood levels of cortisol, exogenous corticosteroid therapy etiology."
+        },
+        {
+          "chunk_id": "94_8",
+          "relevance": 2,
+          "reason": "Typical clinical features of corticosteroid excess: moon facies, truncal obesity, thin extremities, purple striae."
+        },
+        {
+          "chunk_id": "99_1",
+          "relevance": 2,
+          "reason": "Insulin resistance mechanisms and secondary hyperglycemia."
+        },
+        {
+          "chunk_id": "94_6",
+          "relevance": 1,
+          "reason": "Complications of corticosteroid therapy and tapering protocols."
+        },
+        {
+          "chunk_id": "99_8",
+          "relevance": 0,
+          "reason": "Insulin sliding scale regimens in diabetic ketoacidosis."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "94_9",
+          "text": "cushing's syndrome cushing's syndrome is a constellation of clinical abnormalities caused by chronic high blood levels of cortisol or related corticosteroids.",
+          "exact_text": "cushing's syndrome cushing's syndrome is a constellation of clinical abnormalities caused by chronic high blood levels of cortisol or related corticosteroids.",
+          "aspect": "Cushingoid Metabolic Derangements",
+          "approx_char_start": 169,
+          "approx_char_end": 327,
+          "char_offset_approx": [
+            169,
+            327
+          ]
+        },
+        {
+          "chunk_id": "94_8",
+          "text": "treatment • oral corticosteroids for hyperplasia • removal of tumors recommended treatment for adrenal hyperplasia is dexamethasone 0.",
+          "exact_text": "treatment • oral corticosteroids for hyperplasia • removal of tumors recommended treatment for adrenal hyperplasia is dexamethasone 0.",
+          "aspect": "Corticosteroid Exposure",
+          "approx_char_start": 2002,
+          "approx_char_end": 2136,
+          "char_offset_approx": [
+            2002,
+            2136
+          ]
+        },
+        {
+          "chunk_id": "99_1",
+          "text": "often insulin levels are very high, especially early in the disease, but peripheral insulin resistance and increased hepatic production of glucose make insulin levels inadequate to normalize plasma glucose levels.",
+          "exact_text": "often insulin levels are very high, especially early in the disease, but peripheral insulin resistance and increased hepatic production of glucose make insulin levels inadequate to normalize plasma glucose levels.",
+          "aspect": "Steroid-Induced Insulin Resistance",
+          "approx_char_start": 1817,
+          "approx_char_end": 2030,
+          "char_offset_approx": [
+            1817,
+            2030
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 49,
+      "query": "How is venous thromboembolism risk stratified and prophylactically managed?",
+      "tier": 3,
+      "primary_chapter": 110,
+      "expected_chapters": [
+        110,
+        194
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "110_0",
+          "relevance": 2,
+          "reason": "Deep venous thrombosis and thromboembolic disease: hypercoagulable states, Virchow triad."
+        },
+        {
+          "chunk_id": "194_0",
+          "relevance": 2,
+          "reason": "Pulmonary embolism pathophysiology: occlusion of pulmonary arteries by deep venous thrombi; risk factors for venous stasis."
+        },
+        {
+          "chunk_id": "110_1",
+          "relevance": 2,
+          "reason": "Antithrombotic prophylaxis with heparin and warfarin in high-risk patients."
+        },
+        {
+          "chunk_id": "194_1",
+          "relevance": 1,
+          "reason": "Clinical presentation and diagnostic evaluation of acute pulmonary embolism."
+        },
+        {
+          "chunk_id": "110_3",
+          "relevance": 0,
+          "reason": "Antiphospholipid antibody assays in recurrent arterial thrombosis."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "110_0",
+          "text": "gic formation of thrombi in veins ( eg, deep venous thrombosis [ dvt ] ), arteries ( eg, mi, ischemic stroke ), or cardiac chambers.",
+          "exact_text": "gic formation of thrombi in veins ( eg, deep venous thrombosis [ dvt ] ), arteries ( eg, mi, ischemic stroke ), or cardiac chambers.",
+          "aspect": "DVT Pathogenesis",
+          "approx_char_start": 280,
+          "approx_char_end": 412,
+          "char_offset_approx": [
+            280,
+            412
+          ]
+        },
+        {
+          "chunk_id": "194_0",
+          "text": "introduction pulmonary embolism ( pe ) is the occlusion of ≥ 1 pulmonary arteries by thrombi that originate elsewhere, typically in the large veins of the lower extremities or pelvis.",
+          "exact_text": "introduction pulmonary embolism ( pe ) is the occlusion of ≥ 1 pulmonary arteries by thrombi that originate elsewhere, typically in the large veins of the lower extremities or pelvis.",
+          "aspect": "PE Occlusion Mechanism",
+          "approx_char_start": 0,
+          "approx_char_end": 183,
+          "char_offset_approx": [
+            0,
+            183
+          ]
+        },
+        {
+          "chunk_id": "110_1",
+          "text": "treatment, if necessary, involves anticoagulation with heparin followed by warfarin.",
+          "exact_text": "treatment, if necessary, involves anticoagulation with heparin followed by warfarin.",
+          "aspect": "Pharmacological Prophylaxis",
+          "approx_char_start": 258,
+          "approx_char_end": 342,
+          "char_offset_approx": [
+            258,
+            342
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 50,
+      "query": "What is the mechanism behind refeeding syndrome in malnourished patients?",
+      "tier": 3,
+      "primary_chapter": 3,
+      "expected_chapters": [
+        3,
+        97
+      ],
+      "relevant_chunks": [
+        {
+          "chunk_id": "97_42",
+          "relevance": 2,
+          "reason": "Pathophysiology of refeeding syndrome: acute severe hypophosphatemia from transcellular shifts during refeeding after prolonged undernutrition."
+        },
+        {
+          "chunk_id": "97_43",
+          "relevance": 2,
+          "reason": "Clinical recognition of refeeding hypophosphatemia and oral/IV phosphate replacement."
+        },
+        {
+          "chunk_id": "3_4",
+          "relevance": 2,
+          "reason": "Nutritional support monitoring: twice-weekly surveillance of serum phosphate, calcium, and magnesium during refeeding."
+        },
+        {
+          "chunk_id": "3_0",
+          "relevance": 1,
+          "reason": "Undernutrition management principles and goals of nutritional support."
+        },
+        {
+          "chunk_id": "97_12",
+          "relevance": 0,
+          "reason": "Intracellular fluid dehydration in acute hyperosmolar states."
+        }
+      ],
+      "evidence_spans": [
+        {
+          "chunk_id": "97_42",
+          "text": "m • severe burns • when receiving tpn • refeeding after prolonged undernutrition • severe respiratory alkalosis acute severe hypophosphatemia with serum po < 1 mg / dl ( < 0.",
+          "exact_text": "m • severe burns • when receiving tpn • refeeding after prolonged undernutrition • severe respiratory alkalosis acute severe hypophosphatemia with serum po < 1 mg / dl ( < 0.",
+          "aspect": "Refeeding Setting",
+          "approx_char_start": 2052,
+          "approx_char_end": 2226,
+          "char_offset_approx": [
+            2052,
+            2226
+          ]
+        },
+        {
+          "chunk_id": "97_42",
+          "text": "utrition • severe respiratory alkalosis acute severe hypophosphatemia with serum po < 1 mg / dl ( < 0. 32 mmol / l ) is most often caused by transcellular shifts of po, often superimposed on chronic po depletion.",
+          "exact_text": "utrition • severe respiratory alkalosis acute severe hypophosphatemia with serum po < 1 mg / dl ( < 0. 32 mmol / l ) is most often caused by transcellular shifts of po, often superimposed on chronic po depletion.",
+          "aspect": "Transcellular Phosphate Shifts",
+          "approx_char_start": 2124,
+          "approx_char_end": 2336,
+          "char_offset_approx": [
+            2124,
+            2336
+          ]
+        },
+        {
+          "chunk_id": "3_4",
+          "text": "a and urine osmolality, and ca, mg, and phosphate should be measured twice / wk.",
+          "exact_text": "a and urine osmolality, and ca, mg, and phosphate should be measured twice / wk.",
+          "aspect": "Electrolyte Surveillance Protocol",
+          "approx_char_start": 2819,
+          "approx_char_end": 2899,
+          "char_offset_approx": [
+            2819,
+            2899
+          ]
+        }
+      ],
+      "annotation_status": "complete"
+    }
+  ]
+}

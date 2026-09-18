@@ -1,0 +1,830 @@
+{
+  "dataset_name": "MediRAG Generation Benchmark v2 (Aspect & Safety Specification)",
+  "dataset_version": "2.0",
+  "description": "20 balanced clinical evaluation queries with structured key clinical answer aspects, safety-critical caveats, and evidence references. Avoids stylistic reference answer bias. Human-authored project annotation.",
+  "query_count": 20,
+  "annotation_status": "complete",
+  "annotation_date": "2026-09-17",
+  "queries": [
+    {
+      "id": 1,
+      "query": "What are the causes and treatment of migraine?",
+      "tier": 1,
+      "primary_chapter": 178,
+      "expected_chapters": [
+        178
+      ],
+      "answer_aspects": [
+        {
+          "aspect_id": "A1",
+          "description": "Explains neurovascular / trigeminovascular mechanism and environmental/dietary triggers.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A2",
+          "description": "Identifies acute abortive pharmacotherapy (triptans, NSAIDs, acetaminophen, dihydroergotamine).",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A3",
+          "description": "Identifies preventive prophylactic therapies (beta-blockers, topiramate, divalproex, tricyclics).",
+          "criticality": "recommended"
+        },
+        {
+          "aspect_id": "A4",
+          "description": "Notes cardiovascular contraindication for triptans and ergot alkaloids.",
+          "criticality": "safety_critical"
+        }
+      ],
+      "reference_answer": null,
+      "safety_notes": [
+        "Triptans and ergots are contraindicated in patients with coronary artery disease, uncontrolled hypertension, or ischemic vascular disease due to vasoconstrictive properties."
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 2,
+      "query": "What are the symptoms of Parkinson disease?",
+      "tier": 1,
+      "primary_chapter": 183,
+      "expected_chapters": [
+        183
+      ],
+      "answer_aspects": [
+        {
+          "aspect_id": "A1",
+          "description": "Identifies the cardinal motor triad: resting tremor (pill-rolling), muscular rigidity (cogwheel), and bradykinesia.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A2",
+          "description": "Describes postural instability, impaired balance reflexes, and shuffling festinating gait.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A3",
+          "description": "Describes secondary motor features including masked facies, reduced arm swing, and micrographia.",
+          "criticality": "recommended"
+        },
+        {
+          "aspect_id": "A4",
+          "description": "Notes non-motor manifestations including autonomic dysfunction (orthostatic hypotension, constipation), sleep disorders, and cognitive/mood changes.",
+          "criticality": "recommended"
+        },
+        {
+          "aspect_id": "A5",
+          "description": "Emphasizes severe fall and fracture risks from postural instability and abrupt freezing episodes.",
+          "criticality": "safety_critical"
+        }
+      ],
+      "reference_answer": null,
+      "safety_notes": [
+        "Severe postural instability and freezing episodes present high fall risks; sudden withdrawal of dopaminergic medications can trigger a life-threatening parkinsonism-hyperpyrexia syndrome mimicking neuroleptic malignant syndrome."
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 3,
+      "query": "How is asthma treated?",
+      "tier": 1,
+      "primary_chapter": 191,
+      "expected_chapters": [
+        191
+      ],
+      "answer_aspects": [
+        {
+          "aspect_id": "A1",
+          "description": "Specifies short-acting beta2-agonists (SABA) for rapid rescue bronchodilation during acute bronchospasm.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A2",
+          "description": "Identifies inhaled corticosteroids (ICS) as cornerstone anti-inflammatory maintenance therapy.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A3",
+          "description": "Describes stepwise escalation adding long-acting beta2-agonists (LABA) or leukotriene modifiers for persistent symptoms.",
+          "criticality": "recommended"
+        },
+        {
+          "aspect_id": "A4",
+          "description": "Details management of acute severe exacerbations with systemic corticosteroids, oxygen, and nebulized bronchodilators.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A5",
+          "description": "States that long-acting beta-agonists (LABAs) must never be used as monotherapy without inhaled corticosteroids due to increased asthma-related death risk.",
+          "criticality": "safety_critical"
+        }
+      ],
+      "reference_answer": null,
+      "safety_notes": [
+        "Long-acting beta-agonists (LABAs) must never be used as monotherapy without concurrent inhaled corticosteroids due to significantly increased risk of severe asthma exacerbations and asthma-related mortality."
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 4,
+      "query": "What causes iron deficiency anemia?",
+      "tier": 1,
+      "primary_chapter": 105,
+      "expected_chapters": [
+        105
+      ],
+      "answer_aspects": [
+        {
+          "aspect_id": "A1",
+          "description": "Identifies chronic blood loss (occult gastrointestinal bleeding, menorrhagia) as predominant etiology in adults.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A2",
+          "description": "Identifies dietary deficiency and increased physiologic demand (pregnancy, growth spurts).",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A3",
+          "description": "Identifies iron malabsorption etiologies (celiac disease, post-gastrectomy, bariatric bypass).",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A4",
+          "description": "Lists diagnostic laboratory confirmation with low serum ferritin, low transferrin saturation, and microcytic hypochromic indices.",
+          "criticality": "recommended"
+        },
+        {
+          "aspect_id": "A5",
+          "description": "Emphasizes that iron deficiency in adult males and postmenopausal females requires mandatory gastrointestinal evaluation to rule out occult malignancy.",
+          "criticality": "safety_critical"
+        }
+      ],
+      "reference_answer": null,
+      "safety_notes": [
+        "In adult males and postmenopausal females, iron deficiency anemia must be presumed secondary to gastrointestinal tract blood loss, warranting mandatory endoscopic evaluation to rule out occult GI malignancy."
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 5,
+      "query": "How is diabetes mellitus managed?",
+      "tier": 1,
+      "primary_chapter": 99,
+      "expected_chapters": [
+        99
+      ],
+      "answer_aspects": [
+        {
+          "aspect_id": "A1",
+          "description": "Outlines foundational lifestyle therapy including medical nutrition, regular physical activity, and weight loss.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A2",
+          "description": "Specifies metformin as initial first-line oral antihyperglycemic pharmacotherapy for type 2 diabetes.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A3",
+          "description": "Identifies mandatory insulin replacement therapy for type 1 diabetes and for type 2 diabetes with severe glycemic failure.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A4",
+          "description": "Details monitoring via HbA1c targets and screening for microvascular/macrovascular complications.",
+          "criticality": "recommended"
+        },
+        {
+          "aspect_id": "A5",
+          "description": "Emphasizes hypoglycemia recognition and prevention, along with monitoring for lactic acidosis risks with metformin in severe renal or hepatic failure.",
+          "criticality": "safety_critical"
+        }
+      ],
+      "reference_answer": null,
+      "safety_notes": [
+        "Metformin must be temporarily withheld prior to iodinated contrast procedures and in severe renal impairment (eGFR < 30 mL/min) or severe tissue hypoperfusion to prevent life-threatening lactic acidosis; hypoglycemia from insulin requires immediate glucose administration."
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 6,
+      "query": "What are the risk factors and treatment of hypertension?",
+      "tier": 1,
+      "primary_chapter": 208,
+      "expected_chapters": [
+        208
+      ],
+      "answer_aspects": [
+        {
+          "aspect_id": "A1",
+          "description": "Identifies key risk factors: age, family history, obesity, high dietary sodium, sedentary lifestyle, and excess alcohol.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A2",
+          "description": "Describes lifestyle modifications: dietary sodium reduction, DASH diet, aerobic exercise, and weight control.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A3",
+          "description": "Specifies first-line drug classes: thiazide diuretics, ACE inhibitors, ARBs, and calcium channel blockers.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A4",
+          "description": "Outlines indication for dual-agent combination therapy in stage 2 hypertension.",
+          "criticality": "recommended"
+        },
+        {
+          "aspect_id": "A5",
+          "description": "States contraindication of ACE inhibitors and ARBs during pregnancy and risks of dual RAAS blockade.",
+          "criticality": "safety_critical"
+        }
+      ],
+      "reference_answer": null,
+      "safety_notes": [
+        "ACE inhibitors and ARBs are absolute contraindications during pregnancy due to fetopathy and fetal renal dysgenesis; concurrent use of an ACE inhibitor and ARB together increases risks of acute renal failure and severe hyperkalemia."
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 7,
+      "query": "What causes peptic ulcer disease and how is it treated?",
+      "tier": 1,
+      "primary_chapter": 13,
+      "expected_chapters": [
+        13
+      ],
+      "answer_aspects": [
+        {
+          "aspect_id": "A1",
+          "description": "Identifies primary causes: Helicobacter pylori infection and NSAID / aspirin use.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A2",
+          "description": "Specifies acid-suppressive therapy with proton pump inhibitors (PPIs) or H2-blockers for mucosal healing.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A3",
+          "description": "Details first-line multidrug H. pylori eradication therapy (clarithromycin triple or bismuth quadruple therapy).",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A4",
+          "description": "Recommends stopping or dose-reducing NSAIDs, or co-prescribing PPI gastroprotection.",
+          "criticality": "recommended"
+        },
+        {
+          "aspect_id": "A5",
+          "description": "Highlights emergency recognition of ulcer complications including upper GI bleeding and acute perforation.",
+          "criticality": "safety_critical"
+        }
+      ],
+      "reference_answer": null,
+      "safety_notes": [
+        "Signs of acute ulcer perforation (peritoneal peritonitis, acute rigid abdomen) or severe hemorrhage (hematemesis, melena, hemodynamic collapse) require emergency surgical or endoscopic intervention rather than outpatient acid suppression."
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 8,
+      "query": "A patient presents with recurring severe headaches with nausea and light sensitivity. What is the diagnosis and management?",
+      "tier": 2,
+      "primary_chapter": 178,
+      "expected_chapters": [
+        178
+      ],
+      "answer_aspects": [
+        {
+          "aspect_id": "A1",
+          "description": "Formulates clinical diagnosis of migraine based on episodic unilateral, throbbing headache, nausea, and photophobia.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A2",
+          "description": "Excludes secondary headache red flags (thunderclap onset, focal neurologic deficits, fever, new onset in older age).",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A3",
+          "description": "Details acute abortive management: NSAIDs/acetaminophen for mild attacks; triptans (e.g. sumatriptan) for moderate-to-severe attacks.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A4",
+          "description": "Discusses preventive prophylactic indications (beta-blockers, topiramate, amitriptyline) for frequent or disabling attacks.",
+          "criticality": "recommended"
+        },
+        {
+          "aspect_id": "A5",
+          "description": "Cautions against triptan use in coronary artery disease or stroke and warns against medication overuse headache.",
+          "criticality": "safety_critical"
+        }
+      ],
+      "reference_answer": null,
+      "safety_notes": [
+        "Triptans are contraindicated in ischemic heart disease, peripheral vascular disease, and prior cerebrovascular events; acute abortive medications should not be used > 2-3 days per week to prevent medication overuse headache."
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 9,
+      "query": "What neurological condition causes resting tremor, rigidity, and bradykinesia?",
+      "tier": 2,
+      "primary_chapter": 183,
+      "expected_chapters": [
+        183
+      ],
+      "answer_aspects": [
+        {
+          "aspect_id": "A1",
+          "description": "Identifies Parkinson disease resulting from nigrostriatal dopaminergic neurodegeneration.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A2",
+          "description": "Describes cardinal motor triad: resting 4-6 Hz tremor, cogwheel/lead-pipe rigidity, and bradykinesia.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A3",
+          "description": "Notes asymmetric onset, loss of postural reflexes, and festinating shuffling gait.",
+          "criticality": "recommended"
+        },
+        {
+          "aspect_id": "A4",
+          "description": "Outlines dopaminergic pharmacotherapy (carbidopa/levodopa, dopamine agonists).",
+          "criticality": "recommended"
+        },
+        {
+          "aspect_id": "A5",
+          "description": "Differentiates idiopathic Parkinson disease from secondary drug-induced parkinsonism and warns against abrupt levodopa cessation.",
+          "criticality": "safety_critical"
+        }
+      ],
+      "reference_answer": null,
+      "safety_notes": [
+        "Abrupt cessation of levodopa or other dopaminergic agents can trigger a life-threatening withdrawal syndrome clinically identical to neuroleptic malignant syndrome (severe rigidity, hyperthermia, autonomic instability)."
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 10,
+      "query": "How is reversible airflow obstruction treated in adults?",
+      "tier": 2,
+      "primary_chapter": 191,
+      "expected_chapters": [
+        191
+      ],
+      "answer_aspects": [
+        {
+          "aspect_id": "A1",
+          "description": "Recognizes asthma as chronic airway inflammation causing variable and reversible airflow obstruction.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A2",
+          "description": "Prescribes short-acting beta2-agonist (SABA) bronchodilators for immediate relief of acute bronchospasm.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A3",
+          "description": "Prescribes inhaled corticosteroids (ICS) as first-line anti-inflammatory controller therapy.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A4",
+          "description": "Describes escalation to combination ICS-LABA or leukotriene receptor antagonists for persistent symptoms.",
+          "criticality": "recommended"
+        },
+        {
+          "aspect_id": "A5",
+          "description": "Warns against LABA monotherapy and notes indication for oral corticosteroids in acute exacerbations.",
+          "criticality": "safety_critical"
+        }
+      ],
+      "reference_answer": null,
+      "safety_notes": [
+        "Using a LABA alone without an ICS increases the risk of severe asthma exacerbations and death; severe exacerbations with poor response to inhaled bronchodilators require urgent systemic corticosteroid therapy and emergency evaluation."
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 11,
+      "query": "A patient has low hemoglobin and low ferritin — what are the causes and treatment?",
+      "tier": 2,
+      "primary_chapter": 105,
+      "expected_chapters": [
+        105
+      ],
+      "answer_aspects": [
+        {
+          "aspect_id": "A1",
+          "description": "Confirms iron deficiency anemia based on low hemoglobin and low serum ferritin.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A2",
+          "description": "Identifies primary etiologies: chronic occult blood loss (GI, menstrual), malabsorption (celiac), or deficient diet.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A3",
+          "description": "Details oral iron supplementation (elemental iron dosing, administration guidance, managing side effects).",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A4",
+          "description": "Identifies indications for intravenous iron in malabsorption or severe oral intolerance.",
+          "criticality": "recommended"
+        },
+        {
+          "aspect_id": "A5",
+          "description": "Mandates thorough diagnostic investigation of the underlying bleeding source, particularly gastrointestinal tract endoscopy.",
+          "criticality": "safety_critical"
+        }
+      ],
+      "reference_answer": null,
+      "safety_notes": [
+        "Diagnosing iron deficiency anemia requires actively identifying and treating the underlying cause of blood loss; failure to perform endoscopy in older or male patients risks missing occult gastrointestinal malignancies."
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 12,
+      "query": "What clinical signs suggest an underactive thyroid and how is it corrected?",
+      "tier": 2,
+      "primary_chapter": 93,
+      "expected_chapters": [
+        93
+      ],
+      "answer_aspects": [
+        {
+          "aspect_id": "A1",
+          "description": "Identifies cardinal signs: cold intolerance, weight gain, fatigue, dry coarse skin, periorbital puffiness, constipation, and delayed reflex relaxation.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A2",
+          "description": "Specifies diagnostic laboratory confirmation with elevated serum TSH and low/normal free T4.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A3",
+          "description": "Prescribes synthetic levothyroxine (T4) replacement taken daily on an empty stomach.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A4",
+          "description": "Details TSH-guided dose titration at 6- to 8-week intervals until TSH normalizes.",
+          "criticality": "recommended"
+        },
+        {
+          "aspect_id": "A5",
+          "description": "Emphasizes starting at low doses with slow titration in elderly patients or those with coronary artery disease to prevent angina or arrhythmia.",
+          "criticality": "safety_critical"
+        }
+      ],
+      "reference_answer": null,
+      "safety_notes": [
+        "In elderly patients or individuals with ischemic heart disease, levothyroxine must be initiated at very low doses (e.g. 12.5 to 25 mcg/day) with cautious titration to prevent precipitating myocardial ischemia, acute coronary syndrome, or fatal arrhythmias."
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 13,
+      "query": "What lifestyle and pharmacological interventions reduce blood pressure?",
+      "tier": 2,
+      "primary_chapter": 208,
+      "expected_chapters": [
+        208
+      ],
+      "answer_aspects": [
+        {
+          "aspect_id": "A1",
+          "description": "Details lifestyle interventions: sodium restriction (< 2 g/day), weight loss, DASH diet, aerobic exercise, and alcohol moderation.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A2",
+          "description": "Specifies first-line pharmacotherapies: thiazide diuretics, ACE inhibitors, ARBs, and dihydropyridine calcium channel blockers.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A3",
+          "description": "Recommends initiating dual-drug combination therapy when blood pressure is > 20/10 mm Hg above goal.",
+          "criticality": "recommended"
+        },
+        {
+          "aspect_id": "A4",
+          "description": "Recommends monitoring electrolytes and renal function when initiating diuretics or ACEi/ARBs.",
+          "criticality": "recommended"
+        },
+        {
+          "aspect_id": "A5",
+          "description": "Highlights strict contraindication of ACE inhibitors and ARBs in pregnancy and warns against dual RAAS blockade.",
+          "criticality": "safety_critical"
+        }
+      ],
+      "reference_answer": null,
+      "safety_notes": [
+        "ACE inhibitors and ARBs must be discontinued immediately if pregnancy occurs due to lethal fetal renal and cranial defects; combining ACE inhibitors and ARBs together is contraindicated due to increased risks of acute kidney failure and life-threatening hyperkalemia."
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 14,
+      "query": "What are the first and second line therapies for H. pylori related gastric disease?",
+      "tier": 2,
+      "primary_chapter": 13,
+      "expected_chapters": [
+        13
+      ],
+      "answer_aspects": [
+        {
+          "aspect_id": "A1",
+          "description": "Outlines diagnostic confirmation of active H. pylori before initiating eradication therapy.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A2",
+          "description": "Specifies first-line clarithromycin triple therapy (PPI, clarithromycin, amoxicillin/metronidazole) for 14 days in low resistance areas.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A3",
+          "description": "Specifies bismuth quadruple therapy (PPI, bismuth subsalicylate, metronidazole, tetracycline) as preferred first-line alternative or second-line rescue regimen.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A4",
+          "description": "Mandates post-treatment test of cure with urea breath test or stool antigen at least 4 weeks post-treatment.",
+          "criticality": "recommended"
+        },
+        {
+          "aspect_id": "A5",
+          "description": "Emphasizes completing the full antimicrobial course to prevent treatment failure and emergence of multi-drug resistance.",
+          "criticality": "safety_critical"
+        }
+      ],
+      "reference_answer": null,
+      "safety_notes": [
+        "Post-treatment confirmation of eradication is essential to confirm cure and prevent recurrent ulcer complications (bleeding, perforation) or progression to gastric mucosa-associated lymphoid tissue (MALT) lymphoma or gastric adenocarcinoma."
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 15,
+      "query": "What mechanisms explain why certain medications worsen thyroid function?",
+      "tier": 3,
+      "primary_chapter": 93,
+      "expected_chapters": [
+        93,
+        213
+      ],
+      "answer_aspects": [
+        {
+          "aspect_id": "A1",
+          "description": "Explains iodine-induced thyroid dysfunction (Wolff-Chaikoff effect causing hypothyroidism; Jod-Basedow phenomenon causing hyperthyroidism) from amiodarone or contrast media.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A2",
+          "description": "Identifies drug-induced destructive thyroiditis (amiodarone type 2, lithium, immune checkpoint inhibitors).",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A3",
+          "description": "Explains inhibition of peripheral conversion of T4 to T3 by drugs such as amiodarone, beta-blockers, and corticosteroids.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A4",
+          "description": "Notes impaired GI absorption of levothyroxine by calcium carbonate, iron, or proton pump inhibitors.",
+          "criticality": "recommended"
+        },
+        {
+          "aspect_id": "A5",
+          "description": "Highlights need for baseline and regular thyroid monitoring with amiodarone and cautions that amiodarone-induced thyrotoxicosis can precipitate fatal arrhythmias.",
+          "criticality": "safety_critical"
+        }
+      ],
+      "reference_answer": null,
+      "safety_notes": [
+        "Amiodarone-induced hyperthyroidism is a medical emergency that can trigger lethal ventricular arrhythmias or catastrophic heart failure decompensation; routine thyroid monitoring is mandatory for all patients receiving long-term amiodarone."
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 16,
+      "query": "How does electrolyte imbalance affect cardiac rhythm?",
+      "tier": 3,
+      "primary_chapter": 97,
+      "expected_chapters": [
+        97,
+        213
+      ],
+      "answer_aspects": [
+        {
+          "aspect_id": "A1",
+          "description": "Describes hyperkalemia effects: peaked T waves, PR prolongation, QRS widening, sine wave, and risk of ventricular fibrillation or asystole.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A2",
+          "description": "Describes hypokalemia effects: ST depression, T wave flattening, prominent U waves, ventricular ectopy, and torsades de pointes.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A3",
+          "description": "Explains the synergistic arrhythmogenic role of hypomagnesemia, particularly refractory hypokalemia and prolonged QT torsades.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A4",
+          "description": "Notes calcium imbalance effects: hypocalcemia prolonging QT interval, hypercalcemia shortening QT interval.",
+          "criticality": "recommended"
+        },
+        {
+          "aspect_id": "A5",
+          "description": "Emphasizes immediate administration of IV calcium for myocardial membrane stabilization in severe hyperkalemia with ECG changes.",
+          "criticality": "safety_critical"
+        }
+      ],
+      "reference_answer": null,
+      "safety_notes": [
+        "Severe hyperkalemia with ECG widening or conduction abnormalities is a life-threatening emergency requiring immediate IV calcium (gluconate or chloride) for myocardial membrane stabilization to prevent fatal cardiac arrest; calcium must never be omitted while waiting for insulin or albuterol to work."
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 17,
+      "query": "How does portal hypertension develop in patients with liver fibrosis?",
+      "tier": 3,
+      "primary_chapter": 27,
+      "expected_chapters": [
+        27,
+        10
+      ],
+      "answer_aspects": [
+        {
+          "aspect_id": "A1",
+          "description": "Explains that fibrotic remodeling and regenerative nodules distort hepatic vascular architecture, increasing intrahepatic vascular resistance.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A2",
+          "description": "Describes dynamic intrahepatic endothelial dysfunction (reduced endothelial nitric oxide, increased endothelin).",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A3",
+          "description": "Explains splanchnic arterial vasodilation producing a hyperdynamic circulatory state and increased portal venous inflow.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A4",
+          "description": "Describes development of portosystemic collaterals (esophageal and gastric varices, caput medusae) and congestive splenomegaly.",
+          "criticality": "recommended"
+        },
+        {
+          "aspect_id": "A5",
+          "description": "Warns of life-threatening variceal bleeding and the necessity of immediate endoscopic banding and vasoactive octreotide therapy.",
+          "criticality": "safety_critical"
+        }
+      ],
+      "reference_answer": null,
+      "safety_notes": [
+        "Acute variceal hemorrhage in portal hypertension is a medical emergency with mortality exceeding 15-20%; hemodynamic resuscitation must avoid overtransfusion (target Hb 7-8 g/dL) to prevent rebound elevation in portal pressure and secondary rebleeding."
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 18,
+      "query": "What clotting cascade abnormalities lead to bleeding in liver disease?",
+      "tier": 3,
+      "primary_chapter": 111,
+      "expected_chapters": [
+        111,
+        27
+      ],
+      "answer_aspects": [
+        {
+          "aspect_id": "A1",
+          "description": "Details impaired hepatic synthesis of procoagulant factors (fibrinogen, prothrombin, factors V, VII, IX, X, XI).",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A2",
+          "description": "Explains vitamin K malabsorption or impaired utilization affecting vitamin K-dependent factors (II, VII, IX, X).",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A3",
+          "description": "Describes thrombocytopenia caused by congestive splenomegaly (hypersplenism) and reduced hepatic thrombopoietin production.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A4",
+          "description": "Explains the 'rebalanced hemostasis' concept where anticoagulant proteins (protein C, S, antithrombin) are concurrently reduced.",
+          "criticality": "recommended"
+        },
+        {
+          "aspect_id": "A5",
+          "description": "Warns that elevated PT/INR reflects synthetic impairment rather than auto-anticoagulation, and unindicated plasma transfusion risks volume overload and variceal rupture.",
+          "criticality": "safety_critical"
+        }
+      ],
+      "reference_answer": null,
+      "safety_notes": [
+        "Elevated PT/INR in chronic liver disease reflects synthetic failure but does NOT indicate auto-anticoagulation, as anticoagulant proteins (protein C, S, antithrombin) are concurrently reduced; overzealous transfusion of plasma expands intravascular volume and can precipitate lethal variceal bleeding."
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 19,
+      "query": "What distinguishes angina pectoris from acute myocardial ischemia on presentation?",
+      "tier": 3,
+      "primary_chapter": 210,
+      "expected_chapters": [
+        210
+      ],
+      "answer_aspects": [
+        {
+          "aspect_id": "A1",
+          "description": "Characterizes stable angina as predictable chest discomfort provoked by exertion/stress and relieved by rest or sublingual nitroglycerin, without myocyte necrosis.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A2",
+          "description": "Characterizes acute coronary syndromes (unstable angina, NSTEMI, STEMI) as chest discomfort occurring at rest, new onset, or crescendo in pattern.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A3",
+          "description": "Differentiates based on cardiac biomarkers: troponins are normal in stable angina and unstable angina, but elevated in NSTEMI and STEMI.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A4",
+          "description": "Differentiates ECG findings: transient changes in angina vs persistent ST elevation (STEMI), ST depression, or T wave inversions.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A5",
+          "description": "Emphasizes that acute rest chest pain or crescendo symptoms require immediate emergency department evaluation, urgent 12-lead ECG, and emergent ACS protocols.",
+          "criticality": "safety_critical"
+        }
+      ],
+      "reference_answer": null,
+      "safety_notes": [
+        "Any acute chest discomfort that is new-onset, prolonged (> 20 minutes), occurs at rest, or is escalating in frequency/severity must be treated as acute coronary syndrome until proven otherwise; delay in obtaining an immediate 12-lead ECG and troponin testing can result in irreversible myocardial infarction or fatal arrhythmia."
+      ],
+      "annotation_status": "complete"
+    },
+    {
+      "id": 20,
+      "query": "What is the mechanism behind refeeding syndrome in malnourished patients?",
+      "tier": 3,
+      "primary_chapter": 3,
+      "expected_chapters": [
+        3,
+        97
+      ],
+      "answer_aspects": [
+        {
+          "aspect_id": "A1",
+          "description": "Explains that prolonged malnutrition depletes total body stores of phosphate, potassium, and magnesium during starvation catabolism.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A2",
+          "description": "Describes reintroduction of carbohydrates triggering an acute surge in endogenous insulin secretion.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A3",
+          "description": "Details insulin driving phosphate, potassium, and magnesium into cells (acute transcellular shift).",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A4",
+          "description": "Explains acute severe hypophosphatemia causing ATP depletion, impaired tissue oxygen delivery, respiratory failure, and cardiac arrhythmias.",
+          "criticality": "essential"
+        },
+        {
+          "aspect_id": "A5",
+          "description": "Emphasizes mandatory baseline electrolyte screening, prophylactic phosphate/thiamin replacement, and conservative 'start low, go slow' calorie reintroduction.",
+          "criticality": "safety_critical"
+        }
+      ],
+      "reference_answer": null,
+      "safety_notes": [
+        "Refeeding syndrome can cause catastrophic acute cardiovascular collapse and fatal respiratory arrest within 24 to 72 hours of nutritional reintroduction; serum phosphate, potassium, and magnesium must be monitored and corrected prior to and during feeding, and caloric intake must be advanced slowly."
+      ],
+      "annotation_status": "complete"
+    }
+  ]
+}

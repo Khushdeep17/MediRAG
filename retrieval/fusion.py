@@ -125,5 +125,5 @@ def hybrid_search(
 
 if __name__ == "__main__":
 
-    test_query = "What are the causes and treatment of migraine?"
+    test_query = "What are the manifestations of acute pancreatitis?"
     hybrid_search(test_query, alpha=0.6)

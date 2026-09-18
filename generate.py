@@ -223,7 +223,7 @@ def generate_answer(query: str, verbose: bool = False):
 
 if __name__ == "__main__":
 
-    query = "What are the causes and treatment of migraine?"
+    query = "What are the manifestations of acute pancreatitis?"
 
     print("\n🔎 Running Hybrid Retrieval + Groq Generation...\n")
 

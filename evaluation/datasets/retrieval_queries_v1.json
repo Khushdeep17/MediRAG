@@ -1,0 +1,365 @@
+{
+  "dataset_name": "MediRAG Retrieval Benchmark",
+  "dataset_version": "1.0",
+  "description": "50 medical evaluation queries across 3 difficulty tiers with chapter-level relevance judgments from the Merck Manual.",
+  "query_count": 50,
+  "tier_distribution": {
+    "tier_1_direct": 17,
+    "tier_2_indirect": 18,
+    "tier_3_hard": 15
+  },
+  "relevance_level": "chapter",
+  "limitation_note": "Relevance is currently judged at chapter level only (no passage-level or chunk-level gold judgments).",
+  "queries": [
+    {
+      "id": 1,
+      "query": "What are the causes and treatment of migraine?",
+      "tier": 1,
+      "relevant_chapter": 178,
+      "expected_chapter": 178
+    },
+    {
+      "id": 2,
+      "query": "What are the symptoms of Parkinson disease?",
+      "tier": 1,
+      "relevant_chapter": 183,
+      "expected_chapter": 183
+    },
+    {
+      "id": 3,
+      "query": "How is epilepsy diagnosed and managed?",
+      "tier": 1,
+      "relevant_chapter": 176,
+      "expected_chapter": 176
+    },
+    {
+      "id": 4,
+      "query": "What causes multiple sclerosis?",
+      "tier": 1,
+      "relevant_chapter": 184,
+      "expected_chapter": 184
+    },
+    {
+      "id": 5,
+      "query": "How is asthma treated?",
+      "tier": 1,
+      "relevant_chapter": 191,
+      "expected_chapter": 191
+    },
+    {
+      "id": 6,
+      "query": "What are the causes and management of COPD?",
+      "tier": 1,
+      "relevant_chapter": 192,
+      "expected_chapter": 192
+    },
+    {
+      "id": 7,
+      "query": "What causes iron deficiency anemia?",
+      "tier": 1,
+      "relevant_chapter": 105,
+      "expected_chapter": 105
+    },
+    {
+      "id": 8,
+      "query": "How is diabetes mellitus managed?",
+      "tier": 1,
+      "relevant_chapter": 99,
+      "expected_chapter": 99
+    },
+    {
+      "id": 9,
+      "query": "What are the causes and symptoms of hypothyroidism?",
+      "tier": 1,
+      "relevant_chapter": 93,
+      "expected_chapter": 93
+    },
+    {
+      "id": 10,
+      "query": "What causes Cushing syndrome?",
+      "tier": 1,
+      "relevant_chapter": 94,
+      "expected_chapter": 94
+    },
+    {
+      "id": 11,
+      "query": "What are the risk factors and treatment of hypertension?",
+      "tier": 1,
+      "relevant_chapter": 208,
+      "expected_chapter": 208
+    },
+    {
+      "id": 12,
+      "query": "How is heart failure classified and managed?",
+      "tier": 1,
+      "relevant_chapter": 211,
+      "expected_chapter": 211
+    },
+    {
+      "id": 13,
+      "query": "What causes peptic ulcer disease and how is it treated?",
+      "tier": 1,
+      "relevant_chapter": 13,
+      "expected_chapter": 13
+    },
+    {
+      "id": 14,
+      "query": "What are the symptoms and management of Crohn disease?",
+      "tier": 1,
+      "relevant_chapter": 19,
+      "expected_chapter": 19
+    },
+    {
+      "id": 15,
+      "query": "How is pneumonia diagnosed and treated?",
+      "tier": 1,
+      "relevant_chapter": 196,
+      "expected_chapter": 196
+    },
+    {
+      "id": 16,
+      "query": "What is the treatment for sickle cell disease?",
+      "tier": 1,
+      "relevant_chapter": 106,
+      "expected_chapter": 106
+    },
+    {
+      "id": 17,
+      "query": "How is leukemia classified and treated?",
+      "tier": 1,
+      "relevant_chapter": 117,
+      "expected_chapter": 117
+    },
+    {
+      "id": 18,
+      "query": "A patient presents with recurring severe headaches with nausea and light sensitivity. What is the diagnosis and management?",
+      "tier": 2,
+      "relevant_chapter": 178,
+      "expected_chapter": 178
+    },
+    {
+      "id": 19,
+      "query": "What neurological condition causes resting tremor, rigidity, and bradykinesia?",
+      "tier": 2,
+      "relevant_chapter": 183,
+      "expected_chapter": 183
+    },
+    {
+      "id": 20,
+      "query": "How do you manage uncontrolled seizures in an adult patient?",
+      "tier": 2,
+      "relevant_chapter": 176,
+      "expected_chapter": 176
+    },
+    {
+      "id": 21,
+      "query": "What is the pathophysiology behind demyelination in the CNS?",
+      "tier": 2,
+      "relevant_chapter": 184,
+      "expected_chapter": 184
+    },
+    {
+      "id": 22,
+      "query": "Patient with focal neurological deficits of sudden onset — what is the workup?",
+      "tier": 2,
+      "relevant_chapter": 173,
+      "expected_chapter": 173
+    },
+    {
+      "id": 23,
+      "query": "How is reversible airflow obstruction treated in adults?",
+      "tier": 2,
+      "relevant_chapter": 191,
+      "expected_chapter": 191
+    },
+    {
+      "id": 24,
+      "query": "What long-term complications arise from progressive airflow limitation in smokers?",
+      "tier": 2,
+      "relevant_chapter": 192,
+      "expected_chapter": 192
+    },
+    {
+      "id": 25,
+      "query": "How is acid-fast bacilli infection of the lungs managed?",
+      "tier": 2,
+      "relevant_chapter": 141,
+      "expected_chapter": 141
+    },
+    {
+      "id": 26,
+      "query": "A patient has low hemoglobin and low ferritin — what are the causes and treatment?",
+      "tier": 2,
+      "relevant_chapter": 105,
+      "expected_chapter": 105
+    },
+    {
+      "id": 27,
+      "query": "How is hyperglycemia managed in a patient with insulin resistance?",
+      "tier": 2,
+      "relevant_chapter": 99,
+      "expected_chapter": 99
+    },
+    {
+      "id": 28,
+      "query": "What clinical signs suggest an underactive thyroid and how is it corrected?",
+      "tier": 2,
+      "relevant_chapter": 93,
+      "expected_chapter": 93
+    },
+    {
+      "id": 29,
+      "query": "How is cortisol excess from an adrenal or pituitary source differentiated and treated?",
+      "tier": 2,
+      "relevant_chapter": 94,
+      "expected_chapter": 94
+    },
+    {
+      "id": 30,
+      "query": "What lifestyle and pharmacological interventions reduce blood pressure?",
+      "tier": 2,
+      "relevant_chapter": 208,
+      "expected_chapter": 208
+    },
+    {
+      "id": 31,
+      "query": "How is reduced cardiac ejection fraction diagnosed and compensated?",
+      "tier": 2,
+      "relevant_chapter": 211,
+      "expected_chapter": 211
+    },
+    {
+      "id": 32,
+      "query": "What are the first and second line therapies for H. pylori related gastric disease?",
+      "tier": 2,
+      "relevant_chapter": 13,
+      "expected_chapter": 13
+    },
+    {
+      "id": 33,
+      "query": "How is transmural intestinal inflammation distinguished from ulcerative disease?",
+      "tier": 2,
+      "relevant_chapter": 19,
+      "expected_chapter": 19
+    },
+    {
+      "id": 34,
+      "query": "How is community-acquired lower respiratory tract infection evaluated and treated?",
+      "tier": 2,
+      "relevant_chapter": 196,
+      "expected_chapter": 196
+    },
+    {
+      "id": 35,
+      "query": "What causes vaso-occlusive crises in hemoglobin disorders?",
+      "tier": 2,
+      "relevant_chapter": 106,
+      "expected_chapter": 106
+    },
+    {
+      "id": 36,
+      "query": "What mechanisms explain why certain medications worsen thyroid function?",
+      "tier": 3,
+      "relevant_chapter": 93,
+      "expected_chapter": 93
+    },
+    {
+      "id": 37,
+      "query": "How does electrolyte imbalance affect cardiac rhythm?",
+      "tier": 3,
+      "relevant_chapter": 97,
+      "expected_chapter": 97
+    },
+    {
+      "id": 38,
+      "query": "What are the neurological consequences of untreated vitamin B12 deficiency?",
+      "tier": 3,
+      "relevant_chapter": 4,
+      "expected_chapter": 4
+    },
+    {
+      "id": 39,
+      "query": "How does portal hypertension develop in patients with liver fibrosis?",
+      "tier": 3,
+      "relevant_chapter": 27,
+      "expected_chapter": 27
+    },
+    {
+      "id": 40,
+      "query": "What is the role of ACE inhibitors in slowing renal disease progression?",
+      "tier": 3,
+      "relevant_chapter": 239,
+      "expected_chapter": 239
+    },
+    {
+      "id": 41,
+      "query": "How does obstructive sleep apnea relate to cardiovascular morbidity?",
+      "tier": 3,
+      "relevant_chapter": 193,
+      "expected_chapter": 193
+    },
+    {
+      "id": 42,
+      "query": "What clotting cascade abnormalities lead to bleeding in liver disease?",
+      "tier": 3,
+      "relevant_chapter": 111,
+      "expected_chapter": 111
+    },
+    {
+      "id": 43,
+      "query": "How is sepsis distinguished from systemic inflammatory response and how is it managed?",
+      "tier": 3,
+      "relevant_chapter": 227,
+      "expected_chapter": 227
+    },
+    {
+      "id": 44,
+      "query": "What are the pulmonary manifestations of autoimmune connective tissue disorders?",
+      "tier": 3,
+      "relevant_chapter": 33,
+      "expected_chapter": 33
+    },
+    {
+      "id": 45,
+      "query": "How does chronic kidney disease affect erythropoiesis and bone metabolism?",
+      "tier": 3,
+      "relevant_chapter": 239,
+      "expected_chapter": 239
+    },
+    {
+      "id": 46,
+      "query": "What distinguishes angina pectoris from acute myocardial ischemia on presentation?",
+      "tier": 3,
+      "relevant_chapter": 210,
+      "expected_chapter": 210
+    },
+    {
+      "id": 47,
+      "query": "How is adrenal insufficiency differentiated from primary and secondary causes?",
+      "tier": 3,
+      "relevant_chapter": 94,
+      "expected_chapter": 94
+    },
+    {
+      "id": 48,
+      "query": "What are the metabolic consequences of long-term corticosteroid therapy?",
+      "tier": 3,
+      "relevant_chapter": 94,
+      "expected_chapter": 94
+    },
+    {
+      "id": 49,
+      "query": "How is venous thromboembolism risk stratified and prophylactically managed?",
+      "tier": 3,
+      "relevant_chapter": 110,
+      "expected_chapter": 110
+    },
+    {
+      "id": 50,
+      "query": "What is the mechanism behind refeeding syndrome in malnourished patients?",
+      "tier": 3,
+      "relevant_chapter": 3,
+      "expected_chapter": 3
+    }
+  ]
+}
