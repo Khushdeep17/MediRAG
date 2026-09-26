@@ -1,0 +1,21 @@
+id,query,tier,tier_label,expected_chapter,retrieval_hit,citation_correct,citation_consistent,structural_grounded,lexical_grounded,hallucination_risk,llm_faithfulness,llm_completeness,llm_medical_accuracy,llm_avg,llm_hallucination_flag,manual_grade
+1,What are the causes and treatment of migraine?,1,Tier 1 — Direct,178,1,0,1,0,0.411,High,4,4,5,4.33,False,2
+2,What are the symptoms of Parkinson disease?,1,Tier 1 — Direct,183,1,1,1,1,0.292,High,4,4,5,4.33,False,2
+3,How is asthma treated?,1,Tier 1 — Direct,191,1,1,1,1,0.293,High,4,4,5,4.33,False,2
+4,What causes iron deficiency anemia?,1,Tier 1 — Direct,105,1,1,1,1,0.225,High,4,4,5,4.33,False,2
+5,How is diabetes mellitus managed?,1,Tier 1 — Direct,99,1,1,1,1,0.288,High,4,4,5,4.33,False,1
+6,What are the risk factors and treatment of hypertension?,1,Tier 1 — Direct,208,1,0,1,0,0.0,High,1,1,1,1.0,True,1
+7,What causes peptic ulcer disease and how is it treated?,1,Tier 1 — Direct,13,1,1,1,1,0.271,High,4,4,5,4.33,False,2
+8,A patient presents with recurring severe headaches with nausea and light sensitivity. What is the diagnosis and management?,2,Tier 2 — Indirect,178,1,1,1,1,0.301,High,4,4,5,4.33,False,2
+9,"What neurological condition causes resting tremor, rigidity, and bradykinesia?",2,Tier 2 — Indirect,183,1,1,1,1,0.268,High,5,5,5,5.0,False,2
+10,How is reversible airflow obstruction treated in adults?,2,Tier 2 — Indirect,191,0,0,1,0,0.523,High,5,4,5,4.67,False,1
+11,A patient has low hemoglobin and low ferritin — what are the causes and treatment?,2,Tier 2 — Indirect,105,1,1,1,1,0.262,High,4,4,5,4.33,False,1
+12,What clinical signs suggest an underactive thyroid and how is it corrected?,2,Tier 2 — Indirect,93,1,1,1,1,0.288,High,4,4,5,4.33,False,2
+13,What lifestyle and pharmacological interventions reduce blood pressure?,2,Tier 2 — Indirect,208,1,1,1,1,0.254,High,4,4,4,4.0,False,1
+14,What are the first and second line therapies for H. pylori related gastric disease?,2,Tier 2 — Indirect,13,1,1,1,1,0.291,High,4,4,5,4.33,False,2
+15,What mechanisms explain why certain medications worsen thyroid function?,3,Tier 3 — Hard,93,1,1,1,1,0.281,High,2,3,4,3.0,True,2
+16,How does electrolyte imbalance affect cardiac rhythm?,3,Tier 3 — Hard,97,1,1,1,1,0.191,High,2,4,4,3.33,True,2
+17,How does portal hypertension develop in patients with liver fibrosis?,3,Tier 3 — Hard,27,1,1,1,1,0.267,High,4,4,5,4.33,False,2
+18,What clotting cascade abnormalities lead to bleeding in liver disease?,3,Tier 3 — Hard,111,1,1,1,1,0.278,High,4,3,4,3.67,False,2
+19,What distinguishes angina pectoris from acute myocardial ischemia on presentation?,3,Tier 3 — Hard,210,1,1,1,1,0.301,High,4,4,5,4.33,False,2
+20,What is the mechanism behind refeeding syndrome in malnourished patients?,3,Tier 3 — Hard,3,0,0,1,0,0.247,High,4,4,5,4.33,False,0

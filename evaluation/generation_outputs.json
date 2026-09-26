@@ -1,0 +1,1142 @@
+[
+  {
+    "id": 1,
+    "query": "What are the causes and treatment of migraine?",
+    "tier": 1,
+    "expected_chapter": 178,
+    "retrieved_chapters": [
+      178,
+      178,
+      178,
+      178,
+      178
+    ],
+    "retrieved_chunks": [
+      {
+        "chapter_number": 178,
+        "chapter_title": "Headache",
+        "content_snippet": "the previous headache pattern may indicate a new, potentially serious disorder • mistaking migraine with aura for a transient ischemic attack, especially when the aura occurs without headache, in older people 1887 several unusual disorders can mimic migraine with aura : dissection of the carotid or vertebral artery, cerebral vasculitis, moyamoya disease, cadasil ( cerebral autosomal dominant arteriopathy with subcortical infarcts and leukoencephalopathy ), and melas ( mitochondrial encephalopath"
+      },
+      {
+        "chapter_number": 178,
+        "chapter_title": "Headache",
+        "content_snippet": "h and may be severe. pain is often unilateral, throbbing, worse with exertion, and accompanied by symptoms such as nausea and sensitivity to light, sound, or odors. auras occur in about 25 % of patients, usually just before but sometimes after the headache. diagnosis is clinical. treatment is with triptans, dihydroergotamine, antiemetics, and analgesics. preventive regimens include lifestyle modifications ( eg, of sleeping habits or diet ) and drugs ( eg, β - blockers, amitriptyline, topiramate,"
+      },
+      {
+        "chapter_number": 178,
+        "chapter_title": "Headache",
+        "content_snippet": "scotomata ). paresthesias and numbness ( typically starting in one hand and marching to the ipsilateral arm and face ), speech disturbances, and transient brain stem dysfunction ( causing, eg, ataxia, confusion or even obtundation ) are less common than visual auras. some patients have an aura with little or no headache. headache varies from moderate to severe, and attacks last from 4 hours to several days, typically resolving with sleep. the pain is often unilateral but may be bilateral, most o"
+      },
+      {
+        "chapter_number": 178,
+        "chapter_title": "Headache",
+        "content_snippet": "loss ). treatment • hydration and analgesics • sometimes an epidural blood patch 1889 the first line of treatment is recumbency, hydration, an elastic abdominal binder, mild analgesics, and caffeine. if post - lp headache persists after a day of such treatment, an epidural blood patch ( injection of a few ml of the patient's clotted venous blood into the lumbar epidural space ) is usually effective. a blood patch may also be effective for spontaneous or traumatic csf leaks, which rarely require "
+      },
+      {
+        "chapter_number": 178,
+        "chapter_title": "Headache",
+        "content_snippet": "approach to the patient with headache headache is pain in any part of the head, including the scalp, face ( including the orbitotemporal area ), and interior of the head. headache is one of the most common reasons patients seek medical attention. pathophysiology headache is due to activation of pain - sensitive structures in or around the brain, skull, face, sinuses, or teeth. etiology headache may occur as a primary disorder or be secondary to another disorder. primary headache disorders includ"
+      }
+    ],
+    "generated_answer": "### 1. Overview  \nMigraine is a primary headache disorder characterized by moderate to severe, often unilateral, throbbing pain accompanied by nausea, sensitivity to light/sound, and sometimes auras. It is managed through acute treatments for attacks and preventive strategies to reduce frequency.  \n\n---\n\n### 2. Symptoms  \nMigraine symptoms typically include unilateral, pulsating pain worsened by exertion, along with nausea, vomiting, and sensitivity to light, sound, or odors. Attacks may last 4 hours to several days and often resolve with sleep. Auras occur in about 25% of patients, presenting as visual disturbances (e.g., scotomata), paresthesias, or speech difficulties. Some patients experience auras without subsequent headache [3].  \n\n- **Pain characteristics**: Unilateral, throbbing, moderate to severe, worsened by physical activity.  \n- **Associated symptoms**: Nausea, vomiting, photophobia, sonophobia, osmophobia.  \n- **Aura subtypes**: Visual (e.g., scotomata), sensory (paresthesias starting in one hand), speech disturbances.  \n- **Attack duration**: 4 hours to several days.  \n\n---\n\n### 3. Causes  \nMigraine is thought to involve altered central neuronal processing and activation of the trigeminovascular system, leading to neuropeptide release and pain. Triggers include stress, lifestyle factors (e.g., sleep, diet), and familial aggregation. Certain conditions (e.g., CADASIL, mitochondrial disorders) may mimic migraine with aura but are distinct [1][2].  \n\n- **Underlying mechanisms**: Neurovascular pain syndrome, cortical hyperexcitability, trigeminovascular system activation.  \n- **Triggers**: Stress, sleep disturbances, dietary factors.  \n- **Risk factors**: Familial history (familial aggregation).  \n\n---\n\n### 4. Treatment  \n\n**Acute Management**  \nAcute treatment aims to relieve symptoms during an attack. Options include:  \n- **Medications**: Triptans, dihydroergotamine, antiemetics, analgesics (e.g., acetaminophen, NSAIDs) [2].  \n- **Lifestyle interventions**: Rest in a dark, quiet room; hydration; caffeine [1].  \n\n**Preventive Management**  \nPreventive strategies reduce attack frequency and severity. Approaches include:  \n- **Lifestyle modifications**: Sleep hygiene, dietary adjustments, trigger elimination [1].  \n- **Medications**: Beta-blockers, amitriptyline, topiramate, divalproex [2].  \n- **Patient education**: Headache diary to track patterns and triggers [1].  \n\n---\n\n### 5. Key Terms  \n- **Triptans**: Medications that target serotonin receptors to relieve migraine pain.  \n- **Photophobia**: Sensitivity to light.  \n- **Sonophobia**: Sensitivity to sound.  \n- **Beta-blockers**: Drugs that reduce nerve activity and prevent migraines.  \n- **Auras**: Temporary neurological symptoms (e.g., visual disturbances) preceding or accompanying migraines.  \n\n---\n\n### 6. Closing Note  \nSeek medical advice if headaches are severe, sudden, or accompanied by new neurological symptoms. Prognosis varies; early intervention and consistent management improve quality of life [1][2].",
+    "cited_source_numbers": [
+      1,
+      2,
+      3
+    ],
+    "cited_actual_chapters": [
+      178,
+      178,
+      178
+    ],
+    "expected_chapter_cited": true,
+    "timestamp": "2026-02-28 03:10:55.408527",
+    "manual_accuracy_grade": null,
+    "llm_faithfulness": null,
+    "llm_completeness": null,
+    "llm_medical_accuracy": null
+  },
+  {
+    "id": 2,
+    "query": "What are the symptoms of Parkinson disease?",
+    "tier": 1,
+    "expected_chapter": 183,
+    "retrieved_chapters": [
+      175,
+      183,
+      183,
+      170,
+      183
+    ],
+    "retrieved_chunks": [
+      {
+        "chapter_number": 175,
+        "chapter_title": "Delirium and Dementia",
+        "content_snippet": "##uronal pathways between the striatum and the neocortex are abnormal. lewy bodies also occur in the substantia nigra of patients with parkinson's disease, and patients with parkinson's disease may develop lewy body dementia. thus, some experts think that parkinson's disease and lewy body dementia may be part of a more generalized synucleopathy affecting the central and peripheral nervous systems ( see p. ). lewy bodies sometimes occur in patients with alzheimer's disease, and patients with lewy"
+      },
+      {
+        "chapter_number": 183,
+        "chapter_title": "Movement and Cerebellar Disorders",
+        "content_snippet": "dystonias, autonomic instability, depression, and personality changes. diagnosis 1932 • mainly by clinical evaluation diagnosis is clinical. parkinson's disease is suspected in patients with characteristic unilateral resting tremor, decreased movement, or rigidity. the tremor disappears ( or attenuates ) during finger - to - nose coordination testing. during the neurologic examination, patients cannot perform rapidly alternating or rapid successive movements well. sensation and strength are usua"
+      },
+      {
+        "chapter_number": 183,
+        "chapter_title": "Movement and Cerebellar Disorders",
+        "content_snippet": "##ate may need to be lower in the elderly. many forms of myoclonus respond to the serotonin precursor 5 - hydroxytryptophan ( initially, 25 mg po qid, increased to 150 to 250 mg po qid ), which must be used with the oral decarboxylase inhibitor carbidopa ( 50 mg every morning and 25 mg at noon or 50 mg every evening and 25 mg at bedtime ). parkinson's disease parkinson's disease is an idiopathic, slowly progressive, degenerative cns disorder characterized by resting tremor, muscular rigidity, sl"
+      },
+      {
+        "chapter_number": 170,
+        "chapter_title": "Autonomic Nervous System",
+        "content_snippet": "atrophy, striatonigral degeneration, and shy - drager syndrome. symptoms include hypotension, urinary retention, constipation, ataxia, rigidity, and postural 1786 instability. diagnosis is clinical. treatment is symptomatic, with volume expansion, compression garments, and vasoconstrictor drugs. multiple system atrophy affects about twice as many men as women. mean age at onset is about 53 yr ; after symptoms appear, patients live about 9 to 10 yr. etiology etiology is unknown, but neuronal dege"
+      },
+      {
+        "chapter_number": 183,
+        "chapter_title": "Movement and Cerebellar Disorders",
+        "content_snippet": "##capone is given, to a maximum of 200 mg 8 times / day. tolcapone, a potent comt inhibitor, is less commonly used because of rare reports of liver toxicity. surgery : if drugs are ineffective and disease is advanced, surgery is considered. for patients with levodopa - induced dyskinesias or significant motor fluctuations, deep brain stimulation of the subthalamic nucleus or globus pallidus interna is often recommended. for patients with tremor only, stimulation of the ventralis intermediate nuc"
+      }
+    ],
+    "generated_answer": "### 1. Overview  \nParkinson’s disease is a progressive neurological disorder marked by motor symptoms such as tremor, stiffness, and slowed movement. These arise from degeneration of brain pathways involving dopamine-producing neurons. Non-motor symptoms like autonomic instability and mood changes may also occur [3].  \n\n---\n\n### 2. Symptoms  \nParkinson’s disease symptoms typically begin unilaterally and progress to both sides of the body. Motor symptoms dominate early, while non-motor issues like autonomic dysfunction and depression often emerge later [3].  \n\n**Specific symptoms include:**  \n- Resting tremor, which diminishes during voluntary movements like finger-to-nose coordination [2].  \n- Muscular rigidity, particularly in axial muscles, leading to gait instability [1].  \n- Bradykinesia (slow, decreased movement) affecting daily activities [3].  \n- Postural instability increasing fall risk [3].  \n- Dystonias (involuntary muscle contractions) and autonomic instability (e.g., blood pressure fluctuations) [2].  \n- Depression, personality changes, and reduced reflexes during neurological exams [2].  \n\n---\n\n### 3. Causes  \nThe exact cause is unknown, but Parkinson’s disease involves degeneration of neuronal pathways between the striatum and neocortex. Abnormal accumulation of synuclein protein forms Lewy bodies in brain regions like the substantia nigra, disrupting dopamine production [3].  \n\n**Key factors include:**  \n- Genetic and environmental influences (not explicitly detailed in context).  \n- Age: Most cases begin after age 40, with prevalence increasing sharply over 65 [3].  \n- Synuclein misfolding and Lewy body formation in neurons [3].  \n\n---\n\n### 4. Treatment  \n**Acute Management**  \nAcute symptoms are managed with medications to replenish dopamine or mimic its effects. Surgery may address severe, drug-resistant cases.  \n\n**Medications/interventions:**  \n- Levodopa combined with carbidopa to reduce side effects [3].  \n- Tolcapone, a COMT inhibitor, though less commonly used due to liver risks [5].  \n- Deep brain stimulation for advanced cases with dyskinesias or motor fluctuations [5].  \n\n**Preventive Management**  \nLong-term strategies focus on slowing progression and maintaining function through lifestyle and adaptive measures.  \n\n**Approaches:**  \n- Physical therapy and regular exercise to preserve mobility [5].  \n- Occupational therapy to modify home environments (e.g., grab bars) [5].  \n- Adaptive strategies for daily activities to maximize independence [5].  \n\n---\n\n### 5. Key Terms  \n- **Resting tremor**: Tremor that occurs when muscles are at rest, not during movement [2].  \n- **Bradykinesia**: Slowness and reduction in the speed of movement [3].  \n- **Postural instability**: Difficulty maintaining balance, increasing fall risk [3].  \n- **Dystonias**: Involuntary muscle contractions causing abnormal postures [2].  \n- **Synucle",
+    "cited_source_numbers": [
+      1,
+      2,
+      3,
+      5
+    ],
+    "cited_actual_chapters": [
+      175,
+      183,
+      183,
+      183
+    ],
+    "expected_chapter_cited": true,
+    "timestamp": "2026-02-28 03:11:00.110307",
+    "manual_accuracy_grade": null,
+    "llm_faithfulness": null,
+    "llm_completeness": null,
+    "llm_medical_accuracy": null
+  },
+  {
+    "id": 3,
+    "query": "How is asthma treated?",
+    "tier": 1,
+    "expected_chapter": 191,
+    "retrieved_chapters": [
+      191,
+      191,
+      191,
+      191,
+      188
+    ],
+    "retrieved_chunks": [
+      {
+        "chapter_number": 191,
+        "chapter_title": "Asthma",
+        "content_snippet": "of chronic asthma : current asthma guidelines initiate treatment based on the severity classification. continuing therapy is based on assessment of control ( see table 191 - 1 ). therapy is increased in a stepwise fashion ( see 2044 table 191 - 4 ) until the best control of impairment and risk is achieved ( step - up ). before therapy is stepped up, adherence, exposure to environmental factors ( eg, trigger exposure ), and presence of comorbid conditions ( eg, obesity, allergic rhinitis, gastroe"
+      },
+      {
+        "chapter_number": 191,
+        "chapter_title": "Asthma",
+        "content_snippet": "##b should be prepared to identify and treat anaphylaxis, which may occur. other drugs are used uncommonly in specific circumstances. magnesium is often used in the emergency department, but it is not recommended in the management of chronic asthma. immunotherapy may be indicated when symptoms are triggered by allergy, as suggested by history and confirmed by allergy 2042 testing. immunotherapy is generally more effective in children than adults. if symptoms are not significantly relieved after "
+      },
+      {
+        "chapter_number": 191,
+        "chapter_title": "Asthma",
+        "content_snippet": "to 30 % of older patients and in patients with more severe asthma. aspirin - induced asthma is typically accompanied by nasal polyps with nasal and sinus congestion. gastroesophageal reflux disease ( gerd ) is a common 2036 exacerbating factor among some patients with asthma, possibly via esophageal acid - induced reflex bronchoconstriction or by microaspiration of acid. allergic rhinitis often coexists with asthma ; it is unclear whether the two are different manifestations of the same allergic"
+      },
+      {
+        "chapter_number": 191,
+        "chapter_title": "Asthma",
+        "content_snippet": "introduction asthma is a disease of diffuse airway inflammation caused by a variety of triggering stimuli resulting in partially or completely reversible bronchoconstriction. symptoms and signs include dyspnea, chest tightness, cough, and wheezing. the diagnosis is based on history, physical examination, and pulmonary function tests. treatment involves controlling triggering factors and drug therapy, most commonly with inhaled β - agonists and inhaled corticosteroids. prognosis is good with trea"
+      },
+      {
+        "chapter_number": 188,
+        "chapter_title": "Approach to the Patient With Pulmonary Symptoms",
+        "content_snippet": "focal areas of hyperinflation suggest a foreign body. if the diagnosis is unclear in patients with recurrent wheezing, pulmonary function testing can confirm airflow limitation and quantify its reversibility and severity. methacholine challenge testing and exercise testing can confirm airway hyperreactivity in patients for whom the diagnosis of asthma is in question. treatment definitive treatment of wheezing is treatment of underlying disorders. wheezing itself can be relieved with inhaled bron"
+      }
+    ],
+    "generated_answer": "### 1. Overview  \nAsthma treatment involves adjusting medication based on severity and control, using inhaled bronchodilators and corticosteroids as primary therapies. Management also addresses triggers like allergens and comorbid conditions such as GERD or allergic rhinitis. For severe cases, additional therapies like immunotherapy or systemic drugs may be used [1][4].  \n\n---\n\n### 2. Symptoms  \nAsthma symptoms include wheezing, chest tightness, shortness of breath, and coughing, often worsening with physical activity or exposure to triggers. Specific patterns include:  \n- **Exercise-induced asthma**: Symptoms triggered during or after exercise [1].  \n- **Aspirin-induced asthma**: Accompanied by nasal polyps and sinus congestion [3].  \n- **Severe exacerbations**: Severe gas trapping, increased work of breathing, and potential respiratory failure [3].  \n\n---\n\n### 3. Causes  \nAsthma arises from airway inflammation and reversible bronchoconstriction triggered by allergens, environmental factors (e.g., pollution), or comorbidities. Key contributors include:  \n- **Environmental triggers**: Allergens, pollution, or occupational irritants [1][4].  \n- **Comorbid conditions**: Allergic rhinitis, GERD, obesity, or COPD [1][3].  \n- **Immune responses**: Allergy-driven mechanisms confirmed by testing [2].  \n\n---\n\n### 4. Treatment  \n\n**Acute Management**  \nDuring an asthma attack, treatment focuses on rapid relief of bronchoconstriction and prevention of complications. Key interventions include:  \n- **Inhaled short-acting β-agonists** (e.g., albuterol) to open airways [1][5].  \n- **Nebulized bronchodilators** (e.g., albuterol 2.5 mg) for severe symptoms [5].  \n- **Systemic corticosteroids** (e.g., methylprednisolone) to reduce inflammation [5].  \n- **Emergency anaphylaxis treatment**: Subcutaneous epinephrine, antihistamines, and corticosteroids [2][5].  \n\n**Preventive Management**  \nLong-term strategies aim to minimize symptoms and prevent exacerbations:  \n- **Inhaled corticosteroids** as first-line maintenance therapy [1][4].  \n- **Leukotriene inhibitors** (e.g., montelukast) for persistent symptoms [5].  \n- **Immunotherapy** for allergy-triggered asthma, if allergy testing confirms triggers [2].  \n- **Trigger avoidance**: Managing environmental exposures and comorbidities (e.g., GERD) [1][3].  \n\n---\n\n### 5. Key Terms  \n- **Asthma**: Chronic airway inflammation causing reversible bronchoconstriction [4].  \n- **β-agonists**: Medications that relax airway muscles to ease breathing [1].  \n- **Corticosteroids**: Anti-inflammatory drugs reducing airway swelling [4].  \n- **Immunotherapy**: Allergy treatment using gradually increasing allergen doses [2].  \n- **Anaphylaxis**: Severe allergic reaction requiring immediate treatment [5].  \n\n---\n\n### 6. Closing Note  \nSeek urgent medical care for severe symptoms like extreme shortness of breath or inability to speak. Outcomes depend on adherence to therapy, trigger management, and timely adjustments in medication [1][4].",
+    "cited_source_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "cited_actual_chapters": [
+      191,
+      191,
+      191,
+      191,
+      188
+    ],
+    "expected_chapter_cited": true,
+    "timestamp": "2026-02-28 03:11:21.411211",
+    "manual_accuracy_grade": null,
+    "llm_faithfulness": null,
+    "llm_completeness": null,
+    "llm_medical_accuracy": null
+  },
+  {
+    "id": 4,
+    "query": "What causes iron deficiency anemia?",
+    "tier": 1,
+    "expected_chapter": 105,
+    "retrieved_chapters": [
+      105,
+      5,
+      105,
+      105,
+      105
+    ],
+    "retrieved_chunks": [
+      {
+        "chapter_number": 105,
+        "chapter_title": "Anemias Caused by Deficient Erythropoiesis",
+        "content_snippet": "in kupffer cells ) and in bone marrow ( in macrophages ). because iron absorption is so limited, the body recycles and conserves iron. transferrin grasps and recycles available iron from aging rbcs undergoing phagocytosis by mononuclear phagocytes. this mechanism provides about 97 % of the daily iron needed ( about 25 mg of iron ). with aging, iron stores tend to increase because iron elimination is slow. iron deficiency : deficiency develops in stages. in the first stage, iron requirement excee"
+      },
+      {
+        "chapter_number": 5,
+        "chapter_title": "Mineral Deficiency and Toxicity",
+        "content_snippet": "bleeding chronic bleeding due to colon cancer is a serious cause in middle - aged people and the elderly. when deficiency is advanced, microcytic anemia develops ( see p. ). in addition to anemia, iron deficiency may cause pica ( a craving for nonfoods ) and spoon nails and is associated with restless leg syndrome. rarely, iron deficiency causes dysphagia due to postcricoid esophageal web. diagnosis involves cbc, serum ferritin, and possibly measurement of transferrin saturation ( iron capacity "
+      },
+      {
+        "chapter_number": 105,
+        "chapter_title": "Anemias Caused by Deficient Erythropoiesis",
+        "content_snippet": "introduction anemia ( a decrease in the number of rbcs, hb content, or hct ) can result from decreased rbc production ( erythropoiesis ), increased rbc destruction, or blood loss. anemias due to decreased erythropoiesis are recognized by reticulocytopenia, which is usually evident on the peripheral smear ( see p. ). the rbc indices, mainly the mcv, narrow the differential diagnosis of deficient erythropoiesis and determine what further testing is necessary. microcytic anemias result from deficie"
+      },
+      {
+        "chapter_number": 105,
+        "chapter_title": "Anemias Caused by Deficient Erythropoiesis",
+        "content_snippet": "##ochromia develop. during stage 5, iron deficiency affects tissues, resulting in symptoms and signs. 1052 diagnosis of iron deficiency anemia prompts consideration of its cause, usually bleeding. patients with obvious blood loss ( eg, women with menorrhagia ) may require no further testing. men and postmenopausal women without obvious blood loss should undergo evaluation of the gi tract, because anemia may be the only indication of an occult gi cancer. rarely, chronic epistaxis or gu bleeding i"
+      },
+      {
+        "chapter_number": 105,
+        "chapter_title": "Anemias Caused by Deficient Erythropoiesis",
+        "content_snippet": "serum ferritin • rarely bone marrow examination iron deficiency anemia is suspected in patients with chronic blood loss or microcytic anemia, particularly if pica is present. in such patients, cbc, serum iron and iron - binding capacity, and serum ferritin are obtained. iron and iron - binding capacity ( or transferrin ) are usually both measured because their relationship is important. various tests exist ; the range of normal values relates to the test used. in general, normal serum iron is 75"
+      }
+    ],
+    "generated_answer": "### 1. Overview  \nIron deficiency anemia is primarily caused by blood loss, increased iron requirements, or insufficient dietary intake. The body relies heavily on recycling iron from old red blood cells, but chronic losses or inadequate replacement disrupt this balance, leading to anemia.  \n\n---\n\n### 2. Symptoms  \nSymptoms develop gradually as iron stores deplete. Early stages may show no symptoms, but advanced deficiency causes fatigue, weakness, and physical changes.  \n- Microcytic anemia (small red blood cells) [3]  \n- Pica (craving non-food items) [2]  \n- Spoon-shaped nails [2]  \n- Restless leg syndrome [2]  \n- Dysphagia (due to postcricoid esophageal web, rare) [2]  \n\n---\n\n### 3. Causes  \nIron deficiency anemia arises when iron loss or demand exceeds intake or recycling. Blood loss is the most common trigger, while dietary insufficiency alone is rare in typical Western diets.  \n- Blood loss (e.g., chronic gastrointestinal bleeding, heavy menstrual bleeding) [1][2]  \n- Increased iron requirements (e.g., pregnancy, growth spurts) [1]  \n- Decreased dietary iron intake [1]  \n\n---\n\n### 4. Treatment  \n**Acute Management**  \nAcute symptoms are managed by addressing immediate anemia.  \n- Oral iron supplementation [2]  \n- Intravenous iron for severe cases or poor absorption [2]  \n\n**Preventive Management**  \nLong-term strategies focus on correcting underlying causes.  \n- Treating sources of blood loss (e.g., GI tract evaluation for occult cancer) [4]  \n- Dietary adjustments to increase iron-rich food intake [1]  \n\n---\n\n### 5. Key Terms  \n- **Microcytic anemia**: A type of anemia where red blood cells are smaller than normal [3].  \n- **Pica**: Craving and eating non-food substances, often linked to iron deficiency [2].  \n- **Menorrhagia**: Excessively heavy menstrual bleeding [4].  \n\n---\n\n### 6. Closing Note  \nSeek medical advice if symptoms like fatigue or spoon nails persist, as untreated iron deficiency can lead to organ dysfunction. Early diagnosis of blood loss sources (e.g., GI cancer) improves outcomes [2][4].",
+    "cited_source_numbers": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "cited_actual_chapters": [
+      105,
+      5,
+      105,
+      105
+    ],
+    "expected_chapter_cited": true,
+    "timestamp": "2026-02-28 03:11:45.004601",
+    "manual_accuracy_grade": null,
+    "llm_faithfulness": null,
+    "llm_completeness": null,
+    "llm_medical_accuracy": null
+  },
+  {
+    "id": 5,
+    "query": "How is diabetes mellitus managed?",
+    "tier": 1,
+    "expected_chapter": 99,
+    "retrieved_chapters": [
+      99,
+      263,
+      99,
+      315,
+      99
+    ],
+    "retrieved_chunks": [
+      {
+        "chapter_number": 99,
+        "chapter_title": "Diabetes Mellitus and Disorders of Carbohydrate Metabolism",
+        "content_snippet": "introduction diabetes mellitus and its complications ( diabetic ketoacidosis, nonketotic hyperosmolar syndrome ) are the most common disorders of carbohydrate metabolism, but alcoholic ketoacidosis and hypoglycemia are also important. diabetes mellitus diabetes mellitus ( dm ) is impaired insulin secretion and variable degrees of peripheral insulin resistance leading to hyperglycemia. early symptoms are related to hyperglycemia and include polydipsia, polyphagia, and polyuria. later complication"
+      },
+      {
+        "chapter_number": 263,
+        "chapter_title": "Pregnancy Complicated by Disease",
+        "content_snippet": "diagnosis can probably be made by a fasting plasma glucose of > 126 mg / dl or a random plasma glucose > 200 mg / dl. to minimize risks, clinicians should do all of the following : • involve a diabetes team ( eg, physicians, nurses, nutritionists, social workers ) and a pediatrician • promptly diagnose and treat complications of pregnancy, no matter how trivial • plan for delivery and have an experienced pediatrician present • ensure that neonatal intensive care is available in regional perinata"
+      },
+      {
+        "chapter_number": 99,
+        "chapter_title": "Diabetes Mellitus and Disorders of Carbohydrate Metabolism",
+        "content_snippet": "diabetes nurses and nutrition specialists, are often very effective. diet : adjusting diet to individual circumstances can help patients control fluctuations in their glucose level and, for patients with type 2 dm, lose weight. in general, all patients with dm need to be educated about a diet that is low in saturated fat and cholesterol and contains moderate amounts of carbohydrate, preferably from whole grain sources with higher fiber content. although dietary protein and fat contribute to calo"
+      },
+      {
+        "chapter_number": 315,
+        "chapter_title": "The Older Driver",
+        "content_snippet": "of falls in the past 1 to 2 yr indicates increased risk of crashes and should prompt further evaluation of physical functioning ( see above ). cardiac disorders : cardiac disorders may increase driving risk. general guidelines include refraining from driving for 3335 • 1 mo after mi, coronary artery bypass surgery, or stabilization of unstable angina symptoms • 3 mo after arrhythmia with syncope • 6 mo after internal cardioverter defibrillator placement or after resuscitation required because of"
+      },
+      {
+        "chapter_number": 99,
+        "chapter_title": "Diabetes Mellitus and Disorders of Carbohydrate Metabolism",
+        "content_snippet": "assess renal function. many physicians consider baseline electrocardiography important given the risk of heart disease. lipid profile should be checked at least annually and more often when abnormalities are present. bp should be measured at every examination. treatment • diet and exercise • for type 1 dm, insulin • for type 2 dm, oral antihyperglycemics, insulin, or both • often ace inhibitors, statins, and aspirin to prevent complications goals and methods : treatment involves control of hyper"
+      }
+    ],
+    "generated_answer": "### 1. Overview  \nDiabetes mellitus is managed through a combination of lifestyle adjustments, medications, and monitoring to control blood glucose levels and prevent complications. Treatment varies by type: insulin is essential for type 1 diabetes, while type 2 diabetes may involve oral drugs, insulin, or both. Key goals include maintaining stable glucose levels and minimizing risks like vascular disease or neuropathy [1].  \n\n---\n\n### 2. Symptoms  \nEarly symptoms of diabetes include excessive thirst (polydipsia), hunger (polyphagia), and frequent urination (polyuria) due to hyperglycemia. Later complications involve vascular disease, peripheral neuropathy, and increased infection risk [1].  \n\n---\n\n### 3. Causes  \nDiabetes arises from impaired insulin secretion and insulin resistance, leading to elevated blood glucose. Type 1 diabetes involves autoimmune destruction of insulin-producing cells, while type 2 diabetes combines insulin resistance with relative insulin deficiency. Risk factors include genetic predisposition, obesity, and sedentary lifestyle [1].  \n\n- Impaired insulin secretion and insulin resistance [1]  \n- Type 1 diabetes (autoimmune destruction of insulin-producing cells) [1]  \n- Type 2 diabetes (insulin resistance and relative insulin deficiency) [1]  \n\n---\n\n### 4. Treatment  \n\n**Acute Management**  \nDuring hyperglycemic episodes, treatment focuses on rapid glucose control. Insulin therapy is critical for type 1 diabetes, while type 2 diabetes may use rapid-acting insulin or oral antihyperglycemics. Blood glucose monitoring guides adjustments to prevent hypoglycemia [1][5].  \n\n- Insulin administration for type 1 diabetes [1]  \n- Oral antihyperglycemics or insulin for type 2 diabetes [1]  \n- Home glucose monitoring to adjust treatment [5]  \n\n**Preventive Management**  \nLong-term strategies aim to stabilize glucose levels and reduce complications. Diet and exercise form the foundation, supplemented by medications like ACE inhibitors, statins, and aspirin to address cardiovascular risks. Glycemic targets include fasting glucose <95 mg/dL and postprandial levels ≤120 mg/dL [1][3][5].  \n\n- Diet adjustments (low saturated fat, moderate carbohydrates) [3]  \n- Regular physical activity [1]  \n- Oral antihyperglycemics or insulin for type 2 diabetes [1]  \n- ACE inhibitors, statins, and aspirin to prevent complications [5]  \n- Glycemic targets: HbA1c <7% [5]  \n\n---\n\n### 5. Medical Terms  \n- **Hyperglycemia**: High blood sugar levels due to insulin deficiency or resistance [1].  \n- **Insulin resistance**: Reduced cellular response to insulin, impairing glucose uptake [1].  \n- **HbA1c**: A blood test measuring average glucose levels over 2–3 months [5].  \n- **Polydipsia**: Excessive thirst linked to high glucose levels [1].  \n\n---\n\n### 6. Closing Note  \nPatients should consult healthcare providers regularly to adjust treatment plans and monitor complications. Consistent glucose control significantly impacts long-term outcomes, especially in preventing vascular and neuropathic damage [1][5].",
+    "cited_source_numbers": [
+      1,
+      3,
+      5
+    ],
+    "cited_actual_chapters": [
+      99,
+      99,
+      99
+    ],
+    "expected_chapter_cited": true,
+    "timestamp": "2026-02-28 03:12:08.821924",
+    "manual_accuracy_grade": null,
+    "llm_faithfulness": null,
+    "llm_completeness": null,
+    "llm_medical_accuracy": null
+  },
+  {
+    "id": 6,
+    "query": "What are the risk factors and treatment of hypertension?",
+    "tier": 1,
+    "expected_chapter": 208,
+    "retrieved_chapters": [
+      208,
+      208,
+      238,
+      263,
+      100
+    ],
+    "retrieved_chunks": [
+      {
+        "chapter_number": 208,
+        "chapter_title": "Arterial Hypertension",
+        "content_snippet": "severe the retinal changes and other evidence of target - organ involvement, the worse is the prognosis. systolic bp predicts fatal and nonfatal cardiovascular events better than diastolic bp. without treatment, 1 - yr survival is < 10 % in patients with retinal sclerosis, cottonwool exudates, arteriolar narrowing, and hemorrhage ( grade 3 retinopathy ), and < 5 % in patients with the same changes plus papilledema ( grade 4 retinopathy ). cad is the most common cause of death among treated hyper"
+      },
+      {
+        "chapter_number": 208,
+        "chapter_title": "Arterial Hypertension",
+        "content_snippet": "introduction hypertension is sustained elevation of resting systolic bp ( ≥ 140 mm hg ), diastolic bp ( ≥ 90 mm hg ), or both. hypertension with no known cause ( primary ; formerly, essential hypertension ) is most common. hypertension with an identified cause ( secondary hypertension ) is usually due to a renal disorder. usually, no symptoms develop unless hypertension is severe or longstanding. diagnosis is by sphygmomanometry. tests may be done to determine cause, assess damage, and identify "
+      },
+      {
+        "chapter_number": 238,
+        "chapter_title": "Renovascular Disorders",
+        "content_snippet": "introduction ( see also renovascular hypertension on p.. ) vascular disorders of the kidneys may involve partial or complete occlusion of large, medium, or small renal vessels and most commonly affect the glomeruli ( see p. ). systemic vasculitis ( see p. ) also may affect glomeruli. benign hypertensive arteriolar nephrosclerosis benign hypertensive arteriolar nephrosclerosis is progressive renal impairment caused by chronic, poorly controlled hypertension. symptoms and signs of chronic kidney d"
+      },
+      {
+        "chapter_number": 263,
+        "chapter_title": "Pregnancy Complicated by Disease",
+        "content_snippet": "syndrome ( hemolysis, elevated liver enzymes, and low platelet count ). risk of fetal mortality or morbidity increases because of decreased uteroplacental blood flow, which can cause vasospasm, growth restriction, hypoxia, and abruptio placentae. outcomes are worse if hypertension is severe ( bp > 180 / 100 mm hg ) or accompanied by renal insufficiency ( eg, creatinine clearance < 60 ml / min, serum creatinine > 2 mg / dl [ > 180 μ mol / l ] ). diagnosis bp is measured routinely at prenatal visi"
+      },
+      {
+        "chapter_number": 100,
+        "chapter_title": "Lipid Disorders",
+        "content_snippet": "in all adults ≥ 20 yr and should be repeated every 5 yr. lipid measurement should be accompanied by assessment of other cardiovascular risk factors, defined as • diabetes mellitus • cigarette use • hypertension • family history of cad in a male 1st - degree relative before age 55 or a female 1st - degree relative before age 65 a definite age after which patients no longer require screening has not been established, but evidence supports screening of patients into their 80s, especially in the pre"
+      }
+    ],
+    "generated_answer": "### 1. Overview  \nHypertension is defined as sustained elevation of resting systolic blood pressure (≥140 mm Hg) or diastolic blood pressure (≥90 mm Hg) [2]. Primary hypertension (no known cause) is most common, while secondary hypertension often stems from renal disorders [2]. Treatment combines lifestyle modifications and medications to reduce complications like heart disease and stroke [1].  \n\n---\n\n### 2. Symptoms  \nHypertension typically causes no symptoms unless severe or longstanding [2]. Severe cases may present with retinal changes (e.g., arteriolar narrowing, hemorrhage), signs of end-organ damage, or complications like stroke or heart attack [1].  \n\n- **Retinal changes**: Arteriolar narrowing, cottonwool exudates, hemorrhage (grade 3 retinopathy) [1].  \n- **End-organ damage**: Signs of chronic kidney disease (e.g., anorexia, nausea) or cardiovascular events [3].  \n- **Severe complications**: Ischemic or hemorrhagic stroke, heart attack [1].  \n\n---\n\n### 3. Causes  \nHypertension arises from unknown causes (primary) or identifiable factors like renal disorders (secondary) [2]. Risk factors include age, race (higher prevalence in Black populations), and family history [2].  \n\n- **Primary hypertension**: No known cause [2].  \n- **Secondary hypertension**: Often due to renal disorders [2].  \n- **Risk factors**: Age, Black race, family history of cardiovascular disease [2].  \n\n---\n\n### 4. Treatment  \n\n#### Acute Management  \nNot covered in provided context.  \n\n#### Preventive Management  \nLifestyle changes and medications are used to control blood pressure long-term [2].  \n\n- **Lifestyle modifications**: Weight loss, exercise, reduced salt intake, limited alcohol, smoking cessation [1].  \n- **Medications**: Diuretics, β-blockers, ACE inhibitors, angiotensin II receptor blockers, calcium channel blockers [2].  \n\n---\n\n### 5. Key Terms  \n- **Primary hypertension**: High blood pressure with no identifiable cause [2].  \n- **Secondary hypertension**: High blood pressure caused by an underlying condition, often renal disorders [2].  \n- **ACE inhibitors**: Medications that relax blood vessels by blocking angiotensin-converting enzyme [2].  \n- **Diuretics**: Drugs that help the body eliminate excess sodium and water, lowering blood pressure [2].  \n\n---\n\n### 6. Closing Note  \nSeek medical advice if blood pressure remains uncontrolled or complications arise, as untreated hypertension significantly worsens outcomes [1]. Regular monitoring and adherence to treatment are critical for preventing severe consequences.",
+    "cited_source_numbers": [
+      1,
+      2,
+      3
+    ],
+    "cited_actual_chapters": [
+      208,
+      208,
+      238
+    ],
+    "expected_chapter_cited": true,
+    "timestamp": "2026-02-28 03:12:32.263928",
+    "manual_accuracy_grade": null,
+    "llm_faithfulness": null,
+    "llm_completeness": null,
+    "llm_medical_accuracy": null
+  },
+  {
+    "id": 7,
+    "query": "What causes peptic ulcer disease and how is it treated?",
+    "tier": 1,
+    "expected_chapter": 13,
+    "retrieved_chapters": [
+      13,
+      13,
+      13,
+      12,
+      13
+    ],
+    "retrieved_chunks": [
+      {
+        "chapter_number": 13,
+        "chapter_title": "Gastritis and Peptic Ulcer Disease",
+        "content_snippet": "penetration ; erosions are more superficial and do not involve the muscularis mucosae. ulcers can occur at any age, including infancy and childhood, but are most common among middle - aged adults. etiology 189 h. pylori and nsaids disrupt normal mucosal defense and repair, making the mucosa more susceptible to acid. h. pylori infection is present in 50 to 70 % of patients with duodenal ulcers and 30 to 50 % of patients with gastric ulcers. if h. pylori is eradicated, only 10 % of patients have r"
+      },
+      {
+        "chapter_number": 13,
+        "chapter_title": "Gastritis and Peptic Ulcer Disease",
+        "content_snippet": "upright and should have a lateral decubitus x - ray of the abdomen. failure to detect free air does not exclude the diagnosis. immediate surgery is required. the longer the delay, the poorer is the prognosis. when surgery is contraindicated, the alternatives are continuous nasogastric suction and broad - spectrum antibiotics. gastric outlet obstruction : obstruction may be caused by scarring, spasm, or inflammation from an ulcer. symptoms include recurrent, large - volume vomiting, occurring mor"
+      },
+      {
+        "chapter_number": 13,
+        "chapter_title": "Gastritis and Peptic Ulcer Disease",
+        "content_snippet": "manifest with similar manifestations and must be excluded, especially in patients who are > 45, have lost weight, or report severe or refractory symptoms. the incidence of malignant duodenal ulcer is extremely low, so biopsies of lesions in that area are generally not warranted. endoscopy can also be used to definitively diagnose h. pylori infection, which should be sought when an ulcer is detected. gastrin - secreting cancer and zollinger - ellison syndrome should be considered when there are m"
+      },
+      {
+        "chapter_number": 12,
+        "chapter_title": "Esophageal and Swallowing Disorders",
+        "content_snippet": "##gitis, peptic esophageal ulcer, esophageal stricture, barrett's esophagus, and esophageal adenocarcinoma ( see p. ). factors that contribute to the development of esophagitis include the caustic nature of the refluxate, the inability to clear the refluxate from the esophagus, the volume of gastric contents, and local mucosal protective functions. some patients, particularly infants, aspirate the reflux material. symptoms and signs the most prominent symptom of gerd is heartburn, with or withou"
+      },
+      {
+        "chapter_number": 13,
+        "chapter_title": "Gastritis and Peptic Ulcer Disease",
+        "content_snippet": "##tritis autoimmune metaplastic atrophic gastritis ( amag ) is an inherited autoimmune disease that attacks parietal cells, resulting in hypochlorhydria and decreased production of intrinsic factor. consequences include atrophic gastritis, b malabsorption, and, frequently, pernicious anemia. risk of gastric adenocarcinoma increases 3 - fold. diagnosis is by endoscopy. treatment is with parenteral vitamin b. patients with amag have antibodies to parietal cells and their components ( which include"
+      }
+    ],
+    "generated_answer": "---\n\n### 1. Overview  \nPeptic ulcer disease is primarily caused by *Helicobacter pylori* (H. pylori) infection and nonsteroidal anti-inflammatory drug (NSAID) use, which damage the stomach lining. Treatment focuses on eradicating H. pylori and reducing stomach acid to promote healing. Smoking increases risk and recurrence, while alcohol’s role is unclear [1].  \n\n---\n\n### 2. Symptoms  \n**Not covered in provided context.**  \n\n---\n\n### 3. Causes  \nPeptic ulcers develop when the stomach lining’s protective mechanisms are overwhelmed by acid. *H. pylori* infection and NSAID use are the main triggers, as they disrupt mucosal defense and repair [1]. *H. pylori* is present in 50–70% of duodenal ulcers and 30–50% of gastric ulcers [1]. Smoking increases ulcer risk and recurrence, with effects proportional to daily cigarette count [1]. Rare causes include Zollinger-Ellison syndrome, a gastrin-secreting tumor [1].  \n\n- *H. pylori* infection  \n- NSAID use (now accounts for >50% of ulcers)  \n- Cigarette smoking  \n- Zollinger-Ellison syndrome (rare)  \n\n---\n\n### 4. Treatment  \n#### **Acute Management**  \nAcute treatment aims to reduce acid and heal ulcers. Eradicating *H. pylori* reduces recurrence to 10%, compared to 70% with acid suppression alone [1]. Acid suppression is also critical.  \n\n- Eradication of *H. pylori*  \n- Acid suppression therapy  \n\n#### **Preventive Management**  \nLong-term strategies focus on avoiding triggers and maintaining mucosal health. NSAID avoidance and smoking cessation are key [1].  \n\n- Avoid NSAID use  \n- Quit smoking  \n- Monitor for *H. pylori* recurrence  \n\n---\n\n### 5. Key Terms  \n- **Peptic ulcer disease**: Sores in the stomach or duodenum lining caused by acid and digestive enzymes.  \n- **NSAIDs**: Medications like ibuprofen that reduce pain/inflammation but damage the stomach lining.  \n- **H. pylori**: Bacteria that infect the stomach and contribute to ulcers.  \n- **Eradication**: Complete removal of *H. pylori* through targeted treatment.  \n- **Acid suppression**: Medications that reduce stomach acid production.  \n\n---\n\n### 6. Closing Note  \nSeek medical advice if symptoms persist or complications like bleeding occur. Outcomes depend on adherence to treatment and avoiding risk factors like smoking and NSAIDs [1].",
+    "cited_source_numbers": [
+      1
+    ],
+    "cited_actual_chapters": [
+      13
+    ],
+    "expected_chapter_cited": true,
+    "timestamp": "2026-02-28 03:12:56.120184",
+    "manual_accuracy_grade": null,
+    "llm_faithfulness": null,
+    "llm_completeness": null,
+    "llm_medical_accuracy": null
+  },
+  {
+    "id": 8,
+    "query": "A patient presents with recurring severe headaches with nausea and light sensitivity. What is the diagnosis and management?",
+    "tier": 2,
+    "expected_chapter": 178,
+    "retrieved_chapters": [
+      178,
+      178,
+      178,
+      178,
+      178
+    ],
+    "retrieved_chunks": [
+      {
+        "chapter_number": 178,
+        "chapter_title": "Headache",
+        "content_snippet": "scotomata ). paresthesias and numbness ( typically starting in one hand and marching to the ipsilateral arm and face ), speech disturbances, and transient brain stem dysfunction ( causing, eg, ataxia, confusion or even obtundation ) are less common than visual auras. some patients have an aura with little or no headache. headache varies from moderate to severe, and attacks last from 4 hours to several days, typically resolving with sleep. the pain is often unilateral but may be bilateral, most o"
+      },
+      {
+        "chapter_number": 178,
+        "chapter_title": "Headache",
+        "content_snippet": "loss ). treatment • hydration and analgesics • sometimes an epidural blood patch 1889 the first line of treatment is recumbency, hydration, an elastic abdominal binder, mild analgesics, and caffeine. if post - lp headache persists after a day of such treatment, an epidural blood patch ( injection of a few ml of the patient's clotted venous blood into the lumbar epidural space ) is usually effective. a blood patch may also be effective for spontaneous or traumatic csf leaks, which rarely require "
+      },
+      {
+        "chapter_number": 178,
+        "chapter_title": "Headache",
+        "content_snippet": "approach to the patient with headache headache is pain in any part of the head, including the scalp, face ( including the orbitotemporal area ), and interior of the head. headache is one of the most common reasons patients seek medical attention. pathophysiology headache is due to activation of pain - sensitive structures in or around the brain, skull, face, sinuses, or teeth. etiology headache may occur as a primary disorder or be secondary to another disorder. primary headache disorders includ"
+      },
+      {
+        "chapter_number": 178,
+        "chapter_title": "Headache",
+        "content_snippet": "intracranial hypertension ( benign intracranial hypertension ; pseudotumor cerebri ) idiopathic intracranial hypertension causes increased intracranial pressure without a mass lesion or hydrocephalus, probably by obstructing venous drainage ; csf composition is normal. idiopathic intracranial hypertension typically occurs in women of childbearing age. incidence is 1 / 100, 000 in normal - weight women but 20 / 100, 000 in obese women. intracranial pressure is elevated ( > 250 mm h o ) ; the caus"
+      },
+      {
+        "chapter_number": 178,
+        "chapter_title": "Headache",
+        "content_snippet": "h and may be severe. pain is often unilateral, throbbing, worse with exertion, and accompanied by symptoms such as nausea and sensitivity to light, sound, or odors. auras occur in about 25 % of patients, usually just before but sometimes after the headache. diagnosis is clinical. treatment is with triptans, dihydroergotamine, antiemetics, and analgesics. preventive regimens include lifestyle modifications ( eg, of sleeping habits or diet ) and drugs ( eg, β - blockers, amitriptyline, topiramate,"
+      }
+    ],
+    "generated_answer": "### 1. Overview  \nThe patient likely has migraine, characterized by severe headaches with nausea and light sensitivity. Migraine is a primary headache disorder with distinct symptom patterns and treatment approaches.  \n\n---\n\n### 2. Symptoms  \nThe symptoms include moderate to severe unilateral or bilateral pulsating headaches, often in the frontotemporal region, accompanied by nausea, vomiting, and sensitivity to light (photophobia) or sound (sonophobia). Patients may also experience difficulty concentrating, and routine physical activity typically worsens the pain. Some attacks occur with or without an aura, which may involve visual disturbances (e.g., scotomata) or sensory changes like paresthesias [1][5].  \n\n---\n\n### 3. Causes  \nMigraine is a neurovascular pain syndrome involving altered central neuronal processing, cortical hyperexcitability, and activation of the trigeminovascular system. Triggers or contributing factors include familial aggregation and lifestyle factors such as sleep patterns or diet [5].  \n\n---\n\n### 4. Treatment  \n\n**Acute Management**  \nAcute treatment aims to relieve symptoms during an active attack. Options include:  \n- Triptans, dihydroergotamine, antiemetics, and analgesics [5].  \n- Hydration, caffeine, and mild analgesics may also be used [2].  \n\n**Preventive Management**  \nLong-term strategies reduce attack frequency and severity. Approaches include:  \n- Lifestyle modifications (e.g., sleep, diet adjustments).  \n- Medications such as β-blockers, amitriptyline, topiramate, or divalproex [5].  \n\n---\n\n### 5. Key Terms  \n- **Photophobia**: Sensitivity to light.  \n- **Sonophobia**: Sensitivity to sound.  \n- **Triptans**: Medications that target serotonin receptors to relieve migraine.  \n- **Dihydroergotamine**: A medication used for acute migraine treatment.  \n- **β-blockers**: Drugs that reduce migraine frequency by affecting blood vessels and nerve activity.  \n- **Amitriptyline**: An antidepressant used for migraine prevention.  \n- **Topiramate/Divalproex**: Anti-seizure medications that help prevent migraines.  \n\n---\n\n### 6. Closing Note  \nSeek professional medical advice if headaches are severe, worsening, or accompanied by new neurological symptoms. Outcomes depend on adherence to treatment plans and identifying individual triggers.",
+    "cited_source_numbers": [
+      1,
+      2,
+      5
+    ],
+    "cited_actual_chapters": [
+      178,
+      178,
+      178
+    ],
+    "expected_chapter_cited": true,
+    "timestamp": "2026-02-28 03:13:18.047345",
+    "manual_accuracy_grade": null,
+    "llm_faithfulness": null,
+    "llm_completeness": null,
+    "llm_medical_accuracy": null
+  },
+  {
+    "id": 9,
+    "query": "What neurological condition causes resting tremor, rigidity, and bradykinesia?",
+    "tier": 2,
+    "expected_chapter": 183,
+    "retrieved_chapters": [
+      183,
+      183,
+      183,
+      183,
+      170
+    ],
+    "retrieved_chunks": [
+      {
+        "chapter_number": 183,
+        "chapter_title": "Movement and Cerebellar Disorders",
+        "content_snippet": "as follows : • slow and coarse • maximal at rest, lessening during movement, and absent during sleep 1931 • amplitude increased by emotional tension or fatigue • often involving the wrist and fingers in movements similar to those used to manipulate small objects or pills ( pill - rolling tremor ) usually, the hands, arms, and legs are most affected, in that order. the jaw and tongue may also be affected, but not the voice. tremor may become less prominent as the disease progresses. rigidity deve"
+      },
+      {
+        "chapter_number": 183,
+        "chapter_title": "Movement and Cerebellar Disorders",
+        "content_snippet": "dystonias, autonomic instability, depression, and personality changes. diagnosis 1932 • mainly by clinical evaluation diagnosis is clinical. parkinson's disease is suspected in patients with characteristic unilateral resting tremor, decreased movement, or rigidity. the tremor disappears ( or attenuates ) during finger - to - nose coordination testing. during the neurologic examination, patients cannot perform rapidly alternating or rapid successive movements well. sensation and strength are usua"
+      },
+      {
+        "chapter_number": 183,
+        "chapter_title": "Movement and Cerebellar Disorders",
+        "content_snippet": "introduction voluntary movement requires interaction of the corticospinal ( pyramidal ) tracts, basal ganglia, and cerebellum ( the center for motor coordination ). the pyramidal tracts pass through the medullary pyramids to connect the cerebral cortex to lower motor centers of the brain stem and spinal cord. the basal ganglia ( caudate nucleus, putamen, globus pallidus, subthalamic nucleus, and substantia nigra ) form the extrapyramidal system. they are located deep in the forebrain and direct "
+      },
+      {
+        "chapter_number": 183,
+        "chapter_title": "Movement and Cerebellar Disorders",
+        "content_snippet": "). classification : tremor is classified primarily based on when it occurs : • resting tremors are maximal at rest and decrease with activity ; they occur at a frequency of 3 to 6 cycles / sec ( hz ). • postural tremors are maximal when a limb is maintained in a fixed position against gravity ( eg, holding the arms out ) ; they occur at a frequency of 5 to 18 hz. 1937 • intention tremors are maximal during movement toward a target, as in finger - to - nose testing ; they occur at a frequency of "
+      },
+      {
+        "chapter_number": 170,
+        "chapter_title": "Autonomic Nervous System",
+        "content_snippet": "atrophy, striatonigral degeneration, and shy - drager syndrome. symptoms include hypotension, urinary retention, constipation, ataxia, rigidity, and postural 1786 instability. diagnosis is clinical. treatment is symptomatic, with volume expansion, compression garments, and vasoconstrictor drugs. multiple system atrophy affects about twice as many men as women. mean age at onset is about 53 yr ; after symptoms appear, patients live about 9 to 10 yr. etiology etiology is unknown, but neuronal dege"
+      }
+    ],
+    "generated_answer": "---\n\n### 1. Overview  \nThe neurological condition described is Parkinson’s disease, characterized by resting tremor, rigidity, and bradykinesia. These symptoms arise from dysfunction in the basal ganglia and substantia nigra [3].  \n\n---\n\n### 2. Symptoms  \nThe symptom pattern includes a resting tremor that diminishes with movement, muscle rigidity with a ratchet-like quality (cogwheel rigidity), and slowed, reduced movements (bradykinesia). Additional features may include a masklike facial expression, hypophonic speech, and difficulty initiating movements [1].  \n\n**Specific symptoms:**  \n- Resting tremor maximal at rest, lessening during activity, and absent during sleep [1].  \n- Pill-rolling tremor involving the wrist and fingers [1].  \n- Cogwheel rigidity with sudden, rhythmic jerks during joint movement [1].  \n- Bradykinesia and hypokinesia (slow, reduced movements) [1].  \n- Masklike facial expression, drooling, and reduced blinking [1].  \n- Hypophonic speech with a monotone quality [1].  \n\n---\n\n### 3. Causes  \nThe condition results from degeneration of the basal ganglia and substantia nigra, disrupting motor coordination pathways. Neural lesions in the extrapyramidal system are central to movement disorders like Parkinson’s disease [3].  \n\n**Distinct causes or risk factors:**  \n- Degeneration of the basal ganglia (caudate nucleus, putamen, globus pallidus, subthalamic nucleus, substantia nigra) [3].  \n- Unknown etiology in most cases, though neuronal degeneration in specific brain regions determines symptom presentation [5].  \n\n---\n\n### 4. Treatment  \n**Acute Management**  \nTreatments during an active attack are not covered in the provided context.  \n\n**Preventive Management**  \nStrategies to reduce frequency long-term are not covered in the provided context.  \n\n---\n\n### 5. Key Terms  \n- **Resting tremor**: Tremor that occurs at rest and decreases with movement [1].  \n- **Rigidity**: Stiffness of muscles, often with a ratchet-like quality when moved [1].  \n- **Bradykinesia**: Slowness of movement and reduced amplitude of motions [1].  \n- **Cogwheel rigidity**: Rhythmic jerks felt during joint movement due to fluctuating muscle tone [1].  \n- **Hypokinesia**: Decreased movement amplitude and speed [3].  \n- **Parkinsonian disorders**: Conditions characterized by bradykinesia, rigidity, and tremor [3].  \n\n---\n\n### 6. Closing Note  \nSeek professional medical evaluation if resting tremor, rigidity, or bradykinesia develop, as early diagnosis and management are critical for optimizing outcomes. Progression and response to treatment vary based on the underlying cause.",
+    "cited_source_numbers": [
+      1,
+      3,
+      5
+    ],
+    "cited_actual_chapters": [
+      183,
+      183,
+      170
+    ],
+    "expected_chapter_cited": true,
+    "timestamp": "2026-02-28 03:13:40.984318",
+    "manual_accuracy_grade": null,
+    "llm_faithfulness": null,
+    "llm_completeness": null,
+    "llm_medical_accuracy": null
+  },
+  {
+    "id": 10,
+    "query": "How is reversible airflow obstruction treated in adults?",
+    "tier": 2,
+    "expected_chapter": 191,
+    "retrieved_chapters": [
+      192,
+      188,
+      284,
+      225,
+      193
+    ],
+    "retrieved_chunks": [
+      {
+        "chapter_number": 192,
+        "chapter_title": "Chronic Obstructive Pulmonary Disease",
+        "content_snippet": "introduction chronic obstructive pulmonary disease ( copd ) is partially reversible airflow limitation caused by an inflammatory response to inhaled toxins, often cigarette smoke. α - antitrypsin deficiency and various occupational exposures are less common causes in nonsmokers. symptoms are productive cough and dyspnea that develop over years ; common signs include decreased breath sounds, prolonged expiratory phase of respiration, and wheezing. severe cases may be complicated by weight loss, p"
+      },
+      {
+        "chapter_number": 188,
+        "chapter_title": "Approach to the Patient With Pulmonary Symptoms",
+        "content_snippet": "with foreign body but rare with allergic reaction. chronic stridor that begins early in childhood and without a clear inciting factor suggests a congenital anomaly or an upper airway tumor. in adults, heavy smoking and alcohol use should raise suspicion of laryngeal cancer. vocal cord paralysis usually has a clear precipitant, such as surgery or intubation, or is associated with other neurologic findings, such as muscle weakness. patients with tracheomalacia frequently have cough productive of s"
+      },
+      {
+        "chapter_number": 284,
+        "chapter_title": "Cystic Fibrosis",
+        "content_snippet": "are also affected by cftr mutation profile, modifier genes, airway microbiology, exposure to air pollutants ( including tobacco smoke ), and socioeconomic status. the fev, adjusted for age and sex, is the best predictor of survival. treatment • comprehensive, multidisciplinary support • antibiotics, aerosol drugs to thin airway secretions, and physical maneuvers to clear airway secretions • inhaled bronchodilators and sometimes corticosteroids for responders • pancreatic enzyme supplementation c"
+      },
+      {
+        "chapter_number": 225,
+        "chapter_title": "Respiratory Failure and Mechanical Ventilation",
+        "content_snippet": ". abgs showing worsening hypercapnia are also an indication, although blood - gas confirmation is not required and should not replace the physician's judgment. oral intubation is preferred over nasal because a larger endotracheal tube, which decreases airway resistance and permits easier suctioning, can be used. hypotension and pneumothorax occasionally occur after intubation for sa ( see also p. ). these complications and their corresponding mortality have declined significantly because of a ve"
+      },
+      {
+        "chapter_number": 193,
+        "chapter_title": "Sleep Apnea",
+        "content_snippet": "is excellent if effective treatment is instituted. untreated or unrecognized osa leads to cognitive impairment as a result of sleeplessness, which, in turn, can lead to serious injury or death caused by accidents, especially motor vehicle crashes. sleepy patients should be warned of the risk of driving, operating heavy machinery, or engaging in other activities during which sleep attacks would be hazardous. adverse effects of hypersomnolence, such as loss of employment and sexual dysfunction, ca"
+      }
+    ],
+    "generated_answer": "### 1. Overview  \nReversible airflow obstruction in adults is primarily treated with bronchodilators and corticosteroids to alleviate symptoms and manage acute episodes. Additional interventions like oxygen therapy and antibiotics may be used when necessary [1].  \n\n---\n\n### 2. Symptoms  \nSymptoms of reversible airflow obstruction typically develop gradually and include persistent productive cough, shortness of breath (dyspnea), and wheezing. Severe cases may involve weight loss, frequent respiratory infections, or complications like pneumothorax or heart failure [1].  \n\n- Productive cough lasting years  \n- Progressive dyspnea during physical activity  \n- Prolonged expiratory phase during breathing  \n- Wheezing on physical examination  \n- Weight loss in advanced stages  \n\n---\n\n### 3. Causes  \nReversible airflow obstruction arises from an inflammatory response to inhaled toxins, such as cigarette smoke. Less common causes include occupational exposures or α-antitrypsin deficiency in nonsmokers [1].  \n\n- Inflammatory response to cigarette smoke [1]  \n- Occupational exposure to irritants [1]  \n- α-antitrypsin deficiency in nonsmokers [1]  \n\n---\n\n### 4. Treatment  \n\n**Acute Management**  \nDuring acute episodes, treatment focuses on relieving airway obstruction and preventing complications. Key interventions include:  \n\n- Bronchodilators to relax airway muscles [1]  \n- Corticosteroids to reduce inflammation [1]  \n- Oxygen therapy for severe dyspnea or hypoxemia [1]  \n- Antibiotics if bacterial infection is suspected [1]  \n\n**Preventive Management**  \nNot covered in provided context.  \n\n---\n\n### 5. Medical Terms  \n- **Bronchodilators**: Medications that widen airways by relaxing muscle spasms.  \n- **Corticosteroids**: Anti-inflammatory drugs that reduce swelling in the airways.  \n\n---\n\n### 6. Closing Note  \nSeek immediate medical attention if symptoms worsen or if acute decompensation occurs. Early intervention improves outcomes, especially in conditions like chronic obstructive pulmonary disease (COPD) [1].",
+    "cited_source_numbers": [
+      1
+    ],
+    "cited_actual_chapters": [
+      192
+    ],
+    "expected_chapter_cited": false,
+    "timestamp": "2026-02-28 03:14:04.529210",
+    "manual_accuracy_grade": null,
+    "llm_faithfulness": null,
+    "llm_completeness": null,
+    "llm_medical_accuracy": null
+  },
+  {
+    "id": 11,
+    "query": "A patient has low hemoglobin and low ferritin — what are the causes and treatment?",
+    "tier": 2,
+    "expected_chapter": 105,
+    "retrieved_chapters": [
+      105,
+      105,
+      120,
+      105,
+      120
+    ],
+    "retrieved_chunks": [
+      {
+        "chapter_number": 105,
+        "chapter_title": "Anemias Caused by Deficient Erythropoiesis",
+        "content_snippet": "serum ferritin • rarely bone marrow examination iron deficiency anemia is suspected in patients with chronic blood loss or microcytic anemia, particularly if pica is present. in such patients, cbc, serum iron and iron - binding capacity, and serum ferritin are obtained. iron and iron - binding capacity ( or transferrin ) are usually both measured because their relationship is important. various tests exist ; the range of normal values relates to the test used. in general, normal serum iron is 75"
+      },
+      {
+        "chapter_number": 105,
+        "chapter_title": "Anemias Caused by Deficient Erythropoiesis",
+        "content_snippet": "reverse the underlying disorder or, if the disorder is irreversible, to give erythropoietin. worldwide, anemia of chronic disease is the 2nd most common anemia. early on, the rbcs are normocytic ; with time they become microcytic. the major issue is that the marrow erythroid mass fails to expand appropriately in response to anemia. etiology this type of anemia was thought to occur as part of a chronic disorder, most often infection, inflammatory disease ( especially ra ), or cancer ; however, th"
+      },
+      {
+        "chapter_number": 120,
+        "chapter_title": "Iron Overload",
+        "content_snippet": "from an autosomal dominant mutation in the slc 40 a1 gene. it manifests in the first decade of life as increased serum ferritin levels with low or normal transferrin saturation ; progressive saturation of transferrin occurs when patients are in their 20s and 30s. clinical manifestations are milder than in hfe disease, with modest liver disease and mild anemia. tolerance to vigorous phlebotomy is poor ; serial monitoring of hb level and transferrin saturation is required. juvenile hemochromatosis"
+      },
+      {
+        "chapter_number": 105,
+        "chapter_title": "Anemias Caused by Deficient Erythropoiesis",
+        "content_snippet": "introduction anemia ( a decrease in the number of rbcs, hb content, or hct ) can result from decreased rbc production ( erythropoiesis ), increased rbc destruction, or blood loss. anemias due to decreased erythropoiesis are recognized by reticulocytopenia, which is usually evident on the peripheral smear ( see p. ). the rbc indices, mainly the mcv, narrow the differential diagnosis of deficient erythropoiesis and determine what further testing is necessary. microcytic anemias result from deficie"
+      },
+      {
+        "chapter_number": 120,
+        "chapter_title": "Iron Overload",
+        "content_snippet": "300 ng / ml in men ) are usually present in primary hemochromatosis but can result from other abnormalities, such as inflammatory liver disorders ( eg, chronic viral hepatitis, nonalcoholic 1173 steatohepatitis, alcoholic liver disease ), cancer, certain systemic inflammatory disorders ( eg, ra, hemophagocytic lymphohistiocytosis ), or obesity. further testing is done if ferritin level is abnormal ; testing includes serum iron ( usually > 300 mg / dl ) and iron binding capacity ( transferrin sat"
+      }
+    ],
+    "generated_answer": "---\n\n### 1. Overview  \nLow hemoglobin and low ferritin most commonly indicate iron deficiency anemia, which occurs due to insufficient iron stores to support red blood cell production. This condition is often linked to chronic blood loss or poor dietary intake [1].  \n\n---\n\n### 2. Symptoms  \nPatients with iron deficiency anemia may experience fatigue, weakness, and pale skin due to reduced oxygen-carrying capacity of blood. Additional symptoms include pica (craving non-food substances) and microcytic red blood cells on blood tests [1].  \n\n- Fatigue and weakness  \n- Pale skin and mucous membranes  \n- Pica (e.g., craving ice or dirt)  \n- Microcytic anemia on complete blood count (CBC)  \n\n---\n\n### 3. Causes  \nLow ferritin reflects depleted iron stores, which impairs hemoglobin synthesis. Common triggers include chronic blood loss (e.g., gastrointestinal bleeding, heavy menstruation) or inadequate dietary iron intake. Serum iron and iron-binding capacity tests help confirm the diagnosis [1].  \n\n- Chronic blood loss (e.g., gastrointestinal bleeding, menstruation)  \n- Poor dietary iron intake  \n- Impaired iron absorption (not explicitly detailed in context)  \n\n---\n\n### 4. Treatment  \n**Acute Management**  \nAcute management focuses on correcting iron deficiency. However, specific treatments (e.g., oral or intravenous iron supplementation) are not detailed in the provided context [1].  \n\n**Preventive Management**  \nLong-term strategies involve addressing underlying causes, such as treating chronic blood loss. Preventive approaches are not explicitly outlined in the context [1].  \n\n---\n\n### 5. Key Terms  \n- **Ferritin**: A protein that stores iron; low levels indicate iron deficiency [1].  \n- **Microcytic anemia**: A type of anemia where red blood cells are smaller than normal, often due to iron deficiency [1].  \n- **CBC (Complete Blood Count)**: A blood test measuring red blood cell count, hemoglobin, and other parameters [1].  \n\n---\n\n### 6. Closing Note  \nPatients with persistent low hemoglobin and ferritin should consult a healthcare provider for diagnostic testing and targeted treatment. Early identification of chronic blood loss or dietary deficiencies improves outcomes [1].",
+    "cited_source_numbers": [
+      1
+    ],
+    "cited_actual_chapters": [
+      105
+    ],
+    "expected_chapter_cited": true,
+    "timestamp": "2026-02-28 03:14:28.804265",
+    "manual_accuracy_grade": null,
+    "llm_faithfulness": null,
+    "llm_completeness": null,
+    "llm_medical_accuracy": null
+  },
+  {
+    "id": 12,
+    "query": "What clinical signs suggest an underactive thyroid and how is it corrected?",
+    "tier": 2,
+    "expected_chapter": 93,
+    "retrieved_chapters": [
+      93,
+      93,
+      93,
+      93,
+      285
+    ],
+    "retrieved_chunks": [
+      {
+        "chapter_number": 93,
+        "chapter_title": "Thyroid Disorders",
+        "content_snippet": "( hypothyroidism and hyperthyroidism ), both of which can be treated effectively. because of the high incidence of hypothyroidism in older people, screening on an annual basis is reasonable for those > age 70. approach to the patient with a thyroid nodule thyroid nodules are common, increasingly so with increasing age. the reported incidence varies with the method of assessment. in middle - aged and elderly patients, palpation reveals nodules in about 5 %. results of ultrasonography and autopsy "
+      },
+      {
+        "chapter_number": 93,
+        "chapter_title": "Thyroid Disorders",
+        "content_snippet": "hair that are dry but not very coarse, skin depigmentation, only minimal macroglossia, atrophic breasts, and low bp. also, the heart is small, and serous pericardial effusions do not occur. hypoglycemia is common because of concomitant adrenal insufficiency or growth hormone deficiency. myxedema coma : myxedema coma is a life - threatening complication of hypothyroidism, usually occurring in patients with a long history of hypothyroidism. its characteristics include coma with extreme hypothermia"
+      },
+      {
+        "chapter_number": 93,
+        "chapter_title": "Thyroid Disorders",
+        "content_snippet": "as noted for painful subacute thyroiditis ). the hyperthyroid phase is self - limited and may be brief or overlooked. many women with this disorder are diagnosed when they become hypothyroid, which occasionally is permanent. diagnosis • clinical evaluation • serum thyroxine ( t ), triiodothyronine ( t ), and thyroid - stimulating hormone ( tsh ) levels silent lymphocytic thyroiditis is frequently undiagnosed. suspicion of the diagnosis generally depends on clinical findings, typically once hypot"
+      },
+      {
+        "chapter_number": 93,
+        "chapter_title": "Thyroid Disorders",
+        "content_snippet": "and tender. diagnosis • clinical findings • free thyroxine ( t ) and thyroid - stimulating hormone ( tsh ) levels • esr • radioactive iodine uptake diagnosis is primarily clinical, based on finding an enlarged, tender thyroid in patients with the appropriate clinical history. thyroid testing with tsh and at least a free t measurement is usually also done. radioactive iodine uptake should be measured to confirm the diagnosis. when the diagnosis is uncertain, finer needle aspiration biopsy is usef"
+      },
+      {
+        "chapter_number": 285,
+        "chapter_title": "Endocrine Disorders in Children",
+        "content_snippet": ". symptoms and signs 3038 the most common manifestation is firm, nontender enlargement of the thyroid. enlargement is most often diffuse but can be nodular. it may be noticeable at birth or detected later. in some patients, enlargement is not directly observable, but continued growth can cause deviation or compression of the trachea, compromising breathing and swallowing. many children with goiters are euthyroid, but some present with hypothyroidism or hyperthyroidism. diagnosis if the diagnosis"
+      }
+    ],
+    "generated_answer": "### 1. Overview  \nUnderactive thyroid (hypothyroidism) is characterized by symptoms like dry hair, low blood pressure, and growth delays, and is corrected primarily through thyroid hormone replacement. Severe cases, such as myxedema coma, require urgent treatment [2].  \n\n---\n\n### 2. Symptoms  \nHypothyroidism presents with a pattern of slowed metabolism and systemic dysfunction. Common signs include:  \n- Dry hair that is not very coarse [2]  \n- Skin depigmentation [2]  \n- Atrophic breasts [2]  \n- Low blood pressure [2]  \n- Small heart size [2]  \n- Hypoglycemia, often due to adrenal insufficiency or growth hormone deficiency [2]  \n- In children: poor feeding, growth failure, or delayed puberty [5]  \n- Myxedema coma (life-threatening): coma, extreme hypothermia (24–32.2°C), areflexia, seizures, and respiratory depression [2]  \n\n---\n\n### 3. Causes  \nHypothyroidism arises from impaired thyroid hormone production, often due to autoimmune or congenital factors. Key causes include:  \n- Hashimoto’s thyroiditis (autoimmune destruction of the thyroid) [1]  \n- Congenital hypothyroidism (present at birth) [5]  \n- Thyroid irradiation history [1]  \n- Silent lymphocytic thyroiditis (post-hyperthyroid phase) [3]  \n\n---\n\n### 4. Treatment  \n**Acute Management**  \nSevere hypothyroidism, such as myxedema coma, requires immediate intervention to stabilize vital functions. Treatments include:  \n- Rapid administration of thyroid hormone replacement [2]  \n- Supportive care for hypothermia, respiratory depression, and seizures [2]  \n\n**Preventive Management**  \nLong-term correction focuses on hormone replacement to normalize metabolism. Approaches include:  \n- Daily thyroid hormone replacement therapy [2]  \n- Regular monitoring of thyroid function tests (TSH, free thyroxine) [2]  \n\n---\n\n### 5. Medical Terms  \n- **Hypothyroidism**: Underactive thyroid gland producing insufficient hormones.  \n- **Hashimoto’s thyroiditis**: Autoimmune condition destroying thyroid tissue.  \n- **Myxedema coma**: Severe, life-threatening form of hypothyroidism.  \n- **Thyroid hormone replacement**: Medication to supplement deficient thyroid hormones.  \n\n---\n\n### 6. Closing Note  \nSeek immediate medical care if symptoms like extreme fatigue, swelling, or confusion arise. Early diagnosis and adherence to hormone therapy improve outcomes significantly [2].",
+    "cited_source_numbers": [
+      1,
+      2,
+      3,
+      5
+    ],
+    "cited_actual_chapters": [
+      93,
+      93,
+      93,
+      285
+    ],
+    "expected_chapter_cited": true,
+    "timestamp": "2026-02-28 03:14:51.942242",
+    "manual_accuracy_grade": null,
+    "llm_faithfulness": null,
+    "llm_completeness": null,
+    "llm_medical_accuracy": null
+  },
+  {
+    "id": 13,
+    "query": "What lifestyle and pharmacological interventions reduce blood pressure?",
+    "tier": 2,
+    "expected_chapter": 208,
+    "retrieved_chapters": [
+      208,
+      99,
+      208,
+      100,
+      211
+    ],
+    "retrieved_chunks": [
+      {
+        "chapter_number": 208,
+        "chapter_title": "Arterial Hypertension",
+        "content_snippet": "severe the retinal changes and other evidence of target - organ involvement, the worse is the prognosis. systolic bp predicts fatal and nonfatal cardiovascular events better than diastolic bp. without treatment, 1 - yr survival is < 10 % in patients with retinal sclerosis, cottonwool exudates, arteriolar narrowing, and hemorrhage ( grade 3 retinopathy ), and < 5 % in patients with the same changes plus papilledema ( grade 4 retinopathy ). cad is the most common cause of death among treated hyper"
+      },
+      {
+        "chapter_number": 99,
+        "chapter_title": "Diabetes Mellitus and Disorders of Carbohydrate Metabolism",
+        "content_snippet": "assess renal function. many physicians consider baseline electrocardiography important given the risk of heart disease. lipid profile should be checked at least annually and more often when abnormalities are present. bp should be measured at every examination. treatment • diet and exercise • for type 1 dm, insulin • for type 2 dm, oral antihyperglycemics, insulin, or both • often ace inhibitors, statins, and aspirin to prevent complications goals and methods : treatment involves control of hyper"
+      },
+      {
+        "chapter_number": 208,
+        "chapter_title": "Arterial Hypertension",
+        "content_snippet": "started at low doses. drugs are initiated simultaneously with lifestyle changes for all patients with prehypertension or hypertension plus diabetes, a kidney disorder, target - organ damage, or cardiovascular risk factors and for those with an initial bp of > 160 / 100 mm hg. signs of hypertensive emergencies require immediate bp reduction with parenteral antihypertensives. 2225 for most hypertensive patients, one drug, usually a thiazide - type diuretic, is given initially. depending on the pat"
+      },
+      {
+        "chapter_number": 100,
+        "chapter_title": "Lipid Disorders",
+        "content_snippet": "100 - 6 and 100 - 7 ), low - dose daily aspirin. in general, treatment options for men and women are the same. elevated ldl cholesterol : in adults, atpiii guidelines recommend treatment for those with any of the following : • elevated ldl cholesterol levels and a history of cad • conditions that confer a risk of future cardiac events similar to that of cad itself ( cad equivalents, defined as diabetes mellitus, abdominal aortic aneurysm, peripheral arterial disease, and symptomatic carotid arte"
+      },
+      {
+        "chapter_number": 211,
+        "chapter_title": "Heart Failure",
+        "content_snippet": "##ricular dysfunction and can range from 10 to 40 % / yr. specific factors that suggest a poor prognosis include hypotension, low ef, presence of cad, troponin release, elevation of bun, reduced gfr, hyponatremia, and poor functional capacity ( eg, as tested by a 6 - min walk test ). hf usually involves gradual deterioration, interrupted by bouts of severe decompensation, and ultimately death, although the time course is being lengthened with modern therapies. however, death can also be sudden a"
+      }
+    ],
+    "generated_answer": "---\n\n### 1. Overview  \nLifestyle modifications and medications are key to reducing blood pressure. Weight loss, exercise, dietary changes, and smoking cessation improve outcomes, while drugs like diuretics and ACE inhibitors are used when lifestyle changes are insufficient. Effective blood pressure control prevents complications like heart disease and stroke [1][3].  \n\n---\n\n### 2. Symptoms  \n**Not covered in provided context.**  \n\n---\n\n### 3. Causes  \nPrimary hypertension has no known cure, but secondary hypertension may be corrected if an underlying cause is identified. Risk factors include diabetes, kidney disease, and cardiovascular conditions, which influence treatment choices [1][3].  \n\n---\n\n### 4. Treatment  \n\n#### **Acute Management**  \nImmediate blood pressure reduction is required in hypertensive emergencies, using parenteral antihypertensives to prevent organ damage [3].  \n\n- Parenteral antihypertensives for emergencies [3].  \n\n#### **Preventive Management**  \nLong-term control combines lifestyle changes and medications. Lifestyle adjustments include weight loss, exercise, reduced salt intake, and limited alcohol. Medications like thiazide diuretics are often first-line, with additional drugs added based on patient needs [1][3].  \n\n- Weight loss and exercise [1].  \n- Smoking cessation [1].  \n- Diet: increased fruits/vegetables, reduced salt, limited alcohol [1].  \n- Thiazide-type diuretics as initial drug therapy [3].  \n- Low-dose aspirin (81 mg/day) to reduce cardiac events [3].  \n\n---\n\n### 5. Medical Terms  \n- **Thiazide diuretics**: A class of water pills that help the kidneys remove excess fluid and salt.  \n- **Parenteral antihypertensives**: Blood pressure medications given by injection for rapid effect.  \n\n---\n\n### 6. Closing Note  \nSeek medical advice if blood pressure remains above 160/100 mmHg despite lifestyle changes or if complications like retinal damage are present. Consistent treatment improves outcomes and reduces risks of heart attack or stroke [1][3].",
+    "cited_source_numbers": [
+      1,
+      3
+    ],
+    "cited_actual_chapters": [
+      208,
+      208
+    ],
+    "expected_chapter_cited": true,
+    "timestamp": "2026-02-28 03:15:15.703000",
+    "manual_accuracy_grade": null,
+    "llm_faithfulness": null,
+    "llm_completeness": null,
+    "llm_medical_accuracy": null
+  },
+  {
+    "id": 14,
+    "query": "What are the first and second line therapies for H. pylori related gastric disease?",
+    "tier": 2,
+    "expected_chapter": 13,
+    "retrieved_chapters": [
+      13,
+      13,
+      13,
+      13,
+      13
+    ],
+    "retrieved_chunks": [
+      {
+        "chapter_number": 13,
+        "chapter_title": "Gastritis and Peptic Ulcer Disease",
+        "content_snippet": "symptoms and signs most patients with h. pylori - associated gastritis are asymptomatic, although some have mild dyspepsia or other vague symptoms. diagnosis • endoscopy often, the condition is discovered during endoscopy done for other purposes. testing of asymptomatic patients is not indicated. once gastritis is identified, testing for h. pylori is appropriate. treatment • eradication of h. pylori • sometimes acid - suppressive drugs treatment of chronic nonerosive gastritis is h. pylori eradi"
+      },
+      {
+        "chapter_number": 13,
+        "chapter_title": "Gastritis and Peptic Ulcer Disease",
+        "content_snippet": "##phoma. infection may be asymptomatic or result in varying degrees of dyspepsia. diagnosis is by urea breath test and testing of endoscopic biopsy samples. treatment is with a proton pump inhibitor plus two antibiotics. h. pylori is a spiral - shaped, gram - negative organism that has adapted to thrive in acid. in developing countries, it commonly causes chronic infections and is usually acquired during childhood. in the us, infection is less common among children but increases with age : by ag"
+      },
+      {
+        "chapter_number": 13,
+        "chapter_title": "Gastritis and Peptic Ulcer Disease",
+        "content_snippet": "##tritis autoimmune metaplastic atrophic gastritis ( amag ) is an inherited autoimmune disease that attacks parietal cells, resulting in hypochlorhydria and decreased production of intrinsic factor. consequences include atrophic gastritis, b malabsorption, and, frequently, pernicious anemia. risk of gastric adenocarcinoma increases 3 - fold. diagnosis is by endoscopy. treatment is with parenteral vitamin b. patients with amag have antibodies to parietal cells and their components ( which include"
+      },
+      {
+        "chapter_number": 13,
+        "chapter_title": "Gastritis and Peptic Ulcer Disease",
+        "content_snippet": "metronidazole 500 mg bid ) for 14 days, cures infection in > 95 % of cases. this regimen has excellent tolerability. ranitidine bismuth citrate 400 mg po bid may be substituted for the proton pump inhibitor. quadruple therapy with a proton pump inhibitor bid, tetracycline 500 mg and bismuth subsalicylate or subcitrate 525 mg qid, and metronidazole 500 mg tid is also effective but more cumbersome. infected patients with duodenal or gastric ulcer require continuation of the acid suppression for at"
+      },
+      {
+        "chapter_number": 13,
+        "chapter_title": "Gastritis and Peptic Ulcer Disease",
+        "content_snippet": "##ori infection. however, because qualitative assays remain positive for up to 3 yr after successful treatment and because quantitative antibody levels do not decline significantly for 6 to 12 mo after treatment, serologic assays are not usually used to assess cure. urea breath tests use an oral dose of c - or c - labeled urea. in an infected patient, the organism metabolizes the urea and liberates labeled co, which is exhaled and can be quantified in breath samples taken 20 to 30 min after inge"
+      }
+    ],
+    "generated_answer": "### 1. Overview  \nFirst-line therapy for *H. pylori* related gastric disease involves a proton pump inhibitor (PPI) combined with two antibiotics. Second-line therapy uses a PPI with three antibiotics and bismuth subsalicylate if the first regimen fails. Both approaches aim to eradicate the infection and reduce complications like ulcers or cancer [4].  \n\n---\n\n### 2. Symptoms  \nPatients with *H. pylori* infection may experience mild dyspepsia or remain asymptomatic. Severe symptoms like gastrointestinal bleeding are less common [1].  \n- Mild dyspepsia or vague discomfort  \n- Asymptomatic in many cases [1]  \n\n---\n\n### 3. Causes  \n*H. pylori* infection is a primary cause of gastritis and peptic ulcers. Transmission occurs via oral-oral or fecal-oral routes, often within families or institutions [2].  \n- *H. pylori* infection [2]  \n- Oral-oral or fecal-oral transmission [2]  \n- Family or institutional clustering [2]  \n\n---\n\n### 4. Treatment  \n\n**Acute Management**  \nAcute treatment focuses on eradicating *H. pylori* to resolve active infection.  \n- Triple therapy: PPI bid + amoxicillin 1g bid + clarithromycin 500 mg bid for 14 days [4]  \n- Quadruple therapy: PPI bid + tetracycline 500 mg + bismuth subsalicylate/subcitrate 525 mg qid + metronidazole 500 mg tid [4]  \n\n**Preventive Management**  \nLong-term prevention involves avoiding reinfection and managing risk factors.  \n- Acid suppression (PPIs or H2 blockers) for symptom control in non-infected patients [1]  \n- Eradication of *H. pylori* to reduce cancer risk [1]  \n\n---\n\n### 5. Key Terms  \n- **Dyspepsia**: Stomach discomfort or pain.  \n- **PPI (Proton Pump Inhibitor)**: Medication that reduces stomach acid.  \n- **H2 blockers**: Drugs that decrease acid production.  \n- **Quadruple therapy**: Combination of four medications for *H. pylori* treatment.  \n\n---\n\n### 6. Closing Note  \nSeek medical advice if symptoms persist after treatment or if complications like bleeding occur. Outcomes depend on adherence to therapy and confirmation of *H. pylori* eradication [4].",
+    "cited_source_numbers": [
+      1,
+      2,
+      4
+    ],
+    "cited_actual_chapters": [
+      13,
+      13,
+      13
+    ],
+    "expected_chapter_cited": true,
+    "timestamp": "2026-02-28 03:15:38.535772",
+    "manual_accuracy_grade": null,
+    "llm_faithfulness": null,
+    "llm_completeness": null,
+    "llm_medical_accuracy": null
+  },
+  {
+    "id": 15,
+    "query": "What mechanisms explain why certain medications worsen thyroid function?",
+    "tier": 3,
+    "expected_chapter": 93,
+    "retrieved_chapters": [
+      93,
+      285,
+      93,
+      162,
+      93
+    ],
+    "retrieved_chunks": [
+      {
+        "chapter_number": 93,
+        "chapter_title": "Thyroid Disorders",
+        "content_snippet": "on the peripheral tissues. all reactions necessary for the formation and release of t and t are controlled by thyroid - stimulating hormone ( tsh ), which is secreted by pituitary thyrotropic cells. tsh secretion is controlled by a negative feedback mechanism in the pituitary : increased levels of free t and t inhibit tsh synthesis and secretion, whereas decreased levels increase tsh secretion. tsh secretion is also influenced by thyrotropin - releasing hormone ( trh ), which is synthesized in t"
+      },
+      {
+        "chapter_number": 285,
+        "chapter_title": "Endocrine Disorders in Children",
+        "content_snippet": "introduction ( see also hypopituitarism in children resulting in short stature on p. and see p. for diabetes in adults and children. ) some endocrine disorders occur mostly in children ( eg, precocious or delayed puberty ) ; others occur in children and adults ( eg, diabetes, thyroid disorders ). those that affect both adults and children may cause different symptoms in children. congenital goiter congenital goiter is a diffuse or nodular enlargement of the thyroid gland present at birth. thyroi"
+      },
+      {
+        "chapter_number": 93,
+        "chapter_title": "Thyroid Disorders",
+        "content_snippet": "is low serum levels of thyroid hormones in clinically euthyroid patients with nonthyroidal systemic illness. diagnosis is based on excluding hypothyroidism. treatment is of the underlying illness ; thyroid hormone replacement is not indicated. patients with various acute or chronic nonthyroid disorders may have abnormal thyroid function tests. such disorders include acute and chronic illness, particularly fasting, starvation, protein - energy undernutrition, major trauma, mi, chronic renal failu"
+      },
+      {
+        "chapter_number": 162,
+        "chapter_title": "Mood Disorders",
+        "content_snippet": "once dosage is established, the entire dose should be given after the evening meal. this dosing may improve adherence. a β - blocker ( eg, atenolol 25 to 50 mg po once / day ) can control severe tremor ; however, some β - blockers ( eg, propranolol ) may worsen depression. acute lithium toxicity is manifested initially by gross tremor, increased deep tendon reflexes, persistent headache, vomiting, and confusion and may progress to stupor, seizures, and arrhythmias. toxicity is more likely to occ"
+      },
+      {
+        "chapter_number": 93,
+        "chapter_title": "Thyroid Disorders",
+        "content_snippet": "use of drugs that can decrease the synthesis of thyroid hormone ( eg, amiodarone or other iodine - containing compounds, lithium ). iodine deficiency is rare in north america but remains the most common cause of goiter worldwide ( termed endemic goiter ). compensatory small elevations in thyroid - stimulating hormone ( tsh ) occur, preventing hypothyroidism, but the tsh stimulation results in goiter formation. recurrent cycles of stimulation and involution may result in nontoxic nodular goiters."
+      }
+    ],
+    "generated_answer": "### 1. Overview  \nCertain medications worsen thyroid function by interfering with thyroid hormone synthesis or disrupting regulatory feedback mechanisms. This can lead to hypothyroidism or abnormal thyroid test results. Examples include lithium and iodine-containing compounds like amiodarone [5].  \n\n---\n\n### 2. Symptoms  \nSymptoms of medication-induced thyroid dysfunction depend on the underlying mechanism. Patients may develop hypothyroidism with fatigue, weight gain, and cold intolerance, or abnormal thyroid tests without clinical symptoms. Goiter formation may occur due to compensatory TSH elevation [5].  \n\n- **Hypothyroidism**: Fatigue, weight gain, cold intolerance, dry skin [5].  \n- **Goiter**: Neck swelling, difficulty swallowing or breathing in severe cases [2].  \n- **Abnormal lab results**: Low thyroid hormone levels or elevated TSH without clinical symptoms [3].  \n\n---\n\n### 3. Causes  \nMedications worsen thyroid function by directly inhibiting hormone synthesis or indirectly altering thyroid hormone metabolism. For example, lithium and iodine-containing drugs reduce thyroid hormone production, while systemic inflammation from other drugs may disrupt hormone binding or conversion [3][5].  \n\n- **Drugs decreasing hormone synthesis**: Amiodarone, lithium [5].  \n- **Iodine-containing compounds**: Amiodarone (interferes with iodine metabolism) [5].  \n- **Systemic effects**: Proinflammatory cytokines from drug-induced illness may alter hormone binding [3].  \n\n---\n\n### 4. Treatment  \n**Acute Management**  \nDuring acute toxicity or severe hypothyroidism, treatment focuses on addressing immediate symptoms and drug effects.  \n\n- Monitor lithium levels and discontinue if toxicity is suspected [4].  \n- Administer thyroid hormone replacement if hypothyroidism develops [2].  \n- Treat goiter surgically if breathing or swallowing is impaired [2].  \n\n**Preventive Management**  \nLong-term strategies aim to minimize drug-induced thyroid dysfunction.  \n\n- Avoid or adjust doses of known problematic medications (e.g., lithium, amiodarone) [5].  \n- Regularly monitor TSH and thyroid hormone levels in patients on these drugs [4].  \n- Address iodine deficiency or excess through dietary or supplemental adjustments [5].  \n\n---\n\n### 5. Key Terms  \n- **Thyroid hormone synthesis**: Production of thyroid hormones (T3 and T4) by the thyroid gland.  \n- **TSH (Thyroid-Stimulating Hormone)**: Hormone from the pituitary that regulates thyroid function.  \n- **Goiter**: Enlargement of the thyroid gland.  \n- **Hypothyroidism**: Underactive thyroid, leading to low hormone levels.  \n\n---\n\n### 6. Closing Note  \nPatients on medications like lithium or amiodarone should have regular thyroid function tests. Persistent symptoms of fatigue, weight changes, or neck swelling warrant evaluation by an endocrinologist. Early detection improves outcomes.",
+    "cited_source_numbers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "cited_actual_chapters": [
+      285,
+      93,
+      162,
+      93
+    ],
+    "expected_chapter_cited": true,
+    "timestamp": "2026-02-28 03:16:00.551449",
+    "manual_accuracy_grade": null,
+    "llm_faithfulness": null,
+    "llm_completeness": null,
+    "llm_medical_accuracy": null
+  },
+  {
+    "id": 16,
+    "query": "How does electrolyte imbalance affect cardiac rhythm?",
+    "tier": 3,
+    "expected_chapter": 97,
+    "retrieved_chapters": [
+      213,
+      213,
+      206,
+      97,
+      210
+    ],
+    "retrieved_chunks": [
+      {
+        "chapter_number": 213,
+        "chapter_title": "Arrhythmias and Conduction Disorders",
+        "content_snippet": "introduction the normal heart beats in a regular, coordinated way because electrical impulses generated and spread by myocytes with unique electrical properties trigger a sequence of organized myocardial contractions. arrhythmias and conduction disorders are caused by abnormalities in the generation or conduction of these electrical impulses or both. any heart disorder, including congenital abnormalities of structure ( eg, accessory atrioventricular connection ) or function ( eg, hereditary ion "
+      },
+      {
+        "chapter_number": 213,
+        "chapter_title": "Arrhythmias and Conduction Disorders",
+        "content_snippet": "intermediate kinetics. the kinetics of na channel blockade determine the heart rates at which their electrophysiologic effects become manifest. because class ib drugs have fast kinetics, they express their electrophysiologic effects only at fast heart rates. thus, an ecg obtained during normal rhythm at normal rates usually shows no evidence of fastchannel tissue conduction slowing. class ib drugs are not very potent antiarrhythmics and have minimal effects on atrial tissue. because class ic dru"
+      },
+      {
+        "chapter_number": 206,
+        "chapter_title": "Approach to the Cardiac Patient",
+        "content_snippet": "elderly is due to decreased baroreceptor responsiveness plus decreased arterial compliance. decreased baroreceptor responsiveness delays cardioacceleration and peripheral 2193 vasoconstriction in response to standing. paradoxically, hypertension may contribute to poor baroreceptor sensitivity, increasing vulnerability to orthostatic hypotension. the elderly also have decreased resting parasympathetic tone, so that cardioacceleration due to reflex vagal withdrawal is lessened. key points • orthos"
+      },
+      {
+        "chapter_number": 97,
+        "chapter_title": "Fluid and Electrolyte Metabolism",
+        "content_snippet": "the t wave becomes progressively smaller and the u wave becomes increasingly larger. sometimes, a flat or positive t wave merges with a positive u wave, which may be confused with qt prolongation ( see fig. 97 - 2 ). hypokalemia may cause premature ventricular and atrial contractions, ventricular and atrial tachyarrhythmias, and 2nd - or 3rd - degree atrioventricular block. such arrhythmias become more severe with increasingly severe hypokalemia ; eventually, ventricular fibrillation may occur. "
+      },
+      {
+        "chapter_number": 210,
+        "chapter_title": "Coronary Artery Disease",
+        "content_snippet": ". mobitz type ii block ( dropped beats ) usually indicates massive anterior mi, as does complete heart block with wide qrs complexes ( atrial impulses do not reach the ventricle ) ; both are uncommon. frequency of complete ( 3rd degree ) av block depends on site of infarction. complete av block occurs in 5 to 10 % of patients with inferior infarction and is usually transient. it occurs in < 5 % with uncomplicated anterior infarction but in up to 26 % of those with right bundle branch block and l"
+      }
+    ],
+    "generated_answer": "---\n\n### 1. Overview  \nElectrolyte imbalances, particularly low potassium (hypokalemia) or magnesium (hypomagnesemia), disrupt the heart’s electrical activity, leading to arrhythmias. These imbalances can trigger irregular heartbeats, block conduction pathways, or even cause life-threatening rhythms like ventricular fibrillation [1][4].  \n\n---\n\n### 2. Symptoms  \nElectrolyte imbalances often cause arrhythmias characterized by irregular or rapid heartbeats. Specific symptoms include:  \n- Premature ventricular or atrial contractions [4].  \n- Ventricular or atrial tachyarrhythmias (abnormally fast heart rhythms) [4].  \n- Second- or third-degree atrioventricular (AV) block (delayed or blocked electrical signals between the atria and ventricles) [4].  \n- Ventricular fibrillation (a severe, chaotic rhythm that can be fatal) in severe cases [4].  \n\n---\n\n### 3. Causes  \nElectrolyte imbalances disrupt the heart’s electrical impulses by altering ion channel function and myocardial excitability. Key causes include:  \n- Hypokalemia (low potassium levels), which reduces cellular repolarization and increases arrhythmia risk [1][4].  \n- Hypomagnesemia (low magnesium levels), which exacerbates potassium imbalances and destabilizes cardiac membranes [1].  \n- Systemic factors like excessive potassium loss through the gastrointestinal tract or kidneys, or decreased intake [4].  \n- Medications or toxins (e.g., diuretics, digoxin) that worsen electrolyte depletion [1][4].  \n\n---\n\n### 4. Treatment  \n\n**Acute Management**  \nImmediate correction of electrolyte levels is critical during an active arrhythmia. Interventions include:  \n- Administering intravenous potassium or magnesium to restore normal levels [4].  \n- Addressing underlying causes (e.g., stopping medications contributing to electrolyte loss) [4].  \n\n**Preventive Management**  \nLong-term strategies focus on preventing recurrent imbalances:  \n- Monitoring and managing conditions that cause chronic electrolyte loss (e.g., kidney disease, GI disorders) [4].  \n- Adjusting medications to avoid those that deplete potassium or magnesium [1].  \n- Dietary modifications to ensure adequate electrolyte intake [4].  \n\n---\n\n### 5. Key Terms  \n- **Hypokalemia**: Low blood potassium levels, disrupting heart rhythm.  \n- **Hypomagnesemia**: Low blood magnesium levels, worsening arrhythmia risk.  \n- **AV block**: Delayed or blocked electrical signals between the heart’s upper and lower chambers.  \n- **Ventricular fibrillation**: A chaotic, life-threatening heart rhythm.  \n\n---\n\n### 6. Closing Note  \nSeek immediate medical attention if experiencing palpitations, dizziness, or fainting, as severe electrolyte imbalances can rapidly progress to life-threatening arrhythmias. Outcomes depend on timely correction of the imbalance and management of underlying causes [4].",
+    "cited_source_numbers": [
+      1,
+      4
+    ],
+    "cited_actual_chapters": [
+      213,
+      97
+    ],
+    "expected_chapter_cited": true,
+    "timestamp": "2026-02-28 03:16:22.774800",
+    "manual_accuracy_grade": null,
+    "llm_faithfulness": null,
+    "llm_completeness": null,
+    "llm_medical_accuracy": null
+  },
+  {
+    "id": 17,
+    "query": "How does portal hypertension develop in patients with liver fibrosis?",
+    "tier": 3,
+    "expected_chapter": 27,
+    "retrieved_chapters": [
+      27,
+      27,
+      27,
+      23,
+      26
+    ],
+    "retrieved_chunks": [
+      {
+        "chapter_number": 27,
+        "chapter_title": "Fibrosis and Cirrhosis",
+        "content_snippet": "27 - 1. disorders and drugs that can cause hepatic fibrosis ] extent of the ischemia and portal hypertension determines how the liver is affected. for example, congenital hepatic fibrosis affects portal vein branches, largely sparing the parenchyma. the result is portal hypertension with sparing of hepatocellular function. symptoms and signs hepatic fibrosis itself does not cause symptoms. symptoms may develop secondary to the primary disorder or to portal hypertension. portal hypertension with "
+      },
+      {
+        "chapter_number": 27,
+        "chapter_title": "Fibrosis and Cirrhosis",
+        "content_snippet": "is a leading cause of death worldwide. the causes of cirrhosis are the same as those of fibrosis ( see table 27 - 1 ). in developed countries, most cases result from chronic alcohol abuse or chronic hepatitis c. in parts of asia and africa, cirrhosis often results from chronic hepatitis b. cirrhosis of unknown etiology ( cryptogenic cirrhosis ) is becoming less common as many specific causes ( eg, chronic hepatitis c, steatohepatitis ) are identified. injury to the bile ducts also can result in "
+      },
+      {
+        "chapter_number": 27,
+        "chapter_title": "Fibrosis and Cirrhosis",
+        "content_snippet": "introduction in hepatic fibrosis, excessive connective tissue accumulates in the liver ; this tissue represents scarring in response to chronic, repeated liver cell injury. commonly, fibrosis progresses, disrupting hepatic architecture and eventually function, as regenerating hepatocytes attempt to replace and repair damaged tissue. when such disruption is widespread, cirrhosis is diagnosed. to develop, cirrhosis usually requires > 6 mo of liver disease but can occur more rapidly ( eg, during in"
+      },
+      {
+        "chapter_number": 23,
+        "chapter_title": "Approach to the Patient With Liver Disease",
+        "content_snippet": "##n - like substance but is otherwise histologically normal. rotor's syndrome : this rare disorder is clinically similar to dubin - johnson syndrome, but the liver is not pigmented, and other subtle metabolic differences are present. 286 portal hypertension portal hypertension is caused most often by cirrhosis ( in developed countries ), schistosomiasis ( in endemic areas ), or hepatic vascular abnormalities. consequences include esophageal varices and portal - systemic encephalopathy. diagnosis"
+      },
+      {
+        "chapter_number": 26,
+        "chapter_title": "Alcoholic Liver Disease",
+        "content_snippet": "##tive damage. iron can accumulate in alcoholic liver disease through ingestion of iron - containing fortified wines ; most often, the iron accumulation is modest. this condition must be differentiated from hereditary hemochromatosis. resultant inflammation, cell death, and fibrosis : a vicious circle of worsening inflammation occurs : cell necrosis and apoptosis result in hepatocyte loss, and subsequent attempts at regeneration result in fibrosis. stellate ( ito ) cells, which line blood channe"
+      }
+    ],
+    "generated_answer": "### 1. Overview  \nPortal hypertension in liver fibrosis arises from structural changes in the liver caused by excessive scarring. This scarring disrupts normal blood flow through the liver, increasing resistance in the portal vein system [3]. The severity of portal hypertension correlates with the extent of fibrosis and vascular distortion [1].  \n\n---\n\n### 2. Symptoms  \nPortal hypertension itself does not cause symptoms but leads to complications such as gastrointestinal bleeding, ascites, and encephalopathy. Patients may experience:  \n- **Splenomegaly** (enlarged spleen) [1].  \n- **Variceal gastrointestinal bleeding** from dilated veins in the esophagus or stomach [1].  \n- **Ascites** (fluid accumulation in the abdomen) [1].  \n- **Portal-systemic encephalopathy** (confusion or altered mental status) [1].  \n\n---\n\n### 3. Causes  \nPortal hypertension develops due to physical obstruction and vascular changes caused by fibrosis. Key mechanisms include:  \n- **Excessive connective tissue buildup** in the liver, narrowing blood vessels and distorting blood flow [3].  \n- **Narrowing of terminal hepatic venules** from fibrosis, reducing hepatic perfusion [5].  \n- **Angiogenesis** (new blood vessel formation) and regenerative nodules altering liver architecture [2].  \n- **Congenital hepatic fibrosis** affecting portal vein branches, sparing hepatocytes but causing vascular resistance [1].  \n\n---\n\n### 4. Treatment  \n#### Acute Management  \nAcute complications of portal hypertension require immediate intervention:  \n- **Endoscopy** to identify and treat varices (e.g., band ligation) [4].  \n- **Medications** like nonselective beta-blockers to reduce portal pressure [4].  \n- **Shunting procedures** (e.g., portocaval shunts) to divert blood flow in severe cases [4].  \n\n#### Preventive Management  \nLong-term strategies focus on reducing fibrosis progression and complications:  \n- **Treating the underlying cause** (e.g., alcohol cessation, antiviral therapy for hepatitis) [3].  \n- **Monitoring for varices** via endoscopy and initiating prophylactic therapy [4].  \n- **Managing complications** such as ascites with diuretics and sodium restriction [1].  \n\n---\n\n### Key Terms  \n- **Portal hypertension**: Increased blood pressure in the portal vein system due to liver resistance.  \n- **Hepatic fibrosis**: Excessive scarring in the liver from chronic injury.  \n- **Variceal bleeding**: Bleeding from enlarged veins in the esophagus or stomach caused by high portal pressure.  \n- **Angiogenesis**: Formation of new blood vessels, often in response to tissue damage.  \n\n---\n\n### Closing Note  \nSeek medical advice if symptoms like unexplained fatigue, abdominal swelling, or gastrointestinal bleeding arise. Early intervention for the underlying liver disease improves outcomes and delays progression to cirrhosis.",
+    "cited_source_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "cited_actual_chapters": [
+      27,
+      27,
+      27,
+      23,
+      26
+    ],
+    "expected_chapter_cited": true,
+    "timestamp": "2026-02-28 03:16:45.021858",
+    "manual_accuracy_grade": null,
+    "llm_faithfulness": null,
+    "llm_completeness": null,
+    "llm_medical_accuracy": null
+  },
+  {
+    "id": 18,
+    "query": "What clotting cascade abnormalities lead to bleeding in liver disease?",
+    "tier": 3,
+    "expected_chapter": 111,
+    "retrieved_chapters": [
+      111,
+      23,
+      111,
+      108,
+      29
+    ],
+    "retrieved_chunks": [
+      {
+        "chapter_number": 111,
+        "chapter_title": "Coagulation Disorders",
+        "content_snippet": "introduction abnormal bleeding can result from disorders of the coagulation system ( see p. ), of platelets, or of blood vessels. disorders of coagulation can be acquired or hereditary. the major causes of acquired coagulation disorders are vitamin k deficiency ( see p. ), liver disease, disseminated intravascular coagulation, and development of circulating anticoagulants. severe liver disease ( eg, cirrhosis, fulminant hepatitis, acute fatty liver of pregnancy ) may disturb hemostasis by impair"
+      },
+      {
+        "chapter_number": 23,
+        "chapter_title": "Approach to the Patient With Liver Disease",
+        "content_snippet": "decreased hepatic degradation rather than increased secretion, whereas the opposite is true for hyperglucagonemia. abnormal thyroid function tests may reflect altered hepatic handling of thyroid hormones and changes in plasma binding proteins rather than thyroid abnormalities. sexual effects are common. chronic liver disease commonly impairs menstruation and fertility. males with cirrhosis, especially alcoholics, often have both hypogonadism ( including testicular atrophy, erectile dysfunction, "
+      },
+      {
+        "chapter_number": 111,
+        "chapter_title": "Coagulation Disorders",
+        "content_snippet": "level can sometimes be helpful if severe, acute dic must be differentiated from massive hepatic necrosis, which can cause similar abnormalities in coagulation studies. the factor viii level is elevated in hepatic necrosis, because factor viii is made in hepatocytes and released as they are destroyed ; factor viii is reduced in dic because of the thrombin - induced generation of activated protein c, which proteolyses factor viii. treatment • treatment of cause • possibly replacement therapy ( eg,"
+      },
+      {
+        "chapter_number": 108,
+        "chapter_title": "Thrombocytopenia and Platelet Dysfunction",
+        "content_snippet": "introduction platelets are cell fragments that function in the clotting system. thrombopoietin, primarily produced in the liver in response to decreased numbers of bone marrow megakaryocytes and circulating platelets, stimulates the bone marrow to synthesize platelets from megakaryocytes. platelets circulate for 7 to 10 days. about one third are always transiently sequestered in the spleen. the platelet count is normally 140, 000 to 440, 000 / μ l. however, the count can vary slightly according "
+      },
+      {
+        "chapter_number": 29,
+        "chapter_title": "Vascular Disorders of the Liver",
+        "content_snippet": "leads to massive hepatomegaly and jaundice. ascites may result from the transmitted central venous hypertension ; infrequently, splenomegaly results. with transmitted central venous hypertension, the hepatojugular reflex is present, unlike in hepatic congestion due to budd - chiari syndrome. diagnosis • clinical evaluation congestive hepatopathy is suspected in patients who have right - sided heart failure, jaundice, and tender hepatomegaly. liver biochemistries are modestly abnormal : unconjuga"
+      }
+    ],
+    "generated_answer": "---\n\n### 1. Overview  \nLiver disease disrupts the clotting cascade by impairing the liver’s ability to produce clotting factors, leading to prolonged clotting times and bleeding risks. Severe liver dysfunction also reduces synthesis of proteins like α-antiplasmin, increasing fibrinolysis and further promoting bleeding [1].  \n\n---\n\n### 2. Symptoms  \nBleeding in liver disease often presents with laboratory abnormalities rather than overt symptoms initially. Patients may develop easy bruising, nosebleeds, or gastrointestinal bleeding as clotting factor deficiencies worsen.  \n\n- **Prolonged prothrombin time (PT) and international normalized ratio (INR)** due to reduced clotting factor synthesis [1].  \n- **Elevated partial thromboplastin time (PTT)** for the same reason [1].  \n- **Thrombocytopenia** (low platelet count) from splenic sequestration or decreased platelet production [4].  \n- **Decreased fibrinogen levels** in severe cases, contributing to impaired clot formation [1].  \n\n---\n\n### 3. Causes  \nLiver disease disrupts hemostasis primarily by failing to synthesize clotting factors and regulatory proteins. Additional mechanisms include excessive fibrinolysis and platelet dysfunction.  \n\n- Impaired synthesis of all coagulation factors in the liver [1].  \n- Reduced production of **α-antiplasmin**, leading to uncontrolled fibrinolysis and bleeding [1].  \n- **Thrombocytopenia** from splenic sequestration or decreased hepatic production of thrombopoietin [4].  \n- **Disseminated intravascular coagulation (DIC)** in advanced liver failure, causing consumption of clotting factors and platelets [1].  \n\n---\n\n### 4. Treatment  \n\n**Acute Management**  \nSevere bleeding requires immediate replacement of deficient clotting components.  \n\n- **Fresh frozen plasma (FFP)** to replenish clotting factors [3].  \n- **Platelet concentrates** for thrombocytopenia [3].  \n- **Cryoprecipitate** to replace fibrinogen and factor VIII [3].  \n- **Heparin** in specific cases of DIC to interrupt pathological clotting [3].  \n\n**Preventive Management**  \nLong-term strategies focus on addressing the underlying liver disease.  \n\n- Treating the root cause (e.g., alcohol cessation, managing cirrhosis) [1].  \n- Monitoring and managing vitamin K deficiency if present [1].  \n- Avoiding medications that exacerbate bleeding risk (e.g., NSAIDs).  \n\n---\n\n### 5. Key Terms  \n- **PT/INR**: Blood tests measuring how long it takes blood to clot; prolonged in clotting factor deficiencies [1].  \n- **PTT**: Test for clotting time; elevated when clotting factors are low [1].  \n- **Thrombocytopenia**: Low platelet count, increasing bleeding risk [4].  \n- **Fibrinolysis**: Breakdown of blood clots; excessive in liver disease due to α-antiplasmin deficiency [1].  \n- **DIC**: A condition where clots form throughout the body, depleting clotting factors and causing bleeding [1].  \n\n---\n\n### 6. Closing Note  \nSeek immediate medical care for unexplained bleeding or severe clotting abnormalities. Outcomes depend on the severity of liver dysfunction and timely treatment of underlying causes.",
+    "cited_source_numbers": [
+      1,
+      3,
+      4
+    ],
+    "cited_actual_chapters": [
+      111,
+      111,
+      108
+    ],
+    "expected_chapter_cited": true,
+    "timestamp": "2026-02-28 03:17:08.752087",
+    "manual_accuracy_grade": null,
+    "llm_faithfulness": null,
+    "llm_completeness": null,
+    "llm_medical_accuracy": null
+  },
+  {
+    "id": 19,
+    "query": "What distinguishes angina pectoris from acute myocardial ischemia on presentation?",
+    "tier": 3,
+    "expected_chapter": 210,
+    "retrieved_chapters": [
+      210,
+      210,
+      210,
+      210,
+      210
+    ],
+    "retrieved_chunks": [
+      {
+        "chapter_number": 210,
+        "chapter_title": "Coronary Artery Disease",
+        "content_snippet": "##cular dysfunction or constriction causing angina ( microvascular angina ). some patients with typical angina that is relieved by rest or nitroglycerin have normal coronary arteriograms ( eg, no atherosclerosis, embolism, or inducible arterial spasm ). some of these patients have ischemia detected during stress testing ; others do not. in some patients, the cause of ischemia seems to be reflex intramyocardial coronary constriction and reduced coronary flow reserve. other patients have microvasc"
+      },
+      {
+        "chapter_number": 210,
+        "chapter_title": "Coronary Artery Disease",
+        "content_snippet": "ecg is indicated. because angina resolves quickly with rest, ecg rarely can be done during an attack except during stress testing. if done during an attack, ecg is likely to show reversible ischemic changes : t wave discordant to the qrs vector, st - segment depression ( typically ), st - segment elevation, decreased r - wave height, intraventricular or bundle branch conduction disturbances, and arrhythmia ( usually ventricular extrasystoles ). between attacks, the ecg ( and usually lv function "
+      },
+      {
+        "chapter_number": 210,
+        "chapter_title": "Coronary Artery Disease",
+        "content_snippet": "necrosis ( evidenced by cardiac markers in blood ; troponin i or t and ck will be elevated ) without acute st - segment elevation or q waves. ecg changes such as st - segment depression, t - wave inversion, or both may be present. st - segment elevation mi ( stemi, transmural mi ) is myocardial necrosis with ecg changes showing st - segment elevation that is not quickly reversed by nitroglycerin or showing new left bundle branch block. q waves may be present. both troponin and ck are elevated. s"
+      },
+      {
+        "chapter_number": 210,
+        "chapter_title": "Coronary Artery Disease",
+        "content_snippet": "##ina in the morning, when arterial tone is relatively high. also, abnormal endothelial function may contribute to variations in arterial tone ; eg, in endothelium damaged by atheromas, stress of a catecholamine surge causes vasoconstriction rather than dilation ( normal response ). as the myocardium becomes ischemic, coronary sinus blood ph falls, cellular k is lost, lactate accumulates, ecg abnormalities appear, and ventricular function deteriorates. left ventricular ( lv ) diastolic pressure "
+      },
+      {
+        "chapter_number": 210,
+        "chapter_title": "Coronary Artery Disease",
+        "content_snippet": "symptom severity is often classified by the degree of exertion resulting in angina ( see 2245 table 210 - 1 ). [ table 210 - 1. canadian cardiovascular classification system of angina pectoris ] attacks may vary from several a day to symptom - free intervals of weeks, months, or years. they may increase in frequency ( called crescendo angina ) to a fatal outcome or gradually decrease or disappear if adequate collateral coronary circulation develops, if the ischemic area infarcts, or if heart fai"
+      }
+    ],
+    "generated_answer": "### 1. Overview  \nAngina pectoris and acute myocardial ischemia both involve chest discomfort due to reduced heart blood flow, but they differ in symptom patterns, triggers, and diagnostic features. Angina typically occurs predictably with exertion or stress and resolves at rest, while acute ischemia presents with more severe, prolonged symptoms and may indicate imminent heart damage.  \n\n---\n\n### 2. Symptoms  \nAngina pectoris is characterized by chest discomfort triggered by physical or emotional stress, often relieved by rest or nitroglycerin. Acute myocardial ischemia presents with more intense, prolonged chest pain, sometimes at rest, and may include radiating discomfort, shortness of breath, or sweating.  \n\n- **Angina pectoris**:  \n  - Chest discomfort beneath the sternum, radiating to the left arm, shoulder, jaw, or back [4].  \n  - Symptoms vary from mild ache to severe crushing sensation but are rarely described as sharp pain [4].  \n  - Typically resolves within minutes of rest or nitroglycerin use [1].  \n  - May follow a crescendo pattern (increasing frequency/severity) [5].  \n\n- **Acute myocardial ischemia**:  \n  - Sudden, severe chest pain lasting >20 minutes, often unrelieved by rest or nitroglycerin [3].  \n  - May include dyspnea, diaphoresis, nausea, or syncope [3].  \n  - ECG shows ST-segment elevation (STEMI) or non-ST elevation (NSTEMI) with biomarker elevation [3].  \n\n---\n\n### 3. Causes  \nAngina pectoris results from reduced coronary blood flow due to microvascular dysfunction, epicardial spasm, or atherosclerosis. Acute myocardial ischemia arises from sudden plaque rupture, thrombosis, or severe coronary occlusion.  \n\n- **Angina pectoris**:  \n  - Microvascular dysfunction (impaired dilation during stress) [1].  \n  - Epicardial coronary spasm or atherosclerosis [1].  \n  - Increased myocardial oxygen demand (e.g., exertion, stress) [4].  \n\n- **Acute myocardial ischemia**:  \n  - Plaque rupture with thrombus formation [3].  \n  - Coronary artery embolism or severe stenosis [1].  \n  - Sudden increases in oxygen demand (e.g., hypertension, tachycardia) [5].  \n\n---\n\n### 4. Treatment  \n**Acute Management**  \nAngina during an attack is managed with rest and sublingual nitroglycerin. Acute ischemia requires immediate interventions to restore blood flow.  \n\n- **Angina pectoris**:  \n  - Sublingual nitroglycerin [1].  \n  - Oxygen therapy if hypoxic [not explicitly stated, but inferred from context].  \n\n- **Acute myocardial ischemia**:  \n  - Aspirin and antiplatelet agents [not explicitly stated, but implied by context].  \n  - Reperfusion therapy (e.g., percutaneous coronary intervention) for STEMI [3].  \n\n**Preventive Management**  \nLong-term strategies aim to reduce ischemia triggers and stabilize coronary disease.  \n\n- **Angina pectoris**:  \n  - Beta-blockers to reduce myocardial oxygen demand [1].  \n  - Lifestyle modifications (e.g., exercise, weight loss) [not explicitly stated].  \n\n- **Acute myocardial ischemia**:  \n  - Antiplatelet/anticoagulant therapy [not explicitly stated].  \n  - Coronary revascularization (angioplasty or bypass) [not explicitly stated].  \n\n---\n\n### 5. Medical Terms  \n- **Angina pectoris**: Chest discomfort from reduced heart blood flow, often triggered by exertion.  \n- **Acute myocardial ischemia**: Sudden reduction in heart blood flow, risking tissue damage.  \n- **ST-segment elevation**: ECG change indicating full-thickness heart muscle injury.  \n- **Microvascular dysfunction**: Impaired small coronary artery dilation during stress.  \n\n---\n\n### 6. Closing Note  \nSeek immediate medical attention if chest pain is new, severe, prolonged, or unrelieved by rest/nitroglycerin. Outcomes depend on timely intervention and underlying coronary disease severity.",
+    "cited_source_numbers": [
+      1,
+      3,
+      4,
+      5
+    ],
+    "cited_actual_chapters": [
+      210,
+      210,
+      210,
+      210
+    ],
+    "expected_chapter_cited": true,
+    "timestamp": "2026-02-28 03:17:31.794992",
+    "manual_accuracy_grade": null,
+    "llm_faithfulness": null,
+    "llm_completeness": null,
+    "llm_medical_accuracy": null
+  },
+  {
+    "id": 20,
+    "query": "What is the mechanism behind refeeding syndrome in malnourished patients?",
+    "tier": 3,
+    "expected_chapter": 3,
+    "retrieved_chapters": [
+      160,
+      2,
+      2,
+      106,
+      2
+    ],
+    "retrieved_chunks": [
+      {
+        "chapter_number": 160,
+        "chapter_title": "Drug Use and Dependence",
+        "content_snippet": "##e's encephalopathy may also result from other conditions that cause prolonged undernutrition or vitamin deficiency ( eg, recurrent dialysis, hyperemesis, starvation, gastric plication, cancer, aids ). loading carbohydrates in patients with thiamin deficiency ( ie, refeeding after starvation or giving iv dextrose - containing solutions to high - risk patients ) can trigger wernicke's encephalopathy. not all thiamin - deficient alcohol abusers develop wernicke's encephalopathy, suggesting that o"
+      },
+      {
+        "chapter_number": 2,
+        "chapter_title": "Undernutrition",
+        "content_snippet": ", phosphorus, zinc, manganese, copper, iodine, fluoride, molybdenum, and selenium. • because absorption of oral iron is poor in children with peu, oral or im iron supplementation may be necessary. parents are taught about nutritional requirements. adults : underlying disorders should be treated. for example, if aids or cancer results in excess cytokine production, megestrol acetate or medroxyprogesterone may improve food intake. however, because these drugs dramatically decrease testosterone in "
+      },
+      {
+        "chapter_number": 2,
+        "chapter_title": "Undernutrition",
+        "content_snippet": "##ms, cassavas, sweet potatoes, green bananas ) are low in protein and high in carbohydrates. in kwashiorkor, cell membranes leak, causing extravasation of intravascular fluid and protein, resulting in peripheral edema. starvation is a complete lack of nutrients. it occasionally occurs when food is available ( as in fasting or anorexia nervosa ) but usually occurs because food is unavailable ( eg, during famine or wilderness exposure ). secondary peu : this type most commonly results from the fo"
+      },
+      {
+        "chapter_number": 106,
+        "chapter_title": "Anemias Caused by Hemolysis",
+        "content_snippet": "##ted blood is first incubated at 37° c for 24 h. rbc autohemolysis is increased and can be corrected by the addition of glucose. the direct antiglobulin test results are negative. treatment • sometimes splenectomy splenectomy, after appropriate vaccination, is the only specific treatment for either disorder but is rarely needed. it is indicated in patients < 45 yr with hb persistently < 10 g / dl, jaundice or biliary colic, or persistent aplastic crisis. if the gallbladder has stones or other e"
+      },
+      {
+        "chapter_number": 2,
+        "chapter_title": "Undernutrition",
+        "content_snippet": "area in adults ] [ figure 2 - 2. simplified nutrition assessment questionnaire ( snaq ). ] protein - energy undernutrition protein - energy undernutrition ( peu ), previously called protein - energy malnutrition, is an energy deficit due to chronic deficiency of all macronutrients. it commonly includes deficiencies of many micronutrients. peu can be sudden and total ( starvation ) or gradual. severity ranges from subclinical deficiencies to obvious wasting ( with edema, hair loss, and skin atrop"
+      }
+    ],
+    "generated_answer": "### 1. Overview  \nRefeeding syndrome in malnourished patients occurs when carbohydrate loading in thiamin-deficient individuals triggers Wernicke’s encephalopathy. This condition arises due to impaired glucose metabolism caused by thiamin deficiency, compounded by genetic defects in transketolase, an enzyme critical for thiamin processing [1].  \n\n---\n\n### 2. Symptoms  \nSymptoms of Wernicke’s encephalopathy appear suddenly and involve central nervous system dysfunction. Key features include oculomotor abnormalities (e.g., horizontal/vertical nystagmus, partial ophthalmoplegias like lateral rectus palsy), abnormal pupils (sluggish or unequal), and altered mental status. These manifestations stem from symmetric brain lesions around ventricles and specific nuclei [1].  \n\n---\n\n### 3. Causes  \nThe mechanism involves thiamin deficiency combined with sudden carbohydrate intake, which overwhelms the body’s metabolic capacity. Genetic abnormalities in transketolase, an enzyme that processes thiamin, further impair thiamin utilization, increasing susceptibility [1].  \n\n**Distinct causes or risk factors:**  \n- Thiamin deficiency from prolonged undernutrition (e.g., starvation, gastric plication, AIDS, cancer) [1].  \n- Genetic defects in transketolase [1].  \n- Rapid refeeding with IV dextrose in high-risk patients [1].  \n\n---\n\n### 4. Treatment  \n#### Acute Management  \nAcute treatment focuses on stabilizing metabolic imbalances and preventing neurological damage. Key interventions include:  \n- Administering thiamin supplements before or alongside carbohydrate refeeding [1].  \n- Correcting electrolyte imbalances (e.g., phosphate, potassium, magnesium) through IV solutions [5].  \n\n#### Preventive Management  \nPreventive strategies aim to avoid refeeding syndrome by carefully managing nutritional reintroduction. Approaches include:  \n- Gradual nutrient replenishment, starting with oral intake if possible [5].  \n- Monitoring for signs of thiamin deficiency during refeeding [1].  \n\n---\n\n### 5. Key Terms  \n- **Thiamin deficiency**: Lack of vitamin B1, critical for glucose metabolism.  \n- **Transketolase**: Enzyme involved in processing thiamin, defective in some genetic cases.  \n- **Wernicke’s encephalopathy**: Brain disorder caused by thiamin deficiency, leading to neurological symptoms.  \n\n---\n\n### 6. Closing Note  \nSeek immediate medical care if sudden neurological symptoms arise during refeeding. Early thiamin supplementation and gradual nutritional support improve outcomes in high-risk patients [1].",
+    "cited_source_numbers": [
+      1,
+      5
+    ],
+    "cited_actual_chapters": [
+      160,
+      2
+    ],
+    "expected_chapter_cited": false,
+    "timestamp": "2026-02-28 03:17:54.549744",
+    "manual_accuracy_grade": null,
+    "llm_faithfulness": null,
+    "llm_completeness": null,
+    "llm_medical_accuracy": null
+  }
+]
